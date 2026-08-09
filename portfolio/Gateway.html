@@ -7,11 +7,13 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gateway Case Study · Fergal Keane</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="../image-slot.js"></script>
 <style>
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Italic-Variable.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('../fonts/JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Exo';src:url('../fonts/Exo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('../fonts/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
 @font-face{
   font-family:'Space Grotesk';
   src:url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
@@ -97,22 +99,59 @@ img{display:block;max-width:100%;}
 .flow-circle .lbl{color:var(--muted-2);}
 .flow-box .flow-foot{position:absolute;left:0;right:0;bottom:30px;text-align:center;color:var(--muted-2);}
 
-/* —— DESIGN SYSTEM —— */
-.ds-grid{display:grid;grid-template-columns:1.05fr .82fr;gap:clamp(36px,5vw,72px);align-items:start;}
-.ds-lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:34ch;margin:0 0 40px;}
-.swatches{display:flex;flex-direction:column;gap:22px;}
-.swatch{display:flex;align-items:center;gap:22px;}
-.swatch .chip{width:92px;height:64px;flex:none;border-radius:2px;border:1px solid rgba(0,0,0,.06);}
-.swatch .sname{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 6px;}
-.type-card{border:1px solid var(--line);border-radius:6px;padding:clamp(26px,2.6vw,34px);background:var(--paper-2);}
-.type-card .lbl{display:block;margin-bottom:22px;}
-.type-card .tspec{font-family:var(--font-display);font-weight:400;font-size:clamp(40px,4.4vw,58px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0 0 22px;}
-.type-card .tdesc{font-size:14px;line-height:1.62;color:var(--muted);margin:0 0 26px;}
-.type-card .tdiv{height:1px;background:var(--line);margin:0 0 22px;}
-.type-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;}
-.type-foot .tspec2{font-family:var(--font-display);font-weight:600;font-size:30px;letter-spacing:-.01em;margin:0 0 6px;}
-.type-dots{display:flex;gap:8px;}
-.type-dots span{width:13px;height:13px;border-radius:50%;}
+/* —— DESIGN LANGUAGE —— */
+.dl{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);margin-top:clamp(30px,3vw,42px);box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.dl-row{display:grid;border-bottom:1px solid var(--line-soft);}
+.dl-row:last-child{border-bottom:0;}
+.dl-row.r3{grid-template-columns:repeat(3,1fr);}
+.dl-row.r2{grid-template-columns:1.4fr 1fr;}
+.dl-cell{padding:clamp(20px,2vw,26px);border-right:1px solid var(--line-soft);}
+.dl-cell:last-child{border-right:0;}
+.dl-cell > .lbl{display:block;margin-bottom:16px;}
+@media(max-width:860px){.dl-row.r3,.dl-row.r2{grid-template-columns:1fr;}.dl-cell{border-right:0;border-bottom:1px solid var(--line-soft);}.dl-cell:last-child{border-bottom:0;}}
+.dl-sw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.dl-sw > div{display:flex;align-items:center;gap:10px;min-width:0;}
+.dl-sw i{width:22px;height:22px;flex:none;border-radius:3px;border:1px solid rgba(0,0,0,.08);}
+.dl-sw span{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dl-type p{margin:0;color:var(--ink);}
+.dl-type .t1{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.02em;}
+.dl-type .t2{font-family:var(--font-display);font-weight:500;font-size:17px;margin-top:8px;}
+.dl-type .t3{font-family:'Inter',var(--font-sans);font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.55;}
+.dl-grid8{display:flex;align-items:flex-end;gap:6px;height:52px;border-bottom:1px solid var(--line);padding-bottom:0;}
+.dl-grid8 i{width:8px;background:#009FE3;opacity:.3;}
+.dl-grid8 i:nth-child(2){opacity:.46}.dl-grid8 i:nth-child(3){opacity:.62}.dl-grid8 i:nth-child(4){opacity:.78}.dl-grid8 i:nth-child(5){opacity:.94}
+.dl-note{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:12px 0 0;}
+.dl-comps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px;}
+@media(max-width:860px){.dl-comps{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.dl-comps{grid-template-columns:1fr;}}
+.dl-comp{display:flex;flex-direction:column;gap:9px;}
+.dl-comp > span{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);}
+.ui-btn{display:inline-flex;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:13px;font-weight:500;padding:0 18px;border-radius:6px;border:1px solid transparent;background:#003263;color:#fff;align-self:flex-start;cursor:default;}
+.ui-btn.sec{background:transparent;border-color:var(--line);color:var(--ink);}
+.ui-in{display:flex;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:13px;color:var(--muted);padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);}
+.ui-in.dd{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.ui-in.dd svg{flex:none;color:var(--muted);}
+.ui-card{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--paper-2);}
+.ui-card b{display:block;font-family:var(--font-display);font-size:15px;font-weight:600;}
+.ui-card i{font-style:normal;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--muted);}
+.ui-tr{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:12.5px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);}
+.ui-tr code{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+.ui-tr em{font-style:normal;width:8px;height:8px;border-radius:50%;background:#FFD200;}
+.dl-states{display:flex;flex-wrap:wrap;gap:14px;}
+.dl-state{display:flex;flex-direction:column;gap:7px;align-items:flex-start;}
+.dl-state span{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);}
+.ui-btn.hov{background:#00223f;}
+.ui-btn.dis{background:var(--line);color:var(--muted-2);}
+.ui-btn.foc{box-shadow:0 0 0 3px rgba(0,159,227,.45);}
+.dl-a11y{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;}
+.dl-a11y li{display:flex;align-items:flex-start;gap:10px;font-family:'Inter',var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-soft);}
+.dl-a11y svg{flex:none;margin-top:2px;color:#0079b3;}
+.dl-prin{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:700px){.dl-prin{grid-template-columns:repeat(2,1fr);}}
+.dl-prin div{display:flex;flex-direction:column;gap:8px;}
+.dl-prin svg{color:var(--accent);}
+.dl-prin b{font-family:var(--font-display);font-weight:600;font-size:14.5px;}
+.dl-prin span{font-size:12.5px;line-height:1.45;color:var(--muted);}
 
 /* —— FULL IMAGE —— */
 .full-img{padding:clamp(56px,6vw,90px) 0 0;}
@@ -123,6 +162,8 @@ img{display:block;max-width:100%;}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
 .contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.contact-btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 30px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.contact-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
 .email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
 .email:hover{color:var(--accent);border-color:var(--accent);}
 .form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
@@ -138,13 +179,23 @@ img{display:block;max-width:100%;}
 .send-btn{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .18s ease;}
 .send-btn:hover{background:var(--accent);}
 .footbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;}
+.share-top{border-bottom:1px solid var(--line-soft);}
+.share-top .wrap{display:flex;justify-content:flex-end;padding-top:18px;padding-bottom:18px;}
+.share{display:flex;align-items:center;gap:10px;}
+.share .lbl{margin-right:2px;}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--muted);cursor:pointer;padding:0;transition:color .2s,border-color .2s,background .2s;}
+.share a:hover,.share button:hover{color:var(--accent);border-color:var(--accent);}
+.share svg{width:15px;height:15px;}
+.share .copied{position:relative;}
+.share .copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){.footbar{justify-content:flex-start;}}
+
 .footbar a:hover{color:var(--accent);}
 
 /* —— RESPONSIVE —— */
 @media(max-width:1024px){
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
-  .ds-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;gap:52px;}
 }
 @media(max-width:760px){
@@ -273,7 +324,8 @@ img{display:block;max-width:100%;}
 <body>
 
 <!-- PASSWORD GATE -->
-<div class="gate" id="gate">
+<!-- Password gate temporarily disabled: remove the "hidden" class and the early return in the script below to reinstate it. -->
+<div class="gate hidden" id="gate">
   <div class="gate-card">
     <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <span class="lbl">Protected Case Study</span>
@@ -284,19 +336,19 @@ img{display:block;max-width:100%;}
       <button type="submit">Unlock &rarr;</button>
       <p class="gate-err" id="gateErr">Incorrect password. Please try again.</p>
     </form>
-    <a class="gate-back" href="../home.html#work">&larr; Return to Selected Works</a>
+    <a class="gate-back" href="../index.html#work">&larr; Return to Selected Works</a>
   </div>
 </div>
 
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../home.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <a class="brand" href="../index.html"><b>Fergal Keane</b><span>UI/UX</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
-      <a href="../home.html#work">Work</a>
+      <a href="../index.html#work">Work</a>
       <a href="../Experience.html">Experience</a>
-      <a href="../home.html#contact">Contact</a>
+      <a href="../index.html#contact">Contact</a>
       </nav>
   </div>
 </header>
@@ -304,7 +356,7 @@ img{display:block;max-width:100%;}
 <main>
 <!-- BACK -->
 <div class="wrap backbar">
-  <a class="back-link" href="../home.html#work">&larr; Selected Works</a>
+  <a class="back-link" href="../index.html#work">&larr; Selected Works</a>
 </div>
 
 <!-- HERO -->
@@ -320,7 +372,7 @@ img{display:block;max-width:100%;}
           <p class="hero-tagline">Collapsing a 12-tool maintenance workflow into one state-aware operations workspace for ESA mission-support control rooms.</p>
         </div>
         <div class="hero-meta">
-          <div><p class="lbl">Year</p><p class="mv">2024</p></div>
+          <div><p class="lbl">Year</p><p class="mv">2025 to 2026</p></div>
           <div><p class="lbl">Client</p><p class="mv">European Space Agency (ESA)</p></div>
           <div><p class="lbl">Your Role</p><p class="mv">Lead UX/UI Designer</p></div>
         </div>
@@ -328,6 +380,18 @@ img{display:block;max-width:100%;}
     </div>
   </div>
 </section>
+
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Share</span>
+      <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+      <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+      <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+      <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+    </div>
+  </div>
+</div>
 
 <!-- 01 — OVERVIEW -->
 <section class="case-body">
@@ -396,12 +460,38 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 03 — ROLE & SCOPE -->
+<!-- 03 — THE CHALLENGE -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">03 &middot; The Challenge</span>
+      <h2 class="sec-title">A twenty-year-old desktop workflow, rebuilt for the browser</h2>
+      <p class="sec-lead">Mission-support procedures had been authored and maintained for two decades in heavyweight desktop XML software. The task was not to skin that workflow. It was to carry every piece of rigour it enforced into a browser application that stays usable when the network does not.</p>
+    </div>
+
+    <div class="cardgrid">
+      <div class="mcard"><span class="lbl">Workflow</span><h4>Procedures are not documents</h4><p>A single maintenance procedure is a branching, conditional structure: nested steps, preconditions, verification gates, role assignments and cross-references to other procedures. Any one edit can invalidate a dozen downstream states, and the interface has to make that visible before the operator commits.</p></div>
+      <div class="mcard"><span class="lbl">Legacy</span><h4>Leaving xMetaL behind</h4><p>Authoring lived in xMetaL: a licensed desktop XML editor requiring local installation, per-seat provisioning and schema fluency from people whose expertise is spacecraft operations, not markup. It gated who could contribute, and every contribution arrived as a file rather than as live state.</p></div>
+      <div class="mcard"><span class="lbl">Continuity</span><h4>Online and offline as equals</h4><p>Operators work in facilities where connectivity is not guaranteed. Gateway had to author, validate and review procedures fully offline, then reconcile on reconnect without silent overwrites, so the offline mode is a first-class state rather than a degraded fallback.</p></div>
+      <div class="mcard"><span class="lbl">Fidelity</span><h4>No loss in translation</h4><p>The underlying schema, validation rules and audit trail were non-negotiable. The browser application had to enforce exactly what the desktop tool enforced, while removing the need for anyone to see the XML that carries it.</p></div>
+    </div>
+
+    <h3 class="subh" style="margin:48px 0 0;">What that demanded of the design</h3>
+    <ul class="crit">
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Structural editing that reads as a procedure, never as a markup tree.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Validation surfaced inline at the point of authoring, not at export.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>An unambiguous, always-visible read on sync state and pending changes.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Conflict resolution an operator can reason about without engineering support.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 — ROLE & SCOPE -->
 <section class="case-section">
   <div class="wrap">
     <div class="case-grid">
       <aside class="case-meta">
-        <div class="meta-item"><p class="lbl">03 · Role &amp; Scope</p><p class="meta-val">Lead UX/UI Designer</p></div>
+        <div class="meta-item"><p class="lbl">04 · Role &amp; Scope</p><p class="meta-val">Lead UX/UI Designer</p></div>
         <div class="meta-divider"></div>
         <div class="meta-item"><p class="lbl">Owned</p>
           <ul class="check-list">
@@ -423,11 +513,11 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 04 — DISCOVERY & INSIGHTS -->
+<!-- 05 — DISCOVERY & INSIGHTS -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">04 · Discovery &amp; Insights</span>
+      <span class="lbl">05 · Discovery &amp; Insights</span>
       <h2 class="sec-title">Watching one full cycle changed the brief</h2>
       <p class="sec-lead">Inputs included SME interviews, a tool-and-task audit of a complete maintenance cycle, and contextual observation of operators on console. The goal was to find <em>where</em> the work broke down, not just <em>that</em> it did.</p>
     </div>
@@ -442,11 +532,11 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 05 — DESIGN STRATEGY -->
+<!-- 06 — DESIGN STRATEGY -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">05 · Design Strategy</span>
+      <span class="lbl">06 · Design Strategy</span>
       <h2 class="sec-title">Follow the lifecycle, surface only what the step needs</h2>
       <p class="sec-lead">Before any UI, I committed to a principle: Gateway should model the maintenance lifecycle itself, presenting only the data and actions relevant to the operator's current stage, and always keeping a path back to the source system for trust.</p>
     </div>
@@ -461,11 +551,11 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 06 — EXECUTION -->
+<!-- 07 — EXECUTION -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">06 · Execution &middot; Key Decisions</span>
+      <span class="lbl">07 · Execution &middot; Key Decisions</span>
       <h2 class="sec-title">Four decisions that carried the design</h2>
       <p class="sec-lead">Each screen exists to serve a specific operational behaviour. The decisions below are organised by the problem they solve, not by the order they were drawn.</p>
     </div>
@@ -514,48 +604,84 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 07 — SYSTEM THINKING -->
+<!-- 08 — SYSTEM THINKING -->
 <section class="case-section">
   <div class="wrap">
-    <div class="ds-grid">
-      <div>
-        <span class="lbl" style="display:block;margin-bottom:20px;">07 · System Thinking</span>
-        <h2 class="sec-title">One system, built to scale across missions</h2>
-        <p class="ds-lead">Gateway is a component library and token set, not a set of one-off screens, so the same patterns extend to new mission types and tools without redesign. It aligns to ESA's brand palette, tuned for low-light operational legibility.</p>
-        <div class="swatches">
-          <div class="swatch">
-            <span class="chip" style="background:#003263;"></span>
-            <div><p class="sname">ESA Deep Space Blue</p><p class="lbl">#003263 · Primary / Chrome</p></div>
-          </div>
-          <div class="swatch">
-            <span class="chip" style="background:#009FE3;"></span>
-            <div><p class="sname">Active Azure</p><p class="lbl">#009FE3 · Active / Selected</p></div>
-          </div>
-          <div class="swatch">
-            <span class="chip" style="background:#FFD200;"></span>
-            <div><p class="sname">Critical Yellow</p><p class="lbl">#FFD200 · Alerts / Attention</p></div>
+    <div class="sec-head">
+      <span class="lbl">08 · Design Language</span>
+      <h2 class="sec-title">One language, built to scale across missions</h2>
+      <p class="sec-lead">A token set and a small component kit rather than a folder of one-off screens, aligned to ESA's brand palette and tuned for low-light operational legibility. New mission types inherit the language instead of prompting a redesign.</p>
+    </div>
+    <div class="dl">
+      <div class="dl-row r3">
+        <div class="dl-cell">
+          <span class="lbl">Palette</span>
+          <div class="dl-sw"><div><i style="background:#003263"></i><span>Deep space</span></div><div><i style="background:#009FE3"></i><span>Azure</span></div><div><i style="background:#FFD200"></i><span>Critical</span></div><div><i style="background:#1E7B4C"></i><span>Nominal</span></div><div><i style="background:#B3261E"></i><span>Fault</span></div><div><i style="background:#eef2f6"></i><span>Surface</span></div></div>
+        </div>
+        <div class="dl-cell dl-type">
+          <span class="lbl">Typography</span>
+          <p class="t1">Heading, Space Grotesk</p>
+          <p class="t2">Subheading, Medium</p>
+          <p class="t3">Inter Regular for interface text and telemetry values, sized for reading on a shared control-room display.</p>
+        </div>
+        <div class="dl-cell">
+          <span class="lbl">Spacing</span>
+          <div class="dl-grid8"><i style="height:8px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:32px"></i><i style="height:48px"></i></div>
+          <p class="dl-note">8px base step, 8 / 16 / 24 / 32 / 48</p>
+        </div>
+      </div>
+      <div class="dl-row">
+        <div class="dl-cell">
+          <span class="lbl">Core Components</span>
+          <div class="dl-comps">
+            <div class="dl-comp"><span>Primary button</span><button class="ui-btn" type="button" tabindex="-1">Advance stage</button></div>
+            <div class="dl-comp"><span>Secondary button</span><button class="ui-btn sec" type="button" tabindex="-1">View source</button></div>
+            <div class="dl-comp"><span>Text input</span><div class="ui-in">Mission ID, GW-2417</div></div>
+            <div class="dl-comp"><span>Dropdown</span><div class="ui-in dd">Earth observation <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+            <div class="dl-comp"><span>Card</span><div class="ui-card"><b>Stage 3 of 6</b><i>Qualification review</i></div></div>
+            <div class="dl-comp"><span>Data table row</span><div class="ui-tr"><span>Sentinel-2B</span><code>GW-2417</code><em></em></div></div>
           </div>
         </div>
       </div>
-      <div class="type-card">
-        <span class="lbl">Core Components</span>
-        <p class="tspec" style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;">Stage stepper, source-traced data card, status chip, safe-action dialog</p>
-        <p class="tdesc">A small, opinionated kit covers the recurring jobs of tracking lifecycle state, presenting traceable data, signalling status at a glance and confirming risky transitions, so consistency is the default, not an act of discipline.</p>
-        <div class="tdiv"></div>
-        <div class="type-foot">
-          <div><p class="tspec2">Inter</p><span class="lbl">High-legibility System UI</span></div>
-          <div class="type-dots"><span style="background:#003263;"></span><span style="background:#009FE3;"></span><span style="background:#FFD200;"></span></div>
+      <div class="dl-row r2">
+        <div class="dl-cell">
+          <span class="lbl">States</span>
+          <div class="dl-states">
+            <div class="dl-state"><span>Default</span><button class="ui-btn" type="button" tabindex="-1">Advance</button></div>
+            <div class="dl-state"><span>Hover</span><button class="ui-btn hov" type="button" tabindex="-1">Advance</button></div>
+            <div class="dl-state"><span>Disabled</span><button class="ui-btn dis" type="button" tabindex="-1" disabled>Advance</button></div>
+            <div class="dl-state"><span>Focus</span><button class="ui-btn foc" type="button" tabindex="-1">Advance</button></div>
+          </div>
+        </div>
+        <div class="dl-cell">
+          <span class="lbl">Accessibility</span>
+          <ul class="dl-a11y">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>WCAG AA contrast on every text and status colour</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>Visible keyboard focus on all interactive elements</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>44px minimum touch targets</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dl-row">
+        <div class="dl-cell">
+          <span class="lbl">Principles</span>
+          <div class="dl-prin">
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><b>Consistency</b><span>One pattern per job, reused across tools.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><b>Clarity</b><span>Relevance over completeness, always.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v.01M12 11v6"/></svg><b>Accessibility</b><span>Readable on a shared display, at distance.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20V7"/></svg><b>Scalability</b><span>A new mission type adds no new parts.</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 08 — IMPACT -->
+<!-- 09 — IMPACT -->
 <section class="case-section">
   <div class="wrap">
     <div class="impact">
-      <span class="lbl">08 · Impact</span>
+      <span class="lbl">09 · Impact</span>
       <h2>Operational friction down <em class="accent" style="font-style:normal;">35%</em> and roughly <em class="accent" style="font-style:normal;">10 minutes</em> saved on the average mission-critical cycle.</h2>
     </div>
 
@@ -574,42 +700,6 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 09 — REFLECTION -->
-<section class="case-section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="lbl">09 · Reflection</span>
-      <h2 class="sec-title">What I'd carry forward</h2>
-    </div>
-    <div class="reflect">
-      <div class="rcol">
-        <span class="lbl">What worked</span>
-        <h4>The lifecycle spine earned trust early</h4>
-        <ul>
-          <li>Modelling the workflow in the structure made the concept legible to SMEs in the first review.</li>
-          <li>Treating provenance as a first-class affordance turned aggregation from a risk into a feature.</li>
-        </ul>
-      </div>
-      <div class="rcol">
-        <span class="lbl">What I'd improve</span>
-        <h4>Measure earlier, test on console</h4>
-        <ul>
-          <li>Capture a quantitative baseline before design, so impact is attributable rather than reconstructed.</li>
-          <li>More usability testing in the real low-light room, and explicit design for degraded / offline states.</li>
-        </ul>
-      </div>
-      <div class="rcol">
-        <span class="lbl">What I learned</span>
-        <h4>Orchestration beats replacement</h4>
-        <ul>
-          <li>In legacy-heavy enterprise, the highest-leverage design often lives in the seams, not the tools.</li>
-          <li>Trust is a design material, and tight constraints, read correctly, are the clearest brief you'll get.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
@@ -617,17 +707,20 @@ img{display:block;max-width:100%;}
       <div>
         <p class="lbl">Get In Touch</p>
         <h2>Let's craft something meaningful together.</h2>
-        <p class="contact-body">Currently open to selective senior contracts, UX consultations, and architecture leadership roles globally.</p>
-        <a class="email" href="mailto:studio@fergalkeane.com">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><polyline points="3 6 12 13 21 6"/></svg>
-          studio@fergalkeane.com
-        </a>
+        <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"/><polyline points="12.5 5.5 19 12 12.5 18.5"/></svg></a>
       </div>
       
     </div>
     <div class="footbar">
       <p class="lbl">&copy; 2026 Design by Fergal Keane</p>
-      <a class="lbl" href="#">Download Source (.zip) &nearr;</a>
+      <div class="share">
+        <span class="lbl">Share</span>
+        <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+        <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+        <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+        <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+      </div>
+      <a class="lbl" href="../privacy.html">Privacy &nearr;</a>
     </div>
   </div>
 </section>
@@ -637,14 +730,14 @@ img{display:block;max-width:100%;}
   /* Password gate — client-side preview only. In WordPress use native
      page password protection or a membership plugin for real security. */
   (function(){
-    var KEY='fk-unlock-gateway', PW='stepaside';
+    return; /* gate disabled, delete this line to reinstate */
+    var PW='stepaside';
     var gate=document.getElementById('gate');
-    if(sessionStorage.getItem(KEY)==='1'){gate.classList.add('hidden');}
-    else{
+    {
       document.documentElement.style.overflow='hidden';
       var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
       f.addEventListener('submit',function(e){e.preventDefault();
-        if(pw.value.trim().toLowerCase()===PW){sessionStorage.setItem(KEY,'1');gate.classList.add('hidden');document.documentElement.style.overflow='';}
+        if(pw.value.trim().toLowerCase()===PW){gate.classList.add('hidden');document.documentElement.style.overflow='';}
         else{err.classList.add('show');pw.value='';pw.focus();}
       });
       pw.focus();
@@ -654,6 +747,15 @@ img{display:block;max-width:100%;}
   const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
   if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+</script>
+<script>
+(function(){var bars=document.querySelectorAll('.share');if(!bars.length)return;
+var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+var m={li:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?url='+u+'&text='+t,em:'mailto:?subject='+t+'&body='+u};
+bars.forEach(function(b){b.querySelectorAll('a[data-share]').forEach(function(a){a.href=m[a.dataset.share];});
+var c=b.querySelector('[data-share="copy"]');
+c.addEventListener('click',function(){navigator.clipboard.writeText(location.href).then(function(){c.classList.add('copied');setTimeout(function(){c.classList.remove('copied');},1600);});});});
+})();
 </script>
 </body>
 </html>

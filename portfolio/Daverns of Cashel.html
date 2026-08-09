@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daverns of Cashel: Case Study · Fergal Keane</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Italic-Variable.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('../fonts/JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Exo';src:url('../fonts/Exo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('../fonts/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
 @font-face{
   font-family:'Space Grotesk';
   src:url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
@@ -64,6 +66,7 @@ img{display:block;max-width:100%;}
 .hero-crown{display:flex;align-items:center;gap:14px;margin-bottom:4px;}
 .hero-crown svg{color:var(--accent);}
 .hero-crown .est{font-family:var(--font-mono);font-size:11px;letter-spacing:.34em;color:var(--accent);text-transform:uppercase;}
+.hero-logo{display:block;width:clamp(260px,34vw,440px);height:auto;margin:0 0 26px;}
 .hero-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(50px,8vw,104px);line-height:.94;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 14px;}
 .hero-title small{display:block;font-size:.34em;letter-spacing:.5em;color:var(--accent);font-weight:500;margin-top:6px;}
 .hero-tagline{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.86);font-weight:400;letter-spacing:.01em;max-width:46ch;}
@@ -95,6 +98,32 @@ img{display:block;max-width:100%;}
 .impact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.9vw,50px);line-height:1.12;letter-spacing:-.02em;margin:0;max-width:16ch;position:relative;z-index:1;}
 .impact h2 em{font-style:normal;color:var(--accent);}
 
+.pullq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(38px,5vw,64px) 0;margin:0;}
+.pullq blockquote{margin:0;}
+.pullq p{font-family:var(--font-display,inherit);font-size:clamp(22px,2.9vw,38px);line-height:1.32;font-weight:300;letter-spacing:-.015em;color:var(--ink);text-wrap:pretty;max-width:26ch;margin:0;}
+.pullq .qmark{color:var(--accent);}
+
+/* —— BRAND —— */
+.brand-row{display:grid;gap:clamp(18px,2vw,26px);margin-top:clamp(38px,4vw,58px);}
+.brand-row.two{grid-template-columns:1.1fr .9fr;}
+.brand-row.three{grid-template-columns:repeat(3,1fr);}
+.bpanel{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column;}
+.bpanel .bp-pad{padding:22px 26px 20px;}
+.bpanel .bp-pad h3{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:8px 0 0;}
+.bpanel .bp-pad p{font-size:14px;line-height:1.62;color:var(--muted);margin:9px 0 0;text-wrap:pretty;}
+.bpanel img{display:block;width:100%;height:auto;margin-top:auto;}
+.bpanel.fill img{height:100%;object-fit:cover;}
+@media(max-width:880px){.brand-row.two,.brand-row.three{grid-template-columns:1fr;}}
+
+.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(38px,4vw,58px);}
+.social-grid figure{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;}
+.social-grid img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;}
+.social-grid figcaption{padding:12px 14px;border-top:1px solid var(--line);}
+.social-note{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,28px);margin-top:clamp(30px,3vw,42px);padding-top:26px;border-top:1px solid var(--line);}
+.social-note b{display:block;font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:6px;}
+.social-note span{font-size:13.5px;line-height:1.55;color:var(--muted);}
+@media(max-width:900px){.social-grid{grid-template-columns:repeat(2,1fr);}.social-note{grid-template-columns:1fr;}}
+
 /* —— SCREEN WALKTHROUGH —— */
 .case-section{padding:96px 0 0;}
 .sec-head .lbl{display:block;margin-bottom:20px;}
@@ -118,7 +147,7 @@ img{display:block;max-width:100%;}
 .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(43,51,64,.04),0 24px 56px -28px rgba(43,51,64,.34);}
 .frame-bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
 .frame-bar i{width:10px;height:10px;border-radius:50%;background:#d9d9d9;display:block;}
-.frame-bar .fb-url{margin-left:14px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted-2);}
+.frame-bar .fb-url{display:none;}
 .frame.scroll{max-height:680px;overflow:hidden;position:relative;}
 .frame.scroll .scroll-body{max-height:642px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--stone) transparent;}
 .frame.scroll .scroll-body::-webkit-scrollbar{width:9px;}
@@ -152,6 +181,8 @@ img{display:block;max-width:100%;}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
 .contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.contact-btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 30px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.contact-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
 .email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
 .email:hover{color:var(--accent);border-color:var(--accent);}
 .form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
@@ -167,6 +198,17 @@ img{display:block;max-width:100%;}
 .send-btn{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .18s ease;}
 .send-btn:hover{background:var(--accent);}
 .footbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;}
+.share-top{border-bottom:1px solid var(--line-soft);}
+.share-top .wrap{display:flex;justify-content:flex-end;padding-top:18px;padding-bottom:18px;}
+.share{display:flex;align-items:center;gap:10px;}
+.share .lbl{margin-right:2px;}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--muted);cursor:pointer;padding:0;transition:color .2s,border-color .2s,background .2s;}
+.share a:hover,.share button:hover{color:var(--accent);border-color:var(--accent);}
+.share svg{width:15px;height:15px;}
+.share .copied{position:relative;}
+.share .copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){.footbar{justify-content:flex-start;}}
+
 .footbar a:hover{color:var(--accent);}
 
 /* —— RESPONSIVE —— */
@@ -200,12 +242,12 @@ img{display:block;max-width:100%;}
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../home.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <a class="brand" href="../index.html"><b>Fergal Keane</b><span>UI/UX</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
-      <a href="../home.html#work">Work</a>
+      <a href="../index.html#work">Work</a>
       <a href="../Experience.html">Experience</a>
-      <a href="../home.html#contact">Contact</a>
+      <a href="../index.html#contact">Contact</a>
       </nav>
   </div>
 </header>
@@ -213,7 +255,7 @@ img{display:block;max-width:100%;}
 <main>
 <!-- BACK -->
 <div class="wrap backbar">
-  <a class="back-link" href="../home.html#work">&larr; Selected Works</a>
+  <a class="back-link" href="../index.html#work">&larr; Selected Works</a>
 </div>
 
 <!-- HERO -->
@@ -224,11 +266,7 @@ img{display:block;max-width:100%;}
       <div class="hero-shade"></div>
       <div class="hero-content">
         <div>
-          <div class="hero-crown">
-            <svg width="34" height="22" viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h28M5 20V8l7 5 5-9 5 9 7-5v12"/></svg>
-            <span class="est">Est&#xAA; 1926</span>
-          </div>
-          <h1 class="hero-title">Daverns<small>Of Cashel</small></h1>
+          <img class="hero-logo" src="../images/daverns/Daverns_Logo_White.png" alt="Daverns of Cashel, established 1926">
           <p class="hero-tagline">A century-old family house of luxury fashion &amp; personal styling in Cashel, Co.&nbsp;Tipperary, reimagined as a considered designer-led eCommerce experience.</p>
         </div>
         <div class="hero-meta">
@@ -240,6 +278,18 @@ img{display:block;max-width:100%;}
     </div>
   </div>
 </section>
+
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Share</span>
+      <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+      <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+      <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+      <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+    </div>
+  </div>
+</div>
 
 <!-- CHALLENGE + SOLUTION + IMPACT -->
 <section class="case-body">
@@ -280,6 +330,14 @@ img{display:block;max-width:100%;}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="wrap">
+    <figure class="pullq">
+      <blockquote><p><span class="qmark">“</span>For us the measure of success was whether a retail store that had never needed to explain itself online, looked on screen, exactly as good as it does in reality.<span class="qmark">”</span></p></blockquote>
+    </figure>
   </div>
 </section>
 
@@ -411,6 +469,79 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
+<!-- BRAND -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">02.3 / Brand Identity</span>
+      <h2 class="sec-title">A crown borrowed from the skyline</h2>
+      <p class="sec-lead">Daverns sits in the shadow of the Rock of Cashel, and the shop has traded under that skyline since 1926. The mark takes the rooftop silhouette of the Rock and reduces it to a small gold crown, so the town's most recognisable outline becomes the shop's emblem without a word of explanation.</p>
+    </div>
+    <div class="brand-row two">
+      <div class="bpanel">
+        <div class="bp-pad"><span class="lbl">Primary Lockup</span><h3>Wordmark, crown and date</h3><p>Wide-tracked capitals in navy carry the family name, the gold crown and the 1926 date sit above as a single rule-bound unit, and “of Cashel” anchors the place. Nothing moves independently, which keeps the mark stable on a shopfront, a swing tag or a 32px favicon.</p></div>
+        <img src="../images/daverns/Daverns_Lockup.jpg" alt="Daverns of Cashel primary lockup: crown, established 1926, wordmark" loading="lazy">
+      </div>
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">Origin</span><h3>The Rock of Cashel</h3><p>The gables, the walls and the two towers of the Rock give the crown its five-peak rhythm. It is a local reference before it is a heraldic one.</p></div>
+        <img src="../images/daverns/Daverns_Mood_Cashel.jpg" alt="The Rock of Cashel under a heavy sky" loading="lazy">
+      </div>
+    </div>
+    <div class="brand-row">
+      <div class="bpanel">
+        <div class="bp-pad"><span class="lbl">Colourways</span><h3>One mark, six grounds</h3><p>The identity had to survive a seasonal shop. Navy and gold are the constants, and a working set of wine, tan, walnut and slate blue lets window cards, gift boxes and campaign pages change with the season while the mark itself never redraws. Every version is a single-weight knockout: no shadows, no outlines, no second lockup to police.</p></div>
+        <img src="../images/daverns/Daverns_Colourways.jpg" alt="The Daverns mark reversed across white, gold, wine, tan, walnut, slate blue and navy grounds" loading="lazy">
+      </div>
+    </div>
+    <div class="brand-row two">
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">Positioning</span><h3>Considered, not loud</h3><p>The reference points are tailoring and neutral cloth rather than fast fashion, which set the tone for the photography and the pace of the site.</p></div>
+        <img src="../images/daverns/Daverns_Mood_Fashion.jpg" alt="Menswear and womenswear tailoring in neutral tones beside the brand palette" loading="lazy">
+      </div>
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">In Hand</span><h3>The carrier bag test</h3><p>Most people meet the brand on the street, holding it. The bag reverses to navy on white with the crown at full size, the strongest piece of local advertising the shop owns.</p></div>
+        <img src="../images/daverns/Daverns_Bag.jpg" alt="Daverns carrier bag being packed at the counter" loading="lazy">
+      </div>
+    </div>
+    <div class="brand-row three">
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">Swing Tags</span><h3>Kraft and cotton</h3></div>
+        <img src="../images/daverns/Daverns_Swing_Tag_crop.png" alt="Kraft swing tag and woven label on a black garment" loading="lazy">
+      </div>
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">Gift Boxes</span><h3>Gold foil on black</h3></div>
+        <img src="../images/daverns/Daverns_Box_crop.png" alt="Black gift box with the Daverns mark foiled in gold" loading="lazy">
+      </div>
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">Presentation</span><h3>Wine, stone, knitwear</h3></div>
+        <img src="../images/daverns/Daverns_Knitwear_crop.png" alt="Knitwear boxed in wine with a Daverns swing tag" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">02.4 / Social</span>
+      <h2 class="sec-title">One line, four ways to say it</h2>
+      <p class="sec-lead">A shop this size cannot shoot its own campaigns every season, so the social system was built to make supplied designer imagery look like Daverns. “Masters of Luxury” stays fixed, the crown badge tucks into a corner, and the only decisions left each month are which photograph to use and which corner is quietest.</p>
+    </div>
+    <div class="social-grid">
+      <figure><img src="../images/daverns/Daverns_Social_Cashel.jpg" alt="Daverns social post: aerial Rock of Cashel at dusk with the full lockup centred" loading="lazy"><figcaption class="lbl">Brand post &middot; full lockup</figcaption></figure>
+      <figure><img src="../images/daverns/Daverns_Social_Womens.jpg" alt="Daverns social post: womenswear in neutral tailoring with the D badge bottom right" loading="lazy"><figcaption class="lbl">Womenswear &middot; type right</figcaption></figure>
+      <figure><img src="../images/daverns/Daverns_Social_Mens.jpg" alt="Daverns social post: menswear checked jacket with the D badge bottom left" loading="lazy"><figcaption class="lbl">Menswear &middot; type left</figcaption></figure>
+      <figure><img src="../images/daverns/Daverns_Social_Outerwear.jpg" alt="Daverns social post: outerwear on a warm neutral ground with gold type" loading="lazy"><figcaption class="lbl">Outerwear &middot; gold on stone</figcaption></figure>
+    </div>
+    <div class="social-note">
+      <div><b>Fixed furniture</b><span>Wide-tracked capitals, a chevron and a rule under “Shop Now”. Same size, same tracking, every post, so the feed reads as a run rather than four separate ads.</span></div>
+      <div><b>Two logo states</b><span>The full lockup when the image is the brand's own, the navy D badge when the image belongs to a designer house. It never competes with a supplier's own mark.</span></div>
+      <div><b>Type takes the ground</b><span>White on dark photography, navy on pale studio shots, gold on warm neutrals. Three states cover almost anything a supplier sends.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
@@ -418,17 +549,20 @@ img{display:block;max-width:100%;}
       <div>
         <p class="lbl">Get In Touch</p>
         <h2>Let's craft something meaningful together.</h2>
-        <p class="contact-body">Currently open to selective senior contracts, UX consultations, and architecture leadership roles globally.</p>
-        <a class="email" href="mailto:studio@fergalkeane.com">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><polyline points="3 6 12 13 21 6"/></svg>
-          studio@fergalkeane.com
-        </a>
+        <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"/><polyline points="12.5 5.5 19 12 12.5 18.5"/></svg></a>
       </div>
       
     </div>
     <div class="footbar">
       <p class="lbl">&copy; 2026 Design by Fergal Keane</p>
-      <a class="lbl" href="../home.html#work">Back to Selected Works &nearr;</a>
+      <div class="share">
+        <span class="lbl">Share</span>
+        <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+        <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+        <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+        <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;"><a class="lbl" href="../index.html#work">Back to Selected Works &nearr;</a><a class="lbl" href="../privacy.html">Privacy &nearr;</a></div>
     </div>
   </div>
 </section>
@@ -438,6 +572,15 @@ img{display:block;max-width:100%;}
   const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
   if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+</script>
+<script>
+(function(){var bars=document.querySelectorAll('.share');if(!bars.length)return;
+var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+var m={li:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?url='+u+'&text='+t,em:'mailto:?subject='+t+'&body='+u};
+bars.forEach(function(b){b.querySelectorAll('a[data-share]').forEach(function(a){a.href=m[a.dataset.share];});
+var c=b.querySelector('[data-share="copy"]');
+c.addEventListener('click',function(){navigator.clipboard.writeText(location.href).then(function(){c.classList.add('copied');setTimeout(function(){c.classList.remove('copied');},1600);});});});
+})();
 </script>
 </body>
 </html>

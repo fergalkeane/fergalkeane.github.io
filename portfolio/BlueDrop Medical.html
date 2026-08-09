@@ -6,11 +6,13 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlueDrop Medical — Case Study · Fergal Keane</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<title>BlueDrop Medical Case Study · Fergal Keane</title>
 <style>
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Italic-Variable.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('../fonts/JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Exo';src:url('../fonts/Exo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('../fonts/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
 @font-face{
   font-family:'Space Grotesk';
   src:url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
@@ -149,18 +151,28 @@ img{display:block;max-width:100%;}
 .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(20,46,60,.04),0 24px 56px -28px rgba(20,46,60,.30);}
 .frame-bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
 .frame-bar i{width:10px;height:10px;border-radius:50%;background:#d9d9d9;display:block;}
-.frame-bar .fb-url{margin-left:14px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted-2);}
+.frame-bar .fb-url{display:none;}
 .frame.scroll{max-height:680px;overflow:hidden;position:relative;}
 .frame.scroll .scroll-body{max-height:642px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--light) transparent;}
 .frame.scroll .scroll-body::-webkit-scrollbar{width:9px;}
 .frame.scroll .scroll-body::-webkit-scrollbar-thumb{background:var(--light);border-radius:6px;border:2px solid #fff;}
 .frame img{display:block;width:100%;height:auto;}
 
+/* —— LIGHTBOX —— */
+.zoomable{cursor:zoom-in;}
+.lb{position:fixed;inset:0;z-index:500;display:none;background:rgba(8,8,8,.94);padding:56px 28px 28px;}
+.lb.open{display:flex;align-items:center;justify-content:center;}
+.lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;}
+.lb-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-close:hover{background:rgba(255,255,255,.12);}
+
 /* —— CONTACT —— */
 .contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
 .contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.contact-btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 30px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.contact-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
 .email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
 .email:hover{color:var(--accent);border-color:var(--accent);}
 .form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
@@ -176,6 +188,17 @@ img{display:block;max-width:100%;}
 .send-btn{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .18s ease;}
 .send-btn:hover{background:var(--accent);}
 .footbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;}
+.share-top{border-bottom:1px solid var(--line-soft);}
+.share-top .wrap{display:flex;justify-content:flex-end;padding-top:18px;padding-bottom:18px;}
+.share{display:flex;align-items:center;gap:10px;}
+.share .lbl{margin-right:2px;}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--muted);cursor:pointer;padding:0;transition:color .2s,border-color .2s,background .2s;}
+.share a:hover,.share button:hover{color:var(--accent);border-color:var(--accent);}
+.share svg{width:15px;height:15px;}
+.share .copied{position:relative;}
+.share .copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){.footbar{justify-content:flex-start;}}
+
 .footbar a:hover{color:var(--accent);}
 
 /* —— RESPONSIVE —— */
@@ -226,7 +249,8 @@ img{display:block;max-width:100%;}
 <body>
 
 <!-- PASSWORD GATE -->
-<div class="gate" id="gate">
+<!-- Password gate temporarily disabled: remove the "hidden" class and the early return in the script below to reinstate it. -->
+<div class="gate hidden" id="gate">
   <div class="gate-card">
     <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <span class="lbl">Protected Case Study</span>
@@ -235,21 +259,21 @@ img{display:block;max-width:100%;}
     <form id="gateForm" autocomplete="off">
       <input type="password" id="gatePw" placeholder="Enter password" autocomplete="off">
       <button type="submit">Unlock &rarr;</button>
-      <p class="gate-err" id="gateErr">Incorrect password &mdash; please try again.</p>
+      <p class="gate-err" id="gateErr">Incorrect password. Please try again.</p>
     </form>
-    <a class="gate-back" href="../home.html#work">&larr; Return to Selected Works</a>
+    <a class="gate-back" href="../index.html#work">&larr; Return to Selected Works</a>
   </div>
 </div>
 
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../home.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <a class="brand" href="../index.html"><b>Fergal Keane</b><span>UI/UX</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
-      <a href="../home.html#work">Work</a>
+      <a href="../index.html#work">Work</a>
       <a href="../Experience.html">Experience</a>
-      <a href="../home.html#contact">Contact</a>
+      <a href="../index.html#contact">Contact</a>
       </nav>
   </div>
 </header>
@@ -257,7 +281,7 @@ img{display:block;max-width:100%;}
 <main>
 <!-- BACK -->
 <div class="wrap backbar">
-  <a class="back-link" href="../home.html#work">&larr; Selected Works</a>
+  <a class="back-link" href="../index.html#work">&larr; Selected Works</a>
 </div>
 
 <!-- HERO -->
@@ -269,21 +293,32 @@ img{display:block;max-width:100%;}
       <div class="hero-content">
         <div>
           <div class="hero-crown">
-            <svg width="20" height="24" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2C12 2 4 11 4 17a8 8 0 0 0 16 0c0-6-8-15-8-15z"/><circle cx="12" cy="17" r="3.4"/></svg>
             <span class="est">MedTech &middot; Connected Health</span>
           </div>
           <h1 class="hero-title">BlueDrop<span> Medical</span></h1>
-          <p class="hero-tagline">A brand and web identity for an Irish medical-device start-up using connected technology to detect diabetic foot ulcers early &mdash; before they cost a limb.</p>
+          <p class="hero-tagline">A brand and web identity for an Irish medical-device start-up using connected technology to detect diabetic foot ulcers early, before they cost a limb.</p>
         </div>
         <div class="hero-meta">
           <div><p class="lbl">Year</p><p class="mv">2020</p></div>
           <div><p class="lbl">Client</p><p class="mv">BlueDrop Medical</p></div>
-          <div><p class="lbl">Your Role</p><p class="mv">Brand &amp; UI / UX Designer</p></div>
+          <div><p class="lbl">Your Role</p><p class="mv">Brand &amp; Website Design</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Share</span>
+      <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+      <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+      <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+      <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+    </div>
+  </div>
+</div>
 
 <!-- CHALLENGE + SOLUTION + IMPACT -->
 <section class="case-body">
@@ -291,7 +326,7 @@ img{display:block;max-width:100%;}
     <div class="case-grid">
       <aside class="case-meta">
         <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">Brand Identity &amp; UI / UX Designer</p></div>
-        <div class="meta-item"><p class="lbl">Client</p><p class="meta-val">BlueDrop Medical &mdash; Galway, Ireland</p></div>
+        <div class="meta-item"><p class="lbl">Client</p><p class="meta-val">BlueDrop Medical, Galway, Ireland</p></div>
         <div class="meta-item">
           <p class="lbl">Deliverables</p>
           <ul class="check-list">
@@ -309,19 +344,19 @@ img{display:block;max-width:100%;}
       </aside>
       <div class="case-content">
         <div class="case-block">
-          <span class="lbl">01 &mdash; The Challenge</span>
+          <span class="lbl">01 / The Challenge</span>
           <h2 class="case-h">A breakthrough device that needed to be trusted at a glance.</h2>
-          <p class="case-p">Diabetic foot ulcers are devastating and expensive &mdash; in the USA alone they drive roughly 75,000 amputations a year, with a treatment cost estimated near $17&nbsp;billion. BlueDrop's home device scans a patient's feet daily and flags damage early, but as a young start-up they had no identity to carry that promise to clinicians, patients and investors.</p>
-          <p class="case-p">The brand had to feel clinically credible and genuinely human at once &mdash; serious enough for the medical world, warm enough for someone managing a lifelong condition at home.</p>
+          <p class="case-p">Diabetic foot ulcers are devastating and expensive. In the USA alone they drive roughly 75,000 amputations a year, with a treatment cost estimated near $17&nbsp;billion. BlueDrop's home device scans a patient's feet daily and flags damage early, but as a young start-up they had no identity to carry that promise to clinicians, patients and investors.</p>
+          <p class="case-p">The brand had to feel clinically credible and genuinely human at once: serious enough for the medical world, warm enough for someone managing a lifelong condition at home.</p>
         </div>
         <div class="case-block">
-          <span class="lbl">02 &mdash; The Solution</span>
+          <span class="lbl">02 / The Solution</span>
           <h2 class="case-h">One symbol that holds the whole patient journey.</h2>
-          <p class="case-p">The identity is built on a single mark: a water drop &mdash; for &ldquo;BlueDrop&rdquo; and the clinical, diagnostic world &mdash; fused with a continuous loop standing for the lifelong patient journey, centred on an eye-like target for early detection. From that symbol flows a calm medical-blue palette, a clean confident wordmark, and a website that turns dense clinical evidence into something approachable.</p>
+          <p class="case-p">The identity is built on a single mark: a water drop, standing for &ldquo;BlueDrop&rdquo; and the clinical, diagnostic world, fused with a continuous loop standing for the lifelong patient journey, centred on an eye-like target for early detection. From that symbol flows a calm medical-blue palette, a clean confident wordmark, and a website that turns dense clinical evidence into something approachable.</p>
         </div>
         <div class="impact">
-          <span class="lbl">03 &mdash; Impact</span>
-          <h2>A complete identity system &mdash; from <em>symbol</em> to <em>website</em> &mdash; giving an early-detection start-up the credibility to win clinicians, patients and funding.</h2>
+          <span class="lbl">03 / Impact</span>
+          <h2>A complete identity system, from <em>symbol</em> to <em>website</em>, giving an early-detection start-up the credibility to win clinicians, patients and funding.</h2>
         </div>
       </div>
     </div>
@@ -332,32 +367,32 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.1 &mdash; The Symbol</span>
+      <span class="lbl">02.1 / The Symbol</span>
       <h2 class="sec-title">A mark with meaning built in</h2>
-      <p class="sec-lead">The symbol is an equation: the company &mdash; an innovative start-up detecting diabetic foot ulcers &mdash; plus the patient journey, lifelong and often life-changing. BlueDrop sits at the heart of that journey, present at every step.</p>
+      <p class="sec-lead">The symbol is an equation: the company, an innovative start-up detecting diabetic foot ulcers, plus the patient journey, lifelong and often life-changing. BlueDrop sits at the heart of that journey, present at every step.</p>
     </div>
 
     <div class="symbol">
       <div class="panel dark">
         <div class="panel-pad dark"><span class="lbl">Concept</span><h3>Company + Patient Journey = BlueDrop</h3></div>
-        <div class="img-frame"><img src="../images/bluedrop/BlueDrop_Concept.png" alt="Brand concept: the drop plus the patient-journey loop equals the BlueDrop mark"></div>
+        <div class="img-frame"><img class="zoomable" src="../images/bluedrop/BlueDrop_Concept.png" alt="Brand concept: the drop plus the patient-journey loop equals the BlueDrop mark"></div>
       </div>
       <div class="panel">
         <div class="panel-pad"><span class="lbl">Meaning</span><h3>Drop · Loop · Detection</h3></div>
         <div class="panel-pad" style="padding-top:4px;">
-          <p class="case-p" style="font-size:15px;max-width:38ch;">The <strong style="color:var(--ink-soft)">drop</strong> grounds the name and the clinical world. The <strong style="color:var(--ink-soft)">loop</strong> represents the continuous, lifelong patient journey. At the centre, a <strong style="color:var(--ink-soft)">target / eye</strong> signals the product's core purpose &mdash; catching damage early, before it escalates.</p>
+          <p class="case-p" style="font-size:15px;max-width:38ch;">The <strong style="color:var(--ink-soft)">drop</strong> grounds the name and the clinical world. The <strong style="color:var(--ink-soft)">loop</strong> represents the continuous, lifelong patient journey. At the centre, a <strong style="color:var(--ink-soft)">target / eye</strong> signals the product's core purpose: catching damage early, before it escalates.</p>
         </div>
       </div>
     </div>
 
     <div class="construct-pair">
       <div class="panel">
-        <div class="panel-pad"><span class="lbl">Construction</span><h3>Gradient build</h3></div>
-        <div class="img-frame"><img src="../images/bluedrop/BlueDrop_Construct_Gradient.png" alt="Geometric construction of the BlueDrop symbol, gradient version"></div>
-      </div>
-      <div class="panel">
         <div class="panel-pad"><span class="lbl">Geometry</span><h3>Grid &amp; proportion</h3></div>
         <div class="img-frame"><img src="../images/bluedrop/BlueDrop_Construct_Light.png" alt="Geometric construction grid of the BlueDrop symbol"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-pad"><span class="lbl">Construction</span><h3>Gradient build</h3></div>
+        <div class="img-frame"><img src="../images/bluedrop/BlueDrop_Construct_Gradient.png" alt="Geometric construction of the BlueDrop symbol, gradient version"></div>
       </div>
     </div>
   </div>
@@ -367,7 +402,7 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.2 &mdash; The Identity</span>
+      <span class="lbl">02.2 / The Identity</span>
       <h2 class="sec-title">A flexible, clinical-grade system</h2>
       <p class="sec-lead">The wordmark splits weight across BLUE and DROP to make the name read instantly, balanced by a light tracked &ldquo;Medical&rdquo;. Horizontal and stacked lockups cover every placement from website header to device casing.</p>
     </div>
@@ -401,9 +436,9 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.3 &mdash; The Website</span>
+      <span class="lbl">02.3 / The Website</span>
       <h2 class="sec-title">Clinical evidence, made approachable</h2>
-      <p class="sec-lead">The marketing site had to speak to three very different audiences &mdash; patients, clinicians and investors &mdash; on one page. The design leads with a hopeful, human message, then layers in the science, the technology and the team behind it.</p>
+      <p class="sec-lead">The marketing site had to speak to three very different audiences (patients, clinicians and investors) on one page. The design leads with a hopeful, human message, then layers in the science, the technology and the team behind it.</p>
     </div>
 
     <div class="webshots">
@@ -443,17 +478,20 @@ img{display:block;max-width:100%;}
       <div>
         <p class="lbl">Get In Touch</p>
         <h2>Let's craft something meaningful together.</h2>
-        <p class="contact-body">Currently open to selective senior contracts, UX consultations, and architecture leadership roles globally.</p>
-        <a class="email" href="mailto:studio@fergalkeane.com">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><polyline points="3 6 12 13 21 6"/></svg>
-          studio@fergalkeane.com
-        </a>
+        <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"/><polyline points="12.5 5.5 19 12 12.5 18.5"/></svg></a>
       </div>
       
     </div>
     <div class="footbar">
       <p class="lbl">&copy; 2026 Design by Fergal Keane</p>
-      <a class="lbl" href="../home.html#work">Back to Selected Works &nearr;</a>
+      <div class="share">
+        <span class="lbl">Share</span>
+        <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+        <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+        <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+        <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;"><a class="lbl" href="../index.html#work">Back to Selected Works &nearr;</a><a class="lbl" href="../privacy.html">Privacy &nearr;</a></div>
     </div>
   </div>
 </section>
@@ -463,14 +501,14 @@ img{display:block;max-width:100%;}
   /* Password gate — client-side preview only. In WordPress use native
      page password protection or a membership plugin for real security. */
   (function(){
-    var KEY='fk-unlock-bluedrop', PW='stepaside';
+    return; /* gate disabled, delete this line to reinstate */
+    var PW='stepaside';
     var gate=document.getElementById('gate');
-    if(sessionStorage.getItem(KEY)==='1'){gate.classList.add('hidden');}
-    else{
+    {
       document.documentElement.style.overflow='hidden';
       var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
       f.addEventListener('submit',function(e){e.preventDefault();
-        if(pw.value.trim().toLowerCase()===PW){sessionStorage.setItem(KEY,'1');gate.classList.add('hidden');document.documentElement.style.overflow='';}
+        if(pw.value.trim().toLowerCase()===PW){gate.classList.add('hidden');document.documentElement.style.overflow='';}
         else{err.classList.add('show');pw.value='';pw.focus();}
       });
       pw.focus();
@@ -480,6 +518,31 @@ img{display:block;max-width:100%;}
   const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
   if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>
+  <img id="lbImg" alt="">
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),im=document.getElementById('lbImg');
+  function close(){lb.classList.remove('open');im.removeAttribute('src');document.body.style.overflow='';}
+  document.querySelectorAll('img.zoomable').forEach(function(t){
+    t.addEventListener('click',function(){im.src=t.src;im.alt=t.alt;lb.classList.add('open');document.body.style.overflow='hidden';});
+  });
+  document.getElementById('lbClose').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target!==im)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close();});
+})();
+</script>
+<script>
+(function(){var bars=document.querySelectorAll('.share');if(!bars.length)return;
+var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+var m={li:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?url='+u+'&text='+t,em:'mailto:?subject='+t+'&body='+u};
+bars.forEach(function(b){b.querySelectorAll('a[data-share]').forEach(function(a){a.href=m[a.dataset.share];});
+var c=b.querySelector('[data-share="copy"]');
+c.addEventListener('click',function(){navigator.clipboard.writeText(location.href).then(function(){c.classList.add('copied');setTimeout(function(){c.classList.remove('copied');},1600);});});});
+})();
 </script>
 </body>
 </html>

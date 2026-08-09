@@ -7,10 +7,12 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real World Case Study · Fergal Keane</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Italic-Variable.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('../fonts/JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Exo';src:url('../fonts/Exo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('../fonts/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
 @font-face{
   font-family:'Space Grotesk';
   src:url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
@@ -63,6 +65,9 @@ img{display:block;max-width:100%;}
 .hero-content .lbl{color:rgba(255,255,255,.62);}
 .hero-title{font-family:'Exo',var(--font-display);font-weight:700;font-weight:800;font-size:clamp(46px,7vw,92px);line-height:.95;letter-spacing:-.02em;margin:16px 0 12px;}
 .hero-tagline{font-family:'Inter',var(--font-sans);font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.84);font-weight:400;letter-spacing:.01em;max-width:40ch;}
+.hero-powered{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.62);margin:14px 0 0;}
+.hero-lob{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0;max-width:46ch;}
+.hero-lob li{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.24);border-radius:2px;padding:5px 9px;}
 .hero-meta{display:flex;flex-wrap:wrap;gap:clamp(38px,6vw,90px);}
 .hero-meta .lbl{color:rgba(255,255,255,.5);margin-bottom:8px;}
 .hero-meta .mv{font-family:'Inter',var(--font-sans);font-size:15px;color:#fff;font-weight:500;}
@@ -97,8 +102,8 @@ img{display:block;max-width:100%;}
 
 .shots{display:flex;flex-direction:column;gap:clamp(64px,8vw,118px);margin-top:clamp(48px,5vw,76px);}
 .shot{display:grid;grid-template-columns:minmax(210px,266px) 1fr;column-gap:clamp(34px,5vw,72px);align-items:start;}
-.shot .shot-cap{grid-column:1;}
-.shot > *:not(.shot-cap){grid-column:2;}
+.shot .shot-cap{grid-column:1;grid-row:1;}
+.shot > *:not(.shot-cap){grid-column:2;grid-row:1;}
 .shot.flip{grid-template-columns:1fr minmax(210px,266px);}
 .shot.flip .shot-cap{grid-column:2;}
 .shot.flip > *:not(.shot-cap){grid-column:1;}
@@ -112,7 +117,7 @@ img{display:block;max-width:100%;}
 .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(11,46,94,.04),0 24px 56px -28px rgba(11,46,94,.30);}
 .frame-bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
 .frame-bar i{width:10px;height:10px;border-radius:50%;background:#d9d9d9;display:block;}
-.frame-bar .fb-url{margin-left:14px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted-2);}
+.frame-bar .fb-url{display:none;}
 .frame img{display:block;width:100%;height:auto;}
 .frame.scroll{max-height:680px;min-height:320px;overflow:hidden;position:relative;}
 .frame.scroll .scroll-body{min-height:280px;}
@@ -121,32 +126,77 @@ img{display:block;max-width:100%;}
 .frame.scroll .scroll-body::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px;border:2px solid #fff;}
 
 .shot-pair{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.shot-ph{display:flex;align-items:center;justify-content:center;min-height:300px;background:repeating-linear-gradient(135deg,var(--paper-2),var(--paper-2) 12px,var(--paper) 12px,var(--paper) 24px);color:var(--muted);font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;}
 .shot-pair .frame.scroll{max-height:560px;}
 .shot-pair .frame.scroll .scroll-body{max-height:522px;}
 @media(max-width:760px){.shot-pair{grid-template-columns:1fr;}.shot-pair .frame.scroll{max-height:460px;}.shot-pair .frame.scroll .scroll-body{max-height:422px;}}
 
-/* —— DESIGN SYSTEM —— */
-.ds-grid{display:grid;grid-template-columns:1.05fr .82fr;gap:clamp(36px,5vw,72px);align-items:start;}
-.ds-lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:34ch;margin:0 0 40px;}
-.swatches{display:flex;flex-direction:column;gap:22px;}
-.swatch{display:flex;align-items:center;gap:22px;}
-.swatch .chip{width:92px;height:64px;flex:none;border-radius:2px;border:1px solid rgba(0,0,0,.06);}
-.swatch .sname{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 6px;}
-.type-card{border:1px solid var(--line);border-radius:6px;padding:clamp(26px,2.6vw,34px);background:var(--paper-2);}
-.type-card .lbl{display:block;margin-bottom:22px;}
-.type-card .tspec{font-family:'Exo',var(--font-display);font-weight:400;font-size:clamp(40px,4.4vw,58px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0 0 22px;}
-.type-card .tdesc{font-size:14px;line-height:1.62;color:var(--muted);margin:0 0 26px;}
-.type-card .tdiv{height:1px;background:var(--line);margin:0 0 22px;}
-.type-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-.type-foot .tspec2{font-family:'Exo',var(--font-display);font-weight:600;font-size:26px;letter-spacing:-.01em;margin:0 0 6px;}
-.type-dots{display:flex;gap:8px;}
-.type-dots span{width:13px;height:13px;border-radius:50%;}
+/* —— DESIGN LANGUAGE —— */
+.dl{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);margin-top:clamp(30px,3vw,42px);box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.dl-row{display:grid;border-bottom:1px solid var(--line-soft);}
+.dl-row:last-child{border-bottom:0;}
+.dl-row.r3{grid-template-columns:repeat(3,1fr);}
+.dl-row.r2{grid-template-columns:1.4fr 1fr;}
+.dl-cell{padding:clamp(20px,2vw,26px);border-right:1px solid var(--line-soft);}
+.dl-cell:last-child{border-right:0;}
+.dl-cell > .lbl{display:block;margin-bottom:16px;}
+@media(max-width:860px){.dl-row.r3,.dl-row.r2{grid-template-columns:1fr;}.dl-cell{border-right:0;border-bottom:1px solid var(--line-soft);}.dl-cell:last-child{border-bottom:0;}}
+/* foundations */
+.dl-sw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.dl-sw > div{display:flex;align-items:center;gap:10px;min-width:0;}
+.dl-sw i{width:22px;height:22px;flex:none;border-radius:3px;border:1px solid rgba(0,0,0,.08);}
+.dl-sw span{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dl-type p{margin:0;color:var(--ink);}
+.dl-type .t1{font-family:'Exo',var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.02em;}
+.dl-type .t2{font-family:'Exo',var(--font-display);font-weight:500;font-size:17px;margin-top:8px;}
+.dl-type .t3{font-family:'Inter',var(--font-sans);font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.55;}
+.dl-grid8{display:flex;align-items:flex-end;gap:6px;height:52px;border-bottom:1px solid var(--line);padding-bottom:0;}
+.dl-grid8 i{width:8px;background:var(--accent);opacity:.28;}
+.dl-grid8 i:nth-child(2){opacity:.44}.dl-grid8 i:nth-child(3){opacity:.6}.dl-grid8 i:nth-child(4){opacity:.76}.dl-grid8 i:nth-child(5){opacity:.92}
+.dl-note{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:12px 0 0;}
+/* components */
+.dl-comps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px;}
+@media(max-width:860px){.dl-comps{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.dl-comps{grid-template-columns:1fr;}}
+.dl-comp{display:flex;flex-direction:column;gap:9px;}
+.dl-comp > span{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);}
+.ui-btn{display:inline-flex;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:13px;font-weight:500;padding:0 18px;border-radius:6px;border:1px solid transparent;background:#1f6ae0;color:#fff;align-self:flex-start;cursor:default;}
+.ui-btn.sec{background:transparent;border-color:var(--line);color:var(--ink);}
+.ui-in{display:flex;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:13px;color:var(--muted);padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);}
+.ui-in.dd{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.ui-in.dd svg{flex:none;color:var(--muted);}
+.ui-card{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--paper-2);}
+.ui-card b{display:block;font-family:'Exo',var(--font-display);font-size:15px;font-weight:600;}
+.ui-card i{font-style:normal;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--muted);}
+.ui-tr{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:12.5px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);}
+.ui-tr code{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+.ui-tr em{font-style:normal;width:8px;height:8px;border-radius:50%;background:#dc2626;}
+/* states */
+.dl-states{display:flex;flex-wrap:wrap;gap:14px;}
+.dl-state{display:flex;flex-direction:column;gap:7px;align-items:flex-start;}
+.dl-state span{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);}
+.ui-btn.hov{background:#1854b4;}
+.ui-btn.dis{background:var(--line);color:var(--muted-2);}
+.ui-btn.foc{box-shadow:0 0 0 3px rgba(31,106,224,.4);}
+/* accessibility */
+.dl-a11y{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;}
+.dl-a11y li{display:flex;align-items:flex-start;gap:10px;font-family:'Inter',var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-soft);}
+.dl-a11y svg{flex:none;margin-top:2px;color:#2d7ffb;}
+/* principles */
+.dl-prin{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:700px){.dl-prin{grid-template-columns:repeat(2,1fr);}}
+.dl-prin div{display:flex;flex-direction:column;gap:8px;}
+.dl-prin svg{color:var(--accent);}
+.dl-prin b{font-family:'Exo',var(--font-display);font-weight:600;font-size:14.5px;}
+.dl-prin span{font-size:12.5px;line-height:1.45;color:var(--muted);}
 
 /* —— CONTACT —— */
 .contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
 .contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.contact-btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 30px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.contact-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
 .email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
 .email:hover{color:var(--accent);border-color:var(--accent);}
 .form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
@@ -162,16 +212,26 @@ img{display:block;max-width:100%;}
 .send-btn{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .18s ease;}
 .send-btn:hover{background:var(--accent);}
 .footbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;}
+.share-top{border-bottom:1px solid var(--line-soft);}
+.share-top .wrap{display:flex;justify-content:flex-end;padding-top:18px;padding-bottom:18px;}
+.share{display:flex;align-items:center;gap:10px;}
+.share .lbl{margin-right:2px;}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--muted);cursor:pointer;padding:0;transition:color .2s,border-color .2s,background .2s;}
+.share a:hover,.share button:hover{color:var(--accent);border-color:var(--accent);}
+.share svg{width:15px;height:15px;}
+.share .copied{position:relative;}
+.share .copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){.footbar{justify-content:flex-start;}}
+
 .footbar a:hover{color:var(--accent);}
 
 /* —— RESPONSIVE —— */
 @media(max-width:1024px){
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
-  .ds-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;gap:52px;}
   .shot,.shot.flip{grid-template-columns:1fr;row-gap:24px;}
-  .shot > *,.shot.flip > *{grid-column:1 !important;}
+  .shot > *,.shot.flip > *{grid-column:1 !important;grid-row:auto !important;}
   .shot-cap{position:static;}
   .shot-cap p{max-width:60ch;}
 }
@@ -213,7 +273,8 @@ img{display:block;max-width:100%;}
 <body>
 
 <!-- PASSWORD GATE -->
-<div class="gate" id="gate">
+<!-- Password gate temporarily disabled: remove the "hidden" class and the early return in the script below to reinstate it. -->
+<div class="gate hidden" id="gate">
   <div class="gate-card">
     <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <span class="lbl">Protected Case Study</span>
@@ -224,19 +285,19 @@ img{display:block;max-width:100%;}
       <button type="submit">Unlock &rarr;</button>
       <p class="gate-err" id="gateErr">Incorrect password. Please try again.</p>
     </form>
-    <a class="gate-back" href="../home.html#work">&larr; Return to Selected Works</a>
+    <a class="gate-back" href="../index.html#work">&larr; Return to Selected Works</a>
   </div>
 </div>
 
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../home.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <a class="brand" href="../index.html"><b>Fergal Keane</b><span>UI/UX</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
-      <a href="../home.html#work">Work</a>
+      <a href="../index.html#work">Work</a>
       <a href="../Experience.html">Experience</a>
-      <a href="../home.html#contact">Contact</a>
+      <a href="../index.html#contact">Contact</a>
       </nav>
   </div>
 </header>
@@ -244,7 +305,7 @@ img{display:block;max-width:100%;}
 <main>
 <!-- BACK -->
 <div class="wrap backbar">
-  <a class="back-link" href="../home.html#work">&larr; Selected Works</a>
+  <a class="back-link" href="../index.html#work">&larr; Selected Works</a>
 </div>
 
 <!-- HERO -->
@@ -255,13 +316,14 @@ img{display:block;max-width:100%;}
       <div class="hero-shade"></div>
       <div class="hero-content">
         <div>
-          <p class="lbl">Fintech &amp; Insurtech</p>
+          <p class="lbl">Insurtech</p>
           <h1 class="hero-title">Real World</h1>
-          <p class="hero-tagline">Six lines of business (Marine, Property, Aviation, Energy, Cargo &amp; Ports) unified on one live global risk map for (re)insurers.</p>
+          <p class="hero-powered">Powered by Skytek</p>
+          <p class="hero-tagline">Exposure, sanctions and live risk intelligence for (re)insurers, across eight lines of business in one platform.</p>
+          <ul class="hero-lob"><li>Marine Hull</li><li>Marine War</li><li>Property</li><li>Aviation</li><li>Energy / Offshore</li><li>Ports &amp; Terminals</li><li>Cargo</li><li>Cyber</li></ul>
         </div>
         <div class="hero-meta">
-          <div><p class="lbl">Year</p><p class="mv">2022</p></div>
-          <div><p class="lbl">Client</p><p class="mv">Skytek</p></div>
+          <div><p class="lbl">Year</p><p class="mv">Ongoing</p></div>
           <div><p class="lbl">Your Role</p><p class="mv">Lead Product &amp; UX Designer</p></div>
         </div>
       </div>
@@ -269,13 +331,24 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Share</span>
+      <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+      <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+      <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+      <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+    </div>
+  </div>
+</div>
+
 <!-- CHALLENGE + SOLUTION + IMPACT -->
 <section class="case-body">
   <div class="wrap">
     <div class="case-grid">
       <aside class="case-meta">
         <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">Lead Product &amp; UX Designer</p></div>
-        <div class="meta-item"><p class="lbl">Client</p><p class="meta-val">Skytek · Risk Intelligence</p></div>
         <div class="meta-item">
           <p class="lbl">Focus Areas</p>
           <ul class="check-list">
@@ -287,8 +360,8 @@ img{display:block;max-width:100%;}
         </div>
         <div class="meta-divider"></div>
         <div class="stats">
-          <div><p class="stat-num">6</p><p class="lbl">Lines of Business</p></div>
-          <div><p class="stat-num">1</p><p class="lbl">Global Map</p></div>
+          <div><p class="stat-num">8</p><p class="lbl">Lines of Business</p></div>
+          <div><p class="stat-num">Real-Time</p><p class="lbl">Exposure Monitoring</p></div>
         </div>
       </aside>
       <div class="case-content">
@@ -299,12 +372,12 @@ img{display:block;max-width:100%;}
         </div>
         <div class="case-block">
           <span class="lbl">02 · The Solution</span>
-          <h2 class="case-h">A unified intelligence platform built on one shared map paradigm.</h2>
-          <p class="case-p">Real World brings every portfolio onto a single live global map with real-time exposure, alerts and deep analytics. Each line of business gets a purpose-built workspace that shares one design language, navigation model and component library, so a marine underwriter and an aviation risk manager feel immediately at home in each other's screens.</p>
+          <h2 class="case-h">One intelligence platform, eight purpose-built risk workspaces.</h2>
+          <p class="case-p">Real World consolidates exposure aggregation, sanctions and compliance screening, live alerting and deep analytics into one workspace, with geospatial context where location matters. Each line of business gets a purpose-built workspace that shares one design language, navigation model and component library, so a marine underwriter and an aviation risk manager feel immediately at home in each other's screens.</p>
         </div>
         <div class="impact">
           <span class="lbl">03 · Impact</span>
-          <h2>$4.2B of exposure monitored live across six portfolios, with sanctions, weather and breach alerts surfaced the moment they occur.</h2>
+          <h2>Real-time exposure monitoring across eight portfolios at global scale, with sanctions, weather and breach alerts surfaced the moment they occur.</h2>
         </div>
       </div>
     </div>
@@ -317,69 +390,69 @@ img{display:block;max-width:100%;}
     <div class="sec-head">
       <span class="lbl">02.1 · The Product</span>
       <h2 class="sec-title">A guided walk through Real World</h2>
-      <p class="sec-lead">From a single sign-in to six specialised risk workspaces, every screen shares the same spatial logic: portfolios on the left, aggregated exposure in the centre, live risk on the right, and the world map below.</p>
+      <p class="sec-lead">Across eight specialised risk workspaces, every screen shares the same logic: portfolios on the left, aggregated exposure in the centre, live risk on the right, and the same drill-down path from portfolio to single asset.</p>
     </div>
 
     <div class="shots">
 
-      <!-- LOGIN -->
-      <article class="shot">
-        <div class="shot-cap">
-          <p class="shot-num">01 / Sign In</p>
-          <h3>An end-to-end entry point</h3>
-          <p>A split sign-in pairs a rotating gallery of insured assets with a focused authentication card offering SSO and SAML for enterprise, plus a live systems-operational status indicator that sets the tone before a user is even inside.</p>
-          <div class="shot-tags"><span>Auth</span><span>SSO / SAML</span><span>Brand</span></div>
-        </div>
-        <div class="frame">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / sign-in</span></div>
-          <img src="../images/realworld/RealWorld_Login.jpg" alt="Real World sign-in screen" loading="lazy">
-        </div>
-      </article>
-
       <!-- MAIN DASHBOARD -->
       <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">02 / Command Center</p>
+          <p class="shot-num">01 / Unified Dashboard</p>
           <h3>The whole book at a glance</h3>
           <p>The landing dashboard greets each risk manager with headline KPIs for total exposure, active policies, live risk alerts and global regions, then routes them into Marine, Property, Aviation and Offshore/Energy through large, asset-counted entry cards.</p>
           <div class="shot-tags"><span>Overview</span><span>KPI Cards</span><span>Navigation</span></div>
         </div>
         <div class="frame">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / dashboard</span></div>
-          <img src="../images/realworld/RealWorld_Main_Dashboard.jpg" alt="Real World main dashboard overview" loading="lazy">
+          <img src="../images/realworld/RealWorld_Main_Dashboard.png" alt="Real World main dashboard overview" loading="lazy">
         </div>
       </article>
 
       <!-- MARINE -->
       <article class="shot">
         <div class="shot-cap">
-          <p class="shot-num">03 / Marine</p>
-          <h3>A live fleet on one map</h3>
+          <p class="shot-num">02 / Marine</p>
+          <h3>A live fleet under continuous watch</h3>
           <p>The marine workspace plots the entire insured fleet on a global chart. Selecting a vessel opens an at-a-glance voyage card covering route, speed, draught, flag and policy type, while regional aggregation and a sanctions / AIS-silence alert rail keep accumulation in check.</p>
-          <div class="shot-tags"><span>Live Map</span><span>AIS</span><span>Exposure Aggregation</span></div>
+          <div class="shot-tags"><span>AIS Tracking</span><span>Voyage Data</span><span>Exposure Aggregation</span></div>
         </div>
         <div class="frame">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine</span></div>
-          <img src="../images/realworld/RealWorld_Marine_Dashboard.jpg" alt="Real World marine overview with live vessel map" loading="lazy">
+          <img src="../images/realworld/RealWorld_Marine_Dashboard.png" alt="Real World marine overview with live vessel map" loading="lazy">
         </div>
       </article>
 
       <!-- VESSEL DETAIL -->
       <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">04 / Vessel Detail</p>
+          <p class="shot-num">03 / Vessel Detail</p>
           <h3>Everything known about a single hull</h3>
           <p>Drilling into a vessel unifies policy details, port calls, a 0&ndash;100 risk score with year-on-year trend, inspection history, environmental CII ratings and a scrubbable AIS track. It is the deepest view in the platform, organised so nothing competes for attention.</p>
           <div class="shot-tags"><span>Risk Score</span><span>Environmental</span><span>Tracking</span></div>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine / vessel</span></div>
-          <div class="scroll-body"><img src="../images/realworld/RealWorld_Vessel_Details.jpg" alt="Real World vessel detail page for Fresh Breeze" loading="lazy"></div>
+          <div class="scroll-body"><img src="../images/realworld/RealWorld_Vessel_Details.png" alt="Real World vessel detail page for Fresh Breeze" loading="lazy"></div>
+        </div>
+      </article>
+
+      <!-- CARGO -->
+      <article class="shot">
+        <div class="shot-cap">
+          <p class="shot-num">04 / Cargo</p>
+          <h3>Declarations screened against AIS</h3>
+          <p>Cargo voyage analysis turns an uploaded declarations workbook into a screened portfolio, with every vessel checked against AIS for voyage progress and breach of a stated region. Completed, started, pending and breached voyages roll up into a summary, with each route inspectable on the map.</p>
+          <div class="shot-tags"><span>Voyage Breach</span><span>Workbook Upload</span><span>Clash Alerts</span></div>
+        </div>
+        <div class="frame scroll">
+          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / cargo</span></div>
+          <div class="scroll-body"><img src="../images/realworld/RealWorld_Cargo_Dashboard.png" alt="Real World cargo voyage analysis" loading="lazy"></div>
         </div>
       </article>
 
       <!-- AVIATION -->
-      <article class="shot">
+      <article class="shot flip">
         <div class="shot-cap">
           <p class="shot-num">05 / Aviation</p>
           <h3>From global airspace to a single gate</h3>
@@ -389,45 +462,60 @@ img{display:block;max-width:100%;}
         <div>
           <div class="frame">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / aviation</span></div>
-            <img src="../images/realworld/RealWorld_Aviation_Dashboard.jpg" alt="Real World aviation overview" loading="lazy">
+            <img src="../images/realworld/RealWorld_Aviation_Dashboard.png" alt="Real World aviation overview" loading="lazy">
           </div>
-          <div class="shot-pair">
-            <div class="frame scroll">
-              <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ aviation / LAX</span></div>
-              <div class="scroll-body"><img src="../images/realworld/RealWorld_Airport_Details.jpg" alt="Real World airport detail for Los Angeles International" loading="lazy"></div>
-            </div>
-            <div style="display:flex;align-items:center;">
-              <p class="case-p" style="font-size:14.5px;">The airport view answers the underwriter's real question: <em>how much value is sitting on the ground right now?</em> It answers with portfolio aircraft, exposure by coverage type and a live map of arriving and parked aircraft.</p>
-            </div>
+          <p class="case-p" style="font-size:14.5px;margin:26px 0 14px;">The airport view answers the underwriter's real question: <em>how much value is sitting on the ground right now?</em> It answers with portfolio aircraft, exposure by coverage type and a live map of arriving and parked aircraft.</p>
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ aviation / LAX</span></div>
+            <div class="scroll-body"><img src="../images/realworld/RealWorld_Airport_Details.png" alt="Real World airport detail for Los Angeles International" loading="lazy"></div>
+          </div>
+          <p class="case-p" style="font-size:14.5px;margin:26px 0 14px;">One level deeper, the aircraft record carries hull and liability values, operator and lease details, utilisation and maintenance status, and the airports it has recently touched, so a single tail number can be assessed without leaving the workspace.</p>
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ aviation / aircraft</span></div>
+            <div class="scroll-body"><img src="../images/realworld/RealWorld_Aircraft_Details.png" alt="Real World aircraft detail page with flight track and specifications" loading="lazy"></div>
           </div>
         </div>
       </article>
 
       <!-- PROPERTY -->
-      <article class="shot flip">
+      <article class="shot">
         <div class="shot-cap">
           <p class="shot-num">06 / Property</p>
           <h3>Catastrophe exposure, geolocated</h3>
-          <p>The property workspace maps $96B of insured value against high-value markets and live weather risk across wildfire zones, hurricane tracks and seismic zones, so concentration in a cat-exposed region is visible the instant a threshold is breached.</p>
+          <p>The property workspace maps insured value against high-value markets and live weather risk across wildfire zones, hurricane tracks and seismic zones, so concentration in a cat-exposed region is visible the instant a threshold is breached.</p>
           <div class="shot-tags"><span>Cat Risk</span><span>Weather</span><span>Regional Values</span></div>
         </div>
-        <div class="frame">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / property</span></div>
-          <img src="../images/realworld/RealWorld_Property_Dashboard.jpg" alt="Real World property overview with weather risk" loading="lazy">
+        <div>
+          <div class="frame">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / property</span></div>
+            <img src="../images/realworld/RealWorld_Property_Dashboard.png" alt="Real World property overview with weather risk" loading="lazy">
+          </div>
+          <p class="case-p" style="font-size:14.5px;margin:26px 0 14px;">Opening a single property gives valuation, construction year and portfolio membership alongside a satellite location view, current conditions and a risk radar that flags live weather threats to that exact address.</p>
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ property / details</span></div>
+            <div class="scroll-body"><img src="../images/realworld/RealWorld_Property_Details.png" alt="Real World property detail page with location, weather and risk radar" loading="lazy"></div>
+          </div>
         </div>
       </article>
 
-      <!-- CARGO -->
-      <article class="shot">
+      <!-- NAT CAT EVENTS -->
+      <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">07 / Cargo</p>
-          <h3>Declarations screened against AIS</h3>
-          <p>Cargo voyage analysis turns an uploaded declarations workbook into a screened portfolio, with every vessel checked against AIS for voyage progress and breach of a stated region. Completed, started, pending and breached voyages roll up into a summary, with each route inspectable on the map.</p>
-          <div class="shot-tags"><span>Voyage Breach</span><span>Workbook Upload</span><span>Clash Alerts</span></div>
+          <p class="shot-num">07 / Nat Cat Events</p>
+          <h3>Damage assessed from orbit</h3>
+          <p>Nat Cat coverage spans every major peril the book is exposed to, from wildfires and windstorms to earthquakes, floods and tropical cyclones. When an event hits, the view sets the hazard perimeter over post-event satellite imagery, grades every property inside it from undamaged to completely destroyed, and lists the insured addresses caught within the footprint alongside an RDS classification and exposure figure.</p>
+          <div class="shot-tags"><span>Event Footprint</span><span>Damage Grading</span><span>Before / After</span></div>
         </div>
-        <div class="frame scroll">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / cargo</span></div>
-          <div class="scroll-body"><img src="../images/realworld/RealWorld_Cargo_Dashboard.jpg" alt="Real World cargo voyage analysis" loading="lazy"></div>
+        <div>
+          <div class="frame">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ nat-cat / event</span></div>
+            <img src="../images/realworld/RealWorld_NatCat_Compare.png" alt="Real World nat cat event detail showing the Los Angeles wildfire perimeter and affected properties" loading="lazy">
+          </div>
+          <p class="case-p" style="font-size:14.5px;margin:26px 0 14px;">Zooming to an individual address swaps the map for a draggable before-and-after comparison, so an adjuster can confirm the state of a single roof against pre-event imagery without leaving the claim.</p>
+          <div class="frame">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ nat-cat / event / property</span></div>
+            <img src="../images/realworld/RealWorld_NatCat_Extent.png" alt="Before and after satellite comparison for a property inside the fire perimeter" loading="lazy">
+          </div>
         </div>
       </article>
 
@@ -435,38 +523,73 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- DESIGN SYSTEM -->
+<!-- DESIGN LANGUAGE -->
 <section class="case-section">
   <div class="wrap">
-    <div class="ds-grid">
-      <div>
-        <span class="lbl" style="display:block;margin-bottom:20px;">02.2 · Design System</span>
-        <h2 class="sec-title">One system, six asset classes</h2>
-        <p class="ds-lead">A shared component library of KPI tiles, segmented toggles, sortable exposure tables, alert rails and a common map shell keeps every workspace coherent while letting each line of business speak its own data.</p>
-        <div class="swatches">
-          <div class="swatch">
-            <span class="chip" style="background:#2563eb;"></span>
-            <div><p class="sname">Signal Blue</p><p class="lbl">#2563EB · Primary / Active</p></div>
-          </div>
-          <div class="swatch">
-            <span class="chip" style="background:#0b2e5e;"></span>
-            <div><p class="sname">Deep Navy</p><p class="lbl">#0B2E5E · Headings / Map</p></div>
-          </div>
-          <div class="swatch">
-            <span class="chip" style="background:#e0552c;"></span>
-            <div><p class="sname">Alert Amber-Red</p><p class="lbl">#E0552C · Breach / Critical</p></div>
+    <div class="sec-head">
+      <span class="lbl">02.2 · Design Language</span>
+      <h2 class="sec-title">One language, eight workspaces</h2>
+      <p class="sec-lead">A small, strict foundation, six recurring components and one set of states. Enough shared vocabulary that a marine underwriter and an aviation risk manager read each other's screens without relearning anything.</p>
+    </div>
+    <div class="dl">
+      <div class="dl-row r3">
+        <div class="dl-cell">
+          <span class="lbl">Palette</span>
+          <div class="dl-sw"><div><i style="background:#1f6ae0"></i><span>Brand</span></div><div><i style="background:#111827"></i><span>Slate</span></div><div><i style="background:#2E7D4F"></i><span>Success</span></div><div><i style="background:#D97706"></i><span>Warning</span></div><div><i style="background:#dc2626"></i><span>Danger</span></div><div><i style="background:#eef1f6"></i><span>Surface</span></div></div>
+        </div>
+        <div class="dl-cell dl-type">
+          <span class="lbl">Typography</span>
+          <p class="t1">Exo, Heading</p>
+          <p class="t2">Exo Medium, Subheading</p>
+          <p class="t3">Inter Regular, body and tabular data at 14px, tuned for dense exposure tables.</p>
+        </div>
+        <div class="dl-cell">
+          <span class="lbl">Spacing</span>
+          <div class="dl-grid8"><i style="height:8px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:32px"></i><i style="height:48px"></i></div>
+          <p class="dl-note">8px base step, 8 / 16 / 24 / 32 / 48</p>
+        </div>
+      </div>
+      <div class="dl-row">
+        <div class="dl-cell">
+          <span class="lbl">Core Components</span>
+          <div class="dl-comps">
+            <div class="dl-comp"><span>Primary button</span><button class="ui-btn" type="button" tabindex="-1">Run screening</button></div>
+            <div class="dl-comp"><span>Secondary button</span><button class="ui-btn sec" type="button" tabindex="-1">Export</button></div>
+            <div class="dl-comp"><span>Text input</span><div class="ui-in">IMO 9548843</div></div>
+            <div class="dl-comp"><span>Dropdown</span><div class="ui-in dd">Marine Hull <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+            <div class="dl-comp"><span>Card</span><div class="ui-card"><b>Total exposure</b><i>Aggregated, live</i></div></div>
+            <div class="dl-comp"><span>Data table row</span><div class="ui-tr"><span>MSC Aurora</span><code>9548843</code><em></em></div></div>
           </div>
         </div>
       </div>
-      <div class="type-card">
-        <span class="lbl">Interface Type</span>
-        <p class="tspec">Aa<br>0123</p>
-        <p class="tdesc">Exo carries headings and KPI figures with a technical, engineered edge; Inter handles interface text and tabular data, tuned for dense financial tables and quick scanning under operational pressure.</p>
-        <div class="tdiv"></div>
-        <div class="type-foot">
-          <div><p class="tspec2">Exo</p><span class="lbl">Display &amp; Headings</span></div>
-          <div><p class="tspec2" style="font-family:'Inter',sans-serif;">Inter</p><span class="lbl">System UI &amp; Data</span></div>
-          <div class="type-dots"><span style="background:#2563eb;"></span><span style="background:#0b2e5e;"></span><span style="background:#e0552c;"></span></div>
+      <div class="dl-row r2">
+        <div class="dl-cell">
+          <span class="lbl">States</span>
+          <div class="dl-states">
+            <div class="dl-state"><span>Default</span><button class="ui-btn" type="button" tabindex="-1">Screen</button></div>
+            <div class="dl-state"><span>Hover</span><button class="ui-btn hov" type="button" tabindex="-1">Screen</button></div>
+            <div class="dl-state"><span>Disabled</span><button class="ui-btn dis" type="button" tabindex="-1" disabled>Screen</button></div>
+            <div class="dl-state"><span>Focus</span><button class="ui-btn foc" type="button" tabindex="-1">Screen</button></div>
+          </div>
+        </div>
+        <div class="dl-cell">
+          <span class="lbl">Accessibility</span>
+          <ul class="dl-a11y">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>WCAG AA contrast on every text and status colour</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>Visible keyboard focus on all interactive elements</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>44px minimum touch targets</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dl-row">
+        <div class="dl-cell">
+          <span class="lbl">Principles</span>
+          <div class="dl-prin">
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><b>Consistency</b><span>One pattern per job, reused everywhere.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><b>Clarity</b><span>The number first, the chrome second.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v.01M12 11v6"/></svg><b>Accessibility</b><span>Legible under pressure, on any screen.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20V7"/></svg><b>Scalability</b><span>A ninth line of business adds no new parts.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -480,17 +603,20 @@ img{display:block;max-width:100%;}
       <div>
         <p class="lbl">Get In Touch</p>
         <h2>Let's craft something meaningful together.</h2>
-        <p class="contact-body">Currently open to selective senior contracts, UX consultations, and architecture leadership roles globally.</p>
-        <a class="email" href="mailto:studio@fergalkeane.com">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><polyline points="3 6 12 13 21 6"/></svg>
-          studio@fergalkeane.com
-        </a>
+        <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"/><polyline points="12.5 5.5 19 12 12.5 18.5"/></svg></a>
       </div>
       
     </div>
     <div class="footbar">
       <p class="lbl">&copy; 2026 Design by Fergal Keane</p>
-      <a class="lbl" href="../home.html#work">Back to Selected Works &nearr;</a>
+      <div class="share">
+        <span class="lbl">Share</span>
+        <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+        <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+        <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+        <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;"><a class="lbl" href="../index.html#work">Back to Selected Works &nearr;</a><a class="lbl" href="../privacy.html">Privacy &nearr;</a></div>
     </div>
   </div>
 </section>
@@ -500,14 +626,14 @@ img{display:block;max-width:100%;}
   /* Password gate — client-side preview only. In WordPress use native
      page password protection or a membership plugin for real security. */
   (function(){
-    var KEY='fk-unlock-realworld', PW='stepaside';
+    return; /* gate disabled, delete this line to reinstate */
+    var PW='stepaside';
     var gate=document.getElementById('gate');
-    if(sessionStorage.getItem(KEY)==='1'){gate.classList.add('hidden');}
-    else{
+    {
       document.documentElement.style.overflow='hidden';
       var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
       f.addEventListener('submit',function(e){e.preventDefault();
-        if(pw.value.trim().toLowerCase()===PW){sessionStorage.setItem(KEY,'1');gate.classList.add('hidden');document.documentElement.style.overflow='';}
+        if(pw.value.trim().toLowerCase()===PW){gate.classList.add('hidden');document.documentElement.style.overflow='';}
         else{err.classList.add('show');pw.value='';pw.focus();}
       });
       pw.focus();
@@ -517,6 +643,15 @@ img{display:block;max-width:100%;}
   const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
   if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+</script>
+<script>
+(function(){var bars=document.querySelectorAll('.share');if(!bars.length)return;
+var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+var m={li:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?url='+u+'&text='+t,em:'mailto:?subject='+t+'&body='+u};
+bars.forEach(function(b){b.querySelectorAll('a[data-share]').forEach(function(a){a.href=m[a.dataset.share];});
+var c=b.querySelector('[data-share="copy"]');
+c.addEventListener('click',function(){navigator.clipboard.writeText(location.href).then(function(){c.classList.add('copied');setTimeout(function(){c.classList.remove('copied');},1600);});});});
+})();
 </script>
 </body>
 </html>
