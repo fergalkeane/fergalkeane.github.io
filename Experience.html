@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experience — Fergal Keane</title>
+<title>Experience, Fergal Keane</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -62,8 +62,9 @@ img{display:block;max-width:100%;}
 
 /* Experience timeline */
 .sec-label{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:42px;}
-.xp{display:flex;flex-direction:column;gap:54px;}
-.job{display:grid;grid-template-columns:96px 1fr;gap:30px;}
+.xp{display:flex;flex-direction:column;gap:0;}
+.job{display:grid;grid-template-columns:96px 1fr;gap:30px;padding-bottom:54px;border-bottom:1px solid var(--line-soft);}
+.job:last-child{padding-bottom:0;border-bottom:none;}
 .job-when .lbl{color:var(--ink-soft);line-height:1.5;}
 .job-when .badge{display:inline-block;margin-top:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;}
 .job h3{font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.2vw,27px);letter-spacing:-.01em;line-height:1.05;margin:0;}
@@ -135,7 +136,7 @@ img{display:block;max-width:100%;}
   .nav-toggle{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
   .nav-toggle span{width:22px;height:2px;background:var(--ink);}
   .rhead{padding:46px 0 0;}
-  .job{grid-template-columns:1fr;gap:14px;}
+  .job{grid-template-columns:1fr;gap:14px;padding-bottom:34px;}
   .job-when{display:flex;align-items:center;gap:14px;}
   .job-when .badge{margin-top:0;}
   .field-row{grid-template-columns:1fr;}
@@ -159,7 +160,7 @@ img{display:block;max-width:100%;}
   .aside{position:static !important;top:auto;gap:18px;}
   .sec-label{margin-bottom:20px;padding-top:10px;}
   .xp{gap:22px;}
-  .job{grid-template-columns:72px 1fr;gap:18px;break-inside:avoid;align-items:baseline;}
+  .job{grid-template-columns:72px 1fr;gap:18px;break-inside:avoid;align-items:baseline;padding-bottom:22px;}
   .job-when{display:block;padding-top:0;}
   .job-when .lbl{display:block;line-height:1.25;}
   .job-when .badge{display:block;width:-moz-fit-content;width:fit-content;margin-top:8px;}
@@ -194,12 +195,12 @@ img{display:block;max-width:100%;}
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="home.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <a class="brand" href="index.html"><b>Fergal Keane</b><span>UI/UX</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
-      <a href="home.html#work">Work</a>
+      <a href="index.html#work">Work</a>
       <a href="Experience.html" class="active">Experience</a>
-      <a href="home.html#contact">Contact</a>
+      <a href="index.html#contact">Contact</a>
       </nav>
   </div>
 </header>
@@ -230,7 +231,6 @@ img{display:block;max-width:100%;}
     <div class="rgrid">
       <!-- EXPERIENCE -->
       <div>
-        <div class="sec-label"><span class="lbl">Experience</span><span class="lbl">2001 — Present</span></div>
         <div class="xp">
 
           <article class="job">
@@ -243,7 +243,7 @@ img{display:block;max-width:100%;}
                 <li>Build and maintain design systems.</li>
                 <li>Collaborate with the European Space Agency, NASA and independent space technology companies on cutting-edge initiatives.</li>
                 <li>Constantly in touch with clients, refining products based on user experience.</li>
-                <li>Instrumental in the launch of Skytek &lsquo;Satellite Club&rsquo; — an online platform that puts Earth Observation &amp; Satellite Technology in the hands of the insurer.</li>
+                <li>Instrumental in the launch of Skytek &lsquo;Satellite Club&rsquo;, an online platform that puts Earth Observation &amp; Satellite Technology in the hands of the insurer.</li>
                 <li>Lead creative design on reports for major insurance companies.</li>
                 <li>Design, maintain, and develop company websites.</li>
                 <li>Deliver social media and marketing campaigns.</li>
@@ -271,10 +271,10 @@ img{display:block;max-width:100%;}
                 <li>Assisted companies under the Oyster Capital umbrella with product development, branding and marketing activities.</li>
                 <li>Worked with start-ups and well-established companies, including:
                   <ul class="sub">
-                    <li>Cloudwords — SaaS, Automated Translation Platform</li>
-                    <li>Fieldaware — SaaS, Field Service Management</li>
-                    <li>Novaerus — Air Purification Devices</li>
-                    <li>Wicklow Wolf — Brewery</li>
+                    <li>Cloudwords: SaaS, Automated Translation Platform</li>
+                    <li>Fieldaware: SaaS, Field Service Management</li>
+                    <li>Novaerus: Air Purification Devices</li>
+                    <li>Wicklow Wolf: Brewery</li>
                   </ul>
                 </li>
                 <li>Worked with stakeholders, developers, managers and team members to create new or improved products from low-fidelity wireframes to the final product.</li>
@@ -307,7 +307,7 @@ img{display:block;max-width:100%;}
               <h3>SmartForce</h3>
               <p class="job-role">Senior Graphic Designer</p>
               <ul>
-                <li>Worked with a creative team of designers and developers responsible for the launch of the company&rsquo;s first online e-Learning Portal (LMS) — including UI design, brand development, sales and marketing materials, and liaising with developers and external design and advertising agencies.</li>
+                <li>Worked with a creative team of designers and developers responsible for the launch of the company&rsquo;s first online e-Learning Portal (LMS), including UI design, brand development, sales and marketing materials, and liaising with developers and external design and advertising agencies.</li>
                 <li>Maintained a pivotal role in developing the brand across all media.</li>
                 <li>Managed design and multimedia teams in Ireland and San Francisco.</li>
                 <li>Responsible for creating new visual standards and training new employees.</li>
@@ -382,7 +382,7 @@ img{display:block;max-width:100%;}
         <div class="card dark">
           <span class="lbl">Awards</span>
           <ul class="awards">
-            <li><b>Presidents Club</b>Skillsoft — Outstanding Achievement Award</li>
+            <li><b>Presidents Club</b>Skillsoft, Outstanding Achievement Award</li>
             <li><b>Employee of the Year</b>SmartForce</li>
             <li><b>EULDA</b>European Logo Design Annual (CreativeOoze)</li>
           </ul>
@@ -413,7 +413,7 @@ img{display:block;max-width:100%;}
     </div>
     <div class="footbar">
       <p class="lbl">© 2026 Design by Fergal Keane</p>
-      <a class="lbl" href="#" onclick="window.print();return false;">Download Experience (PDF) ↗</a>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;"><a class="lbl" href="#" onclick="window.print();return false;">Download Experience (PDF) ↗</a><a class="lbl print-hide" href="privacy.html">Privacy ↗</a></div>
     </div>
   </div>
 </section>

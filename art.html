@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fergal Keane, Art</title>
+<title>Fergal Keane, Artist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -67,6 +67,12 @@ image-slot{color:rgba(255,255,255,.8);}
 .tile .cap .t{font-family:var(--font-display);font-weight:600;font-size:15px;color:#fff;margin:0;}
 .tile .cap .m{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72);margin:0;}
 .tile:hover .cap{opacity:1;transform:none;}
+.tile-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.72);z-index:4;width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.94);color:#111;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s ease,transform .25s ease;pointer-events:none;}
+.tile:hover .tile-zoom{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.tile-zoom svg{transition:transform .34s cubic-bezier(.22,.9,.3,1);}
+.tile:hover .tile-zoom svg{animation:zoomPulse .5s cubic-bezier(.22,.9,.3,1);}
+@keyframes zoomPulse{0%{transform:none}45%{transform:scale(1.22)}100%{transform:none}}
+@media(prefers-reduced-motion:reduce){.tile:hover .tile-zoom svg{animation:none;}}
 .tile[data-ready] .cap{display:flex;}
 /* LIGHTBOX */
 .lb{position:fixed;inset:0;z-index:200;display:none;background:rgba(8,8,8,.95);}
@@ -108,17 +114,16 @@ image-slot{color:rgba(255,255,255,.8);}
 <body id="top">
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="home.html"><b>Fergal Keane</b><span>Art</span></a>
+    <a class="brand" href="index.html"><b>Fergal Keane</b><span>Art</span></a>
     <nav class="nav-links" id="navLinks">
-      <a href="home.html">← Design Work</a>
+      <a href="index.html">← Design Work</a>
     </nav>
   </div>
 </header>
 <main>
 <section class="mast">
   <div class="wrap">
-    <p class="lbl">Paintings &amp; Drawings</p>
-    <h1>Fergal Keane, Art</h1>
+    <h1>Fergal Keane</h1>
     <div class="mast-row">
       <div class="about">
         <p><b>Fergal Keane is an Irish artist known for his distinctive approach to visual art.</b> Born in County Wexford, Keane's early life was deeply influenced by the landscape and historic narratives of his surroundings.</p>
@@ -139,17 +144,17 @@ image-slot{color:rgba(255,255,255,.8);}
       <p class="lbl">Click any piece to enlarge</p>
     </div>
     <div class="gal-grid" id="galGrid">
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_002_thumb.jpg" data-full="images/art/artwork_002.jpg" loading="lazy" alt="Figure in a red vest falling backwards through cloud" style="aspect-ratio:1/1;object-fit:cover;width:100%"><figcaption class="cap"><p class="t">Elevation 1</p><p class="m">Acrylic on canvas</p></figcaption></figure>
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_004_thumb.jpg" data-full="images/art/artwork_004.jpg" loading="lazy" alt="Figure in a blue shirt suspended mid-leap against a warm ground" style="aspect-ratio:1/1;object-fit:cover;width:100%"><figcaption class="cap"><p class="t">Elevation 2</p><p class="m">Acrylic on canvas</p></figcaption></figure>
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_005_thumb.jpg" data-full="images/art/artwork_005.jpg" loading="lazy" alt="Man from behind, arms outstretched against a blue sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><figcaption class="cap"><p class="t">Over Here</p><p class="m">Acrylic on canvas</p></figcaption></figure>
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_003_thumb.jpg" data-full="images/art/artwork_003.jpg" loading="lazy" alt="Dancer in a yellow dress suspended against a pale sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><figcaption class="cap"><p class="t">Golden Flight</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><img src="images/art/artwork_002_thumb.jpg" data-full="images/art/artwork_002.jpg" loading="lazy" alt="Figure in a red vest falling backwards through cloud" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"/><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"/></svg></span><figcaption class="cap"><p class="t">Elevation 1</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><img src="images/art/artwork_004_thumb.jpg" data-full="images/art/artwork_004.jpg" loading="lazy" alt="Figure in a blue shirt suspended mid-leap against a warm ground" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"/><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"/></svg></span><figcaption class="cap"><p class="t">Elevation 2</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><img src="images/art/artwork_005_thumb.jpg" data-full="images/art/artwork_005.jpg" loading="lazy" alt="Man from behind, arms outstretched against a blue sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"/><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"/></svg></span><figcaption class="cap"><p class="t">Over Here</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><img src="images/art/artwork_003_thumb.jpg" data-full="images/art/artwork_003.jpg" loading="lazy" alt="Dancer in a yellow dress suspended against a pale sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"/><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"/></svg></span><figcaption class="cap"><p class="t">Golden Flight</p><p class="m">Acrylic on canvas</p></figcaption></figure>
     </div>
   </div>
 </section>
 <section class="foot">
   <div class="wrap footbar">
     <p class="lbl">© 2026 Fergal Keane</p>
-    <a class="lbl" href="home.html">Back to design work ↗</a>
+    <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;"><a class="lbl" href="index.html">Back to design work ↗</a><a class="lbl" href="privacy.html">Privacy ↗</a></div>
   </div>
 </section>
 </main>

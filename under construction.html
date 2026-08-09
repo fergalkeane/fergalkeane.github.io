@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fergal Keane: Website Under Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Space Grotesk';src:url('fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');font-weight:300 700;font-style:normal;font-display:swap;}
+:root{--font-display:'Space Grotesk','Archivo',system-ui,sans-serif;--font-sans:'Archivo',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--ink:#0d0d0d;--ink-soft:#1a1a1a;--muted:#8a8a8a;--line:#e6e6e6;--paper:#ffffff;--accent:#cf5a2c;}
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-weight:300;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100%;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(207,90,44,.35);transition:border-color .18s ease,color .18s ease;}
+a:hover{color:var(--ink);border-color:var(--ink);}
+.lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0;}
+.uc-top{padding:34px clamp(24px,5vw,56px);border-bottom:1px solid var(--line);}
+.uc-mark{font-family:var(--font-display);font-size:15px;font-weight:500;letter-spacing:-.01em;}
+.uc-main{flex:1;display:flex;align-items:center;padding:clamp(56px,10vh,120px) clamp(24px,5vw,56px);}
+.uc-inner{max-width:720px;}
+.uc-rule{display:flex;align-items:center;gap:16px;margin-bottom:34px;}
+.uc-rule i{display:block;width:44px;height:1px;background:var(--accent);flex:none;}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,6.4vw,74px);line-height:1.03;letter-spacing:-.028em;margin:0;text-wrap:balance;}
+h1 em{font-style:normal;color:var(--accent);}
+.uc-body{font-size:clamp(15px,1.6vw,18px);line-height:1.62;color:var(--ink-soft);max-width:46ch;margin:28px 0 0;text-wrap:pretty;}
+.uc-contact{margin-top:44px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+.uc-mail{font-family:var(--font-display);font-size:clamp(19px,2.6vw,28px);font-weight:400;letter-spacing:-.015em;border-bottom-width:1px;}
+.uc-foot{padding:26px clamp(24px,5vw,56px);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<header class="uc-top">
+  <div class="uc-mark">Fergal Keane</div>
+</header>
+<main class="uc-main">
+  <div class="uc-inner">
+    <div class="uc-rule"><i></i><p class="lbl">Under Construction</p></div>
+    <h1>The new site is being <em>built.</em></h1>
+    <p class="uc-body">A refreshed portfolio of senior product and UX work is on the way. In the meantime, case studies and my full experience are available on request.</p>
+    <div class="uc-contact">
+      <p class="lbl">Get in touch</p>
+      <a class="uc-mail" href="mailto:studio@fergalkeane.com">studio@fergalkeane.com</a>
+    </div>
+  </div>
+</main>
+<footer class="uc-foot">
+  <p class="lbl">Senior Product &amp; UX Architect, Ireland</p>
+  <p class="lbl">© 2026</p>
+</footer>
+</body>
+</html>
