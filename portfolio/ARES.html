@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Locked case study: keep out of search indexes. Delete this line if the password gate is removed. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARES Case Study · Fergal Keane</title>
+<script src="../image-slot.js"></script>
+<style>
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Italic-Variable.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('../fonts/JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Exo';src:url('../fonts/Exo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('../fonts/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{
+  font-family:'Space Grotesk';
+  src:url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight:300 700;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --font-display:'Space Grotesk','Archivo',system-ui,sans-serif;
+  --font-sans:'Archivo',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ink:#0d0d0d;--ink-soft:#1a1a1a;--muted:#8a8a8a;--muted-2:#b5b5b5;
+  --line:#e6e6e6;--line-soft:#efefef;--paper:#fff;--paper-2:#f6f6f4;--accent:#cf5a2c;
+  --maxw:1360px;--pad:56px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+::selection{background:var(--accent);color:#fff;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+.lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+.accent{color:var(--accent);}
+
+/* —— NAV —— */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line-soft);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{display:flex;align-items:baseline;gap:12px;}
+.brand b{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;}
+.brand span{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:var(--muted);}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);position:relative;padding:4px 0;}
+.nav-links a:hover{color:var(--ink);}
+.nav-toggle{display:none;}
+
+/* —— BACK —— */
+.backbar{padding:30px var(--pad) 0;}
+.back-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.back-link:hover{color:var(--accent);}
+
+/* —— HERO —— */
+.hero{padding:22px 0 0;}
+.hero-banner{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(400px,46vw,560px);display:flex;background:#0c0c0c;}
+.hero-banner image-slot{position:absolute;inset:0;width:100%;height:100%;}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(110deg,rgba(8,8,10,.86) 0%,rgba(8,8,10,.55) 42%,rgba(8,8,10,.2) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(34px,4vw,60px);width:100%;color:#fff;}
+.hero-content .lbl{color:rgba(255,255,255,.6);}
+.frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);box-shadow:0 1px 1px rgba(11,46,94,.04),0 24px 56px -28px rgba(11,46,94,.30);}
+.frame-bar{display:flex;align-items:center;gap:7px;height:34px;padding:0 14px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
+.frame-bar i{width:9px;height:9px;border-radius:50%;background:#d9d9d9;display:block;}
+.frame img{display:block;width:100%;height:auto;}
+.hero-logo{line-height:1;}
+.hero-logo img{display:block;width:clamp(190px,22vw,300px);height:auto;filter:brightness(0) invert(1);}
+.hero-logo .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.hero-title{font-family:var(--font-display);font-weight:800;font-size:clamp(46px,7vw,92px);line-height:.95;letter-spacing:-.02em;margin:16px 0 12px;}
+.hero-tagline{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.82);font-weight:400;letter-spacing:.01em;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:clamp(38px,6vw,90px);}
+.hero-meta .lbl{color:rgba(255,255,255,.5);margin-bottom:8px;}
+.hero-meta .mv{font-size:15px;color:#fff;font-weight:500;}
+
+/* —— CASE BODY —— */
+.case-body{padding:84px 0 0;}
+.case-grid{display:grid;grid-template-columns:minmax(220px,290px) 1fr;column-gap:clamp(40px,6vw,104px);align-items:start;}
+.case-meta{display:flex;flex-direction:column;gap:34px;}
+.meta-item .meta-val{font-size:17px;color:var(--ink);font-weight:400;margin:9px 0 0;}
+.check-list{list-style:none;margin:11px 0 0;padding:0;display:flex;flex-direction:column;gap:13px;}
+.check-list li{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:500;color:var(--ink-soft);}
+.check-list svg{flex:none;color:var(--muted-2);}
+.meta-divider{height:1px;background:var(--line);margin:4px 0;}
+.stats{display:flex;gap:48px;}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:34px;letter-spacing:-.02em;margin:0 0 6px;}
+
+.case-content{display:flex;flex-direction:column;gap:64px;}
+.case-block .lbl{display:block;margin-bottom:18px;}
+.case-h{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 22px;max-width:18ch;}
+.case-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:56ch;margin:0;}
+
+/* —— IMPACT —— */
+.impact{background:var(--ink);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);}
+.impact .lbl{color:rgba(255,255,255,.45);display:block;margin-bottom:30px;}
+.impact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.9vw,50px);line-height:1.12;letter-spacing:-.02em;margin:0;max-width:15ch;}
+
+/* —— WORKFLOW —— */
+.case-section{padding:96px 0 0;}
+.sec-head .lbl{display:block;margin-bottom:20px;}
+.sec-title{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.12;letter-spacing:-.015em;margin:0 0 38px;max-width:16ch;}
+.flow-box{position:relative;border:1px solid var(--line);border-radius:6px;min-height:clamp(320px,34vw,440px);display:flex;align-items:center;justify-content:center;}
+.flow-circle{width:clamp(200px,22vw,280px);aspect-ratio:1;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.flow-circle .lbl{color:var(--muted-2);}
+.flow-box .flow-foot{position:absolute;left:0;right:0;bottom:30px;text-align:center;color:var(--muted-2);}
+
+/* —— DESIGN LANGUAGE —— */
+.dl{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);margin-top:clamp(30px,3vw,42px);box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.dl-row{display:grid;border-bottom:1px solid var(--line-soft);}
+.dl-row:last-child{border-bottom:0;}
+.dl-row.r3{grid-template-columns:repeat(3,1fr);}
+.dl-row.r2{grid-template-columns:1.4fr 1fr;}
+.dl-cell{padding:clamp(20px,2vw,26px);border-right:1px solid var(--line-soft);}
+.dl-cell:last-child{border-right:0;}
+.dl-cell > .lbl{display:block;margin-bottom:16px;}
+@media(max-width:860px){.dl-row.r3,.dl-row.r2{grid-template-columns:1fr;}.dl-cell{border-right:0;border-bottom:1px solid var(--line-soft);}.dl-cell:last-child{border-bottom:0;}}
+.dl-sw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.dl-sw > div{display:flex;align-items:center;gap:10px;min-width:0;}
+.dl-sw i{width:22px;height:22px;flex:none;border-radius:3px;border:1px solid rgba(0,0,0,.08);}
+.dl-sw span{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dl-type p{margin:0;color:var(--ink);}
+.dl-type .t1{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.02em;}
+.dl-type .t2{font-family:var(--font-display);font-weight:500;font-size:17px;margin-top:8px;}
+.dl-type .t3{font-family:'Inter',var(--font-sans);font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.55;}
+.dl-grid8{display:flex;align-items:flex-end;gap:6px;height:52px;border-bottom:1px solid var(--line);padding-bottom:0;}
+.dl-grid8 i{width:8px;background:#009FE3;opacity:.3;}
+.dl-grid8 i:nth-child(2){opacity:.46}.dl-grid8 i:nth-child(3){opacity:.62}.dl-grid8 i:nth-child(4){opacity:.78}.dl-grid8 i:nth-child(5){opacity:.94}
+.dl-note{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:12px 0 0;}
+.dl-comps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px;}
+@media(max-width:860px){.dl-comps{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.dl-comps{grid-template-columns:1fr;}}
+.dl-comp{display:flex;flex-direction:column;gap:9px;}
+.dl-comp > span{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);}
+.ui-btn{display:inline-flex;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:13px;font-weight:500;padding:0 18px;border-radius:6px;border:1px solid transparent;background:#003263;color:#fff;align-self:flex-start;cursor:default;}
+.ui-btn.sec{background:transparent;border-color:var(--line);color:var(--ink);}
+.ui-in{display:flex;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:13px;color:var(--muted);padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);}
+.ui-in.dd{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.ui-in.dd svg{flex:none;color:var(--muted);}
+.ui-card{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--paper-2);}
+.ui-card b{display:block;font-family:var(--font-display);font-size:15px;font-weight:600;}
+.ui-card i{font-style:normal;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--muted);}
+.ui-tr{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;min-height:44px;font-family:'Inter',var(--font-sans);font-size:12.5px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);}
+.ui-tr code{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+.ui-tr em{font-style:normal;width:8px;height:8px;border-radius:50%;background:#FFD200;}
+.dl-states{display:flex;flex-wrap:wrap;gap:14px;}
+.dl-state{display:flex;flex-direction:column;gap:7px;align-items:flex-start;}
+.dl-state span{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);}
+.ui-btn.hov{background:#00223f;}
+.ui-btn.dis{background:var(--line);color:var(--muted-2);}
+.ui-btn.foc{box-shadow:0 0 0 3px rgba(0,159,227,.45);}
+.dl-a11y{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;}
+.dl-a11y li{display:flex;align-items:flex-start;gap:10px;font-family:'Inter',var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-soft);}
+.dl-a11y svg{flex:none;margin-top:2px;color:#0079b3;}
+.dl-prin{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:700px){.dl-prin{grid-template-columns:repeat(2,1fr);}}
+.dl-prin div{display:flex;flex-direction:column;gap:8px;}
+.dl-prin svg{color:var(--accent);}
+.dl-prin b{font-family:var(--font-display);font-weight:600;font-size:14.5px;}
+.dl-prin span{font-size:12.5px;line-height:1.45;color:var(--muted);}
+
+/* —— FULL IMAGE —— */
+.full-img{padding:clamp(56px,6vw,90px) 0 0;}
+.full-img image-slot{display:block;width:100%;aspect-ratio:16/8;border-radius:6px;filter:grayscale(1) contrast(1.02);}
+
+/* —— CONTACT —— */
+.contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
+.contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
+.contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.contact-btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 30px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.contact-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
+.email:hover{color:var(--accent);border-color:var(--accent);}
+.form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
+.form-card .form-sub{font-size:12px;color:var(--muted);margin:8px 0 26px;}
+.field{margin-bottom:18px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field label{display:block;margin-bottom:9px;}
+.field input,.field select,.field textarea{width:100%;background:#fff;border:1px solid var(--line);border-radius:0;padding:13px 14px;font-family:var(--font-sans);font-size:14px;color:var(--ink);transition:border-color .15s ease;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);}
+.field input::placeholder,.field textarea::placeholder{color:#c4c4c4;}
+.field textarea{min-height:118px;resize:vertical;}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230d0d0d' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 14px center;}
+.send-btn{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .18s ease;}
+.send-btn:hover{background:var(--accent);}
+.footbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;}
+.share-top{border-bottom:1px solid var(--line-soft);}
+.share-top .wrap{display:flex;justify-content:flex-end;padding-top:18px;padding-bottom:18px;}
+.share{display:flex;align-items:center;gap:10px;}
+.share .lbl{margin-right:2px;}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--muted);cursor:pointer;padding:0;transition:color .2s,border-color .2s,background .2s;}
+.share a:hover,.share button:hover{color:var(--accent);border-color:var(--accent);}
+.share svg{width:15px;height:15px;}
+.share .copied{position:relative;}
+.share .copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){.footbar{justify-content:flex-start;}}
+
+.footbar a:hover{color:var(--accent);}
+
+/* —— RESPONSIVE —— */
+@media(max-width:1024px){
+  :root{--pad:40px;}
+  .case-grid{grid-template-columns:1fr;row-gap:54px;}
+  .contact-grid{grid-template-columns:1fr;gap:52px;}
+}
+@media(max-width:760px){
+  :root{--pad:22px;}
+  .nav-links{position:fixed;inset:64px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 24px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .3s ease;}
+  .nav-links.open{transform:translateY(0);}
+  .nav-links a{padding:14px 0;font-size:13px;width:100%;border-bottom:1px solid var(--line-soft);}
+  .nav-toggle{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+  .nav-toggle span{width:22px;height:2px;background:var(--ink);}
+  .case-content{gap:48px;}
+  .field-row{grid-template-columns:1fr;}
+  .stats{gap:36px;}
+}
+
+/* —— PASSWORD GATE —— */
+.gate{position:fixed;inset:0;z-index:999;background:rgba(12,12,12,.5);backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:24px;animation:gateIn .22s ease both;}
+@keyframes gateIn{from{opacity:0}to{opacity:1}}
+@keyframes gateCardIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+.gate.hidden{display:none;}
+.gate-card{max-width:440px;width:100%;background:var(--paper);border:1px solid var(--line);box-shadow:0 34px 90px rgba(0,0,0,.32);padding:clamp(28px,4vw,44px);animation:gateCardIn .3s cubic-bezier(.2,.7,.3,1) both;}
+.gate-lock{width:52px;height:52px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:24px;}
+.gate-card .lbl{display:block;margin-bottom:14px;}
+.gate-card h2{font-family:var(--font-display);font-weight:300;font-size:31px;line-height:1.14;letter-spacing:-.015em;margin:0 0 12px;}
+.gate-sub{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 28px;max-width:34ch;}
+#gatePw{width:100%;border:1px solid var(--line);border-radius:0;padding:14px;font-family:var(--font-sans);font-size:15px;color:var(--ink);margin-bottom:14px;}
+#gatePw:focus{outline:none;border-color:var(--ink);}
+#gatePw::placeholder{color:#c4c4c4;}
+.gate button{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:16px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease;}
+.gate button:hover{background:var(--accent);}
+.gate-err{color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;margin:14px 0 0;display:none;}
+.gate-err.show{display:block;}
+.gate-back{display:inline-block;margin-top:24px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.gate-back:hover{color:var(--accent);}
+
+/* —— LONG-FORM NARRATIVE —— */
+.sec-lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch;margin:0;}
+.sec-head .sec-lead{margin-top:-22px;margin-bottom:38px;}
+.note{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(207,90,44,.45);border-radius:999px;padding:5px 11px;}
+.note svg{flex:none;}
+.note.assume{color:#7a7a7a;border-color:var(--line);}
+
+/* sub-heads inside content blocks */
+.subh{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;color:var(--ink);margin:0 0 10px;}
+.case-content .case-block + .case-block{margin-top:0;}
+.qa{display:flex;flex-direction:column;gap:30px;}
+.qa .qa-item{display:grid;grid-template-columns:minmax(140px,200px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;}
+.qa .qa-item .lbl{margin:0;}
+.qa .qa-item p{margin:0;font-size:16px;line-height:1.62;color:var(--muted);max-width:54ch;}
+.qa .qa-item p strong{color:var(--ink-soft);font-weight:600;}
+@media(max-width:680px){.qa .qa-item{grid-template-columns:1fr;gap:8px;}}
+
+/* card grid — constraints, value */
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px;margin-top:8px;}
+.mcard{border:1px solid var(--line);border-radius:6px;padding:26px 24px;background:var(--paper-2);}
+.mcard .lbl{display:block;margin-bottom:14px;color:var(--accent);}
+.mcard h4{font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-.01em;margin:0 0 10px;}
+.mcard p{font-size:14px;line-height:1.6;color:var(--muted);margin:0;}
+
+/* success criteria list */
+.crit{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;}
+.crit li{display:flex;gap:13px;font-size:15px;line-height:1.5;color:var(--ink-soft);}
+.crit svg{flex:none;color:var(--accent);margin-top:3px;}
+@media(max-width:680px){.crit{grid-template-columns:1fr;}}
+
+/* insight rows */
+.insights{margin-top:8px;border-top:1px solid var(--line);}
+.insight{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,3vw,40px);padding:30px 0;border-bottom:1px solid var(--line);align-items:start;}
+.insight .inum{font-family:var(--font-display);font-weight:800;font-size:30px;letter-spacing:-.02em;color:var(--muted-2);line-height:1;}
+.insight h4{font-family:var(--font-display);font-weight:600;font-size:clamp(19px,2vw,23px);letter-spacing:-.01em;margin:0 0 12px;max-width:30ch;}
+.insight p{font-size:15px;line-height:1.62;color:var(--muted);margin:0;max-width:64ch;}
+
+/* alternatives / trade-offs */
+.alts{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+.alt{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,2.4vw,34px);align-items:start;padding:24px 26px;border:1px solid var(--line);border-radius:6px;}
+.alt.chosen{border-color:var(--ink);background:var(--paper-2);}
+.verdict{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border-radius:999px;white-space:nowrap;align-self:start;}
+.verdict.no{color:var(--muted);border:1px solid var(--line);}
+.verdict.yes{color:#fff;background:var(--ink);}
+.alt h4{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:0 0 8px;}
+.alt p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;max-width:62ch;}
+.alt p .accent{font-weight:600;}
+
+/* decision shots — caption + image */
+.dshots{display:flex;flex-direction:column;gap:clamp(56px,7vw,96px);margin-top:clamp(40px,5vw,68px);}
+.dshot{display:grid;grid-template-columns:minmax(210px,300px) 1fr;column-gap:clamp(34px,5vw,72px);align-items:start;}
+.dshot .dshot-cap{grid-column:1;position:sticky;top:96px;}
+.dshot > .dshot-media{grid-column:2;}
+.dshot.flip{grid-template-columns:1fr minmax(210px,300px);}
+.dshot.flip .dshot-cap{grid-column:2;}
+.dshot.flip > .dshot-media{grid-column:1;}
+.dshot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 16px;}
+.dshot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,27px);line-height:1.12;letter-spacing:-.01em;margin:0 0 16px;}
+.dshot-cap .why{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0 0 16px;max-width:40ch;}
+.dshot-cap .why b{color:var(--ink-soft);font-weight:600;}
+.dshot-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.dshot-tags span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line);padding:6px 10px;background:var(--paper-2);}
+.dshot-media image-slot{display:block;width:100%;aspect-ratio:16/10;border-radius:8px;border:1px solid var(--line);}
+.dshot-media .cap{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted-2);margin:12px 0 0;}
+
+/* impact stat cards */
+.impact-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:26px;}
+.istat{border:1px solid var(--line);border-radius:6px;padding:28px 24px;}
+.istat .snum{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4vw,46px);letter-spacing:-.025em;line-height:1;margin:0 0 10px;}
+.istat .sdesc{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0;}
+.istat .stag{display:inline-block;margin-top:14px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);border:1px solid var(--line);border-radius:999px;padding:3px 9px;}
+.istat .stag.proj{color:var(--accent);border-color:rgba(207,90,44,.4);}
+
+/* reflection */
+.reflect{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);margin-top:8px;}
+.rcol .lbl{display:block;margin-bottom:16px;color:var(--accent);}
+.rcol h4{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:0 0 14px;}
+.rcol ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px;}
+.rcol li{font-size:14.5px;line-height:1.55;color:var(--muted);padding-left:18px;position:relative;}
+.rcol li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--muted-2);}
+@media(max-width:880px){.reflect{grid-template-columns:1fr;gap:30px;}}
+
+@media(max-width:1024px){
+  .dshot,.dshot.flip{grid-template-columns:1fr;row-gap:22px;}
+  .dshot > *,.dshot.flip > *{grid-column:1 !important;}
+  .dshot .dshot-cap{position:static;}
+}
+</style>
+<script src="../theme.js"></script>
+<script src="../to-top.js"></script>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<!-- Password gate temporarily disabled: remove the "hidden" class and the early return in the script below to reinstate it. -->
+<div class="gate hidden" id="gate">
+  <div class="gate-card">
+    <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+    <span class="lbl">Protected Case Study</span>
+    <h2>This project is password-protected.</h2>
+    <p class="gate-sub">Enter the access password to view the ARES case study.</p>
+    <form id="gateForm" autocomplete="off">
+      <input type="password" id="gatePw" placeholder="Enter password" autocomplete="off">
+      <button type="submit">Unlock &rarr;</button>
+      <p class="gate-err" id="gateErr">Incorrect password. Please try again.</p>
+    </form>
+    <a class="gate-back" href="../home.html#work">&larr; Return to Selected Works</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../home.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="../home.html#work">Work</a>
+      <a href="../Experience.html">Experience</a>
+      <a href="../home.html#contact">Contact</a>
+      </nav>
+  </div>
+</header>
+
+<main>
+<!-- BACK -->
+<div class="wrap backbar">
+  <a class="back-link" href="../home.html#work">&larr; Selected Works</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-banner">
+      <image-slot id="gw-hero" shape="rect" src="../images/gateway/Gateway_Moon.jpg" placeholder="Drop hero image (Earth from orbit)"></image-slot>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div>
+          <p class="lbl">Enterprise<br>SaaS</p>
+          <h1 class="hero-title hero-logo"><img src="../images/gateway/ares-logo.svg" alt="ARES"><span class="sr">ARES</span></h1>
+          <p class="hero-tagline">Collapsing a 12-tool maintenance workflow into one state-aware operations workspace for ESA mission-support control rooms.</p>
+        </div>
+        <div class="hero-meta">
+          <div><p class="lbl">Year</p><p class="mv">2025 to 2026</p></div>
+          <div><p class="lbl">Client</p><p class="mv">European Space Agency (ESA)</p></div>
+          <div><p class="lbl">Your Role</p><p class="mv">Lead UX/UI Designer</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Share</span>
+      <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+      <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+      <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+      <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- 01 — OVERVIEW -->
+<section class="case-body">
+  <div class="wrap">
+    <div class="case-grid">
+      <aside class="case-meta">
+        <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">Lead UX/UI Designer · end-to-end</p></div>
+        <div class="meta-item"><p class="lbl">Client</p><p class="meta-val">European Space Agency (ESA)</p></div>
+        <div class="meta-item"><p class="lbl">Platform</p><p class="meta-val">Desktop web &middot; control-room displays</p></div>
+        <div class="meta-item">
+          <p class="lbl">Focus Areas</p>
+          <ul class="check-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Workflow &amp; Service Architecture</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Cross-Tool Orchestration</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Design System &amp; Tokens</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Operational Data Visualization</li>
+          </ul>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="stats">
+          <div><p class="stat-num">12+</p><p class="lbl">Tools Unified</p></div>
+          <div><p class="stat-num">1</p><p class="lbl">Workspace</p></div>
+        </div>
+      </aside>
+      <div class="case-content">
+        <div class="case-block">
+          <span class="lbl">01 · Overview</span>
+          <h2 class="case-h">One workspace for a workflow that was scattered across a dozen systems.</h2>
+          <p class="case-p" style="margin-bottom:36px;">ARES is an operations console that consolidates the fragmented toolchain ESA mission-support teams use to run a maintenance cycle into a single, state-aware workspace, orchestrating existing systems rather than replacing them.</p>
+          <div class="qa">
+            <div class="qa-item"><span class="lbl">What it is</span><p>A web console that sits above ESA's existing operational tools and presents one continuous workspace for running a maintenance cycle end to end.</p></div>
+            <div class="qa-item"><span class="lbl">Who it's for</span><p><strong>Primary:</strong> mission-support operators and maintenance engineers working live cycles. <strong>Secondary:</strong> shift leads who audit work and run handovers between shifts.</p></div>
+            <div class="qa-item"><span class="lbl">Core problem</span><p>A single maintenance cycle spanned <strong>12+ disconnected tools</strong>. The constant context-switching, not any one tool, was driving errors and cognitive fatigue in an environment with no tolerance for either.</p></div>
+            <div class="qa-item"><span class="lbl">Why it matters</span><p><strong>Business:</strong> errors and lost time on mission-critical tasks carry safety, compliance and cost exposure. <strong>User:</strong> sustained high cognitive load and risky handoffs are unsafe and unsustainable on a 24/7 console.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — PROBLEM DEFINITION -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">02 · Problem Definition</span>
+      <h2 class="sec-title">The real problem was the seams, not the tools</h2>
+      <p class="sec-lead">Each tool did its job well in isolation. The failure was in the connective tissue: operators were the integration layer, manually carrying state, data and context across twelve systems while staying accountable for every transition.</p>
+    </div>
+
+    <h3 class="subh" style="margin-bottom:18px;">Constraints that shaped the brief</h3>
+    <div class="cardgrid">
+      <div class="mcard"><span class="lbl">Technical</span><h4>Orchestrate, don't replace</h4><p>Source tools were certified and load-bearing. ARES had to coordinate them through existing data feeds; replacing them was off the table.</p></div>
+      <div class="mcard"><span class="lbl">Operational</span><h4>Live 24/7 console</h4><p>Control rooms never stop. Nothing could disrupt an active cycle, and any new surface had to be learnable without pulling operators off shift.</p></div>
+      <div class="mcard"><span class="lbl">Compliance</span><h4>Full traceability</h4><p>Every value and action had to be auditable back to its source system. Aggregation could never obscure provenance.</p></div>
+      <div class="mcard"><span class="lbl">Environment</span><h4>Glance-critical</h4><p>Low-light rooms, large shared displays, and operators under pressure: status had to read correctly in a glance from across the room.</p></div>
+    </div>
+
+    <h3 class="subh" style="margin:48px 0 0;">Success criteria</h3>
+    <ul class="crit">
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Cut the number of tool switches required to complete one cycle.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Reduce task errors, especially at state transitions and handovers.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Preserve end-to-end auditability with no loss of provenance.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Be learnable by an experienced operator within a single shift.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 03 — THE CHALLENGE -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">03 &middot; The Challenge</span>
+      <h2 class="sec-title">A twenty-year-old desktop workflow, rebuilt for the browser</h2>
+      <p class="sec-lead">Mission-support procedures had been authored and maintained for two decades in heavyweight desktop XML software. The task was not to skin that workflow. It was to carry every piece of rigour it enforced into a browser application that stays usable when the network does not.</p>
+    </div>
+
+    <div class="cardgrid">
+      <div class="mcard"><span class="lbl">Workflow</span><h4>Procedures are not documents</h4><p>A single maintenance procedure is a branching, conditional structure: nested steps, preconditions, verification gates, role assignments and cross-references to other procedures. Any one edit can invalidate a dozen downstream states, and the interface has to make that visible before the operator commits.</p></div>
+      <div class="mcard"><span class="lbl">Legacy</span><h4>Leaving xMetaL behind</h4><p>Authoring lived in xMetaL: a licensed desktop XML editor requiring local installation, per-seat provisioning and schema fluency from people whose expertise is spacecraft operations, not markup. It gated who could contribute, and every contribution arrived as a file rather than as live state.</p></div>
+      <div class="mcard"><span class="lbl">Continuity</span><h4>Online and offline as equals</h4><p>Operators work in facilities where connectivity is not guaranteed. ARES had to author, validate and review procedures fully offline, then reconcile on reconnect without silent overwrites, so the offline mode is a first-class state rather than a degraded fallback.</p></div>
+      <div class="mcard"><span class="lbl">Fidelity</span><h4>No loss in translation</h4><p>The underlying schema, validation rules and audit trail were non-negotiable. The browser application had to enforce exactly what the desktop tool enforced, while removing the need for anyone to see the XML that carries it.</p></div>
+    </div>
+
+    <h3 class="subh" style="margin:48px 0 0;">What that demanded of the design</h3>
+    <ul class="crit">
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Structural editing that reads as a procedure, never as a markup tree.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Validation surfaced inline at the point of authoring, not at export.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>An unambiguous, always-visible read on sync state and pending changes.</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="4 12.5 9.5 18 20 6"/></svg>Conflict resolution an operator can reason about without engineering support.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 — ROLE & SCOPE -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="case-grid">
+      <aside class="case-meta">
+        <div class="meta-item"><p class="lbl">04 · Role &amp; Scope</p><p class="meta-val">Lead UX/UI Designer</p></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><p class="lbl">Owned</p>
+          <ul class="check-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Discovery &amp; synthesis</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>IA &amp; interaction design</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>UI &amp; design system</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Prototyping &amp; dev handoff</li>
+          </ul>
+        </div>
+      </aside>
+      <div class="case-content">
+        <div class="case-block">
+          <h2 class="case-h">End-to-end design ownership, in close loop with mission ops.</h2>
+          <p class="case-p" style="margin-bottom:22px;">I led the work from discovery through delivery: framing the problem with mission-support SMEs, mapping the maintenance lifecycle, designing the interaction model and UI, building the component system, and prototyping for validation and engineering handoff.</p>
+          <p class="case-p">I partnered daily with a product manager, operations subject-matter experts, and the front-end team. To be precise about scope: I did <strong style="color:var(--ink-soft);font-weight:600;">not</strong> own the backend data contracts or the certification of the underlying source tools. My mandate was the orchestration layer and everything the operator touches.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — DISCOVERY & INSIGHTS -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">05 · Discovery &amp; Insights</span>
+      <h2 class="sec-title">Watching one full cycle changed the brief</h2>
+      <p class="sec-lead">Inputs included SME interviews, a tool-and-task audit of a complete maintenance cycle, and contextual observation of operators on console. The goal was to find <em>where</em> the work broke down, not just <em>that</em> it did.</p>
+    </div>
+    <p style="margin:-14px 0 30px;"><span class="note assume"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.5" r="1"/></svg>Some research detail is reconstructed for this portfolio and labelled where inferred.</span></p>
+
+    <div class="insights">
+      <div class="insight"><span class="inum">01</span><div><h4>The handoffs between tools were the problem, not the tools.</h4><p>Operators rated individual tools as fine. Failure clustered in the gaps: re-keying values, reconciling state, and confirming that what one system showed matched what the next expected.</p></div></div>
+      <div class="insight"><span class="inum">02</span><div><h4>Operators didn't want all the data, they wanted the right data for the current step.</h4><p>A maintenance cycle is sequential. At any moment only a slice of the twelve tools was relevant, yet everything competed for attention at once.</p></div></div>
+      <div class="insight"><span class="inum">03</span><div><h4>Errors concentrated at state transitions and shift handovers.</h4><p>The most dangerous moments were when a cycle moved between stages or between people, exactly where context was most likely to be dropped. <span class="note assume" style="margin-left:4px;">Inferred from task analysis</span></p></div></div>
+      <div class="insight"><span class="inum">04</span><div><h4>Trust required provenance.</h4><p>Operators would not act on an aggregated number they couldn't trace to its source system. Any summary view had to make &ldquo;where did this come from?&rdquo; a one-click answer.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — DESIGN STRATEGY -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">06 · Design Strategy</span>
+      <h2 class="sec-title">Follow the lifecycle, surface only what the step needs</h2>
+      <p class="sec-lead">Before any UI, I committed to a principle: ARES should model the maintenance lifecycle itself, presenting only the data and actions relevant to the operator's current stage, and always keeping a path back to the source system for trust.</p>
+    </div>
+
+    <h3 class="subh" style="margin-bottom:8px;">Directions considered &amp; why I rejected them</h3>
+    <div class="alts">
+      <div class="alt"><span class="verdict no">Rejected</span><div><h4>One mega-dashboard showing everything</h4><p>Putting all twelve tools on one screen just relocates the overload. It optimises for the demo, not the shift, and it directly violates insight 02.</p></div></div>
+      <div class="alt"><span class="verdict no">Rejected</span><div><h4>Rip-and-replace the twelve tools</h4><p>Infeasible on cost, risk and certification, and explicitly out of scope. The source systems are load-bearing; the seams between them were the brief.</p></div></div>
+      <div class="alt"><span class="verdict no">Rejected</span><div><h4>A launcher / portal of links</h4><p>A tidy menu of shortcuts doesn't reduce switching, it just renames it. The operator is still the integration layer, carrying state by hand.</p></div></div>
+      <div class="alt chosen"><span class="verdict yes">Chosen</span><div><h4>A state-aware lifecycle workspace</h4><p>ARES tracks where the cycle <span class="accent">is</span> and surfaces only the relevant datasets and actions for that stage, with every value <span class="accent">deep-linked back to its source</span>. It reduces switching without hiding provenance.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 — EXECUTION -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">07 · Execution &middot; Key Decisions</span>
+      <h2 class="sec-title">Four decisions that carried the design</h2>
+      <p class="sec-lead">Each screen exists to serve a specific operational behaviour. The decisions below are organised by the problem they solve, not by the order they were drawn.</p>
+    </div>
+
+    <div class="dshots">
+      <article class="dshot">
+        <div class="dshot-cap">
+          <p class="dshot-num">Decision 01</p>
+          <h3>A lifecycle spine, not a navigation menu</h3>
+          <p class="why">Navigation models the maintenance cycle's stages directly, so the interface always answers &ldquo;where am I and what's next?&rdquo;. <b>Why:</b> orientation cost was a hidden tax on every switch, encoding the workflow into the structure removes it.</p>
+          <div class="dshot-tags"><span>Information Architecture</span><span>Wayfinding</span></div>
+        </div>
+        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Procedure_Status.png" alt="ARES procedure status view showing the full lifecycle state machine with the current phase highlighted" loading="lazy"></div><p class="cap">The full lifecycle, with the live state highlighted</p></div>
+      </article>
+
+      <article class="dshot flip">
+        <div class="dshot-cap">
+          <p class="dshot-num">Decision 02</p>
+          <h3>A state-aware workspace that shows only the current step</h3>
+          <p class="why">The workspace serves only the datasets and actions relevant to the active stage, with the rest one deliberate step away. <b>Why:</b> directly attacks the cognitive-load insight: relevance over completeness.</p>
+          <div class="dshot-tags"><span>Progressive Disclosure</span><span>Task Flow</span></div>
+        </div>
+        <div class="dshot-media"><image-slot id="gw-workspace" shape="rect" placeholder="Drop: workspace / contextual panel"></image-slot><p class="cap">Step-relevant data and actions in focus</p></div>
+      </article>
+
+      <article class="dshot">
+        <div class="dshot-cap">
+          <p class="dshot-num">Decision 03</p>
+          <h3>Provenance on every aggregated value</h3>
+          <p class="why">Each consolidated figure carries a source affordance that links straight back to the system of record. <b>Why:</b> operators won't act on numbers they can't trace, and compliance demanded full auditability.</p>
+          <div class="dshot-tags"><span>Trust &amp; Traceability</span><span>Data Viz</span></div>
+        </div>
+        <div class="dshot-media"><image-slot id="gw-trace" shape="rect" placeholder="Drop: data card with source-trace link"></image-slot><p class="cap">&ldquo;Where did this come from?&rdquo; in one click</p></div>
+      </article>
+
+      <article class="dshot flip">
+        <div class="dshot-cap">
+          <p class="dshot-num">Decision 04</p>
+          <h3>Safe-by-default actions at the riskiest moments</h3>
+          <p class="why">State transitions and handovers use confirmation and reversible patterns, with status that reads from across a low-lit room. <b>Why:</b> errors clustered exactly here, so the friction is intentional and placed precisely.</p>
+          <div class="dshot-tags"><span>Error Prevention</span><span>Glanceability</span></div>
+        </div>
+        <div class="dshot-media"><image-slot id="gw-safe" shape="rect" placeholder="Drop: transition / handover confirmation"></image-slot><p class="cap">Deliberate friction at state changes</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 08 — SYSTEM THINKING -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">08 · Design Language</span>
+      <h2 class="sec-title">One language, built to scale across missions</h2>
+      <p class="sec-lead">A token set and a small component kit rather than a folder of one-off screens, aligned to ESA's brand palette and tuned for low-light operational legibility. New mission types inherit the language instead of prompting a redesign.</p>
+    </div>
+    <div class="dl">
+      <div class="dl-row r3">
+        <div class="dl-cell">
+          <span class="lbl">Palette</span>
+          <div class="dl-sw"><div><i style="background:#003263"></i><span>Deep space</span></div><div><i style="background:#009FE3"></i><span>Azure</span></div><div><i style="background:#FFD200"></i><span>Critical</span></div><div><i style="background:#1E7B4C"></i><span>Nominal</span></div><div><i style="background:#B3261E"></i><span>Fault</span></div><div><i style="background:#eef2f6"></i><span>Surface</span></div></div>
+        </div>
+        <div class="dl-cell dl-type">
+          <span class="lbl">Typography</span>
+          <p class="t1">Heading, Space Grotesk</p>
+          <p class="t2">Subheading, Medium</p>
+          <p class="t3">Inter Regular for interface text and telemetry values, sized for reading on a shared control-room display.</p>
+        </div>
+        <div class="dl-cell">
+          <span class="lbl">Spacing</span>
+          <div class="dl-grid8"><i style="height:8px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:32px"></i><i style="height:48px"></i></div>
+          <p class="dl-note">8px base step, 8 / 16 / 24 / 32 / 48</p>
+        </div>
+      </div>
+      <div class="dl-row">
+        <div class="dl-cell">
+          <span class="lbl">Core Components</span>
+          <div class="dl-comps">
+            <div class="dl-comp"><span>Primary button</span><button class="ui-btn" type="button" tabindex="-1">Advance stage</button></div>
+            <div class="dl-comp"><span>Secondary button</span><button class="ui-btn sec" type="button" tabindex="-1">View source</button></div>
+            <div class="dl-comp"><span>Text input</span><div class="ui-in">Mission ID, GW-2417</div></div>
+            <div class="dl-comp"><span>Dropdown</span><div class="ui-in dd">Earth observation <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+            <div class="dl-comp"><span>Card</span><div class="ui-card"><b>Stage 3 of 6</b><i>Qualification review</i></div></div>
+            <div class="dl-comp"><span>Data table row</span><div class="ui-tr"><span>Sentinel-2B</span><code>GW-2417</code><em></em></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dl-row r2">
+        <div class="dl-cell">
+          <span class="lbl">States</span>
+          <div class="dl-states">
+            <div class="dl-state"><span>Default</span><button class="ui-btn" type="button" tabindex="-1">Advance</button></div>
+            <div class="dl-state"><span>Hover</span><button class="ui-btn hov" type="button" tabindex="-1">Advance</button></div>
+            <div class="dl-state"><span>Disabled</span><button class="ui-btn dis" type="button" tabindex="-1" disabled>Advance</button></div>
+            <div class="dl-state"><span>Focus</span><button class="ui-btn foc" type="button" tabindex="-1">Advance</button></div>
+          </div>
+        </div>
+        <div class="dl-cell">
+          <span class="lbl">Accessibility</span>
+          <ul class="dl-a11y">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>WCAG AA contrast on every text and status colour</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>Visible keyboard focus on all interactive elements</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg>44px minimum touch targets</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dl-row">
+        <div class="dl-cell">
+          <span class="lbl">Principles</span>
+          <div class="dl-prin">
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><b>Consistency</b><span>One pattern per job, reused across tools.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><b>Clarity</b><span>Relevance over completeness, always.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v.01M12 11v6"/></svg><b>Accessibility</b><span>Readable on a shared display, at distance.</span></div>
+            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20V7"/></svg><b>Scalability</b><span>A new mission type adds no new parts.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 — IMPACT -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="impact">
+      <span class="lbl">09 · Impact</span>
+      <h2>Operational friction down <em class="accent" style="font-style:normal;">35%</em> and roughly <em class="accent" style="font-style:normal;">10 minutes</em> saved on the average mission-critical cycle.</h2>
+    </div>
+
+    <div class="impact-stats">
+      <div class="istat"><p class="snum">35%</p><p class="sdesc">Reduction in operational friction across the maintenance cycle.</p><span class="stag">Project-reported</span></div>
+      <div class="istat"><p class="snum">~10m</p><p class="sdesc">Saved per cycle on time-to-completion for critical tasks.</p><span class="stag">Project-reported</span></div>
+      <div class="istat"><p class="snum">12&rarr;1</p><p class="sdesc">Tools an operator coordinates from a single workspace.</p><span class="stag">Design outcome</span></div>
+      <div class="istat"><p class="snum">&darr; errors</p><p class="sdesc">Fewer transition &amp; handover errors as friction is placed where it counts.</p><span class="stag proj">Projected</span></div>
+    </div>
+
+    <div class="cardgrid" style="margin-top:32px;">
+      <div class="mcard"><span class="lbl">User value</span><h4>Lower cognitive load, safer handovers</h4><p>Operators run a cycle without re-keying or reconciling across tools, and risky moments are guarded by intent rather than memory.</p></div>
+      <div class="mcard"><span class="lbl">Business value</span><h4>Less rework, faster onboarding, clean audit</h4><p>Time and error reductions compound on mission-critical work, learnability shortens ramp-up, and built-in provenance keeps compliance cheap.</p></div>
+    </div>
+    <p class="case-p" style="margin-top:24px;max-width:64ch;font-size:14.5px;">Where a metric isn't yet measured it's labelled <span class="note proj" style="color:var(--accent);border-color:rgba(207,90,44,.4);">Projected</span>, the error reduction follows directly from concentrating design effort at the transition and handover points where errors were observed to cluster.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="lbl">Get In Touch</p>
+        <h2>Let's craft something meaningful together.</h2>
+        <a class="contact-btn" href="../home.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"/><polyline points="12.5 5.5 19 12 12.5 18.5"/></svg></a>
+      </div>
+      
+    </div>
+    <div class="footbar">
+      <p class="lbl">&copy; 2026 Design by Fergal Keane</p>
+      <div class="share">
+        <span class="lbl">Share</span>
+        <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
+        <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"/></svg></a>
+        <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg></a>
+        <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"/></svg></button>
+      </div>
+      <a class="lbl" href="../privacy.html">Privacy &nearr;</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+  /* Password gate — client-side preview only. In WordPress use native
+     page password protection or a membership plugin for real security. */
+  (function(){
+    return; /* gate disabled, delete this line to reinstate */
+    var PW='stepaside';
+    var gate=document.getElementById('gate');
+    {
+      document.documentElement.style.overflow='hidden';
+      var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
+      f.addEventListener('submit',function(e){e.preventDefault();
+        if(pw.value.trim().toLowerCase()===PW){gate.classList.add('hidden');document.documentElement.style.overflow='';}
+        else{err.classList.add('show');pw.value='';pw.focus();}
+      });
+      pw.focus();
+    }
+  })();
+
+  const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
+  if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
+    lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+</script>
+<script>
+(function(){var bars=document.querySelectorAll('.share');if(!bars.length)return;
+var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+var m={li:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?url='+u+'&text='+t,em:'mailto:?subject='+t+'&body='+u};
+bars.forEach(function(b){b.querySelectorAll('a[data-share]').forEach(function(a){a.href=m[a.dataset.share];});
+var c=b.querySelector('[data-share="copy"]');
+c.addEventListener('click',function(){navigator.clipboard.writeText(location.href).then(function(){c.classList.add('copied');setTimeout(function(){c.classList.remove('copied');},1600);});});});
+})();
+</script>
+</body>
+</html>
