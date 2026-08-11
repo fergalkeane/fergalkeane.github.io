@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fergal Keane — Senior UX/UI Designer</title>
+<title>Fergal Keane, Senior UX/UI Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -164,12 +164,12 @@ img{display:block;max-width:100%;}
 }
 .works-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:74px;align-items:start;}
 .proj{margin-bottom:0;position:relative;}
-.proj-cap{position:absolute;left:clamp(20px,2.4vw,30px);right:clamp(20px,2.4vw,30px);bottom:clamp(20px,2.4vw,28px);z-index:4;display:flex;flex-direction:column;gap:8px;pointer-events:none;}
+.proj-cap{position:absolute;left:clamp(20px,2.4vw,30px);right:clamp(20px,2.4vw,30px);bottom:clamp(20px,2.4vw,28px);z-index:4;display:flex;flex-direction:column;gap:2px;pointer-events:none;}
 .proj-cap .proj-title,.proj-cap .proj-title a{color:#fff;}
 .proj-cap .proj-meta{color:rgba(255,255,255,.72);margin:0;}
 .proj-cap a{pointer-events:auto;}
-.proj-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.45) 34%,rgba(10,10,10,0) 66%);}
-.proj-img{position:relative;overflow:hidden;background:var(--paper-2);border:1px solid var(--line-soft);}
+.proj-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.45) 34%,rgba(10,10,10,0) 66%);}
+.proj-img{position:relative;overflow:hidden;border-radius:14px;background:var(--paper-2);border:1px solid var(--line-soft);}
 .proj-img image-slot{display:block;position:absolute;inset:0;width:100%;height:100%;z-index:0;}
 .proj.tall .proj-img{aspect-ratio:4/3;}
 .proj.wide .proj-img{aspect-ratio:4/3;}
@@ -181,9 +181,17 @@ img{display:block;max-width:100%;}
 }
 .proj:hover .proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
 .proj.show-go .proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.proj-go svg{transition:transform .34s cubic-bezier(.22,.9,.3,1);}
+.proj:hover .proj-go svg{animation:goNudge .5s cubic-bezier(.22,.9,.3,1);}
+.proj.locked:hover .proj-go svg{animation:lockJiggle .42s ease;}
+@keyframes lockJiggle{0%,100%{transform:none}25%{transform:rotate(-7deg)}60%{transform:rotate(6deg)}}
+.proj-go:hover{background:var(--accent);color:#fff;}
+@keyframes goNudge{0%{transform:none}45%{transform:translate(7px,-7px);opacity:.15}46%{transform:translate(-7px,7px);opacity:.15}100%{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.proj:hover .proj-go svg{animation:none;}}
 a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
 .proj:hover a.proj-go,.proj.show-go a.proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
 .lock-badge{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.14);backdrop-filter:blur(4px);}
+.protected-tag{display:none;}
 .proj-meta{margin:20px 0 8px;}
 .proj:hover .proj-cap .proj-title,.proj:hover .proj-cap .proj-title a{color:var(--accent);}
 .proj-title{
@@ -205,16 +213,20 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
 .email:hover{color:var(--accent);border-color:var(--accent);}
 .form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
 .form-card .form-sub{font-size:12px;color:var(--muted);margin:8px 0 26px;}
+.form-card>.lbl{display:block;margin-bottom:26px;}
 .field{margin-bottom:18px;}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .field label{display:block;margin-bottom:9px;}
 .field input,.field select,.field textarea{
-  width:100%;background:#fff;border:1px solid var(--line);border-radius:0;
+  width:100%;background:var(--paper);border:1px solid var(--line);border-radius:0;
   padding:13px 14px;font-family:var(--font-sans);font-size:14px;color:var(--ink);
   transition:border-color .15s ease;
 }
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);}
-.field input::placeholder,.field textarea::placeholder{color:#c4c4c4;}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.6;}
+.form-note{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:16px 0 0;min-height:14px;}
+.form-note.ok{color:var(--accent);}
+.form-note.err{color:#c0392b;}
 .field textarea{min-height:118px;resize:vertical;}
 .field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230d0d0d' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 14px center;}
 .send-btn{
@@ -257,8 +269,9 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
   .proj .proj-meta{color:var(--muted);}
   .proj-img::after{display:none;}
   .proj .proj-title{order:1;margin:0 0 18px;}
+  .proj .proj-cap{gap:0;}
   .proj .proj-img{order:2;}
-  .proj .proj-meta{order:3;margin:16px 0 0;}
+  .proj .proj-meta{order:3;margin:8px 0 0;}
   .proj:last-child{padding-bottom:0;border-bottom:none;}
   .intro-cols{grid-template-columns:1fr;gap:30px;}
   .field-row{grid-template-columns:1fr;}
@@ -290,7 +303,7 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
     <p class="lbl">Design Portfolio</p>
     <h1 class="hero-head">Crafting Digital Experiences That Matter</h1>
     <div class="hero-sub-row">
-      <p class="hero-sub">Senior UX/UI Designer obsessed with <b>pixel-perfect</b> precision and crafting <b style="color:var(--accent)">visual</b> narratives that resonate.</p>
+      <p class="hero-sub">Senior UX/UI Designer transforming complex problems into simple, compelling digital experiences.</p>
       <div class="hero-loc">
         <span class="rule"></span>
         <span class="lbl">Based in Ireland,<br>Working Globally</span>
@@ -309,35 +322,27 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
     </div>
     <div class="works-grid">
       <article class="proj wide locked show-go">
-          <div class="proj-img"><image-slot shape="rect" id="p-realworld" src="images/realworld/RealWorld_Reporting.jpg" placeholder="Real World"></image-slot><a href="portfolio/RealWorld.html" class="proj-go" aria-label="View Real World case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a><span class="lock-badge" title="Password protected"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Fintech &amp; Insurtech / Product Design / 2022</p></div>
+          <div class="proj-img"><image-slot shape="rect" id="p-realworld" src="images/realworld/RealWorld_Reporting.jpg" placeholder="Real World"></image-slot><a href="portfolio/RealWorld.html" class="proj-go" aria-label="View Real World case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Insurtech / Product Design</p></div>
         </article>
       <article class="proj wide locked show-go">
-          <div class="proj-img"><image-slot shape="rect" id="p-gateway" src="images/gateway/Gateway_Moon.jpg" placeholder="Drop Gateway screenshot"></image-slot><a href="portfolio/Gateway.html" class="proj-go" aria-label="View Gateway case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a><span class="lock-badge" title="Password protected"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Gateway.html">Gateway</a></h3><p class="lbl proj-meta">Enterprise SaaS / UX Design / 2024</p></div>
+          <div class="proj-img"><image-slot shape="rect" id="p-gateway" src="images/gateway/Gateway_Moon.jpg" placeholder="Drop ARES screenshot"></image-slot><a href="portfolio/ARES.html" class="proj-go" aria-label="View Gateway case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/ARES.html">ARES</a></h3><p class="lbl proj-meta">Enterprise SaaS / UX Design</p></div>
         </article>
       <article class="proj wide show-go">
-          <div class="proj-img"><image-slot shape="rect" id="p-satclub" src="https://satellite-club.skytek.com/wp-content/uploads/2024/04/featured-image-baltimore-port-1-scaled.webp" placeholder="Drop Satellite Club screenshot"></image-slot><a href="portfolio/Satellite Club.html" class="proj-go" aria-label="View Satellite Club case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Satellite Club.html">Satellite Club</a></h3><p class="lbl proj-meta">Earth Observation / Product &amp; UX Design / 2026</p></div>
+          <div class="proj-img"><image-slot shape="rect" id="p-satclub" src="images/satelliteclub/SatelliteClub_Baltimore.jpg" placeholder="Drop Satellite Club screenshot"></image-slot><a href="portfolio/Satellite Club.html" class="proj-go" aria-label="View Satellite Club case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Satellite Club.html">Satellite Club</a></h3><p class="lbl proj-meta">Earth Observation / Product &amp; UX Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><image-slot shape="rect" id="p-daverns" src="images/daverns/Daverns_Heritage.jpg" placeholder="Daverns of Cashel"></image-slot><a href="portfolio/Daverns of Cashel.html" class="proj-go" aria-label="View Daverns of Cashel case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Web Design / 2025</p></div>
-        </article>
-      <article class="proj wide show-go">
-        <div class="proj-img"><image-slot shape="rect" id="p-alison" placeholder="Drop Alison screenshot"></image-slot><a href="portfolio/Alison.html" class="proj-go" aria-label="View Alison case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Alison.html">Alison</a></h3><p class="lbl proj-meta">E-Learning / Brand &amp; Web Design / Rebrand</p></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Web Design</p></div>
         </article>
       <article class="proj wide locked show-go">
-          <div class="proj-img"><image-slot shape="rect" id="p-bluedrop" src="images/bluedrop/BlueDrop_Hero.jpg" placeholder="BlueDrop Medical"></image-slot><a href="portfolio/BlueDrop Medical.html" class="proj-go" aria-label="View BlueDrop Medical case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a><span class="lock-badge" title="Password protected"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech &amp; Brand Identity / Brand &amp; Web Design / 2020</p></div>
+          <div class="proj-img"><image-slot shape="rect" id="p-bluedrop" src="images/bluedrop/BlueDrop_Hero.jpg" placeholder="BlueDrop Medical"></image-slot><a href="portfolio/BlueDrop Medical.html" class="proj-go" aria-label="View BlueDrop Medical case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech &amp; Brand Identity / Brand &amp; Web Design</p></div>
         </article>
       <article class="proj wide show-go">
-          <div class="proj-img"><image-slot shape="rect" id="p-atingi" placeholder="Drop atingi screenshot"></image-slot><a href="portfolio/atingi.html" class="proj-go" aria-label="View atingi case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/atingi.html">atingi</a></h3><p class="lbl proj-meta">Digital Learning / Product &amp; UX Design / GIZ</p></div>
-        </article>
-      <article class="proj wide show-go">
-          <div class="proj-img"><image-slot shape="rect" id="p-fitz" placeholder="Drop FitzGerald's screenshot"></image-slot><a href="portfolio/FitzGeralds of Kells.html" class="proj-go" aria-label="View FitzGerald's of Kells case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+          <div class="proj-img"><img src="images/fitzgeralds/FitzGeralds_Workshop.jpg" alt="Craftsman hand-planing a timber panel in the FitzGerald's workshop" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/FitzGeralds of Kells.html" class="proj-go" aria-label="View FitzGerald's of Kells case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
           <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/FitzGeralds of Kells.html">FitzGerald's of Kells</a></h3><p class="lbl proj-meta">Bespoke Furniture / Brand &amp; Web Design / Rebrand</p></div>
         </article>
     </div>
@@ -351,19 +356,25 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
       <div>
         <p class="lbl">Get In Touch</p>
         <h2>Let's craft something meaningful together.</h2>
-        <p class="contact-body">Currently open to selective senior contracts, UX consultations, and architecture leadership roles globally.</p>
-        <a class="email" href="mailto:studio@fergalkeane.com">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><polyline points="3 6 12 13 21 6"/></svg>
-          studio@fergalkeane.com
-        </a>
       </div>
-      
+      <div class="form-card">
+        <form id="contactForm" action="https://formspree.io/f/xwleleje" method="POST">
+          <div class="field"><label class="lbl" for="cf-name">Name</label><input id="cf-name" type="text" name="name" placeholder="Your name" required></div>
+          <div class="field"><label class="lbl" for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="you@company.com" required></div>
+          <div class="field"><label class="lbl" for="cf-msg">Message</label><textarea id="cf-msg" name="message" placeholder="Your Message" required></textarea></div>
+          <input type="hidden" name="_subject" value="New enquiry from fergalkeane.com">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
+          <button class="send-btn" type="submit">Send Message</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
     <div class="footbar">
       <p class="lbl">© 2026 Design by Fergal Keane</p>
       <div class="footbar-links">
         <a class="art-btn" href="art.html"><span class="dot"></span>Fergal Keane, Art</a>
         <a class="lbl" href="Experience.html">Experience ↗</a>
+        <a class="lbl" href="privacy.html">Privacy ↗</a>
       </div>
     </div>
   </div>
@@ -374,6 +385,18 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
   const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
   if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+  const cf=document.getElementById('contactForm'),note=document.getElementById('formNote');
+  cf.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const btn=cf.querySelector('.send-btn');btn.disabled=true;btn.textContent='Sending…';
+    note.className='form-note';note.textContent='';
+    try{
+      const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{Accept:'application/json'}});
+      if(r.ok){cf.reset();note.className='form-note ok';note.textContent='Thanks — message sent.';}
+      else{note.className='form-note err';note.textContent='Something went wrong. Please email directly.';}
+    }catch(_){note.className='form-note err';note.textContent='Network error. Please email directly.';}
+    btn.disabled=false;btn.textContent='Send Message';
+  });
 </script>
 </body>
 </html>
