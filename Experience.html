@@ -63,10 +63,13 @@ img{display:block;max-width:100%;}
 /* Experience timeline */
 .sec-label{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:42px;}
 .xp{display:flex;flex-direction:column;gap:0;}
-.job{display:grid;grid-template-columns:96px 1fr;gap:30px;padding-bottom:54px;border-bottom:1px solid var(--line-soft);}
+.job{display:block;padding-bottom:54px;border-bottom:1px solid var(--line-soft);}
+.job+.job{padding-top:44px;}
+.job-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .job:last-child{padding-bottom:0;border-bottom:none;}
 .job-when .lbl{color:var(--ink-soft);line-height:1.5;}
-.job-when .badge{display:inline-block;margin-top:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;}
+.job-when{display:none;}
+.badge{display:inline-block;flex:none;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;}
 .job h3{font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.2vw,27px);letter-spacing:-.01em;line-height:1.05;margin:0;}
 .job-role{font-size:13.5px;color:var(--muted);margin:7px 0 16px;font-weight:500;}
 .job ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
@@ -136,7 +139,8 @@ img{display:block;max-width:100%;}
   .nav-toggle{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
   .nav-toggle span{width:22px;height:2px;background:var(--ink);}
   .rhead{padding:46px 0 0;}
-  .job{grid-template-columns:1fr;gap:14px;padding-bottom:34px;}
+  .job{padding-bottom:34px;}
+  .job+.job{padding-top:28px;}
   .job-when{display:flex;align-items:center;gap:14px;}
   .job-when .badge{margin-top:0;}
   .field-row{grid-template-columns:1fr;}
@@ -144,12 +148,12 @@ img{display:block;max-width:100%;}
 
 /* —— PRINT / PDF —— */
 @media print{
-  @page{size:A4;margin:14mm 14mm;}
+  @page{size:A4;margin:0;}
+  main{padding:14mm 14mm 16mm !important;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
   html,body{background:#fff;}
   .nav,.nav-toggle,.contact,.footbar,.dl-resume,.print-hide{display:none !important;}
   .print-only{display:block !important;}
-  main{padding:0 !important;}
   .wrap{max-width:none;padding:0;}
   .rhead{padding:0 !important;}
   .rhead h1{font-size:44px;margin-top:6px;}
@@ -160,7 +164,8 @@ img{display:block;max-width:100%;}
   .aside{position:static !important;top:auto;gap:18px;}
   .sec-label{margin-bottom:20px;padding-top:10px;}
   .xp{gap:22px;}
-  .job{grid-template-columns:72px 1fr;gap:18px;break-inside:avoid;align-items:baseline;padding-bottom:22px;}
+  .job{break-inside:avoid;padding-bottom:22px;}
+  .job+.job{padding-top:18px;}
   .job-when{display:block;padding-top:0;}
   .job-when .lbl{display:block;line-height:1.25;}
   .job-when .badge{display:block;width:-moz-fit-content;width:fit-content;margin-top:8px;}
@@ -234,9 +239,8 @@ img{display:block;max-width:100%;}
         <div class="xp">
 
           <article class="job">
-            <div class="job-when"><span class="badge">Current</span></div>
             <div>
-              <h3>Skytek</h3>
+              <div class="job-head"><h3>Skytek</h3><span class="badge">Current</span></div>
               <p class="job-role">Senior UX/UI Designer</p>
               <ul>
                 <li>Lead design efforts for new software projects in the Space and Insurance sector.</li>
@@ -252,18 +256,6 @@ img{display:block;max-width:100%;}
           </article>
 
           <article class="job">
-            <div class="job-when"></div>
-            <div>
-              <h3>Freelance Design Consultant</h3>
-              <p class="job-role">Design Consultant</p>
-              <ul>
-                <li>Worked with a number of companies on UI / UX, brand and marketing-related design projects.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="job">
-            <div class="job-when"></div>
             <div>
               <h3>Oyster Capital Partners</h3>
               <p class="job-role">Graphic Designer</p>
@@ -288,7 +280,6 @@ img{display:block;max-width:100%;}
           </article>
 
           <article class="job">
-            <div class="job-when"></div>
             <div>
               <h3>Skillsoft</h3>
               <p class="job-role">Lead Creative Designer (R&amp;D)</p>
@@ -302,7 +293,6 @@ img{display:block;max-width:100%;}
           </article>
 
           <article class="job">
-            <div class="job-when"></div>
             <div>
               <h3>SmartForce</h3>
               <p class="job-role">Senior Graphic Designer</p>
@@ -316,7 +306,6 @@ img{display:block;max-width:100%;}
           </article>
 
           <article class="job">
-            <div class="job-when"></div>
             <div>
               <h3>CBT Systems</h3>
               <p class="job-role">Graphic Designer → Art Director</p>
@@ -329,13 +318,14 @@ img{display:block;max-width:100%;}
           </article>
 
           <article class="job">
-            <div class="job-when"></div>
             <div>
               <h3>Freelance Design</h3>
               <p class="job-role">Graphic Designer</p>
               <p class="job-note">Worked on many creative design projects for international companies, start-ups and design agencies. Notable companies and agencies include:</p>
               <div class="tag-grid">
                 <span class="tag">Enovation Solutions</span>
+                <span class="tag">Oyster Capital Partners</span>
+                <span class="tag">FieldAware</span>
                 <span class="tag">InterTrade Ireland</span>
                 <span class="tag">Bluedrop Medical</span>
                 <span class="tag">Novaerus</span>
@@ -356,12 +346,6 @@ img{display:block;max-width:100%;}
 
       <!-- SIDEBAR -->
       <aside class="aside">
-        <div class="card edu">
-          <span class="lbl">Education</span>
-          <p class="deg">Visual Communications</p>
-          <p class="meta">Waterford Institute of Technology<br>Awarded with Merit</p>
-        </div>
-
         <div class="card">
           <span class="lbl">Skills</span>
           <div class="skill-list">
@@ -377,6 +361,12 @@ img{display:block;max-width:100%;}
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Attention to Detail</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.2 11 14.7 15.5 9.5"/></svg>Collaboration</li>
           </ul>
+        </div>
+
+        <div class="card edu">
+          <span class="lbl">Education</span>
+          <p class="deg">Visual Communications</p>
+          <p class="meta">Waterford Institute of Technology<br>Awarded with Merit</p>
         </div>
 
         <div class="card dark">
