@@ -273,8 +273,7 @@ img{display:block;max-width:100%;}
 <body>
 
 <!-- PASSWORD GATE -->
-<!-- Password gate temporarily disabled: remove the "hidden" class and the early return in the script below to reinstate it. -->
-<div class="gate hidden" id="gate">
+<div class="gate" id="gate">
   <div class="gate-card">
     <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <span class="lbl">Protected Case Study</span>
@@ -626,7 +625,6 @@ img{display:block;max-width:100%;}
   /* Password gate — client-side preview only. In WordPress use native
      page password protection or a membership plugin for real security. */
   (function(){
-    return; /* gate disabled, delete this line to reinstate */
     var PW='stepaside';
     var gate=document.getElementById('gate');
     {
