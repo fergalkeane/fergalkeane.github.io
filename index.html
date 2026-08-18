@@ -2,83 +2,389 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fergal Keane: Website Under Construction</title>
+<title>Fergal Keane, Senior UX/UI Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
 <style>
-@font-face{font-family:'Space Grotesk';src:url('fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');font-weight:300 700;font-style:normal;font-display:swap;}
-:root{--font-display:'Space Grotesk','Archivo',system-ui,sans-serif;--font-sans:'Archivo',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--ink:#0d0d0d;--ink-soft:#1a1a1a;--muted:#8a8a8a;--line:#e6e6e6;--paper:#ffffff;--accent:#cf5a2c;}
+@font-face{
+  font-family:'Space Grotesk';
+  src:url('fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight:300 700;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  /* Headline typeface — Space Grotesk variable font */
+  --font-display: 'Space Grotesk', 'Archivo', system-ui, sans-serif;
+  --font-sans: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --ink: #0d0d0d;
+  --ink-soft: #1a1a1a;
+  --muted: #8a8a8a;
+  --muted-2: #b5b5b5;
+  --line: #e6e6e6;
+  --line-soft: #efefef;
+  --paper: #ffffff;
+  --paper-2: #f6f6f4;
+  --accent: #cf5a2c;
+
+  --maxw: 1360px;
+  --pad: 56px;
+}
+
 *{box-sizing:border-box;}
-html,body{margin:0;height:100%;}
-body{background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-weight:300;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100%;}
-a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(207,90,44,.35);transition:border-color .18s ease,color .18s ease;}
-a:hover{color:var(--ink);border-color:var(--ink);}
-.lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0;}
-.uc-top{padding:34px clamp(24px,5vw,56px);border-bottom:1px solid var(--line);}
-.uc-mark{font-family:var(--font-display);font-size:15px;font-weight:500;letter-spacing:-.01em;}
-.uc-main{flex:1;display:flex;align-items:center;padding:clamp(56px,10vh,120px) clamp(24px,5vw,56px);}
-.uc-inner{max-width:1180px;width:100%;display:grid;grid-template-columns:1fr minmax(340px,40%);gap:clamp(44px,6vw,88px);align-items:start;}
-.uc-copy{max-width:600px;}
-.form-card{background:#fafaf9;border:1px solid var(--line);padding:32px 30px;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-sans);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+::selection{background:var(--accent);color:#fff;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+
+/* —— Mono label —— */
+.lbl{
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.accent{color:var(--accent);}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.brand{display:flex;align-items:baseline;gap:12px;}
+.brand b{
+  font-family:var(--font-display);
+  font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+}
+.brand span{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:var(--muted);}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{
+  font-family:var(--font-mono);
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+  position:relative;padding:4px 0;
+}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:var(--ink);
+}
+.nav-links a:not(.active){color:var(--muted);}
+.nav-links a:not(.active):hover{color:var(--ink);}
+.nav-toggle{display:none;}
+
+/* ============ HERO ============ */
+.hero{padding:74px 0 0;}
+.hero-head{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:clamp(46px,8vw,108px);
+  line-height:.92;
+  letter-spacing:-.025em;
+  margin:18px 0 0;
+  max-width:11ch;
+}
+.hero-sub-row{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:40px;
+  margin-top:26px;flex-wrap:wrap;
+}
+.hero-sub{
+  max-width:42ch;font-size:16px;line-height:1.6;color:var(--muted);font-weight:400;
+}
+.hero-sub b{color:var(--ink);font-weight:500;}
+.hero-loc{
+  display:flex;align-items:center;gap:14px;white-space:nowrap;
+}
+.hero-loc .rule{width:46px;height:1px;background:var(--ink);}
+.hero-loc .lbl{color:var(--ink-soft);line-height:1.6;text-align:right;}
+
+/* ============ INTRO ============ */
+.intro{padding:80px 0 96px;}
+.intro-grid{display:grid;grid-template-columns:minmax(0,640px);gap:0;}
+.portrait{
+  width:300px;max-width:100%;aspect-ratio:300/360;
+  filter:grayscale(1) contrast(1.02);
+  border:1px solid var(--line);
+}
+.portrait-cap{margin-top:10px;}
+.intro h2{
+  font-family:var(--font-display);
+  font-weight:700;font-size:clamp(28px,3.2vw,38px);line-height:1.04;letter-spacing:-.02em;
+  margin:30px 0 22px;max-width:18ch;
+}
+.intro-body{font-size:15px;line-height:1.7;color:var(--muted);max-width:46ch;margin:0;}
+.intro-body b{color:var(--accent);font-weight:500;}
+.intro-cols{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:38px 0 36px;max-width:560px;
+}
+.intro-cols h4{margin:0 0 14px;}
+.intro-cols p{font-size:13px;line-height:1.65;color:var(--muted-2);margin:0;color:#7d7d7d;}
+.exp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+.exp-list li{
+  font-size:13px;line-height:1.4;color:var(--ink-soft);position:relative;padding-left:18px;
+}
+.exp-list li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;background:var(--accent);}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  padding:15px 26px;border:1px solid var(--ink);display:inline-flex;align-items:center;gap:10px;
+  transition:all .18s ease;cursor:pointer;background:none;color:var(--ink);
+}
+.btn-solid{background:var(--ink);color:#fff;}
+.btn-solid:hover{background:var(--accent);border-color:var(--accent);}
+.btn-ghost:hover{background:var(--ink);color:#fff;}
+
+/* ============ SELECTED WORKS ============ */
+.works{padding:24px 0 110px;}
+.works-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border-top:1px solid var(--ink);padding-top:16px;margin-bottom:54px;
+}
+.works-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:74px;align-items:start;}
+.proj{margin-bottom:0;position:relative;}
+.proj-cap{position:absolute;left:clamp(20px,2.4vw,30px);right:clamp(20px,2.4vw,30px);bottom:clamp(20px,2.4vw,28px);z-index:4;display:flex;flex-direction:column;gap:0;pointer-events:none;}
+.proj-cap .proj-title,.proj-cap .proj-title a{color:#fff;}
+.proj-cap .proj-meta{color:rgba(255,255,255,.72);margin:1px 0 0;}
+.proj-cap a{pointer-events:auto;}
+.proj-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.45) 34%,rgba(10,10,10,0) 66%);}
+.proj-img{position:relative;overflow:hidden;border-radius:14px;background:var(--paper-2);border:1px solid var(--line-soft);}
+.proj-img image-slot{display:block;position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.proj.tall .proj-img{aspect-ratio:4/3;}
+.proj.wide .proj-img{aspect-ratio:4/3;}
+.proj-go{
+  box-shadow:0 0 0 0 rgba(255,255,255,0);transition:box-shadow .25s ease,background .2s ease,color .2s ease;
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.72);z-index:2;
+  width:62px;height:62px;border-radius:50%;background:#fff;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .25s ease,transform .25s ease;pointer-events:none;
+}
+.proj:hover .proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.proj.show-go .proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.proj-go svg{transition:transform .34s cubic-bezier(.22,.9,.3,1);}
+.proj:hover .proj-go svg{animation:goNudge .5s cubic-bezier(.22,.9,.3,1);}
+.proj.locked:hover .proj-go svg{animation:lockJiggle .42s ease;}
+@keyframes lockJiggle{0%,100%{transform:none}25%{transform:rotate(-7deg)}60%{transform:rotate(6deg)}}
+.proj-go:hover{background:var(--accent);color:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.28);}
+@keyframes goNudge{0%{transform:none}45%{transform:translate(7px,-7px);opacity:.15}46%{transform:translate(-7px,7px);opacity:.15}100%{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.proj:hover .proj-go svg{animation:none;}}
+a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
+.proj:hover a.proj-go,.proj.show-go a.proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.lock-badge{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.14);backdrop-filter:blur(4px);}
+.protected-tag{position:absolute;top:14px;right:14px;z-index:3;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(10,10,10,.16);}.protected-tag svg{width:11px;height:11px;}
+.proj-meta{margin:20px 0 8px;}
+.proj:hover .proj-cap .proj-title,.proj:hover .proj-cap .proj-title a{color:var(--accent);}
+.proj-title,.proj-title a{
+  margin:0;font-family:'Space Grotesk','Archivo',system-ui,sans-serif;font-weight:700;font-size:clamp(22px,2.3vw,28px);
+  letter-spacing:-.01em;line-height:1.05;transition:color .18s ease;
+}
+.proj:hover .proj-title{color:var(--accent);}
+
+/* ============ CONTACT ============ */
+.contact{padding:96px 0 0;border-top:1px solid var(--line-soft);}
+.contact-grid{display:grid;grid-template-columns:1fr minmax(360px,42%);gap:clamp(48px,6vw,84px);align-items:start;}
+.contact h2{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;
+  margin:20px 0 26px;max-width:11ch;
+}
+.contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
+.email:hover{color:var(--accent);border-color:var(--accent);}
+.form-card{background:var(--paper-2);border:1px solid var(--line);padding:34px 32px;}
+.form-card .form-sub{font-size:12px;color:var(--muted);margin:8px 0 26px;}
+.form-card>.lbl{display:block;margin-bottom:26px;}
 .field{margin-bottom:18px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .field label{display:block;margin-bottom:9px;}
-.field input,.field textarea{width:100%;background:var(--paper);border:1px solid var(--line);border-radius:0;padding:13px 14px;font-family:var(--font-sans);font-size:14px;color:var(--ink);transition:border-color .15s ease;}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--ink);}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--paper);border:1px solid var(--line);border-radius:0;
+  padding:13px 14px;font-family:var(--font-sans);font-size:14px;color:var(--ink);
+  transition:border-color .15s ease;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);}
 .field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.6;}
-.field textarea{min-height:118px;resize:vertical;}
-.send-btn{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease;}
-.send-btn:hover{background:var(--accent);}
-.form-note{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:16px 0 0;min-height:14px;color:var(--muted);}
+.form-note{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:16px 0 0;min-height:14px;}
 .form-note.ok{color:var(--accent);}
 .form-note.err{color:#c0392b;}
-@media(max-width:860px){.uc-inner{grid-template-columns:1fr;gap:44px;}}
-.uc-rule{display:flex;align-items:center;gap:16px;margin-bottom:34px;}
-.uc-rule i{display:block;width:44px;height:1px;background:var(--accent);flex:none;}
-h1{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,6.4vw,74px);line-height:1.03;letter-spacing:-.028em;margin:0;text-wrap:balance;}
-h1 em{font-style:normal;color:var(--accent);}
-.uc-body{font-size:clamp(15px,1.6vw,18px);line-height:1.62;color:var(--ink-soft);max-width:46ch;margin:28px 0 0;text-wrap:pretty;}
-.uc-contact{margin-top:44px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
-.uc-mail{font-family:var(--font-display);font-size:clamp(19px,2.6vw,28px);font-weight:400;letter-spacing:-.015em;border-bottom-width:1px;}
-.uc-li{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;color:var(--muted);margin-top:0;transition:background .2s,color .2s,border-color .2s;}
-.uc-li:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
-.uc-li svg{width:16px;height:16px;}
-.uc-foot{padding:26px clamp(24px,5vw,56px);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.field textarea{min-height:118px;resize:vertical;}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230d0d0d' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 14px center;}
+.send-btn{
+  width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;
+  padding:17px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:10px;transition:background .18s ease;
+}
+.send-btn:hover{background:var(--accent);}
+.footbar{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;
+}
+.footbar a:hover{color:var(--accent);}
+.footbar-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.art-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border:1px solid var(--ink);padding:11px 18px;transition:background .18s ease,color .18s ease,border-color .18s ease;}
+.art-btn:hover{background:var(--ink);color:var(--paper);}
+.art-btn .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1024px){
+  :root{--pad:40px;}
+  .contact-grid{grid-template-columns:1fr;gap:52px;}
+}
+@media(max-width:760px){
+  :root{--pad:22px;}
+  .nav-links{position:fixed;inset:64px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 24px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .3s ease;}
+  .nav-links.open{transform:translateY(0);}
+  .nav-links a{padding:14px 0;font-size:13px;width:100%;border-bottom:1px solid var(--line-soft);}
+  .nav-links a.active::after{display:none;}
+  .nav-toggle{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+  .nav-toggle span{width:22px;height:2px;background:var(--ink);}
+  .hero{padding:48px 0 0;}
+  .hero-sub-row{flex-direction:column;gap:26px;margin-top:20px;}
+  .hero-loc .lbl{text-align:left;}
+  .intro{padding:56px 0 64px;}
+  .works-grid{grid-template-columns:1fr;column-gap:0;row-gap:44px;}
+  .proj{display:flex;flex-direction:column;padding-bottom:44px;border-bottom:1px solid var(--line);}
+  .proj-cap{display:contents;}
+  .proj .proj-title,.proj .proj-title a{color:var(--ink);}
+  .proj .proj-meta{color:var(--muted);}
+  .proj-img::after{display:none;}
+  .proj .proj-title{order:1;margin:0 0 18px;}
+  .proj .proj-img{order:2;}
+  .proj .proj-meta{order:3;margin:6px 0 0;}
+  .proj:last-child{padding-bottom:0;border-bottom:none;}
+  .intro-cols{grid-template-columns:1fr;gap:30px;}
+  .field-row{grid-template-columns:1fr;}
+}
 </style>
+<script src="theme.js"></script>
 </head>
 <body>
-<header class="uc-top">
-  <div class="uc-mark">Fergal Keane</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <b>Fergal Keane</b><span>UI/UX</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work" class="active">Work</a>
+      <a href="Experience.html">Experience</a>
+      <a href="#contact">Contact</a>
+      </nav>
+  </div>
 </header>
-<main class="uc-main">
-  <div class="uc-inner">
-    <div class="uc-copy">
-    <div class="uc-rule"><i></i><p class="lbl">Under Construction</p></div>
-    <h1>The new site is being <em>built.</em></h1>
-    <p class="uc-body">A refreshed portfolio of senior product and UX work is on the way. In the meantime, case studies and my full experience are available on request.</p>
-    <div class="uc-contact">
-      <a class="uc-li" href="https://www.linkedin.com/in/fergalkeane/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a>
-    </div>
-    </div>
-    <div class="form-card">
-      <form id="contactForm" action="https://formspree.io/f/xwleleje" method="POST">
-        <div class="field"><label class="lbl" for="cf-name">Name</label><input id="cf-name" type="text" name="name" placeholder="Your name" required></div>
-        <div class="field"><label class="lbl" for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="you@company.com" required></div>
-        <div class="field"><label class="lbl" for="cf-msg">Message</label><textarea id="cf-msg" name="message" placeholder="Your Message" required></textarea></div>
-        <input type="hidden" name="_subject" value="New enquiry from fergalkeane.com">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
-        <button class="send-btn" type="submit">Send Message</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      </form>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="lbl">Design Portfolio</p>
+    <h1 class="hero-head">Crafting Digital Experiences That Matter</h1>
+    <div class="hero-sub-row">
+      <p class="hero-sub">Senior UX/UI Designer transforming complex problems into simple, compelling digital experiences.</p>
+      <div class="hero-loc">
+        <span class="rule"></span>
+        <span class="lbl">Based in Ireland,<br>Working Globally</span>
+      </div>
     </div>
   </div>
+</section>
+
+
+<!-- ============ SELECTED WORKS ============ -->
+<section class="works" id="work">
+  <div class="wrap">
+    <div class="works-head">
+      <p class="lbl">Selected Works</p>
+      <p class="lbl">01 / 08</p>
+    </div>
+    <div class="works-grid">
+      <article class="proj wide locked show-go">
+          <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Protected</span><image-slot shape="rect" id="p-realworld" src="images/realworld/RealWorld_Reporting.jpg" placeholder="Real World"></image-slot><a href="portfolio/RealWorld.html" class="proj-go" aria-label="View Real World case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Insurtech / Product Design</p></div>
+        </article>
+      <article class="proj wide locked show-go">
+          <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Protected</span><image-slot shape="rect" id="p-gateway" src="images/gateway/Gateway_Moon.jpg" placeholder="Drop ARES screenshot"></image-slot><a href="portfolio/ARES.html" class="proj-go" aria-label="View Gateway case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/ARES.html">ARES</a></h3><p class="lbl proj-meta">Enterprise SaaS / UX Design</p></div>
+        </article>
+      <article class="proj wide show-go">
+          <div class="proj-img"><image-slot shape="rect" id="p-satclub" src="images/satelliteclub/SatelliteClub_Baltimore.jpg" placeholder="Drop Satellite Club screenshot"></image-slot><a href="portfolio/Satellite Club.html" class="proj-go" aria-label="View Satellite Club case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Satellite Club.html">Satellite Club</a></h3><p class="lbl proj-meta">Earth Observation / Product &amp; UX Design</p></div>
+        </article>
+      <article class="proj wide show-go">
+          <div class="proj-img"><image-slot shape="rect" id="p-daverns" src="images/daverns/Daverns_Heritage.jpg" placeholder="Daverns of Cashel"></image-slot><a href="portfolio/Daverns of Cashel.html" class="proj-go" aria-label="View Daverns of Cashel case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Web Design</p></div>
+        </article>
+      <article class="proj wide locked show-go">
+          <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Protected</span><image-slot shape="rect" id="p-bluedrop" src="images/bluedrop/BlueDrop_Hero.jpg" placeholder="BlueDrop Medical"></image-slot><a href="portfolio/BlueDrop Medical.html" class="proj-go" aria-label="View BlueDrop Medical case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech &amp; Brand Identity / Brand &amp; Web Design</p></div>
+        </article>
+      <article class="proj wide show-go">
+          <div class="proj-img"><img src="images/fitzgeralds/FitzGeralds_Workshop.jpg" alt="Craftsman hand-planing a timber panel in the FitzGerald's workshop" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/FitzGeralds of Kells.html" class="proj-go" aria-label="View FitzGerald's of Kells case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/FitzGeralds of Kells.html">FitzGerald's of Kells</a></h3><p class="lbl proj-meta">Bespoke Furniture / Brand &amp; Web Design / Rebrand</p></div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="lbl">Get In Touch</p>
+        <h2>Let's craft something meaningful together.</h2>
+      </div>
+      <div class="form-card">
+        <form id="contactForm" action="https://formspree.io/f/xwleleje" method="POST">
+          <div class="field"><label class="lbl" for="cf-name">Name</label><input id="cf-name" type="text" name="name" placeholder="Your name" required></div>
+          <div class="field"><label class="lbl" for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="you@company.com" required></div>
+          <div class="field"><label class="lbl" for="cf-msg">Message</label><textarea id="cf-msg" name="message" placeholder="Your Message" required></textarea></div>
+          <input type="hidden" name="_subject" value="New enquiry from fergalkeane.com">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
+          <button class="send-btn" type="submit">Send Message</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <div class="footbar">
+      <p class="lbl">© 2026 Design by Fergal Keane</p>
+      <div class="footbar-links">
+        <a class="art-btn" href="art.html"><span class="dot"></span>Fergal Keane, Art</a>
+        <a class="lbl" href="Experience.html">Experience ↗</a>
+        <a class="lbl" href="privacy.html">Privacy ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
-<footer class="uc-foot">
-  <p class="lbl">Fergal Keane © 2026</p>
-</footer>
+
 <script>
+  const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
+  if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
+    lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
   const cf=document.getElementById('contactForm'),note=document.getElementById('formNote');
   cf.addEventListener('submit',async e=>{
     e.preventDefault();
@@ -86,7 +392,7 @@ h1 em{font-style:normal;color:var(--accent);}
     note.className='form-note';note.textContent='';
     try{
       const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{Accept:'application/json'}});
-      if(r.ok){cf.reset();note.className='form-note ok';note.textContent='Thanks, message sent.';}
+      if(r.ok){cf.reset();note.className='form-note ok';note.textContent='Thanks — message sent.';}
       else{note.className='form-note err';note.textContent='Something went wrong. Please email directly.';}
     }catch(_){note.className='form-note err';note.textContent='Network error. Please email directly.';}
     btn.disabled=false;btn.textContent='Send Message';
