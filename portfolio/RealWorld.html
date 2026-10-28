@@ -111,8 +111,9 @@ img{display:block;max-width:100%;}
 .shot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 18px;}
 .shot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.1;letter-spacing:-.01em;margin:0 0 16px;}
 .shot-cap p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;max-width:34ch;}
-.shot-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;}
-.shot-tags span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line);padding:6px 10px;background:var(--paper-2);}
+.shot-tags{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:7px;}
+.shot-tags li{position:relative;padding-left:17px;font-size:14px;line-height:1.5;color:var(--ink-soft);}
+.shot-tags li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 
 .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(11,46,94,.04),0 24px 56px -28px rgba(11,46,94,.30);}
 .frame-bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
@@ -365,17 +366,14 @@ img{display:block;max-width:100%;}
       </aside>
       <div class="case-content">
         <div class="case-block">
-          <span class="lbl">01 · The Challenge</span>
           <h2 class="case-h">One book of risk, scattered across a dozen disconnected tools.</h2>
           <p class="case-p">Underwriters and risk managers tracked marine, property, aviation, energy, cargo and ports exposures across siloed spreadsheets and single-purpose tools. There was no single view of accumulated exposure, and live events, sanctions, AIS silence, severe weather, region breaches, surfaced too slowly to act on.</p>
         </div>
         <div class="case-block">
-          <span class="lbl">02 · The Solution</span>
           <h2 class="case-h">One intelligence platform, eight purpose-built risk workspaces.</h2>
           <p class="case-p">Real World consolidates exposure aggregation, sanctions and compliance screening, live alerting and deep analytics into one workspace, with geospatial context where location matters. Each line of business gets a purpose-built workspace that shares one design language, navigation model and component library, so a marine underwriter and an aviation risk manager feel immediately at home in each other's screens.</p>
         </div>
         <div class="impact">
-          <span class="lbl">03 · Impact</span>
           <h2>Real-time exposure monitoring across eight portfolios at global scale, with sanctions, weather and breach alerts surfaced the moment they occur.</h2>
         </div>
       </div>
@@ -387,7 +385,6 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.1 · The Product</span>
       <h2 class="sec-title">A guided walk through Real World</h2>
       <p class="sec-lead">Across eight specialised risk workspaces, every screen shares the same logic: portfolios on the left, aggregated exposure in the centre, live risk on the right, and the same drill-down path from portfolio to single asset.</p>
     </div>
@@ -400,7 +397,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">01 / Unified Dashboard</p>
           <h3>The whole book at a glance</h3>
           <p>The landing dashboard greets each risk manager with headline KPIs for total exposure, active policies, live risk alerts and global regions, then routes them into Marine, Property, Aviation and Offshore/Energy through large, asset-counted entry cards.</p>
-          <div class="shot-tags"><span>Overview</span><span>KPI Cards</span><span>Navigation</span></div>
+          <ul class="shot-tags"><li>Overview</li><li>KPI Cards</li><li>Navigation</li></ul>
         </div>
         <div class="frame">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / dashboard</span></div>
@@ -414,7 +411,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">02 / Marine</p>
           <h3>A live fleet under continuous watch</h3>
           <p>The marine workspace plots the entire insured fleet on a global chart. Selecting a vessel opens an at-a-glance voyage card covering route, speed, draught, flag and policy type, while regional aggregation and a sanctions / AIS-silence alert rail keep accumulation in check.</p>
-          <div class="shot-tags"><span>AIS Tracking</span><span>Voyage Data</span><span>Exposure Aggregation</span></div>
+          <ul class="shot-tags"><li>AIS Tracking</li><li>Voyage Data</li><li>Exposure Aggregation</li></ul>
         </div>
         <div class="frame">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine</span></div>
@@ -428,7 +425,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">03 / Vessel Detail</p>
           <h3>Everything known about a single hull</h3>
           <p>Drilling into a vessel unifies policy details, port calls, a 0&ndash;100 risk score with year-on-year trend, inspection history, environmental CII ratings and a scrubbable AIS track. It is the deepest view in the platform, organised so nothing competes for attention.</p>
-          <div class="shot-tags"><span>Risk Score</span><span>Environmental</span><span>Tracking</span></div>
+          <ul class="shot-tags"><li>Risk Score</li><li>Environmental</li><li>Tracking</li></ul>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine / vessel</span></div>
@@ -442,7 +439,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">04 / Cargo</p>
           <h3>Declarations screened against AIS</h3>
           <p>Cargo voyage analysis turns an uploaded declarations workbook into a screened portfolio, with every vessel checked against AIS for voyage progress and breach of a stated region. Completed, started, pending and breached voyages roll up into a summary, with each route inspectable on the map.</p>
-          <div class="shot-tags"><span>Voyage Breach</span><span>Workbook Upload</span><span>Clash Alerts</span></div>
+          <ul class="shot-tags"><li>Voyage Breach</li><li>Workbook Upload</li><li>Clash Alerts</li></ul>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / cargo</span></div>
@@ -456,7 +453,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">05 / Aviation</p>
           <h3>From global airspace to a single gate</h3>
           <p>Aviation reuses the same spatial grammar for a different asset class: portfolio exposure by airport and region, live NOTAMs and risk-area levels, then an airport drill-down with aircraft-on-the-ground, incoming traffic and summary statistics over a satellite view.</p>
-          <div class="shot-tags"><span>Airport Exposure</span><span>NOTAMs</span><span>Drill-Down</span></div>
+          <ul class="shot-tags"><li>Airport Exposure</li><li>NOTAMs</li><li>Drill-Down</li></ul>
         </div>
         <div>
           <div class="frame">
@@ -482,7 +479,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">06 / Property</p>
           <h3>Catastrophe exposure, geolocated</h3>
           <p>The property workspace maps insured value against high-value markets and live weather risk across wildfire zones, hurricane tracks and seismic zones, so concentration in a cat-exposed region is visible the instant a threshold is breached.</p>
-          <div class="shot-tags"><span>Cat Risk</span><span>Weather</span><span>Regional Values</span></div>
+          <ul class="shot-tags"><li>Cat Risk</li><li>Weather</li><li>Regional Values</li></ul>
         </div>
         <div>
           <div class="frame">
@@ -503,7 +500,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">07 / Nat Cat Events</p>
           <h3>Damage assessed from orbit</h3>
           <p>Nat Cat coverage spans every major peril the book is exposed to, from wildfires and windstorms to earthquakes, floods and tropical cyclones. When an event hits, the view sets the hazard perimeter over post-event satellite imagery, grades every property inside it from undamaged to completely destroyed, and lists the insured addresses caught within the footprint alongside an RDS classification and exposure figure.</p>
-          <div class="shot-tags"><span>Event Footprint</span><span>Damage Grading</span><span>Before / After</span></div>
+          <ul class="shot-tags"><li>Event Footprint</li><li>Damage Grading</li><li>Before / After</li></ul>
         </div>
         <div>
           <div class="frame">
@@ -526,7 +523,6 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.2 · Design Language</span>
       <h2 class="sec-title">One language, eight workspaces</h2>
       <p class="sec-lead">A small, strict foundation, six recurring components and one set of states. Enough shared vocabulary that a marine underwriter and an aviation risk manager read each other's screens without relearning anything.</p>
     </div>
