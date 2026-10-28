@@ -85,6 +85,9 @@ img{display:block;max-width:100%;}
 .check-list svg{flex:none;color:var(--accent);}
 .meta-divider{height:1px;background:var(--line);margin:4px 0;}
 .stats{display:flex;gap:44px;}
+.sector-list{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:9px;}
+.sector-list li{position:relative;padding-left:17px;font-size:14px;font-weight:500;line-height:1.4;color:var(--ink-soft);}
+.sector-list li::before{content:"";position:absolute;left:2px;top:.5em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 .stat-num{font-family:var(--font-display);font-weight:800;font-size:34px;letter-spacing:-.03em;margin:0 0 6px;color:var(--orbit);}
 
 .case-content{display:flex;flex-direction:column;gap:64px;}
@@ -121,11 +124,33 @@ img{display:block;max-width:100%;}
 .principle{border-top:1px solid var(--ink);padding-top:18px;}
 .principle h4{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:12px 0 10px;}
 .principle p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;}
-.principle .pn{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);}
+.principle .pn{font-family:var(--font-display);font-weight:800;font-size:clamp(44px,4.4vw,60px);line-height:1;letter-spacing:-.03em;color:var(--accent);margin:4px 0 0;}
 @media(max-width:880px){.principles{grid-template-columns:1fr;}}
 
 /* BEFORE / AFTER */
-.ba-grid{margin-top:clamp(40px,4vw,64px);display:flex;flex-direction:column;gap:clamp(28px,3vw,40px);}
+.ba-viewer{margin-top:clamp(40px,4vw,64px);display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:clamp(24px,3vw,40px);align-items:start;}
+.ba-stage{display:flex;flex-direction:column;gap:clamp(28px,3vw,40px);min-width:0;}
+.ba-viewer.ready .ba:not(.on){display:none;}
+.ba-menu{position:sticky;top:96px;}
+.ba-menu .lbl{display:block;margin:0 0 12px;}
+.ba-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line);}
+.ba-menu button{position:relative;display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:15px 0 15px 16px;cursor:pointer;font:inherit;color:inherit;}
+.ba-menu button::before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:2px;border-radius:2px;background:transparent;transition:background .2s;}
+.ba-menu .ev{display:block;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--ink-soft);transition:color .2s;}
+.ba-menu .ev-sub{display:block;margin-top:4px;font-size:12.5px;line-height:1.45;color:var(--muted);}
+.ba-menu button:hover .ev,.ba-menu button[aria-pressed="true"] .ev{color:var(--accent);}
+.ba-menu button[aria-pressed="true"]::before{background:var(--accent);}
+.ba-menu button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+@media(max-width:880px){
+  .ba-viewer{grid-template-columns:minmax(0,1fr);}
+  .ba-menu{position:static;order:-1;min-width:0;}
+  .ba-menu ul{flex-direction:row;gap:8px;border-top:0;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
+  .ba-menu ul::-webkit-scrollbar{display:none;}
+  .ba-menu button{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:9px 15px;}
+  .ba-menu button::before,.ba-menu .ev-sub{display:none;}
+  .ba-menu .ev{font-size:14px;}
+  .ba-menu button[aria-pressed="true"]{border-color:var(--accent);}
+}
 .ba{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column;}
 .ba-head{padding:20px 22px 18px;border-bottom:1px solid var(--line-soft);}
 .ba-head h4{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:0 0 6px;}
@@ -164,8 +189,9 @@ img{display:block;max-width:100%;}
 .shot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 18px;}
 .shot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.1;letter-spacing:-.01em;margin:0 0 16px;}
 .shot-cap p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;max-width:34ch;}
-.shot-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;}
-.shot-tags span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line);padding:6px 10px;background:var(--paper-2);}
+.shot-tags{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:7px;}
+.shot-tags li{position:relative;padding-left:17px;font-size:14px;line-height:1.5;color:var(--ink-soft);}
+.shot-tags li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 .shot-pair{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .shot-pair .frame.scroll{max-height:560px;}
 .shot-pair .frame.scroll .scroll-body{max-height:522px;}
@@ -290,11 +316,10 @@ img{display:block;max-width:100%;}
     <div class="case-grid">
       <aside class="case-meta">
         <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">UI/UX Design</p></div>
-        <div class="meta-item"><p class="lbl">Sector</p><p class="meta-val">Earth Observation and (re)insurance risk intelligence</p></div>
+        <div class="meta-item"><p class="lbl">Sector</p><p class="meta-val">Earth Observation for Insurance &amp; Risk Intelligence</p></div>
         <div class="meta-item">
           <p class="lbl">Deliverables</p>
           <ul class="check-list">
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Membership &amp; Registration Flow</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Reports Library &amp; Templates</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Before / After EO Comparison UI</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Online &amp; Downloadable Expert Reports</li>
@@ -306,29 +331,43 @@ img{display:block;max-width:100%;}
           <div><p class="stat-num">6</p><p class="lbl">EO Data Providers</p></div>
         </div>
         <div class="stats">
-          <div><p class="stat-num">11</p><p class="lbl">Application Sectors</p></div>
+          <div><p class="stat-num">11</p><p class="lbl">Application Sectors</p>
+            <ul class="sector-list">
+              <li>Pre/Post Loss Assessment</li>
+              <li>Climate Change</li>
+              <li>Marine</li>
+              <li>Utilities</li>
+              <li>Forestry</li>
+              <li>Oil &amp; Gas</li>
+              <li>Fisheries</li>
+              <li>Environmental</li>
+              <li>Agriculture</li>
+              <li>Mining</li>
+              <li>Alternative Energy</li>
+            </ul>
+          </div>
         </div>
       </aside>
       <div class="case-content">
         <div class="case-block">
-          <span class="lbl">01 / The Problem</span>
+          <span class="lbl">The Problem</span>
           <h2 class="case-h">Space data the insurance market could not actually use.</h2>
           <p class="case-p">The problem was access. An underwriter pricing a Gulf tanker risk, or a claims manager assessing a hurricane loss, does not want a data feed, a tasking request form or a GIS tool. They want a defensible answer about a specific location, quickly, in language that survives being put in front of a client or a court.</p>
         </div>
         <div class="case-block">
-          <span class="lbl">02 / Framing</span>
-          <h2 class="case-h">Design it as a club, not a data portal.</h2>
+          <span class="lbl">Framing</span>
+          <h2 class="case-h">Design it as a personal data portal.</h2>
           <p class="case-p">The reframe that shaped everything: this is a membership, not a subscription to imagery. Members get commissioned proprietary reports from the Skytek expert panel, image acquisition tools, advice on cost-effective tasking, priority access to major-event reports, workshops, and expert witness support.</p>
           <p class="case-p">That framing solved a hard positioning question. Sold as software, it competes with GIS platforms on features it does not want to compete on. Sold as a club with an expert panel behind it, <strong>the product is judgement, and the technology is how the judgement gets made</strong>.</p>
         </div>
         <div class="case-block">
-          <span class="lbl">03 / The Hard Constraint</span>
+          <span class="lbl">The Hard Constraint</span>
           <h2 class="case-h">Two audiences, one page, opposite needs.</h2>
-          <p class="case-p">A first-time visitor needs to understand what Earth Observation does for their book of business inside about fifteen seconds. An existing member arrives looking for the report published this morning on the Strait of Hormuz.</p>
+          <p class="case-p">A first-time visitor needs to understand what Earth Observation does for their book of business. An existing member arrives looking for the report published this morning on the Strait of Hormuz.</p>
           <p class="case-p">Rather than splitting into a marketing site and a separate logged-in app, the structure runs the proposition top-down and puts the live reports feed high on the same page. Login is a lightweight overlay instead of a destination, so a returning member never has to travel through the pitch to reach the intelligence.</p>
         </div>
         <div class="impact">
-          <span class="lbl">04 / Outcome</span>
+          <span class="lbl">Outcome</span>
           <h2>Satellite imagery paired with <em>expert analysis</em>, delivered to the market that has to price the risk.</h2>
         </div>
       </div>
@@ -339,7 +378,7 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.1 / Audience &amp; Value</span>
+      <span class="lbl">Audience &amp; Value</span>
       <h2 class="sec-title">Who it is for, and what they actually get</h2>
     </div>
     <div class="aud-grid">
@@ -374,8 +413,8 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.2 / Design Principles</span>
-      <h2 class="sec-title">Three rules for designing evidence</h2>
+      <span class="lbl">Design Principles</span>
+      <h2 class="sec-title">Three rules for evidence design</h2>
       <p class="sec-lead">This content ends up in pricing decisions, claims files and legal submissions. That raises the bar on how it is presented.</p>
     </div>
     <div class="principles">
@@ -401,50 +440,58 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.3 / Before &amp; After</span>
-      <h2 class="sec-title">The comparison that makes the case in one glance</h2>
+      <span class="lbl">Before &amp; After</span>
+      <h2 class="sec-title">The comparison that makes the case</h2>
       <p class="sec-lead">Paired before and after acquisitions of the same coordinates are the most persuasive object in the product. A fixed template locks location, both capture dates and consistent framing, so the change is the only variable a viewer sees. Drag the handle to move between acquisitions.</p>
     </div>
-    <div class="ba-grid">
-      <div class="ba">
-        <div class="ba-head">
-          <h4>Maritime incident</h4>
-          <p>Francis Scott Key Bridge, Baltimore · 24 Feb 2024 to 29 Mar 2024</p>
+    <!-- Before/after events. To add an event, copy a <div class="ba"> block inside "ba-stage".
+         The menu builds itself from each block's <h4> (event name) and <p> (place and dates). -->
+    <div class="ba-viewer" data-ba-viewer="">
+      <div class="ba-stage">
+        <div class="ba">
+          <div class="ba-head">
+            <h4>Maritime Incident</h4>
+            <p>Francis Scott Key Bridge, Baltimore · 24 Feb 2024 to 29 Mar 2024</p>
+          </div>
+          <div class="cmp" data-cmp="" id="cmp-baltimore" data-fallback="Francis Scott Key Bridge, before &amp; after">
+            <img class="img-before" src="../images/satelliteclub/key-bridge-pre.jpg" alt="Satellite view of the Francis Scott Key Bridge, Baltimore, before the collapse" loading="lazy">
+            <img class="img-after" src="../images/satelliteclub/key-bridge-post.jpg" alt="Satellite view of the Francis Scott Key Bridge, Baltimore, after the collapse" loading="lazy">
+            <span class="ba-tag left">Before</span>
+            <span class="ba-tag right">After</span>
+            <div class="cmp-handle"><span class="cmp-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 8 6 12 10 16"></polyline><polyline points="14 8 18 12 14 16"></polyline></svg></span></div>
+            <span class="cmp-hint">Drag to compare</span>
+          </div>
         </div>
-        <div class="cmp" data-cmp="" id="cmp-baltimore" data-fallback="Francis Scott Key Bridge, before &amp; after">
-          <img class="img-before" src="../images/satelliteclub/key-bridge-pre.jpg" alt="Satellite view of the Francis Scott Key Bridge, Baltimore, before the collapse" loading="lazy">
-          <img class="img-after" src="../images/satelliteclub/key-bridge-post.jpg" alt="Satellite view of the Francis Scott Key Bridge, Baltimore, after the collapse" loading="lazy">
-          <span class="ba-tag left">Before</span>
-          <span class="ba-tag right">After</span>
-          <div class="cmp-handle"><span class="cmp-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 8 6 12 10 16"></polyline><polyline points="14 8 18 12 14 16"></polyline></svg></span></div>
-          <span class="cmp-hint">Drag to compare</span>
+        <div class="ba">
+          <div class="ba-head">
+            <h4>California Wildfire</h4>
+            <p>Pacific Palisades, California · 2023 to 2025</p>
+          </div>
+          <div class="cmp" data-cmp="" id="cmp-palisades" data-fallback="Pacific Palisades, before &amp; after">
+            <img class="img-before" src="../images/satelliteclub/palisades-pre.jpg" alt="Satellite view of Pacific Palisades, California, before the wildfires" loading="lazy">
+            <img class="img-after" src="../images/satelliteclub/palisades-post.jpg" alt="Satellite view of Pacific Palisades, California, after the wildfires" loading="lazy">
+            <span class="ba-tag left">Before</span>
+            <span class="ba-tag right">After</span>
+            <div class="cmp-handle"><span class="cmp-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 8 6 12 10 16"></polyline><polyline points="14 8 18 12 14 16"></polyline></svg></span></div>
+            <span class="cmp-hint">Drag to compare</span>
+          </div>
         </div>
       </div>
-      <div class="ba">
-        <div class="ba-head">
-          <h4>Wildfire</h4>
-          <p>Pacific Palisades, California · 2023 to 2025</p>
-        </div>
-        <div class="cmp" data-cmp="" id="cmp-palisades" data-fallback="Pacific Palisades, before &amp; after">
-          <img class="img-before" src="../images/satelliteclub/palisades-pre.jpg" alt="Satellite view of Pacific Palisades, California, before the wildfires" loading="lazy">
-          <img class="img-after" src="../images/satelliteclub/palisades-post.jpg" alt="Satellite view of Pacific Palisades, California, after the wildfires" loading="lazy">
-          <span class="ba-tag left">Before</span>
-          <span class="ba-tag right">After</span>
-          <div class="cmp-handle"><span class="cmp-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 8 6 12 10 16"></polyline><polyline points="14 8 18 12 14 16"></polyline></svg></span></div>
-          <span class="cmp-hint">Drag to compare</span>
-        </div>
-      </div>
+      <nav class="ba-menu" aria-label="Events">
+        <p class="lbl">Events</p>
+        <ul></ul>
+      </nav>
     </div>
 
     <div style="margin-top:clamp(48px,5vw,72px);">
       <span class="lbl" style="display:block;margin-bottom:8px;">Colour Palette</span>
-      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Night-side black, with a violet to blossom gradient carrying every action</h3>
+      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Night-side black, with an ultraviolet to aurora gradient carrying every action</h3>
       <div class="palette">
         <div class="sw" style="background:#02040d;"><p class="sw-name">Void</p><p class="sw-hex">#02040D</p></div>
         <div class="sw" style="background:#131a2e;"><p class="sw-name">Deep Space</p><p class="sw-hex">#131A2E</p></div>
-        <div class="sw" style="background:#9c4dfe;"><p class="sw-name">Signal Violet</p><p class="sw-hex">#9C4DFE</p></div>
-        <div class="sw" style="background:#c9a7ff;color:#1d0e3a;"><p class="sw-name">Lavender</p><p class="sw-hex">#C9A7FF</p></div>
-        <div class="sw" style="background:#ffdaff;color:#3a1746;"><p class="sw-name">Blossom</p><p class="sw-hex">#FFDAFF</p></div>
+        <div class="sw" style="background:#9c4dfe;"><p class="sw-name">Ultraviolet</p><p class="sw-hex">#9C4DFE</p></div>
+        <div class="sw" style="background:#c9a7ff;color:#1d0e3a;"><p class="sw-name">Ionosphere</p><p class="sw-hex">#C9A7FF</p></div>
+        <div class="sw" style="background:#ffdaff;color:#3a1746;"><p class="sw-name">Aurora</p><p class="sw-hex">#FFDAFF</p></div>
       </div>
     </div>
   </div>
@@ -453,7 +500,7 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.4 / The Platform</span>
+      <span class="lbl">The Platform</span>
       <h2 class="sec-title">From proposition to live intelligence in one scroll</h2>
       <p class="sec-lead">The page sequence follows the decision a visitor is making: what is this, is it for me, what do I get, prove it, join. Members short-circuit that path straight into the reports feed.</p>
     </div>
@@ -461,10 +508,10 @@ img{display:block;max-width:100%;}
     <div class="webshots">
       <article class="shot" data-screen-label="01 Home">
         <div class="shot-cap">
-          <p class="shot-num">01 / Home</p>
+          <p class="shot-num">Home</p>
           <h3>Earth Observation at scale, stated once</h3>
           <p>The hero commits to a single claim and a single action: become a member. Immediately below it, the audience and benefits lists let a visitor self-identify before any technology is explained.</p>
-          <div class="shot-tags"><span>Positioning</span><span>Self-selection</span><span>Membership CTA</span></div>
+          <ul class="shot-tags"><li>Positioning</li><li>Self-selection</li><li>Membership CTA</li></ul>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">satellite-club.skytek.com</span></div>
@@ -474,10 +521,10 @@ img{display:block;max-width:100%;}
 
       <article class="shot flip" data-screen-label="02 Reports">
         <div class="shot-cap">
-          <p class="shot-num">02 / Reports</p>
+          <p class="shot-num">Reports</p>
           <h3>A feed built for a moving risk picture</h3>
           <p>Reports carry a risk category, a timestamp and an executive summary written for the market. The listing is designed so a member scanning it can tell in seconds whether something has changed since they last looked.</p>
-          <div class="shot-tags"><span>Feed</span><span>Categorisation</span><span>Recency</span></div>
+          <ul class="shot-tags"><li>Feed</li><li>Categorisation</li><li>Recency</li></ul>
         </div>
         <div class="shot-pair">
           <div class="frame scroll">
@@ -538,6 +585,22 @@ img{display:block;max-width:100%;}
     el.addEventListener('pointerup',function(){dragging=false;});
     el.addEventListener('pointercancel',function(){dragging=false;});
   });
+  (function(){
+    var v=document.querySelector('[data-ba-viewer]');if(!v)return;
+    var items=[].slice.call(v.querySelectorAll('.ba')),ul=v.querySelector('.ba-menu ul'),btns=[];
+    function show(n){items.forEach(function(ba,i){ba.classList.toggle('on',i===n);});btns.forEach(function(b,i){b.setAttribute('aria-pressed',i===n?'true':'false');});}
+    items.forEach(function(ba,i){
+      if(!ba.id)ba.id='ba-event-'+(i+1);
+      var h=ba.querySelector('.ba-head h4'),sub=ba.querySelector('.ba-head p');
+      var li=document.createElement('li'),b=document.createElement('button');
+      b.type='button';b.setAttribute('aria-controls',ba.id);
+      var ev=document.createElement('span');ev.className='ev';ev.textContent=h?h.textContent:'Event '+(i+1);b.appendChild(ev);
+      if(sub){var es=document.createElement('span');es.className='ev-sub';es.textContent=sub.textContent;b.appendChild(es);}
+      b.addEventListener('click',function(){show(i);});
+      li.appendChild(b);ul.appendChild(li);btns.push(b);
+    });
+    show(0);v.classList.add('ready');
+  })();
 </script>
 <script>
   const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
