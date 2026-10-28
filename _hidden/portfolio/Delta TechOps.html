@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Delta TechOps University: Case Study · Fergal Keane</title>
+<style>
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Archivo';src:url('../fonts/Archivo-Italic-Variable.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('../fonts/JetBrainsMono-Variable.ttf') format('truetype');font-weight:100 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Exo';src:url('../fonts/Exo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('../fonts/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
+@font-face{
+  font-family:'Space Grotesk';
+  src:url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight:300 700;font-style:normal;font-display:swap;
+}
+:root{
+  --font-display:'Space Grotesk','Archivo',system-ui,sans-serif;
+  --font-sans:'Archivo',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ink:#0d0d0d;--ink-soft:#1a1a1a;--muted:#8a8a8a;--muted-2:#b5b5b5;
+  --line:#e3e6ec;--line-soft:#eef0f3;--paper:#fff;--paper-2:#f3f4f7;
+  --accent:#c01933;--signal:#c01933;--lavender:#ff8a9b;--blossom:#ffd9df;--orbit:#12172f;--void:#0b0f20;--alert:#ff8a9b;
+  --maxw:1360px;--pad:56px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:var(--accent);}
+img{display:block;max-width:100%;}
+::selection{background:var(--signal);color:#fff;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+.lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line-soft);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{display:flex;align-items:baseline;gap:12px;}
+.brand b{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;}
+.brand span{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:var(--muted);}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);position:relative;padding:4px 0;}
+.nav-links a:hover{color:var(--ink);}
+.nav-toggle{display:none;}
+
+/* BACK */
+.backbar{padding:30px var(--pad) 0;}
+.back-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.back-link:hover{color:var(--accent);}
+
+/* HERO */
+.hero{padding:22px 0 0;}
+.hero-banner{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(420px,48vw,580px);display:flex;background:var(--void);}
+.hero-banner image-slot{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.hero-banner image-slot,.panel.dark image-slot{color:rgba(255,255,255,.82);}
+.hero-banner image-slot:not([data-filled]){z-index:3;}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-shade{pointer-events:none;position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,15,32,.82) 0%,rgba(18,23,47,.5) 50%,rgba(18,23,47,.1) 100%);z-index:1;}
+.hero-content{pointer-events:none;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(34px,4vw,60px);width:100%;color:#fff;}
+.hero-content .lbl{color:rgba(255,255,255,.62);}
+.hero-crown{display:flex;align-items:center;gap:13px;margin-bottom:4px;}
+.hero-crown svg{color:var(--lavender);}
+.hero-crown .est{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;color:var(--lavender);text-transform:uppercase;}
+.hero-title{font-family:var(--font-display);font-weight:800;font-size:clamp(48px,7.8vw,100px);line-height:.92;letter-spacing:-.03em;margin:14px 0 16px;}
+.hero-title span{font-weight:300;}
+.hero-tagline{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.86);font-weight:400;letter-spacing:.01em;max-width:52ch;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:clamp(38px,6vw,90px);}
+.hero-meta .lbl{color:rgba(255,255,255,.5);margin-bottom:8px;}
+.hero-meta .mv{font-size:15px;color:#fff;font-weight:500;}
+
+/* CASE BODY */
+.case-body{padding:84px 0 0;}
+.case-grid{display:grid;grid-template-columns:minmax(220px,290px) 1fr;column-gap:clamp(40px,6vw,104px);align-items:start;}
+.case-meta{display:flex;flex-direction:column;gap:34px;}
+.meta-item .meta-val{font-size:17px;color:var(--ink);font-weight:400;margin:9px 0 0;}
+.check-list{list-style:none;margin:11px 0 0;padding:0;display:flex;flex-direction:column;gap:13px;}
+.check-list li{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:500;color:var(--ink-soft);}
+.check-list svg{flex:none;color:var(--accent);}
+.meta-divider{height:1px;background:var(--line);margin:4px 0;}
+.stats{display:flex;gap:44px;}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:34px;letter-spacing:-.03em;margin:0 0 6px;color:var(--orbit);}
+
+.case-content{display:flex;flex-direction:column;gap:64px;}
+.case-block .lbl{display:block;margin-bottom:18px;}
+.case-h{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 22px;max-width:22ch;}
+.case-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:58ch;margin:0;}
+.case-p + .case-p{margin-top:18px;}
+.case-p strong{color:var(--ink-soft);font-weight:500;}
+
+/* IMPACT */
+.impact{background:var(--orbit);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);position:relative;overflow:hidden;}
+.impact::after{content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;border:1px solid rgba(255,138,155,.35);border-radius:50%;}
+.impact .lbl{color:rgba(255,255,255,.45);display:block;margin-bottom:30px;}
+.impact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.7vw,48px);line-height:1.12;letter-spacing:-.02em;margin:0;max-width:20ch;position:relative;z-index:1;}
+.impact h2 em{font-style:normal;color:var(--lavender);}
+
+/* SECTIONS */
+.case-section{padding:96px 0 0;}
+.sec-head .lbl{display:block;margin-bottom:20px;}
+.sec-title{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.12;letter-spacing:-.015em;margin:0 0 14px;max-width:24ch;}
+.sec-lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch;margin:0;}
+
+/* AUDIENCE */
+.aud-grid{margin-top:clamp(40px,4vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);}
+.aud-col h4{font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-.01em;margin:0 0 18px;}
+.aud-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;}
+.aud-list li{font-size:15px;color:var(--ink-soft);padding:13px 0;border-top:1px solid var(--line);display:flex;align-items:flex-start;gap:12px;}
+.aud-list li:last-child{border-bottom:1px solid var(--line);}
+.aud-list li::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--signal);}
+@media(max-width:880px){.aud-grid{grid-template-columns:1fr;}}
+
+/* PRINCIPLES */
+.principles{margin-top:clamp(40px,4vw,64px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px);}
+.principle{border-top:1px solid var(--ink);padding-top:18px;}
+.principle h4{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:12px 0 10px;}
+.principle p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;}
+.principle .pn{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);}
+@media(max-width:880px){.principles{grid-template-columns:1fr;}}
+
+/* BEFORE / AFTER */
+.ba-grid{margin-top:clamp(40px,4vw,64px);display:flex;flex-direction:column;gap:clamp(28px,3vw,40px);}
+.ba{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column;}
+.ba-head{padding:20px 22px 18px;border-bottom:1px solid var(--line-soft);}
+.ba-head h4{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:0 0 6px;}
+.ba-head p{font-size:13px;color:var(--muted);margin:0;}
+.cmp::before{content:attr(data-fallback);position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);background:repeating-linear-gradient(135deg,var(--paper-2),var(--paper-2) 12px,var(--paper) 12px,var(--paper) 24px);}
+.cmp{position:relative;margin-top:auto;aspect-ratio:3/2;height:auto;min-height:280px;overflow:hidden;background:var(--paper-2);touch-action:none;cursor:ew-resize;user-select:none;}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+.cmp .img-after{clip-path:inset(0 0 0 var(--pos,50%));}
+.ba-tag{position:absolute;top:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(5,11,20,.78);color:#fff;padding:5px 8px;border-radius:3px;pointer-events:none;z-index:2;}
+.ba-tag.left{left:10px;}
+.ba-tag.right{right:10px;}
+.cmp-handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:rgba(255,255,255,.9);box-shadow:0 0 0 1px rgba(5,11,20,.35);pointer-events:none;z-index:3;}
+.cmp-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(5,11,20,.35);display:flex;align-items:center;justify-content:center;gap:3px;color:var(--void);}
+.cmp-knob svg{width:15px;height:15px;}
+.cmp-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(5,11,20,.6);padding:4px 9px;border-radius:3px;pointer-events:none;z-index:2;transition:opacity .3s ease;}
+.cmp.touched .cmp-hint{opacity:0;}
+@media(max-width:880px){.ba-head{padding:16px 18px 14px;}}
+
+/* PALETTE */
+.palette{margin-top:clamp(40px,4vw,60px);display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.sw{padding:26px 20px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:188px;color:#fff;}
+.sw .sw-name{font-family:var(--font-display);font-weight:600;font-size:15px;margin:0 0 4px;}
+.sw .sw-hex{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;opacity:.85;}
+@media(max-width:760px){.palette{grid-template-columns:1fr 1fr;}.sw{min-height:128px;}}
+@media(max-width:440px){.palette{grid-template-columns:1fr;}}
+
+/* WEB SHOTS */
+.webshots{display:flex;flex-direction:column;gap:clamp(56px,7vw,96px);margin-top:clamp(44px,5vw,72px);}
+.shot{display:grid;grid-template-columns:minmax(210px,280px) 1fr;column-gap:clamp(34px,5vw,72px);align-items:start;}
+.shot .shot-cap{grid-column:1;}
+.shot > *:not(.shot-cap){grid-column:2;}
+.shot.flip{grid-template-columns:1fr minmax(210px,280px);}
+.shot.flip .shot-cap{grid-column:2;}
+.shot.flip > *:not(.shot-cap){grid-column:1;}
+.shot-cap{position:sticky;top:96px;}
+.shot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 18px;}
+.shot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.1;letter-spacing:-.01em;margin:0 0 16px;}
+.shot-cap p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;max-width:34ch;}
+.shot-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;}
+.shot-tags span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line);padding:6px 10px;background:var(--paper-2);}
+.shot-pair{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.shot-pair .frame.scroll{max-height:560px;}
+.shot-pair .frame.scroll .scroll-body{max-height:522px;}
+@media(max-width:760px){.shot-pair{grid-template-columns:1fr;gap:26px;}.shot-pair .frame.scroll{max-height:460px;}.shot-pair .frame.scroll .scroll-body{max-height:422px;}}
+
+.frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(5,11,20,.05),0 24px 56px -28px rgba(5,11,20,.34);}
+.frame-bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
+.frame-bar i{width:10px;height:10px;border-radius:50%;background:#d9d9d9;display:block;}
+.frame-bar .fb-url{display:none;}
+.frame.scroll{max-height:680px;min-height:320px;overflow:hidden;position:relative;}
+.frame.scroll .scroll-body{max-height:642px;min-height:280px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--signal) transparent;}
+.frame.scroll .scroll-body::-webkit-scrollbar{width:9px;}
+.frame.scroll .scroll-body::-webkit-scrollbar-thumb{background:var(--signal);border-radius:6px;border:2px solid #fff;}
+.frame .scroll-body image-slot{display:block;width:100%;min-height:600px;}
+
+/* QUOTE */
+.pullquote{margin-top:clamp(56px,6vw,88px);border-top:1px solid var(--ink);padding-top:26px;}
+.pullquote p{font-family:var(--font-display);font-weight:300;font-size:clamp(23px,2.9vw,36px);line-height:1.22;letter-spacing:-.015em;margin:0;max-width:34ch;}
+.pullquote cite{display:block;margin-top:20px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-style:normal;}
+
+/* CONTACT */
+.contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
+.contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
+.contact-body{color:var(--muted);max-width:36ch;font-size:15px;line-height:1.65;margin:0;}
+.contact-btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 30px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.contact-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.email{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--font-mono);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
+.email:hover{color:var(--accent);border-color:var(--accent);}
+.footbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line-soft);margin-top:96px;padding:24px 0 40px;}
+.share-top{border-bottom:1px solid var(--line-soft);}
+.share-top .wrap{display:flex;justify-content:flex-end;padding-top:18px;padding-bottom:18px;}
+.share{display:flex;align-items:center;gap:10px;}
+.share .lbl{margin-right:2px;}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--muted);cursor:pointer;padding:0;transition:color .2s,border-color .2s,background .2s;}
+.share a:hover,.share button:hover{color:var(--accent);border-color:var(--accent);}
+.share svg{width:15px;height:15px;}
+.share .copied{position:relative;}
+.share .copied::after{content:"Copied";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){.footbar{justify-content:flex-start;}}
+
+
+@media(max-width:1024px){
+  :root{--pad:40px;}
+  .case-grid{grid-template-columns:1fr;row-gap:54px;}
+  .shot,.shot.flip{grid-template-columns:1fr;row-gap:24px;}
+  .shot > *,.shot.flip > *{grid-column:1 !important;}
+  .shot-cap{position:static;}
+  .shot-cap p{max-width:60ch;}
+}
+@media(max-width:760px){
+  :root{--pad:22px;}
+  .nav-links{position:fixed;inset:64px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 24px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .3s ease;}
+  .nav-links.open{transform:translateY(0);}
+  .nav-links a{padding:14px 0;font-size:13px;width:100%;border-bottom:1px solid var(--line-soft);}
+  .nav-toggle{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+  .nav-toggle span{width:22px;height:2px;background:var(--ink);}
+  .case-content{gap:48px;}
+  .stats{gap:32px;}
+}
+.frame.scroll.tall{max-height:760px;}.frame.scroll.tall .scroll-body{max-height:722px;}.shot-pair.mix{grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);align-items:start;}@media(max-width:760px){.shot-pair.mix{grid-template-columns:1fr;}}
+</style>
+<script src="../theme.js"></script>
+<script src="../to-top.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html"><b>Fergal Keane</b><span>UI/UX</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#work">Work</a>
+      <a href="../Experience.html">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap backbar">
+  <a class="back-link" href="../index.html#work">← Selected Works</a>
+</div>
+
+<section class="hero" data-screen-label="Hero">
+  <div class="wrap">
+    <div class="hero-banner">
+      <img class="hero-bg" src="../images/delta/delta_cover.jpg" style="object-position:65% center" alt="Delta aircraft seen from below against a dark blue sky">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div>
+          <div class="hero-crown">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3 21.5 20h-19z"></path></svg>
+            <span class="est">Aviation Maintenance · Learning</span>
+          </div>
+          <h1 class="hero-title">TechOps<span> University</span></h1>
+          <p class="hero-tagline">A training platform for Delta TechOps maintenance technicians: videos, task cards, slides and knowledge checks for every aircraft in the fleet, on the hangar floor or at home.</p>
+        </div>
+        <div class="hero-meta">
+          <div><p class="lbl">Client</p><p class="mv">Delta TechOps</p></div>
+          <div><p class="lbl">Role</p><p class="mv">UI/UX Design</p></div>
+          <div><p class="lbl">Platform</p><p class="mv">Responsive web</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Share</span>
+      <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"></path></svg></a>
+      <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"></path></svg></a>
+      <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect><path d="m3 6 9 6.5L21 6"></path></svg></a>
+      <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"></path><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"></path></svg></button>
+    </div>
+  </div>
+</div>
+
+<section class="case-body">
+  <div class="wrap">
+    <div class="case-grid">
+      <aside class="case-meta">
+        <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">UI/UX Design</p></div>
+        <div class="meta-item"><p class="lbl">Sector</p><p class="meta-val">Aircraft maintenance training</p></div>
+        <div class="meta-item">
+          <p class="lbl">Deliverables</p>
+          <ul class="check-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Personalised Home &amp; Assignments</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Course Catalog &amp; Filtering</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Course Detail &amp; Syllabus</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Multi-format Lesson Player</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Knowledge Checks &amp; Certificates</li>
+          </ul>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="stats">
+          <div><p class="stat-num">4</p><p class="lbl">Lesson Formats</p></div>
+          <div><p class="stat-num">4</p><p class="lbl">Learning Areas</p></div>
+        </div>
+      </aside>
+      <div class="case-content">
+        <div class="case-block">
+          <span class="lbl">01 / The Problem</span>
+          <h2 class="case-h">A training portal that looked like a homepage.</h2>
+          <p class="case-p">Training material was spread across formats and organised like a corporate site, with category tiles and news up front. A technician arriving with a required course due had to work to find it.</p>
+          <p class="case-p">The people using it are A&amp;P technicians, leads and inspectors. They think in <strong>aircraft types, ATA chapters and task cards</strong>, and they often fit training in between jobs.</p>
+        </div>
+        <div class="case-block">
+          <span class="lbl">02 / Framing</span>
+          <h2 class="case-h">Design it as a training tool, not an intranet.</h2>
+          <p class="case-p">The redesign starts from the technician's question: what do I need to do next? Home opens on the course in progress and what is due, with browsing one step away rather than the first thing on the page.</p>
+          <p class="case-p">Content is indexed the way maintenance is: by aircraft and ATA chapter, as well as by learning area. A search for “A320 29” goes straight to the right course.</p>
+        </div>
+        <div class="case-block">
+          <span class="lbl">03 / The Hard Constraint</span>
+          <h2 class="case-h">Four formats, one way to learn.</h2>
+          <p class="case-p">Training material arrives as video, PDF task cards and references, slide decks and knowledge checks. Instead of sending each to a different viewer, every lesson plays inside a single player with the same header, progress bar and Previous / Next controls.</p>
+          <p class="case-p">The same structure has to hold on a desktop at home and on a phone in the hangar, so navigation collapses to a slim rail on desktop and a top bar on mobile.</p>
+        </div>
+        <div class="impact">
+          <span class="lbl">04 / Outcome</span>
+          <h2>Required training <em>front and centre</em>, with every format in one consistent player.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">02.1 / Design Principles</span>
+      <h2 class="sec-title">Three rules for training between jobs</h2>
+    </div>
+    <div class="principles">
+      <div class="principle"><p class="pn">01</p><h4>Lead with what's due</h4><p>The course in progress and assigned training come first, with due dates shown as dates, not buried in a list.</p></div>
+      <div class="principle"><p class="pn">02</p><h4>Speak maintenance</h4><p>Aircraft codes and ATA chapters sit alongside titles everywhere, and both are searchable and filterable.</p></div>
+      <div class="principle"><p class="pn">03</p><h4>One player, every format</h4><p>Video, PDF, slides and quizzes share the same frame and controls, so the format never changes how a lesson works.</p></div>
+    </div>
+    <div style="margin-top:clamp(48px,5vw,72px);">
+      <span class="lbl" style="display:block;margin-bottom:8px;">Colour Palette</span>
+      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Delta red for action, midnight navy for structure</h3>
+      <div class="palette">
+        <div class="sw" style="background:#12172f;"><p class="sw-name">Midnight</p><p class="sw-hex">#12172F</p></div>
+        <div class="sw" style="background:#284b7c;"><p class="sw-name">Navy</p><p class="sw-hex">#284B7C</p></div>
+        <div class="sw" style="background:#c01933;"><p class="sw-name">Delta Red</p><p class="sw-hex">#C01933</p></div>
+        <div class="sw" style="background:#ff8a9b;color:#3a0d16;"><p class="sw-name">Coral</p><p class="sw-hex">#FF8A9B</p></div>
+        <div class="sw" style="background:#f1f3f6;color:#12172f;"><p class="sw-name">Hangar</p><p class="sw-hex">#F1F3F6</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">02.2 / The Platform</span>
+      <h2 class="sec-title">From sign-in to certificate</h2>
+      <p class="sec-lead">The flow follows a technician through one course: sign in, pick up where they left off, work through each lesson, pass the knowledge check, and get a record of completion.</p>
+    </div>
+    <div class="webshots">
+      <article class="shot" data-screen-label="01 Sign in">
+        <div class="shot-cap">
+          <p class="shot-num">01 / Sign In</p>
+          <h3>One message, one action</h3>
+          <p>The sign-in screen keeps the programme line, “Where knowledge takes flight”, and a single company-email form. Nothing else competes with getting in.</p>
+          <div class="shot-tags"><span>Sign in</span><span>Brand</span></div>
+        </div>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ login</span></div><img src="../images/delta/delta-login.jpg" alt="TechOps University sign-in screen" loading="lazy"></div>
+      </article>
+      <article class="shot flip" data-screen-label="02 Home">
+        <div class="shot-cap">
+          <p class="shot-num">02 / Home</p>
+          <h3>Pick up where you left off</h3>
+          <p>Home greets the technician by name, says how much is due this week, and opens on the course in progress with the next lesson named. Assigned courses follow, sorted by due date with progress on each.</p>
+          <div class="shot-tags"><span>Personalised</span><span>Due dates</span><span>Resume</span></div>
+        </div>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ home</span></div><img src="../images/delta/delta-home.jpg" alt="Home: continue learning, assigned courses and bulletins" loading="lazy"></div>
+      </article>
+      <article class="shot" data-screen-label="03 Catalog">
+        <div class="shot-cap">
+          <p class="shot-num">03 / Catalog</p>
+          <h3>Browse the way maintenance is organised</h3>
+          <p>Search by title, aircraft or ATA chapter. Tabs cover the four learning areas plus in-progress courses, with format and ATA filters underneath.</p>
+          <div class="shot-tags"><span>Search</span><span>ATA filters</span><span>Formats</span></div>
+        </div>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ courses</span></div><img src="../images/delta/delta-catalog.jpg" alt="Course catalog with area tabs, format chips and ATA chapter filters" loading="lazy"></div>
+      </article>
+      <article class="shot flip" data-screen-label="04 Course">
+        <div class="shot-cap">
+          <p class="shot-num">04 / Course</p>
+          <h3>Everything you need before you start</h3>
+          <p>The course page leads with the aircraft and ATA code, whether it is required, and a breakdown of time and lesson formats.</p>
+          <div class="shot-tags"><span>Overview</span><span>Outcomes</span><span>Syllabus</span></div>
+        </div>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ course</span></div><img src="../images/delta/delta-course.jpg" alt="Course page: Hydraulic System Over Servicing Prevention" loading="lazy"></div>
+      </article>
+      <article class="shot" data-screen-label="05 Lesson player">
+        <div class="shot-cap">
+          <p class="shot-num">05 / Lesson Player</p>
+          <h3>Four formats, one frame</h3>
+          <p>Video, slides, PDF task cards and knowledge checks all share the same header, segmented progress bar and Previous / Next controls. The knowledge check gates completion, so a course only finishes once it is passed.</p>
+          <div class="shot-tags"><span>Video</span><span>Slides</span><span>PDF</span><span>Quiz</span></div>
+        </div>
+        <div class="shot-pair"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ lesson / video</span></div><img src="../images/delta/delta-lesson-video.jpg" alt="Lesson player: video lesson" loading="lazy"></div><div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ lesson / slides</span></div><img src="../images/delta/delta-lesson-slides.jpg" alt="Lesson player: slide lesson" loading="lazy"></div><div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ lesson / pdf</span></div><img src="../images/delta/delta-lesson-pdf.jpg" alt="Lesson player: PDF reference document" loading="lazy"></div><div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ lesson / check</span></div><img src="../images/delta/delta-lesson-quiz.jpg" alt="Lesson player: knowledge check question" loading="lazy"></div></div>
+      </article>
+      <article class="shot flip" data-screen-label="06 Complete">
+        <div class="shot-cap">
+          <p class="shot-num">06 / Completion</p>
+          <h3>A record, not just a tick</h3>
+          <p>Finishing a course produces a certificate with the course code, date, duration and lesson count, recorded to the technician’s training file.</p>
+          <div class="shot-tags"><span>Certificate</span><span>Training record</span></div>
+        </div>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ complete</span></div><img src="../images/delta/delta-certificate.jpg" alt="Course complete screen with certificate of completion" loading="lazy"></div>
+      </article>
+    </div>
+    <div class="pullquote">
+      <p>The test was simple: could a technician with ten minutes between jobs open the site and be back in their lesson in one tap?</p>
+      <cite>Reflection</cite>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" data-screen-label="White label">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="lbl">02.3 / White Label</span>
+      <h2 class="sec-title">Built for Delta, ready for other airlines</h2>
+      <p class="sec-lead">Delta owns the portal, and the plan is to license it to other carriers' maintenance organisations. Brand lives in a small set of tokens: logo, two core colours and an accent. Swapping them re-skins the whole product without touching layouts, components or content structure. Here is the same home screen as a Lufthansa deployment.</p>
+    </div>
+    <div class="frame" style="margin-top:clamp(40px,4vw,64px);"><div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">lufthansa / home</span></div><img src="../images/delta/lufthansa-home.jpg" alt="TechOps University home screen rebranded in Lufthansa navy and yellow" loading="lazy"></div>
+    <div class="principles">
+      <div class="principle"><p class="pn">01</p><h4>Tokens, not themes</h4><p>Primary, surface and accent colours plus the logo are the only brand inputs. Everything else derives from them.</p></div>
+      <div class="principle"><p class="pn">02</p><h4>Contrast holds</h4><p>Accent-on-text pairs are checked per brand, so a yellow accent gets dark button text where Delta's red uses white.</p></div>
+      <div class="principle"><p class="pn">03</p><h4>Content stays generic</h4><p>Courses are keyed by aircraft type and ATA chapter, which every operator shares, so a new airline can load its own library into the same structure.</p></div>
+    </div>
+    <p class="lbl" style="margin-top:28px;">Concept mock-up · not a Lufthansa product</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="lbl">Get In Touch</p>
+        <h2>Let's craft something meaningful together.</h2>
+        <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"></path><polyline points="12.5 5.5 19 12 12.5 18.5"></polyline></svg></a>
+      </div>
+    </div>
+    <div class="footbar">
+      <p class="lbl">© 2026 Design by Fergal Keane</p>
+      <div class="share">
+        <span class="lbl">Share</span>
+        <a data-share="li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"></path></svg></a>
+        <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"></path></svg></a>
+        <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect><path d="m3 6 9 6.5L21 6"></path></svg></a>
+        <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"></path><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"></path></svg></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;"><a class="lbl" href="../index.html#work">Back to Selected Works ↗</a><a class="lbl" href="../privacy.html">Privacy ↗</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('[data-cmp]').forEach(function(el){
+    function set(clientX){
+      var r=el.getBoundingClientRect();
+      var p=Math.min(100,Math.max(0,((clientX-r.left)/r.width)*100));
+      el.style.setProperty('--pos',p.toFixed(2)+'%');
+      el.classList.add('touched');
+    }
+    var dragging=false;
+    el.addEventListener('pointerdown',function(e){dragging=true;el.setPointerCapture(e.pointerId);set(e.clientX);});
+    el.addEventListener('pointermove',function(e){if(dragging)set(e.clientX);});
+    el.addEventListener('pointerup',function(){dragging=false;});
+    el.addEventListener('pointercancel',function(){dragging=false;});
+  });
+</script>
+<script>
+  const tgl=document.getElementById('navToggle'),lk=document.getElementById('navLinks');
+  if(tgl){tgl.addEventListener('click',()=>lk.classList.toggle('open'));
+    lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
+</script>
+<script>
+(function(){var bars=document.querySelectorAll('.share');if(!bars.length)return;
+var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+var m={li:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?url='+u+'&text='+t,em:'mailto:?subject='+t+'&body='+u};
+bars.forEach(function(b){b.querySelectorAll('a[data-share]').forEach(function(a){a.href=m[a.dataset.share];});
+var c=b.querySelector('[data-share="copy"]');
+c.addEventListener('click',function(){navigator.clipboard.writeText(location.href).then(function(){c.classList.add('copied');setTimeout(function(){c.classList.remove('copied');},1600);});});});
+})();
+</script>
+
+</body></html>
