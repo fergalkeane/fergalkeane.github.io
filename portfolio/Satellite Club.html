@@ -184,7 +184,8 @@ img{display:block;max-width:100%;}
 .shot > *:not(.shot-cap){grid-column:2;}
 .shot.flip{grid-template-columns:1fr minmax(210px,280px);}
 .shot.flip .shot-cap{grid-column:2;}
-.shot.flip > *:not(.shot-cap){grid-column:1;}
+.shot.flip > *:not(.shot-cap){grid-column:1;grid-row:1;}
+.shot.flip .shot-cap{grid-row:1;}
 .shot-cap{position:sticky;top:96px;}
 .shot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 18px;}
 .shot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.1;letter-spacing:-.01em;margin:0 0 16px;}
@@ -238,7 +239,7 @@ img{display:block;max-width:100%;}
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
   .shot,.shot.flip{grid-template-columns:1fr;row-gap:24px;}
-  .shot > *,.shot.flip > *{grid-column:1 !important;}
+  .shot > *,.shot.flip > *{grid-column:1 !important;grid-row:auto !important;}
   .shot-cap{position:static;}
   .shot-cap p{max-width:60ch;}
 }
@@ -476,6 +477,20 @@ img{display:block;max-width:100%;}
             <span class="cmp-hint">Drag to compare</span>
           </div>
         </div>
+        <div class="ba">
+          <div class="ba-head">
+            <h4>Hurricane Ian</h4>
+            <p>Salty Sam Marina, Fort Myers</p>
+          </div>
+          <div class="cmp" data-cmp="" id="cmp-ian" data-fallback="Hurricane Ian, before &amp; after">
+            <img class="img-before" src="../images/satelliteclub/ian-pre.jpg" alt="Satellite view of Salty Sam Marina, Fort Myers, before Hurricane Ian" loading="lazy">
+            <img class="img-after" src="../images/satelliteclub/ian-post.jpg" alt="Satellite view of Salty Sam Marina, Fort Myers, after Hurricane Ian, with boats and docks piled together" loading="lazy">
+            <span class="ba-tag left">Before</span>
+            <span class="ba-tag right">After</span>
+            <div class="cmp-handle"><span class="cmp-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 8 6 12 10 16"></polyline><polyline points="14 8 18 12 14 16"></polyline></svg></span></div>
+            <span class="cmp-hint">Drag to compare</span>
+          </div>
+        </div>
       </div>
       <nav class="ba-menu" aria-label="Events">
         <p class="lbl">Events</p>
@@ -526,15 +541,9 @@ img{display:block;max-width:100%;}
           <p>Reports carry a risk category, a timestamp and an executive summary written for the market. The listing is designed so a member scanning it can tell in seconds whether something has changed since they last looked.</p>
           <ul class="shot-tags"><li>Feed</li><li>Categorisation</li><li>Recency</li></ul>
         </div>
-        <div class="shot-pair">
-          <div class="frame scroll">
-            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / hurricane-milton</span></div>
-            <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_Milton.png" alt="Satellite Club report: Hurricane Milton damage assessment with damage detection overlays" loading="lazy"></div>
-          </div>
-          <div class="frame scroll">
-            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / key-bridge</span></div>
-            <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_KeyBridge.png" alt="Satellite Club report: Francis Scott Key Bridge port accumulations analysis" loading="lazy"></div>
-          </div>
+        <div class="frame scroll">
+          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / hurricane-milton</span></div>
+          <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_Milton.png" alt="Satellite Club report: Hurricane Milton damage assessment with damage detection overlays" loading="lazy"></div>
         </div>
       </article>
 
@@ -542,7 +551,6 @@ img{display:block;max-width:100%;}
 
     <div class="pullquote">
       <p>The measure was not whether the imagery impressed anyone. It was whether an underwriter changed their decision because of what they saw.</p>
-      <cite>Reflection</cite>
     </div>
   </div>
 </section>
