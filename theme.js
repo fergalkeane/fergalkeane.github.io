@@ -30,6 +30,7 @@ css.textContent=[
 'D .awards b{color:var(--ink);}',
 'D .field input,D .field select,D .field textarea{background:var(--paper-2);color:var(--ink);border-color:var(--line);}',
 'D .field input::placeholder,D .field textarea::placeholder{color:var(--muted-2);}',
+'D .field input:focus,D .field select:focus,D .field textarea:focus{border-color:var(--ink);background:var(--paper);box-shadow:0 0 0 3px rgba(243,241,238,.12);transition:border-color .15s ease,box-shadow .15s ease,background .15s ease;}',
 'D .skill-list span,D .tag-grid span,D .tag{background:var(--paper-2);color:var(--ink-soft);border-color:var(--line);}',
 'D .rhead-rule,D .sec-label{border-color:var(--line);}',
 ':root[data-theme="dark"] .proj-go,:root[data-theme="dark"] .lock-badge{background:var(--paper-2);color:var(--ink);}',

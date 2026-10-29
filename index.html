@@ -96,6 +96,14 @@ img{display:block;max-width:100%;}
 /* ============ HERO ============ */
 .hero{min-height:calc(100vh - 64px);min-height:calc(100svh - 64px);display:flex;align-items:center;padding:48px 0 64px;box-sizing:border-box;}
 .hero > .wrap{width:100%;}
+.hero{position:relative;}
+.hero-down{position:absolute;left:50%;bottom:24px;width:44px;height:44px;margin-left:-22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);background:transparent;transition:border-color .2s,background .2s;animation:heroBob 2.4s ease-in-out infinite;}
+.hero-down svg{width:18px;height:18px;}
+.hero-down:hover{border-color:var(--ink);}
+.hero-down:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+@keyframes heroBob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+@media (prefers-reduced-motion:reduce){.hero-down{animation:none;}}
+.works{scroll-margin-top:64px;}
 .hero-head{
   font-family:var(--font-display);
   font-weight:800;
@@ -311,6 +319,7 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
       </div>
     </div>
   </div>
+  <a class="hero-down" href="#work" aria-label="Scroll to selected works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
 </section>
 
 
@@ -324,11 +333,11 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
     <div class="works-grid">
       <article class="proj wide locked show-go">
           <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Protected</span><img src="images/realworld/RealWorld_Reporting.jpg" alt="Real World reporting dashboard" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/RealWorld.html" class="proj-go" aria-label="View Real World case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Insurtech / Product Design</p></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Insurtech / Product &amp; UX Design</p></div>
         </article>
       <article class="proj wide locked show-go">
           <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Protected</span><img src="images/gateway/Gateway_Moon.jpg" alt="ARES case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/ARES.html" class="proj-go" aria-label="View Gateway case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/ARES.html">ARES</a></h3><p class="lbl proj-meta">Enterprise SaaS / UX Design</p></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/ARES.html">ARES</a></h3><p class="lbl proj-meta">Enterprise SaaS / Product &amp; UX Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/satelliteclub/SatelliteClub_Baltimore.jpg" alt="Satellite Club case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/Satellite Club.html" class="proj-go" aria-label="View Satellite Club case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
@@ -336,15 +345,15 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/daverns/Daverns_Heritage.jpg" alt="Daverns of Cashel case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/Daverns of Cashel.html" class="proj-go" aria-label="View Daverns of Cashel case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Web Design</p></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Brand &amp; Web Design</p></div>
         </article>
       <article class="proj wide locked show-go">
           <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Protected</span><img src="images/bluedrop/BlueDrop_Hero.jpg" alt="BlueDrop Medical case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/BlueDrop Medical.html" class="proj-go" aria-label="View BlueDrop Medical case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech &amp; Brand Identity / Brand &amp; Web Design</p></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech / Brand &amp; Web Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/fitzgeralds/FitzGeralds_Workshop.jpg" alt="Craftsman hand-planing a timber panel in the FitzGerald's workshop" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/FitzGeralds of Kells.html" class="proj-go" aria-label="View FitzGerald's of Kells case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/FitzGeralds of Kells.html">FitzGerald's of Kells</a></h3><p class="lbl proj-meta">Bespoke Furniture / Brand &amp; Web Design / Rebrand</p></div>
+          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/FitzGeralds of Kells.html">FitzGerald's of Kells</a></h3><p class="lbl proj-meta">Bespoke Furniture / Brand &amp; Web Design</p></div>
         </article>
     </div>
   </div>
@@ -413,6 +422,18 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
     batch.forEach(function(t,i){t.style.setProperty('--d',(i*140)+'ms');t.classList.add('in');io.unobserve(t);});
   },{threshold:0.15,rootMargin:'0px 0px -8% 0px'});
   tiles.forEach(function(t){io.observe(t);});
+})();
+</script>
+<script>
+/* Down chevron: smooth-scroll to Selected works. */
+(function(){
+  var a=document.querySelector('.hero-down'),t=document.getElementById('work');if(!a||!t)return;
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    try{history.replaceState(null,'','#work');}catch(err){}
+  });
 })();
 </script>
 </body></html>

@@ -38,7 +38,7 @@ img{display:block;max-width:100%;}
 .lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
 .accent{color:var(--accent);}
 
-/* —— NAV —— */
+/* -- NAV -- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line-soft);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
 .brand{display:flex;align-items:baseline;gap:12px;}
@@ -49,12 +49,12 @@ img{display:block;max-width:100%;}
 .nav-links a:hover{color:var(--ink);}
 .nav-toggle{display:none;}
 
-/* —— BACK —— */
+/* -- BACK -- */
 .backbar{padding:30px var(--pad) 0;}
 .back-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
 .back-link:hover{color:var(--accent);}
 
-/* —— HERO —— */
+/* -- HERO -- */
 .hero{padding:22px 0 0;}
 .hero-banner{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(400px,46vw,560px);display:flex;background:#071d3d;}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
@@ -71,7 +71,7 @@ img{display:block;max-width:100%;}
 .hero-meta .lbl{color:rgba(255,255,255,.5);margin-bottom:8px;}
 .hero-meta .mv{font-family:'Inter',var(--font-sans);font-size:15px;color:#fff;font-weight:500;}
 
-/* —— CASE BODY —— */
+/* -- CASE BODY -- */
 .case-body{padding:84px 0 0;}
 .case-grid{display:grid;grid-template-columns:minmax(220px,290px) 1fr;column-gap:clamp(40px,6vw,104px);align-items:start;}
 .case-meta{display:flex;flex-direction:column;gap:34px;}
@@ -88,12 +88,12 @@ img{display:block;max-width:100%;}
 .case-h{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 22px;max-width:18ch;}
 .case-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:56ch;margin:0;}
 
-/* —— IMPACT —— */
+/* -- IMPACT -- */
 .impact{background:var(--ink);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);}
 .impact .lbl{color:rgba(255,255,255,.45);display:block;margin-bottom:30px;}
 .impact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.9vw,50px);line-height:1.12;letter-spacing:-.02em;margin:0;max-width:15ch;}
 
-/* —— SCREEN WALKTHROUGH —— */
+/* -- SCREEN WALKTHROUGH -- */
 .case-section{padding:96px 0 0;}
 .sec-head .lbl{display:block;margin-bottom:20px;}
 .sec-title{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.12;letter-spacing:-.015em;margin:0 0 14px;max-width:18ch;}
@@ -131,7 +131,7 @@ img{display:block;max-width:100%;}
 .shot-pair .frame.scroll .scroll-body{max-height:522px;}
 @media(max-width:760px){.shot-pair{grid-template-columns:1fr;}.shot-pair .frame.scroll{max-height:460px;}.shot-pair .frame.scroll .scroll-body{max-height:422px;}}
 
-/* —— DESIGN LANGUAGE —— */
+/* -- DESIGN LANGUAGE -- */
 .dl{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);margin-top:clamp(30px,3vw,42px);box-shadow:0 1px 3px rgba(0,0,0,.04);}
 .dl-row{display:grid;border-bottom:1px solid var(--line-soft);}
 .dl-row:last-child{border-bottom:0;}
@@ -190,7 +190,7 @@ img{display:block;max-width:100%;}
 .dl-prin b{font-family:'Exo',var(--font-display);font-weight:600;font-size:14.5px;}
 .dl-prin span{font-size:12.5px;line-height:1.45;color:var(--muted);}
 
-/* —— CONTACT —— */
+/* -- CONTACT -- */
 .contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
@@ -225,7 +225,7 @@ img{display:block;max-width:100%;}
 
 .footbar a:hover{color:var(--accent);}
 
-/* —— RESPONSIVE —— */
+/* -- RESPONSIVE -- */
 @media(max-width:1024px){
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
@@ -247,7 +247,7 @@ img{display:block;max-width:100%;}
   .stats{gap:36px;}
 }
 
-/* —— PASSWORD GATE —— */
+/* -- PASSWORD GATE -- */
 .gate{position:fixed;inset:0;z-index:999;background:rgba(12,12,12,.5);backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:24px;animation:gateIn .22s ease both;}
 @keyframes gateIn{from{opacity:0}to{opacity:1}}
 @keyframes gateCardIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
@@ -344,7 +344,7 @@ img{display:block;max-width:100%;}
         <div class="meta-item">
           <p class="lbl">Focus Areas</p>
           <ul class="check-list">
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Geospatial Data Visualization</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Geospatial Data Visualisation</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Multi-Portfolio Architecture</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Design System &amp; Components</li>
             <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Real-Time Alerting</li>
@@ -386,7 +386,7 @@ img{display:block;max-width:100%;}
       <!-- MAIN DASHBOARD -->
       <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">01 / Unified Dashboard</p>
+          <p class="shot-num">Unified Dashboard</p>
           <h3>The whole book at a glance</h3>
           <p>The landing dashboard greets each risk manager with headline KPIs for total exposure, active policies, live risk alerts and global regions, then routes them into Marine, Property, Aviation and Offshore/Energy through large, asset-counted entry cards.</p>
           <ul class="shot-tags"><li>Overview</li><li>KPI Cards</li><li>Navigation</li></ul>
@@ -400,7 +400,7 @@ img{display:block;max-width:100%;}
       <!-- MARINE -->
       <article class="shot">
         <div class="shot-cap">
-          <p class="shot-num">02 / Marine</p>
+          <p class="shot-num">Marine</p>
           <h3>A live fleet under continuous watch</h3>
           <p>The marine workspace plots the entire insured fleet on a global chart. Selecting a vessel opens an at-a-glance voyage card covering route, speed, draught, flag and policy type, while regional aggregation and a sanctions / AIS-silence alert rail keep accumulation in check.</p>
           <ul class="shot-tags"><li>AIS Tracking</li><li>Voyage Data</li><li>Exposure Aggregation</li></ul>
@@ -414,7 +414,7 @@ img{display:block;max-width:100%;}
       <!-- VESSEL DETAIL -->
       <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">03 / Vessel Detail</p>
+          <p class="shot-num">Vessel Detail</p>
           <h3>Everything known about a single hull</h3>
           <p>Drilling into a vessel unifies policy details, port calls, a 0–100 risk score with year-on-year trend, inspection history, environmental CII ratings and a scrubbable AIS track. It is the deepest view in the platform, organised so nothing competes for attention.</p>
           <ul class="shot-tags"><li>Risk Score</li><li>Environmental</li><li>Tracking</li></ul>
@@ -428,7 +428,7 @@ img{display:block;max-width:100%;}
       <!-- CARGO -->
       <article class="shot">
         <div class="shot-cap">
-          <p class="shot-num">04 / Cargo</p>
+          <p class="shot-num">Cargo</p>
           <h3>Declarations screened against AIS</h3>
           <p>Cargo voyage analysis turns an uploaded declarations workbook into a screened portfolio, with every vessel checked against AIS for voyage progress and breach of a stated region. Completed, started, pending and breached voyages roll up into a summary, with each route inspectable on the map.</p>
           <ul class="shot-tags"><li>Voyage Breach</li><li>Workbook Upload</li><li>Clash Alerts</li></ul>
@@ -442,7 +442,7 @@ img{display:block;max-width:100%;}
       <!-- AVIATION -->
       <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">05 / Aviation</p>
+          <p class="shot-num">Aviation</p>
           <h3>From global airspace to a single gate</h3>
           <p>Aviation reuses the same spatial grammar for a different asset class: portfolio exposure by airport and region, live NOTAMs and risk-area levels, then an airport drill-down with aircraft-on-the-ground, incoming traffic and summary statistics over a satellite view.</p>
           <ul class="shot-tags"><li>Airport Exposure</li><li>NOTAMs</li><li>Drill-Down</li></ul>
@@ -468,7 +468,7 @@ img{display:block;max-width:100%;}
       <!-- PROPERTY -->
       <article class="shot">
         <div class="shot-cap">
-          <p class="shot-num">06 / Property</p>
+          <p class="shot-num">Property</p>
           <h3>Catastrophe exposure, geolocated</h3>
           <p>The property workspace maps insured value against high-value markets and live weather risk across wildfire zones, hurricane tracks and seismic zones, so concentration in a cat-exposed region is visible the instant a threshold is breached.</p>
           <ul class="shot-tags"><li>Cat Risk</li><li>Weather</li><li>Regional Values</li></ul>
@@ -489,7 +489,7 @@ img{display:block;max-width:100%;}
       <!-- NAT CAT EVENTS -->
       <article class="shot flip">
         <div class="shot-cap">
-          <p class="shot-num">07 / Nat Cat Events</p>
+          <p class="shot-num">Nat Cat Events</p>
           <h3>Damage assessed from orbit</h3>
           <p>Nat Cat coverage spans every major peril the book is exposed to, from wildfires and windstorms to earthquakes, floods and tropical cyclones. When an event hits, the view sets the hazard perimeter over post-event satellite imagery, grades every property inside it from undamaged to completely destroyed, and lists the insured addresses caught within the footprint alongside an RDS classification and exposure figure.</p>
           <ul class="shot-tags"><li>Event Footprint</li><li>Damage Grading</li><li>Before / After</li></ul>
@@ -603,7 +603,7 @@ img{display:block;max-width:100%;}
 </main>
 
 <script>
-  /* Password gate — client-side preview only. In WordPress use native
+  /* Password gate: client-side preview only. In WordPress use native
      page password protection or a membership plugin for real security. */
   (function(){
     var PW='stepaside';
