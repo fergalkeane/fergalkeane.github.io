@@ -94,14 +94,15 @@ img{display:block;max-width:100%;}
 .nav-toggle{display:none;}
 
 /* ============ HERO ============ */
-.hero{padding:74px 0 0;}
+.hero{min-height:calc(100vh - 64px);min-height:calc(100svh - 64px);display:flex;align-items:center;padding:48px 0 64px;box-sizing:border-box;}
+.hero > .wrap{width:100%;}
 .hero-head{
   font-family:var(--font-display);
   font-weight:800;
   font-size:clamp(46px,8vw,108px);
   line-height:.92;
   letter-spacing:-.025em;
-  margin:18px 0 0;
+  margin:0;
   max-width:11ch;
 }
 .hero-sub-row{
@@ -260,7 +261,7 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
   .nav-links a.active::after{display:none;}
   .nav-toggle{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
   .nav-toggle span{width:22px;height:2px;background:var(--ink);}
-  .hero{padding:48px 0 0;}
+  .hero{padding:32px 0 48px;}
   .hero-sub-row{flex-direction:column;gap:26px;margin-top:20px;}
   .hero-loc .lbl{text-align:left;}
   .intro{padding:56px 0 64px;}
@@ -301,10 +302,9 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap">
-    <p class="lbl">Design Portfolio</p>
     <h1 class="hero-head">Crafting Digital Experiences That Matter</h1>
     <div class="hero-sub-row">
-      <p class="hero-sub">Senior UX/UI Designer transforming complex problems into simple, compelling digital experiences.</p>
+      <p class="hero-sub">Transforming complex problems into simple, compelling digital experiences.</p>
       <div class="hero-loc">
         <span class="rule"></span>
         <span class="lbl">Based in Ireland,<br>Working Globally</span>
