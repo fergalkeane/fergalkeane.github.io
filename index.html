@@ -162,6 +162,8 @@ img{display:block;max-width:100%;}
 }
 .works-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:74px;align-items:start;}
 .proj{margin-bottom:0;position:relative;}
+.tiles-anim .works-grid .proj{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms);}
+.tiles-anim .works-grid .proj.in{opacity:1;transform:none;}
 .proj-cap{position:absolute;left:clamp(20px,2.4vw,30px);right:clamp(20px,2.4vw,30px);bottom:clamp(20px,2.4vw,28px);z-index:4;display:flex;flex-direction:column;gap:0;pointer-events:none;}
 .proj-cap .proj-title,.proj-cap .proj-title a{color:#fff;}
 .proj-cap .proj-meta{color:rgba(255,255,255,.72);margin:1px 0 0;}
@@ -190,7 +192,8 @@ img{display:block;max-width:100%;}
 a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
 .proj:hover a.proj-go,.proj.show-go a.proj-go{opacity:1;transform:translate(-50%,-50%) scale(1);}
 .lock-badge{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.14);backdrop-filter:blur(4px);}
-.protected-tag{position:absolute;top:14px;right:14px;z-index:3;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(10,10,10,.16);}.protected-tag svg{width:11px;height:11px;}
+.protected-tag{position:absolute;top:14px;right:14px;z-index:3;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(10,10,10,.16);}
+:root[data-theme="dark"] .protected-tag{background:rgba(18,18,18,.82);color:#f3f1ee;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 2px 10px rgba(0,0,0,.4);}.protected-tag svg{width:11px;height:11px;}
 .proj-meta{margin:20px 0 8px;}
 .proj:hover .proj-cap .proj-title,.proj:hover .proj-cap .proj-title a{color:var(--accent);}
 .proj-title,.proj-title a{
@@ -283,7 +286,7 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top">
-      <b>Fergal Keane</b><span>UI/UX</span>
+      <b>Fergal Keane</b>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
@@ -397,4 +400,19 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
   });
 </script>
 
+<script>
+/* Animate the project tiles in as they scroll into view. */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var tiles=[].slice.call(document.querySelectorAll('.works-grid .proj'));if(!tiles.length)return;
+  document.documentElement.classList.add('tiles-anim');
+  var io=new IntersectionObserver(function(entries){
+    var batch=entries.filter(function(e){return e.isIntersecting;}).map(function(e){return e.target;});
+    batch.sort(function(a,b){return tiles.indexOf(a)-tiles.indexOf(b);});
+    batch.forEach(function(t,i){t.style.setProperty('--d',(i*140)+'ms');t.classList.add('in');io.unobserve(t);});
+  },{threshold:0.15,rootMargin:'0px 0px -8% 0px'});
+  tiles.forEach(function(t){io.observe(t);});
+})();
+</script>
 </body></html>
