@@ -38,7 +38,7 @@ img{display:block;max-width:100%;}
 .lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
 .accent{color:var(--accent);}
 
-/* —— NAV —— */
+/* -- NAV -- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line-soft);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
 .brand{display:flex;align-items:baseline;gap:12px;}
@@ -49,12 +49,12 @@ img{display:block;max-width:100%;}
 .nav-links a:hover{color:var(--ink);}
 .nav-toggle{display:none;}
 
-/* —— BACK —— */
+/* -- BACK -- */
 .backbar{padding:30px var(--pad) 0;}
 .back-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
 .back-link:hover{color:var(--accent);}
 
-/* —— HERO —— */
+/* -- HERO -- */
 .hero{padding:22px 0 0;}
 .hero-banner{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(400px,46vw,560px);display:flex;background:#0c0c0c;}
 .hero-banner image-slot{position:absolute;inset:0;width:100%;height:100%;}
@@ -74,7 +74,7 @@ img{display:block;max-width:100%;}
 .hero-meta .lbl{color:rgba(255,255,255,.5);margin-bottom:8px;}
 .hero-meta .mv{font-size:15px;color:#fff;font-weight:500;}
 
-/* —— CASE BODY —— */
+/* -- CASE BODY -- */
 .case-body{padding:84px 0 0;}
 .case-grid{display:grid;grid-template-columns:minmax(220px,290px) 1fr;column-gap:clamp(40px,6vw,104px);align-items:start;}
 .case-meta{display:flex;flex-direction:column;gap:34px;}
@@ -91,12 +91,12 @@ img{display:block;max-width:100%;}
 .case-h{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 22px;max-width:18ch;}
 .case-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:56ch;margin:0;}
 
-/* —— IMPACT —— */
+/* -- IMPACT -- */
 .impact{background:var(--ink);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);}
 .impact .lbl{color:rgba(255,255,255,.45);display:block;margin-bottom:30px;}
 .impact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.9vw,50px);line-height:1.12;letter-spacing:-.02em;margin:0;max-width:15ch;}
 
-/* —— WORKFLOW —— */
+/* -- WORKFLOW -- */
 .case-section{padding:96px 0 0;}
 .sec-head .lbl{display:block;margin-bottom:20px;}
 .sec-title{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.12;letter-spacing:-.015em;margin:0 0 38px;max-width:16ch;}
@@ -105,7 +105,7 @@ img{display:block;max-width:100%;}
 .flow-circle .lbl{color:var(--muted-2);}
 .flow-box .flow-foot{position:absolute;left:0;right:0;bottom:30px;text-align:center;color:var(--muted-2);}
 
-/* —— DESIGN LANGUAGE —— */
+/* -- DESIGN LANGUAGE -- */
 .dl{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);margin-top:clamp(30px,3vw,42px);box-shadow:0 1px 3px rgba(0,0,0,.04);}
 .dl-row{display:grid;border-bottom:1px solid var(--line-soft);}
 .dl-row:last-child{border-bottom:0;}
@@ -152,18 +152,18 @@ img{display:block;max-width:100%;}
 .dl-a11y{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;}
 .dl-a11y li{display:flex;align-items:flex-start;gap:10px;font-family:'Inter',var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-soft);}
 .dl-a11y svg{flex:none;margin-top:2px;color:#0079b3;}
-.dl-prin{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-@media(max-width:700px){.dl-prin{grid-template-columns:repeat(2,1fr);}}
+.dl-prin{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:700px){.dl-prin{grid-template-columns:1fr;}}
 .dl-prin div{display:flex;flex-direction:column;gap:8px;}
 .dl-prin svg{color:var(--accent);}
 .dl-prin b{font-family:var(--font-display);font-weight:600;font-size:14.5px;}
 .dl-prin span{font-size:12.5px;line-height:1.45;color:var(--muted);}
 
-/* —— FULL IMAGE —— */
+/* -- FULL IMAGE -- */
 .full-img{padding:clamp(56px,6vw,90px) 0 0;}
 .full-img image-slot{display:block;width:100%;aspect-ratio:16/8;border-radius:6px;filter:grayscale(1) contrast(1.02);}
 
-/* —— CONTACT —— */
+/* -- CONTACT -- */
 .contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
@@ -198,7 +198,7 @@ img{display:block;max-width:100%;}
 
 .footbar a:hover{color:var(--accent);}
 
-/* —— RESPONSIVE —— */
+/* -- RESPONSIVE -- */
 @media(max-width:1024px){
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
@@ -216,7 +216,7 @@ img{display:block;max-width:100%;}
   .stats{gap:36px;}
 }
 
-/* —— PASSWORD GATE —— */
+/* -- PASSWORD GATE -- */
 .gate{position:fixed;inset:0;z-index:999;background:rgba(12,12,12,.5);backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:24px;animation:gateIn .22s ease both;}
 @keyframes gateIn{from{opacity:0}to{opacity:1}}
 @keyframes gateCardIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
@@ -240,7 +240,7 @@ img{display:block;max-width:100%;}
 .gate-close:hover{color:var(--accent);border-color:var(--accent);background:none;}
 .gate-close svg{width:14px;height:14px;}
 
-/* —— LONG-FORM NARRATIVE —— */
+/* -- LONG-FORM NARRATIVE -- */
 .sec-lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch;margin:0;}
 .sec-head .sec-lead{margin-top:-22px;margin-bottom:38px;}
 .note{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(207,90,44,.45);border-radius:999px;padding:5px 11px;}
@@ -257,7 +257,7 @@ img{display:block;max-width:100%;}
 .qa .qa-item p strong{color:var(--ink-soft);font-weight:600;}
 @media(max-width:680px){.qa .qa-item{grid-template-columns:1fr;gap:8px;}}
 
-/* card grid — constraints, value */
+/* card grid: constraints, value */
 .cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px;margin-top:8px;}
 .mcard{border:1px solid var(--line);border-radius:6px;padding:26px 24px;background:var(--paper-2);}
 .mcard .lbl{display:block;margin-bottom:14px;color:var(--accent);}
@@ -288,7 +288,7 @@ img{display:block;max-width:100%;}
 .alt p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;max-width:62ch;}
 .alt p .accent{font-weight:600;}
 
-/* decision shots — caption + image */
+/* decision shots: caption + image */
 .dshots{display:flex;flex-direction:column;gap:clamp(56px,7vw,96px);margin-top:clamp(40px,5vw,68px);}
 .dshot{display:grid;grid-template-columns:minmax(210px,300px) 1fr;column-gap:clamp(34px,5vw,72px);align-items:start;}
 .dshot .dshot-cap{grid-column:1;position:sticky;top:96px;}
@@ -391,7 +391,7 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 01 — OVERVIEW -->
+<!-- 01: OVERVIEW -->
 <section class="case-body">
   <div class="wrap">
     <div class="case-grid">
@@ -416,12 +416,12 @@ img{display:block;max-width:100%;}
       </aside>
       <div class="case-content">
         <div class="case-block">
-          <span class="lbl">01 · Overview</span>
+          <span class="lbl">Overview</span>
           <h2 class="case-h">Moving procedure authoring out of desktop software and onto the web.</h2>
           <p class="case-p" style="margin-bottom:36px;">ARES is an AIT (Assembly, Integration and Testing) platform. Subject-matter experts use it to author complex procedures, send them through review until final sign-off, and deploy them for use in spacecraft and satellite builds. Procedures produced in ARES are currently being delivered to the International Space Station.</p>
           <div class="qa">
             <div class="qa-item"><span class="lbl">What it is</span><p>A fully online platform covering the whole life of a procedure: <strong>Authoring, Review, Deploy</strong>.</p></div>
-            <div class="qa-item"><span class="lbl">Who it's for</span><p><strong>Authors:</strong> engineers and domain experts who write procedures. <strong>Reviewers:</strong> the people who check, comment on and sign them off.</p></div>
+            <div class="qa-item"><span class="lbl">Who it’s for</span><p><strong>Authors:</strong> engineers and domain experts who write procedures. <strong>Reviewers:</strong> the people who check, comment on and sign them off.</p></div>
             <div class="qa-item"><span class="lbl">Core problem</span><p>Authoring relied on desktop software (<strong>xMetaL</strong>) and a mix of other tools. Review happened around the files rather than inside one system.</p></div>
             <div class="qa-item"><span class="lbl">Why it matters</span><p>These procedures guide real assembly and test work on flight hardware. They need to be correct, reviewed and traceable before anyone uses them.</p></div>
           </div>
@@ -431,11 +431,11 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 02 — THE CHALLENGE -->
+<!-- 02: THE CHALLENGE -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02 · The Challenge</span>
+      <span class="lbl">The Challenge</span>
       <h2 class="sec-title">A desktop workflow, rebuilt for the browser</h2>
       <p class="sec-lead">Procedures had long been written in desktop XML software. The job was to keep the structure and rigour that workflow enforced, while making it accessible in a browser and connecting authoring directly to review.</p>
     </div>
@@ -443,7 +443,7 @@ img{display:block;max-width:100%;}
       <div class="mcard"><span class="lbl">Content</span><h4>Procedures are not documents</h4><p>A procedure is structured content: nested steps, conditions, verifications and references. The editor had to support that structure without asking authors to think in markup.</p></div>
       <div class="mcard"><span class="lbl">Legacy</span><h4>Leaving xMetaL behind</h4><p>xMetaL needed local installs and licences, and some familiarity with XML. Work moved between people as files, which made review and version tracking harder than it needed to be.</p></div>
       <div class="mcard"><span class="lbl">Process</span><h4>Review until sign-off</h4><p>Every procedure passes through review before it can be deployed. Status, comments and approvals needed to live with the procedure, not in email threads.</p></div>
-      <div class="mcard"><span class="lbl">Fidelity</span><h4>No loss in translation</h4><p>The underlying schema and validation rules still applied. The web platform had to respect them, while keeping the XML out of the author's way.</p></div>
+      <div class="mcard"><span class="lbl">Fidelity</span><h4>No loss in translation</h4><p>The underlying schema and validation rules still applied. The web platform had to respect them, while keeping the XML out of the author’s way.</p></div>
     </div>
     <h3 class="subh" style="margin:48px 0 0;">What that asked of the design</h3>
     <ul class="crit">
@@ -455,12 +455,12 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 04 — ROLE & SCOPE -->
+<!-- 04: ROLE & SCOPE -->
 <section class="case-section">
   <div class="wrap">
     <div class="case-grid">
       <aside class="case-meta">
-        <div class="meta-item"><p class="lbl">03 · Role &amp; Scope</p><p class="meta-val">Lead UX/UI Designer</p></div>
+        <div class="meta-item"><p class="lbl">Role &amp; Scope</p><p class="meta-val">Lead UX/UI Designer</p></div>
         <div class="meta-divider"></div>
         <div class="meta-item"><p class="lbl">Owned</p>
           <ul class="check-list">
@@ -482,27 +482,27 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 04 — DISCOVERY & INSIGHTS -->
+<!-- 04: DISCOVERY & INSIGHTS -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">04 · Discovery &amp; Insights</span>
+      <span class="lbl">Discovery &amp; Insights</span>
       <h2 class="sec-title">Learning how procedures actually get written</h2>
       <p class="sec-lead">I spoke with authors and reviewers and walked through how a procedure moved from first draft to sign-off using the existing tools.</p>
     </div>
     <div class="insights">
       <div class="insight"><span class="inum">01</span><div><h4>Authors are domain experts, not XML specialists.</h4><p>The value is in their engineering knowledge. Time spent handling markup and tooling was time taken away from the content.</p></div></div>
-      <div class="insight"><span class="inum">02</span><div><h4>Review was disconnected from authoring.</h4><p>Drafts were passed around for comment, and it wasn't always clear which version was current or where a procedure sat in the process.</p></div></div>
-      <div class="insight"><span class="inum">03</span><div><h4>Structure errors were found late.</h4><p>Problems with a procedure's structure often only surfaced after it had been handed on, adding a round trip back to the author.</p></div></div>
+      <div class="insight"><span class="inum">02</span><div><h4>Review was disconnected from authoring.</h4><p>Drafts were passed around for comment, and it wasn’t always clear which version was current or where a procedure sat in the process.</p></div></div>
+      <div class="insight"><span class="inum">03</span><div><h4>Structure errors were found late.</h4><p>Problems with a procedure’s structure often only surfaced after it had been handed on, adding a round trip back to the author.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- 05 — DESIGN STRATEGY -->
+<!-- 05: DESIGN STRATEGY -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">05 · Design Strategy</span>
+      <span class="lbl">Design Strategy</span>
       <h2 class="sec-title">Organise everything around the procedure lifecycle</h2>
       <p class="sec-lead">Every procedure moves through the same three stages. Making those stages the backbone of the product gives authors and reviewers a shared picture of where any procedure stands.</p>
     </div>
@@ -514,11 +514,11 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 07 — EXECUTION -->
+<!-- 07: EXECUTION -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">06 · Key Decisions</span>
+      <span class="lbl">Key Decisions</span>
       <h2 class="sec-title">Four decisions that shaped the product</h2>
       <p class="sec-lead">Organised by the problem each one solves.</p>
     </div>
@@ -528,7 +528,7 @@ img{display:block;max-width:100%;}
         <div class="dshot-cap">
           <p class="dshot-num">Decision 01</p>
           <h3>Lifecycle status on every procedure</h3>
-          <p class="why">Each procedure shows where it is in Authoring, Review or Deploy. <b>Why:</b> it answers “which version is current, and who has it?” without leaving the platform.</p>
+          <p class="why">Each procedure shows where it is in Authoring, Review or Deploy. <b>Why:</b> it answers ‘which version is current, and who has it?’ without leaving the platform.</p>
           <div class="dshot-tags"><span>Information Architecture</span><span>Status</span></div>
         </div>
         <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Procedure_Status.png" alt="ARES procedure status view showing the lifecycle with the current stage highlighted" loading="lazy"></div><p class="cap">Procedure status across the lifecycle</p></div>
@@ -567,13 +567,13 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 08 — SYSTEM THINKING -->
+<!-- 08: SYSTEM THINKING -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">07 · Design Language</span>
+      <span class="lbl">Design Language</span>
       <h2 class="sec-title">A consistent component library</h2>
-      <p class="sec-lead">A token set and component kit so authoring and review screens share the same patterns, aligned to ESA's brand palette.</p>
+      <p class="sec-lead">A token set and component kit so authoring and review screens share the same patterns, aligned to ESA’s brand palette.</p>
     </div>
     <div class="dl">
       <div class="dl-row r3">
@@ -606,7 +606,7 @@ img{display:block;max-width:100%;}
           </div>
         </div>
       </div>
-      <div class="dl-row r2">
+      <div class="dl-row">
         <div class="dl-cell">
           <span class="lbl">States</span>
           <div class="dl-states">
@@ -616,14 +616,6 @@ img{display:block;max-width:100%;}
             <div class="dl-state"><span>Focus</span><button class="ui-btn foc" type="button" tabindex="-1">Submit</button></div>
           </div>
         </div>
-        <div class="dl-cell">
-          <span class="lbl">Accessibility</span>
-          <ul class="dl-a11y">
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>WCAG AA contrast on every text and status colour</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>Visible keyboard focus on all interactive elements</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>44px minimum touch targets</li>
-          </ul>
-        </div>
       </div>
       <div class="dl-row">
         <div class="dl-cell">
@@ -631,7 +623,6 @@ img{display:block;max-width:100%;}
           <div class="dl-prin">
             <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><b>Consistency</b><span>One pattern per job, across every stage.</span></div>
             <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg><b>Clarity</b><span>Relevance over completeness, always.</span></div>
-            <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v.01M12 11v6"></path></svg><b>Accessibility</b><span>Keyboard-friendly and AA contrast throughout.</span></div>
             <div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20V7"></path></svg><b>Scalability</b><span>New procedure types reuse existing parts.</span></div>
           </div>
         </div>
@@ -640,11 +631,11 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 08 — OUTCOME -->
+<!-- 08: OUTCOME -->
 <section class="case-section">
   <div class="wrap">
     <div class="impact">
-      <span class="lbl">08 · Outcome</span>
+      <span class="lbl">Outcome</span>
       <h2>Procedures authored and reviewed in ARES are now being <em class="accent" style="font-style:normal;">delivered to the International Space Station</em>.</h2>
     </div>
     <div class="cardgrid" style="margin-top:32px;">
@@ -660,7 +651,7 @@ img{display:block;max-width:100%;}
     <div class="contact-grid">
       <div>
         <p class="lbl">Get In Touch</p>
-        <h2>Let's craft something meaningful together.</h2>
+        <h2>Let’s craft something meaningful together.</h2>
         <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"></path><polyline points="12.5 5.5 19 12 12.5 18.5"></polyline></svg></a>
       </div>
       
@@ -674,7 +665,7 @@ img{display:block;max-width:100%;}
 </main>
 
 <script>
-  /* Password gate — client-side preview only. In WordPress use native
+  /* Password gate: client-side preview only. In WordPress use native
      page password protection or a membership plugin for real security. */
   (function(){
     var PW='stepaside';
