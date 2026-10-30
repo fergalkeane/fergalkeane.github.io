@@ -89,10 +89,14 @@ img{display:block;max-width:100%;}
 .card .lbl{display:block;margin-bottom:20px;}
 .card.dark .lbl{color:rgba(255,255,255,.45);}
 .skill-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
-.skill-list li{position:relative;padding-left:17px;font-size:14px;font-weight:500;line-height:1.4;color:var(--ink-soft);}
+.skill-list{gap:16px;}
+.skill-list li{position:relative;padding-left:17px;font-size:12.5px;font-weight:400;line-height:1.5;color:var(--muted);}
+.skill-list li b{display:block;margin:0 0 3px;font-size:14px;font-weight:600;line-height:1.35;color:var(--ink);}
 .skill-list li::before{content:"";position:absolute;left:2px;top:.5em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
-.plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px;}
-.plist li{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:500;color:var(--ink-soft);}
+.plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
+.plist li{display:flex;align-items:flex-start;gap:11px;font-size:12.5px;font-weight:400;line-height:1.5;color:var(--muted);}
+.plist li svg{margin-top:2px;}
+.plist li b{display:block;margin:0 0 3px;font-size:14px;font-weight:600;line-height:1.35;color:var(--ink);}
 .plist svg{flex:none;color:var(--muted-2);}
 .edu .deg{font-family:var(--font-display);font-weight:600;font-size:18px;line-height:1.2;margin:0 0 8px;}
 .edu .meta{font-size:13.5px;color:var(--muted);margin:0;}
@@ -177,18 +181,22 @@ img{display:block;max-width:100%;}
   .job .sub li{font-size:10px;}
   .job-note{font-size:10.5px;margin-top:8px;}
   .tag{font-size:9px;padding:4px 7px;}
-  .skill-list li{font-size:10.5px;}
+  .skill-list li{font-size:9px;line-height:1.4;}
+  .skill-list li b{font-size:10.5px;margin-bottom:1px;}
   .tag-grid{gap:5px;margin-top:9px;}
   .card{padding:16px 16px;break-inside:avoid;}
   .card .lbl{margin-bottom:12px;}
-  .skill-list{gap:5px;}
+  .skill-list{gap:8px;}
   .edu .deg{font-size:14px;}
   .edu .meta{font-size:10.5px;}
   .awards{gap:11px;}
   .awards li{font-size:10.5px;padding-left:18px;}
   .awards b{font-size:11px;}
   .awards li::before{width:7px;height:7px;top:4px;}
-  .plist li{font-size:10.5px;}
+  .plist{gap:8px;}
+  .plist li{font-size:9px;line-height:1.4;}
+  .plist li b{font-size:10.5px;margin-bottom:1px;}
+  .plist li svg{width:12px;height:12px;margin-top:1px;}
   .refs{font-size:10.5px;}
   .lbl{font-size:9px;}
   a[href]::after{content:none !important;}
@@ -352,16 +360,16 @@ img{display:block;max-width:100%;}
       <aside class="aside">
         <div class="card">
           <span class="lbl">Skills</span>
-          <ul class="skill-list"><li>Figma</li><li>AI Prototyping Tools</li><li>Adobe Creative Suite</li><li>WordPress</li><li>HubSpot</li><li>HTML / CSS</li><li>508 Compliance</li><li>Brand Implementation</li><li>Brand Management</li><li>Typography</li><li>Microsoft Office Suite</li></ul>
+          <ul class="skill-list"><li><b>Product Design &amp; Architecture</b>End-to-End UX/UI for Complex Systems, Data-Heavy Dashboard Design, Information Architecture, and Cross-Platform User Journeys.</li><li><b>Design Systems &amp; Scaling</b>Component Library Architecture, Tokenization, Responsive Frameworks, and Multi-Product Design System Governance.</li><li><b>Accessibility &amp; Compliance</b>508 Compliance, WCAG 2.2 Standards, and Inclusive Design for Enterprise Software and Public Sector Procurement.</li><li><b>Product Strategy &amp; Leadership</b>Cross-Functional Stakeholder Alignment (ESA, NASA, Executive Teams), Design Direction, and Mentorship/Team Management.</li><li><b>Rapid Prototyping &amp; Tech Stack</b>Advanced Figma (Variables, Auto Layout, Dev Mode), AI-Assisted Prototyping, Adobe Creative Cloud, and Front-End Literacy (HTML/CSS).</li></ul>
         </div>
 
         <div class="card">
           <span class="lbl">Personal Skills</span>
           <ul class="plist">
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Problem-Solving</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Creative Thinking</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Attention to Detail</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Collaboration</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg><div><b>Cross-Functional Leadership</b>Proven ability to align multi-disciplinary teams (engineering, product, marketing) and manage cross-continental design operations.</div></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg><div><b>Stakeholder Management</b>Experienced in navigating complex requirements with enterprise clients, executive leadership, and global agencies (ESA, NASA).</div></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg><div><b>Design Mentorship</b>Strong track record of upskilling design teams, establishing visual standards, and optimizing creative workflows.</div></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg><div><b>Strategic Problem-Solving</b>Translating dense, highly technical requirements into intuitive, user-centric product experiences.</div></li>
           </ul>
         </div>
 
