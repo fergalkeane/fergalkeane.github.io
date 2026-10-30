@@ -106,6 +106,22 @@ img{display:block;max-width:100%;}
 .flow-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:60ch;margin:0;}
 .flow + .shot{margin-top:calc(-1 * clamp(20px,4vw,56px));}
 .closing-inner{max-width:760px;}
+.overview{display:grid;grid-template-columns:1fr 1fr;gap:26px clamp(28px,4vw,56px);margin:0 0 clamp(48px,5vw,72px);padding:26px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.overview div{margin:0;}
+.overview dt{display:block;margin:0 0 9px;}
+.overview dd{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+@media(max-width:600px){.overview{grid-template-columns:1fr;gap:22px;}}
+.decision{margin-top:24px;padding-left:16px;border-left:2px solid var(--accent);}
+.decision .lbl{display:block;margin:0 0 8px;}
+.decision p:not(.lbl){font-size:14px;line-height:1.62;color:var(--ink-soft);margin:0;max-width:44ch;}
+.shot.wide,.shot.wide.flip{grid-template-columns:minmax(0,1fr);row-gap:clamp(24px,2.6vw,34px);}
+.shot.wide > *,.shot.wide.flip > *{grid-column:1 !important;grid-row:auto !important;}
+.shot.wide .shot-cap{position:static;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);column-gap:clamp(32px,5vw,80px);align-items:start;}
+.shot.wide .shot-cap .shot-num,.shot.wide .shot-cap h3{grid-column:1;}
+.shot.wide .shot-cap > p:not(.shot-num),.shot.wide .shot-cap .decision{grid-column:2;}
+.shot.wide .shot-cap > p:not(.shot-num){grid-row:1 / span 2;max-width:60ch;}
+.shot.wide .shot-cap .decision{margin-top:20px;}
+@media(max-width:860px){.shot.wide .shot-cap{display:block;}.shot.wide .shot-cap > p:not(.shot-num){max-width:none;}}
 .outcomes{list-style:none;margin:clamp(40px,4.5vw,60px) 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .outcomes li{padding:clamp(22px,2.4vw,32px) clamp(16px,2vw,28px);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:12px;}
 .outcomes li:first-child{border-left:0;padding-left:0;}
@@ -370,6 +386,12 @@ img{display:block;max-width:100%;}
         </div>
       </aside>
       <div class="case-content">
+        <dl class="overview">
+          <div><dt class="lbl">Role</dt><dd>Lead Product &amp; UX Designer at Skytek, working with company management and our largest clients.</dd></div>
+          <div><dt class="lbl">Responsibilities</dt><dd>Redesigning the platform from its legacy system, product and UX design, the design system, and regular client sessions that turn the problems clients raise into working parts of the product.</dd></div>
+          <div><dt class="lbl">Product</dt><dd>A risk intelligence platform for (re)insurers: exposure aggregation, sanctions and compliance screening, live alerting and analytics across eight lines of business.</dd></div>
+          <div><dt class="lbl">Users</dt><dd>Underwriters and risk managers working across marine, aviation, property, cargo and energy.</dd></div>
+        </dl>
         <div class="case-block">
           <h2 class="case-h">One book of risk, scattered across a dozen disconnected tools.</h2>
           <p class="case-p">Real World is Skytek’s risk intelligence platform for (re)insurers. Before it, underwriters and risk managers tracked marine, property, aviation, energy, cargo and ports exposures across siloed spreadsheets and single-purpose tools. There was no single view of accumulated exposure, and live events (sanctions, AIS silence, severe weather, region breaches) surfaced too slowly to act on.</p>
@@ -377,11 +399,6 @@ img{display:block;max-width:100%;}
         <div class="case-block">
           <h2 class="case-h">Eight asset classes that had to read as one product.</h2>
           <p class="case-p">Real World brings exposure aggregation, sanctions and compliance screening, live alerting and analytics into one platform, with a dedicated workspace for each line of business. The difficulty is that a vessel, an aircraft, a property and a cargo declaration carry different data and different risks. Each workspace had to fit its line of business closely, while a marine underwriter could still find their way around an aviation colleague’s screens without learning a new product.</p>
-        </div>
-        <div class="case-block">
-          <p class="lbl">My role</p>
-          <p class="case-p">When I joined Skytek, Real World was running on a legacy system, and I began redesigning it as Lead Product &amp; UX Designer. My stakeholders were company management and our largest existing clients.</p>
-          <p class="case-p">I met clients regularly to gather feedback and hear how the product worked for them day to day. Much of my work has been taking the complex problems they brought to us and turning them into working parts of the system. The four focus areas alongside are where that work has concentrated.</p>
         </div>
         <div class="impact">
           <h2>Eight lines of business, read the same way, with sanctions, weather and breach alerts surfacing as they happen.</h2>
@@ -402,7 +419,7 @@ img{display:block;max-width:100%;}
     <div class="shots">
 
       <!-- MAIN DASHBOARD -->
-      <article class="shot flip">
+      <article class="shot flip wide">
         <div class="shot-cap">
           <p class="shot-num">Unified Dashboard</p>
           <h3>The whole book at a glance</h3>
@@ -420,11 +437,12 @@ img{display:block;max-width:100%;}
         <p class="flow-p">Marine has the deepest drill-down in the platform, so it shows the shared path most clearly: from the fleet on a map, to one vessel’s full record, to cargo voyages screened against live tracking.</p>
       </div>
       <!-- MARINE -->
-      <article class="shot">
+      <article class="shot wide">
         <div class="shot-cap">
           <p class="shot-num">Fleet</p>
           <h3>The fleet on a map</h3>
-          <p>The first question in marine is where the insured fleet is and which vessels need attention. Every vessel is plotted on a global chart. Selecting one opens a voyage card over the map, with route, speed, draught, flag and policy type, so the underwriter can check a vessel without losing their place. Above the map, portfolios, regional aggregation and a sanctions and AIS-silence alert rail run left to right, in the same order as every other workspace.</p>
+          <p>The first question in marine is where the insured fleet is and which vessels need attention. Every vessel is plotted on a global chart. Selecting one opens a voyage card over the map, with route, speed, draught, flag and policy type. Above the map, portfolios, regional aggregation and a sanctions and AIS-silence alert rail run left to right, in the same order as every other workspace.</p>
+          <div class="decision"><p class="lbl">Design decision</p><p>The voyage card opens over the map rather than on a separate page. Location is part of the risk in marine, so the vessel’s position and surroundings stay in view while its details are read.</p></div>
         </div>
         <div class="frame">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine</span></div>
@@ -438,6 +456,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">Vessel Detail</p>
           <h3>Everything known about a single hull</h3>
           <p>When a vessel needs a closer look, everything about it is on one page: policy details, port calls, a 0–100 risk score with its year-on-year trend, inspection history, CII environmental ratings and a scrubbable AIS track. It is the deepest view in the platform, organised so nothing competes for attention.</p>
+          <div class="decision"><p class="lbl">Design decision</p><p>Everything about a vessel sits in one continuous record. When a vessel is flagged, policy terms, inspection history and live position all bear on the judgement, so none of it is hidden behind another screen.</p></div>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine / vessel</span></div>
@@ -469,6 +488,7 @@ img{display:block;max-width:100%;}
           <p class="shot-num">Airports and aircraft</p>
           <h3>From global airspace to a single gate</h3>
           <p>Aircraft and airports carry different data from vessels, but the screen reads in the same order. Exposure is grouped by airport and region, live NOTAMs and risk-area levels take the live-risk position, and an airport drill-down shows aircraft on the ground, incoming traffic and summary statistics over a satellite view.</p>
+          <div class="decision"><p class="lbl">Design decision</p><p>Aviation keeps the marine structure. NOTAMs and risk-area levels sit where sanctions and AIS alerts sit in marine, so someone moving between the two workspaces already knows where to look for live risk.</p></div>
         </div>
         <div>
           <div class="frame">
@@ -605,8 +625,8 @@ img{display:block;max-width:100%;}
   <div class="wrap">
     <div class="closing-inner">
       <h2 class="sec-title">What the work comes down to</h2>
-      <p class="case-p">Real World puts marine, aviation, property, cargo and catastrophe risk into one platform for (re)insurers. Each of those lines has its own data and its own way of going wrong, and the platform has to make each of them readable quickly when an event happens.</p>
-      <p class="case-p">My contribution is the structure that keeps eight workspaces readable as one product: a shared layout and drill-down path, map-led views wherever location carries the risk, alerts that appear in the same place in every workspace, and a design system small enough to stay consistent as new lines of business are added.</p>
+      <p class="case-p">The difficulty in Real World was never a single screen. It was eight specialist workspaces, each with its own data and its own way of going wrong, that had to read as one product when an event is unfolding.</p>
+      <p class="case-p">It reflects how I approach complex enterprise software: take dense problems, many of them brought to us directly by clients, and give them a structure people only have to learn once. A shared layout, map-led views where location carries the risk, and a deliberately small design system are what let the product keep growing without each new line of business becoming a separate thing to design and learn.</p>
     </div>
     <ul class="outcomes" aria-label="Outcomes">
       <li><b>8</b><span>Lines of business on one design system</span></li>

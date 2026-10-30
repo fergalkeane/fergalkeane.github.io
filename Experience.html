@@ -87,8 +87,9 @@ img{display:block;max-width:100%;}
 .card.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
 .card .lbl{display:block;margin-bottom:20px;}
 .card.dark .lbl{color:rgba(255,255,255,.45);}
-.skill-list{display:flex;flex-wrap:wrap;gap:8px;}
-.skill-list span{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;border:1px solid var(--line);padding:8px 12px;color:var(--ink-soft);}
+.skill-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+.skill-list li{position:relative;padding-left:17px;font-size:14px;font-weight:500;line-height:1.4;color:var(--ink-soft);}
+.skill-list li::before{content:"";position:absolute;left:2px;top:.5em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 .plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px;}
 .plist li{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:500;color:var(--ink-soft);}
 .plist svg{flex:none;color:var(--muted-2);}
@@ -174,7 +175,8 @@ img{display:block;max-width:100%;}
   .job li::before{top:6px;width:4px;height:4px;}
   .job .sub li{font-size:10px;}
   .job-note{font-size:10.5px;margin-top:8px;}
-  .tag,.skill-list span{font-size:9px;padding:4px 7px;}
+  .tag{font-size:9px;padding:4px 7px;}
+  .skill-list li{font-size:10.5px;}
   .tag-grid{gap:5px;margin-top:9px;}
   .card{padding:16px 16px;break-inside:avoid;}
   .card .lbl{margin-bottom:12px;}
@@ -217,7 +219,7 @@ img{display:block;max-width:100%;}
     <div class="rhead-top">
       <div>
         <h1>Experience</h1>
-        <p class="rhead-role"><b>Senior UX/UI &amp; Product Designer</b> with two decades shaping enterprise software, design systems, and brand across aviation, space, insurance and e-learning.</p>
+        <p class="rhead-role"><b>Senior UX/UI &amp; Product Designer</b> shaping enterprise software, design systems, and brand across aviation, space, insurance and e-learning.</p>
         <p class="print-only" style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-soft);margin:10px 0 0;">studio@fergalkeane.com &nbsp;·&nbsp; Based in Ireland, working globally</p>
       </div>
       <a class="dl-resume" href="#" onclick="window.print();return false;">
@@ -347,9 +349,7 @@ img{display:block;max-width:100%;}
       <aside class="aside">
         <div class="card">
           <span class="lbl">Skills</span>
-          <div class="skill-list">
-            <span>Figma</span><span>Adobe Creative Suite</span><span>WordPress</span><span>HubSpot</span><span>HTML / CSS</span><span>508 Compliance</span><span>Brand Implementation</span><span>Brand Management</span><span>Typography</span><span>Microsoft Office Suite</span>
-          </div>
+          <ul class="skill-list"><li>Figma</li><li>AI Prototyping Tools</li><li>Adobe Creative Suite</li><li>WordPress</li><li>HubSpot</li><li>HTML / CSS</li><li>508 Compliance</li><li>Brand Implementation</li><li>Brand Management</li><li>Typography</li><li>Microsoft Office Suite</li></ul>
         </div>
 
         <div class="card">
