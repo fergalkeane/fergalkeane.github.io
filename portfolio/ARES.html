@@ -90,6 +90,24 @@ img{display:block;max-width:100%;}
 .case-block .lbl{display:block;margin-bottom:18px;}
 .case-h{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 22px;max-width:18ch;}
 .case-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:56ch;margin:0;}
+.overview{margin:0 0 clamp(48px,5vw,72px);padding:28px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.overview-lead{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);margin:0 0 26px;max-width:46ch;}
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px clamp(24px,3vw,44px);margin:0;}
+.overview-grid div{margin:0;}
+.overview dt{display:block;margin:0 0 9px;}
+.overview dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+@media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
+.closing-inner{max-width:760px;margin-top:clamp(36px,4vw,56px);}
+.closing-inner .case-p + .case-p{margin-top:18px;}
+.closeup{margin:0;display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;}
+.closeup-img{position:relative;aspect-ratio:580/730;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#f4f6f9;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
+.closeup-img img{position:absolute;width:275.86%;max-width:none;height:auto;left:-141.38%;top:-20.55%;}
+.closeup .pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 12px/26px var(--font-mono);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.9);}
+.closeup figcaption .lbl{display:block;margin:0 0 18px;}
+.callouts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;max-width:46ch;}
+.callouts li{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;font-size:14.5px;line-height:1.55;color:var(--ink-soft);}
+.callouts b{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 12px/26px var(--font-mono);text-align:center;}
+@media(max-width:860px){.closeup{grid-template-columns:1fr;}.closeup-img{max-width:440px;}}
 
 /* -- IMPACT -- */
 .impact{background:var(--ink);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);}
@@ -384,7 +402,7 @@ img{display:block;max-width:100%;}
         <div class="hero-meta">
           <div><p class="lbl">Year</p><p class="mv">2025 to 2026</p></div>
           <div><p class="lbl">Client</p><p class="mv">European Space Agency (ESA)</p></div>
-          <div><p class="lbl">Your Role</p><p class="mv">Lead UX/UI Designer</p></div>
+          <div><p class="lbl">Role</p><p class="mv">Lead UX/UI Designer</p></div>
         </div>
       </div>
     </div>
@@ -396,8 +414,6 @@ img{display:block;max-width:100%;}
   <div class="wrap">
     <div class="case-grid">
       <aside class="case-meta">
-        <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">Lead UX/UI Designer · end-to-end</p></div>
-        <div class="meta-item"><p class="lbl">Client</p><p class="meta-val">European Space Agency (ESA)</p></div>
         <div class="meta-item"><p class="lbl">Platform</p><p class="meta-val">Desktop web application</p></div>
         <div class="meta-item">
           <p class="lbl">Focus Areas</p>
@@ -415,16 +431,17 @@ img{display:block;max-width:100%;}
         </div>
       </aside>
       <div class="case-content">
+        <div class="overview">
+          <p class="overview-lead">I led UX and UI design on ARES end to end, working alongside the product owner, procedure authors and the development team.</p>
+          <dl class="overview-grid">
+            <div><dt class="lbl">Responsibilities</dt><dd>Discovery and synthesis, information architecture and interaction design, UI and the design system, prototyping and developer handoff. Backend architecture and the procedure schema sat with engineering.</dd></div>
+            <div><dt class="lbl">Product</dt><dd>An online AIT platform for the European Space Agency, covering the authoring, review and deployment of spacecraft procedures.</dd></div>
+            <div><dt class="lbl">Users</dt><dd>Authors, the engineers and domain experts who write procedures, and reviewers, who check, comment on and sign them off.</dd></div>
+          </dl>
+        </div>
         <div class="case-block">
-          <span class="lbl">Overview</span>
           <h2 class="case-h">Moving procedure authoring out of desktop software and onto the web.</h2>
-          <p class="case-p" style="margin-bottom:36px;">ARES is an AIT (Assembly, Integration and Testing) platform. Subject-matter experts use it to author complex procedures, send them through review until final sign-off, and deploy them for use in spacecraft and satellite builds. Procedures produced in ARES are currently being delivered to the International Space Station.</p>
-          <div class="qa">
-            <div class="qa-item"><span class="lbl">What it is</span><p>A fully online platform covering the whole life of a procedure: <strong>Authoring, Review, Deploy</strong>.</p></div>
-            <div class="qa-item"><span class="lbl">Who it’s for</span><p><strong>Authors:</strong> engineers and domain experts who write procedures. <strong>Reviewers:</strong> the people who check, comment on and sign them off.</p></div>
-            <div class="qa-item"><span class="lbl">Core problem</span><p>Authoring relied on desktop software (<strong>xMetaL</strong>) and a mix of other tools. Review happened around the files rather than inside one system.</p></div>
-            <div class="qa-item"><span class="lbl">Why it matters</span><p>These procedures guide real assembly and test work on flight hardware. They need to be correct, reviewed and traceable before anyone uses them.</p></div>
-          </div>
+          <p class="case-p">ARES is an AIT (Assembly, Integration and Testing) platform. Subject-matter experts use it to author complex procedures, send them through review until final sign-off, and deploy them for use in spacecraft and satellite builds. Procedures produced in ARES are currently being delivered to the International Space Station. These procedures guide real assembly and test work on flight hardware, so they have to be correct, reviewed and traceable before anyone uses them.</p>
         </div>
       </div>
     </div>
@@ -455,32 +472,6 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- 04: ROLE & SCOPE -->
-<section class="case-section">
-  <div class="wrap">
-    <div class="case-grid">
-      <aside class="case-meta">
-        <div class="meta-item"><p class="lbl">Role &amp; Scope</p><p class="meta-val">Lead UX/UI Designer</p></div>
-        <div class="meta-divider"></div>
-        <div class="meta-item"><p class="lbl">Owned</p>
-          <ul class="check-list">
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Discovery &amp; synthesis</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>IA &amp; interaction design</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>UI &amp; design system</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Prototyping &amp; dev handoff</li>
-          </ul>
-        </div>
-      </aside>
-      <div class="case-content">
-        <div class="case-block">
-          <h2 class="case-h">Design lead, working closely with authors and engineering.</h2>
-          <p class="case-p" style="margin-bottom:22px;">I led the UX and UI: understanding how experts authored and reviewed procedures in the existing tools, mapping the procedure lifecycle, designing the interface and component library, and prototyping for feedback and developer handoff.</p>
-          <p class="case-p">I worked alongside the product owner, procedure authors and the development team. Backend architecture and the procedure schema were owned by engineering; my focus was everything the author and reviewer interact with.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- 04: DISCOVERY & INSIGHTS -->
 <section class="case-section">
@@ -529,17 +520,33 @@ img{display:block;max-width:100%;}
           <p class="dshot-num">Decision 01</p>
           <h3>Lifecycle status on every procedure</h3>
           <p class="why">Each procedure shows where it is in Authoring, Review or Deploy. <b>Why:</b> it answers ‘which version is current, and who has it?’ without leaving the platform.</p>
-          <div class="dshot-tags"><span>Information Architecture</span><span>Status</span></div>
         </div>
         <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Procedure_Status.png" alt="ARES procedure status view showing the lifecycle with the current stage highlighted" loading="lazy"></div><p class="cap">Procedure status across the lifecycle</p></div>
       </article>
+      <figure class="closeup">
+        <div class="closeup-img">
+          <img src="../images/gateway/ARES_Procedure_Status.png" alt="Close-up of the ARES procedure lifecycle map, with the current review stage highlighted" loading="lazy">
+          <span class="pin" style="left:65.5%;top:39.9%">1</span>
+          <span class="pin" style="left:31.9%;top:17.1%">2</span>
+          <span class="pin" style="left:31.9%;top:62.9%">3</span>
+          <span class="pin" style="left:16.4%;top:34.2%">4</span>
+        </div>
+        <figcaption>
+          <p class="lbl">Close-up · Procedure lifecycle</p>
+          <ol class="callouts">
+            <li><b>1</b><span>The current stage is the only solid element on the map, so ‘where is this procedure?’ is answered at a glance.</span></li>
+            <li><b>2</b><span>Stages already passed stay in dark outline, showing the route the procedure has taken.</span></li>
+            <li><b>3</b><span>Stages still ahead are faded, so the remaining path is visible without competing with the present.</span></li>
+            <li><b>4</b><span>Side routes such as Withdrawn and Dismissed sit off the main path, so exceptions are visible without cluttering it.</span></li>
+          </ol>
+        </figcaption>
+      </figure>
 
       <article class="dshot flip">
         <div class="dshot-cap">
           <p class="dshot-num">Decision 02</p>
           <h3>A structured editor, not an XML editor</h3>
           <p class="why">Authors work with steps, conditions and verifications as visual blocks, while the platform handles the underlying XML. <b>Why:</b> keeps experts focused on the content.</p>
-          <div class="dshot-tags"><span>Authoring</span><span>Structured Content</span></div>
         </div>
         <div class="dshot-media"><image-slot id="gw-workspace" shape="rect" placeholder="Drop: procedure editor"></image-slot><p class="cap">Authoring a procedure in the browser</p></div>
       </article>
@@ -549,7 +556,6 @@ img{display:block;max-width:100%;}
           <p class="dshot-num">Decision 03</p>
           <h3>Validation while you write</h3>
           <p class="why">Structural issues are flagged inline as the author works. <b>Why:</b> catching problems before review removes a round trip.</p>
-          <div class="dshot-tags"><span>Validation</span><span>Error Prevention</span></div>
         </div>
         <div class="dshot-media"><image-slot id="gw-trace" shape="rect" placeholder="Drop: inline validation"></image-slot><p class="cap">Issues flagged at the point of authoring</p></div>
       </article>
@@ -559,7 +565,6 @@ img{display:block;max-width:100%;}
           <p class="dshot-num">Decision 04</p>
           <h3>Review and sign-off inside the platform</h3>
           <p class="why">Reviewers comment in context and approve or return a procedure, with a clear record of each decision. <b>Why:</b> keeps the review trail attached to the procedure itself.</p>
-          <div class="dshot-tags"><span>Review Workflow</span><span>Traceability</span></div>
         </div>
         <div class="dshot-media"><image-slot id="gw-safe" shape="rect" placeholder="Drop: review / sign-off"></image-slot><p class="cap">Comments, approval and sign-off</p></div>
       </article>
@@ -638,9 +643,9 @@ img{display:block;max-width:100%;}
       <span class="lbl">Outcome</span>
       <h2>Procedures authored and reviewed in ARES are now being <em class="accent" style="font-style:normal;">delivered to the International Space Station</em>.</h2>
     </div>
-    <div class="cardgrid" style="margin-top:32px;">
-      <div class="mcard"><span class="lbl">For authors</span><h4>No desktop install, no XML</h4><p>Experts write procedures in the browser, with structure and validation handled for them.</p></div>
-      <div class="mcard"><span class="lbl">For reviewers</span><h4>One place for review and sign-off</h4><p>Status, comments and approvals stay with the procedure from first draft to deployment.</p></div>
+    <div class="closing-inner">
+      <p class="case-p">The challenge in ARES was keeping the rigour of a long-established desktop workflow while removing the friction around it: local installs, raw XML, and review that happened outside the tool.</p>
+      <p class="case-p">My approach was to make the procedure lifecycle the backbone of the product and let structure do the work. Authors see steps, conditions and verifications rather than markup, problems surface while they write rather than after handoff, and every review decision stays attached to the procedure. That is what lets expert authors leave desktop software behind without giving up the discipline the old workflow enforced.</p>
     </div>
   </div>
 </section>
