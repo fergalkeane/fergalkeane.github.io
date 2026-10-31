@@ -115,14 +115,14 @@ img{display:block;max-width:100%;}
 @media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
 .annot{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr) 200px;grid-template-areas:". top ." "left media right" ". bottom .";column-gap:48px;align-items:start;margin:0;}
 .annot-bottom{grid-area:bottom;position:relative;}
-.annot--compact{grid-template-columns:minmax(0,1fr) minmax(0,460px) minmax(0,1fr);grid-template-areas:"top top top" "left media right" "bottom bottom bottom";margin-top:12px;}
+.annot--compact{grid-template-columns:minmax(150px,1fr) minmax(0,460px) minmax(150px,1fr);column-gap:clamp(24px,3vw,48px);grid-template-areas:"top top top" "left media right" "bottom bottom bottom";margin-top:12px;}
 .annot--compact .annot-left .callout{left:auto;right:0;max-width:240px;}
 .annot--compact .annot-right .callout{right:auto;left:0;max-width:240px;}
 .annot-label{display:block;margin:clamp(36px,4vw,56px) 0 0;}
 @media(min-width:700px) and (max-width:1100px){
-  .annot.annot--compact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media bottom" "media .";grid-template-rows:1fr auto auto auto 1fr;column-gap:40px;row-gap:16px;}
-  .annot--compact .annot-media{max-width:none;}
-  .annot--compact .annot-col .callout{max-width:none;}
+  .annot.annot--compact:not(.is-wide){grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media bottom" "media .";grid-template-rows:1fr auto auto auto 1fr;column-gap:40px;row-gap:16px;}
+  .annot--compact:not(.is-wide) .annot-media{max-width:none;}
+  .annot--compact:not(.is-wide) .annot-col .callout{max-width:none;}
 }
 .annot-top{grid-area:top;position:relative;}
 .annot-left{grid-area:left;}.annot-media{grid-area:media;}.annot-right{grid-area:right;}
@@ -136,18 +136,16 @@ img{display:block;max-width:100%;}
 .annot-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
 .annot-lines line{stroke:var(--ink-soft);stroke-width:1;}
 .annot-lines circle{fill:var(--ink-soft);}
-@media(min-width:1101px){.annot-col{min-height:100%;}.annot-col .callout{position:absolute;left:0;right:0;}.annot-left .callout{text-align:right;}.annot-top{height:116px;}.annot-top .callout{position:absolute;top:0;width:280px;}.annot-bottom{height:110px;}.annot-bottom .callout{position:absolute;top:30px;width:280px;}}
-@media(max-width:1100px){
-  .annot{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "left" "top" "right" "bottom";row-gap:16px;}
-  .annot-lines{display:none;}
-  .annot-col,.annot-top,.annot-bottom{display:flex;flex-direction:column;gap:16px;}
-  .annot--compact .annot-media{max-width:460px;}
-  .annot .callout{position:relative;padding-left:38px;}
-  .annot .callout::before{content:attr(data-n);position:absolute;left:0;top:-2px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font:600 11px/24px var(--font-mono);text-align:center;}
-  .annot-dot{width:22px;height:22px;}
-  .annot-dot.edge-left{transform:translate(-15%,-50%);}
-  .annot-dot::after{content:attr(data-n);display:block;color:#fff;font:600 11px/22px var(--font-mono);text-align:center;}
-}
+.annot.is-wide .annot-col{min-height:100%;}.annot.is-wide .annot-col .callout{position:absolute;left:0;right:0;}.annot.is-wide .annot-left .callout{text-align:right;}.annot.is-wide .annot-top{height:116px;}.annot.is-wide .annot-top .callout{position:absolute;top:0;width:280px;}.annot.is-wide .annot-bottom{height:110px;}.annot.is-wide .annot-bottom .callout{position:absolute;top:30px;width:280px;}
+.annot:not(.is-wide){grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "left" "top" "right" "bottom";row-gap:16px;}
+.annot:not(.is-wide) .annot-lines{display:none;}
+.annot:not(.is-wide) .annot-col,.annot:not(.is-wide) .annot-top,.annot:not(.is-wide) .annot-bottom{display:flex;flex-direction:column;gap:16px;}
+.annot--compact:not(.is-wide) .annot-media{max-width:460px;}
+.annot:not(.is-wide) .callout{position:relative;padding-left:38px;}
+.annot:not(.is-wide) .callout::before{content:attr(data-n);position:absolute;left:0;top:-2px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font:600 11px/24px var(--font-mono);text-align:center;}
+.annot:not(.is-wide) .annot-dot{width:22px;height:22px;}
+.annot:not(.is-wide) .annot-dot.edge-left{transform:translate(-15%,-50%);}
+.annot:not(.is-wide) .annot-dot::after{content:attr(data-n);display:block;color:#fff;font:600 11px/22px var(--font-mono);text-align:center;}
 .closeup{margin:clamp(28px,3vw,44px) 0 0;display:grid;grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;}
 .closeup-img{position:relative;aspect-ratio:600/660;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b1f33;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
 .closeup-img img{position:absolute;width:320%;max-width:none;height:auto;left:-200%;top:-78.79%;}
@@ -513,7 +511,7 @@ img{display:block;max-width:100%;}
           <img src="../images/realworld/RealWorld_Marine_Dashboard.png" alt="Real World marine overview with live vessel map" loading="lazy">
         </div>
         <p class="lbl annot-label">Close-up · Voyage card</p>
-        <figure class="annot annot--compact" data-annot="" data-w="600" data-h="660">
+        <figure class="annot annot--compact" data-annot="" data-min="960" data-w="600" data-h="660">
           <div class="annot-col annot-left">
             <div class="callout" data-n="1" data-y1="80" data-y2="180" data-x="134" data-y="130"><h4>Route and timing</h4><p>Origin, destination, departure time and ETA come first.</p></div>
             <div class="callout" data-n="2" data-y1="485" data-y2="520" data-x="134" data-y="505"><h4>Policy context</h4><p>Policy type sits with the live tracking data, so insurance context is read alongside the vessel’s movement.</p></div>
@@ -769,12 +767,13 @@ img{display:block;max-width:100%;}
 (function(){
   var figs=[].slice.call(document.querySelectorAll('[data-annot]'));if(!figs.length)return;
   var NS='http://www.w3.org/2000/svg',mq=window.matchMedia('(min-width:1101px)');
+  function wide(fig){var on=window.innerWidth>=(+fig.dataset.min||1101);fig.classList.toggle('is-wide',on);return on;}
   function layout(fig){
     var svg=fig.querySelector('.annot-lines'),img=fig.querySelector('.annot-img img');
     while(svg.firstChild)svg.removeChild(svg.firstChild);
     var cols=fig.querySelectorAll('.annot-col'),callouts=fig.querySelectorAll('.callout'),dots=fig.querySelectorAll('.annot-dot');
     [].forEach.call(dots,function(d){if(!d.dataset.top)d.dataset.top=d.style.top;d.style.top=d.dataset.top;});
-    if(!mq.matches||!img.complete){[].forEach.call(callouts,function(c){c.style.top='';});[].forEach.call(cols,function(c){c.style.height='';});return;}
+    if(!wide(fig)||!img.complete){[].forEach.call(callouts,function(c){c.style.top='';});[].forEach.call(cols,function(c){c.style.height='';});return;}
     var fr=fig.getBoundingClientRect(),ir=fig.querySelector('.annot-img').getBoundingClientRect(),nw=+fig.dataset.w,nh=+fig.dataset.h;
     var sy=function(v){return ir.top-fr.top+v/nh*ir.height;},sx=function(v){return ir.left-fr.left+v/nw*ir.width;};
     [].forEach.call(cols,function(col){
@@ -804,7 +803,7 @@ img{display:block;max-width:100%;}
     var svg=fig.querySelector('.annot-lines'),img=fig.querySelector('.annot-img img');
     [].forEach.call(fig.querySelectorAll('.annot-top,.annot-bottom'),function(top){
     var list=top.querySelectorAll('.callout');
-    if(!mq.matches||!img.complete){[].forEach.call(list,function(c){c.style.left='';});return;}
+    if(!wide(fig)||!img.complete){[].forEach.call(list,function(c){c.style.left='';});return;}
     var fr=fig.getBoundingClientRect(),ir=fig.querySelector('.annot-img').getBoundingClientRect(),tr=top.getBoundingClientRect(),nw=+fig.dataset.w,nh=+fig.dataset.h;
     [].forEach.call(list,function(c){
       var tx=ir.left-fr.left+(+c.dataset.x)/nw*ir.width,ty=ir.top-fr.top+(+c.dataset.y)/nh*ir.height;
