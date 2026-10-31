@@ -113,6 +113,41 @@ img{display:block;max-width:100%;}
 .overview dt{display:block;margin:0 0 9px;}
 .overview dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
 @media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
+.annot{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr) 200px;grid-template-areas:". top ." "left media right" ". bottom .";column-gap:48px;align-items:start;margin:0;}
+.annot-bottom{grid-area:bottom;position:relative;}
+.annot--compact{grid-template-columns:minmax(0,1fr) minmax(0,460px) minmax(0,1fr);grid-template-areas:"top top top" "left media right" "bottom bottom bottom";margin-top:12px;}
+.annot--compact .annot-left .callout{left:auto;right:0;max-width:240px;}
+.annot--compact .annot-right .callout{right:auto;left:0;max-width:240px;}
+.annot-label{display:block;margin:clamp(36px,4vw,56px) 0 0;}
+@media(min-width:700px) and (max-width:1100px){
+  .annot.annot--compact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media bottom" "media .";grid-template-rows:1fr auto auto auto 1fr;column-gap:40px;row-gap:16px;}
+  .annot--compact .annot-media{max-width:none;}
+  .annot--compact .annot-col .callout{max-width:none;}
+}
+.annot-top{grid-area:top;position:relative;}
+.annot-left{grid-area:left;}.annot-media{grid-area:media;}.annot-right{grid-area:right;}
+.annot-col{position:relative;}
+.callout h4{font-family:var(--font-display);font-weight:600;font-size:15px;line-height:1.25;letter-spacing:-.005em;color:var(--accent);margin:0 0 6px;}
+.callout p{font-size:12px;line-height:1.5;color:var(--muted);margin:0;}
+.callout p.ph{font-style:italic;}
+.annot-img{position:relative;}
+.annot-img img{display:block;width:100%;height:auto;}
+.annot-dot{position:absolute;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(255,255,255,.9);}
+.annot-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+.annot-lines line{stroke:var(--ink-soft);stroke-width:1;}
+.annot-lines circle{fill:var(--ink-soft);}
+@media(min-width:1101px){.annot-col{min-height:100%;}.annot-col .callout{position:absolute;left:0;right:0;}.annot-left .callout{text-align:right;}.annot-top{height:116px;}.annot-top .callout{position:absolute;top:0;width:280px;}.annot-bottom{height:110px;}.annot-bottom .callout{position:absolute;top:30px;width:280px;}}
+@media(max-width:1100px){
+  .annot{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "left" "top" "right" "bottom";row-gap:16px;}
+  .annot-lines{display:none;}
+  .annot-col,.annot-top,.annot-bottom{display:flex;flex-direction:column;gap:16px;}
+  .annot--compact .annot-media{max-width:460px;}
+  .annot .callout{position:relative;padding-left:38px;}
+  .annot .callout::before{content:attr(data-n);position:absolute;left:0;top:-2px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font:600 11px/24px var(--font-mono);text-align:center;}
+  .annot-dot{width:22px;height:22px;}
+  .annot-dot.edge-left{transform:translate(-15%,-50%);}
+  .annot-dot::after{content:attr(data-n);display:block;color:#fff;font:600 11px/22px var(--font-mono);text-align:center;}
+}
 .closeup{margin:clamp(28px,3vw,44px) 0 0;display:grid;grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;}
 .closeup-img{position:relative;aspect-ratio:600/660;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b1f33;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
 .closeup-img img{position:absolute;width:320%;max-width:none;height:auto;left:-200%;top:-78.79%;}
@@ -435,10 +470,29 @@ img{display:block;max-width:100%;}
           <h3>The whole book at a glance</h3>
           <p>Before going into any one line of business, a risk manager needs to know where the whole book stands. The landing dashboard leads with four figures (total exposure, active policies, live risk alerts and global regions), then hands off to Marine, Property, Aviation and Offshore/Energy through large entry cards that show how many assets each one holds.</p>
         </div>
-        <div class="frame">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / dashboard</span></div>
-          <img src="../images/realworld/RealWorld_Main_Dashboard.png" alt="Real World main dashboard overview" loading="lazy">
-        </div>
+        <figure class="annot" data-annot="" data-w="1920" data-h="1441">
+          <div class="annot-top">
+            <div class="callout" data-n="3" data-y1="322" data-y2="378" data-x="700" data-y="323"><h4>Global search</h4><p>Global search for instant access to assets, portfolios, companies, etc. without navigating multiple screens.</p></div>
+          </div>
+          <div class="annot-col annot-left">
+            <div class="callout" data-n="1" data-y1="85" data-y2="860" data-x="34" data-y="425"><h4>Sidebar navigation</h4><p>Persistent side navigation for quick access to key modules. Designed for faster switching between workflows.</p></div>
+            <div class="callout" data-n="2" data-y1="640" data-y2="887" data-x="288" data-y="765"><h4>Line-of-business cards</h4><p>Quick access to core modules. Instant view of exposure in each line of business.</p></div>
+          </div>
+          <div class="annot-media">
+            <div class="frame">
+              <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / dashboard</span></div>
+              <div class="annot-img">
+                <img src="../images/realworld/RealWorld_Main_Dashboard.png" alt="Real World main dashboard overview" loading="lazy" width="1920" height="1441">
+                <span class="annot-dot edge-left" data-n="1" style="left:1.77%;top:29.49%"></span><span class="annot-dot" data-n="2" style="left:15.00%;top:53.09%"></span><span class="annot-dot" data-n="3" style="left:36.46%;top:22.41%"></span><span class="annot-dot" data-n="4" style="left:88.65%;top:35.74%"></span><span class="annot-dot" data-n="5" style="left:68.91%;top:65.02%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="annot-col annot-right">
+            <div class="callout" data-n="4" data-y1="420" data-y2="608" data-x="1702" data-y="515"><h4>KPI summary</h4><p>High-priority metrics help users understand business activity at a glance.</p></div>
+            <div class="callout" data-n="5" data-y1="918" data-y2="1093" data-x="1323" data-y="937"><h4>Optional add-on modules</h4><p>Optional add-on modules for advanced functionality.</p></div>
+          </div>
+          <svg class="annot-lines" aria-hidden="true"></svg>
+        </figure>
       </article>
 
       <div class="flow">
@@ -458,23 +512,25 @@ img{display:block;max-width:100%;}
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">app.realworld.skytek.com / marine</span></div>
           <img src="../images/realworld/RealWorld_Marine_Dashboard.png" alt="Real World marine overview with live vessel map" loading="lazy">
         </div>
-        <figure class="closeup">
-          <div class="closeup-img">
-            <img src="../images/realworld/RealWorld_Marine_Dashboard.png" alt="Close-up of the voyage card for the vessel Atlantic Pearl, pinned to its position on the marine map" loading="lazy">
-            <span class="pin" style="left:16.7%;top:19.7%">1</span>
-            <span class="pin" style="left:16.7%;top:76.5%">2</span>
-            <span class="pin" style="left:16.7%;top:84.5%">3</span>
-            <span class="pin" style="left:57.5%;top:92.1%">4</span>
+        <p class="lbl annot-label">Close-up · Voyage card</p>
+        <figure class="annot annot--compact" data-annot="" data-w="600" data-h="660">
+          <div class="annot-col annot-left">
+            <div class="callout" data-n="1" data-y1="80" data-y2="180" data-x="134" data-y="130"><h4>Route and timing</h4><p>Origin, destination, departure time and ETA come first.</p></div>
+            <div class="callout" data-n="2" data-y1="485" data-y2="520" data-x="134" data-y="505"><h4>Policy context</h4><p>Policy type sits with the live tracking data, so insurance context is read alongside the vessel’s movement.</p></div>
           </div>
-          <figcaption>
-            <p class="lbl">Close-up · Voyage card</p>
-            <ol class="callouts">
-              <li><b>1</b><span>Route and timing come first: origin, destination, departure time and ETA.</span></li>
-              <li><b>2</b><span>Policy type sits with the live tracking data, so insurance context is read alongside the vessel’s movement.</span></li>
-              <li><b>3</b><span>One link leads to the full vessel record, which keeps the card a summary rather than a second page.</span></li>
-              <li><b>4</b><span>The card stays pinned to the vessel’s marker, so its position on the map is never lost.</span></li>
-            </ol>
-          </figcaption>
+          <div class="annot-media">
+            <div class="closeup-img annot-img">
+              <img src="../images/realworld/RealWorld_Marine_Dashboard.png" alt="Close-up of the voyage card for the vessel Atlantic Pearl, pinned to its position on the marine map" loading="lazy">
+              <span class="annot-dot" data-n="1" style="left:22.33%;top:19.70%"></span><span class="annot-dot" data-n="2" style="left:22.33%;top:76.52%"></span><span class="annot-dot" data-n="3" style="left:77.33%;top:84.55%"></span><span class="annot-dot" data-n="4" style="left:49.67%;top:91.67%"></span>
+            </div>
+          </div>
+          <div class="annot-col annot-right">
+            <div class="callout" data-n="3" data-y1="548" data-y2="570" data-x="464" data-y="558"><h4>Full record, one step away</h4><p>One link leads to the full vessel record, which keeps the card a summary rather than a second page.</p></div>
+          </div>
+          <div class="annot-bottom">
+            <div class="callout" data-n="4" data-y1="605" data-y2="605" data-x="298" data-y="605"><h4>Pinned to the vessel</h4><p>The card stays pinned to the vessel’s marker, so its position on the map is never lost.</p></div>
+          </div>
+          <svg class="annot-lines" aria-hidden="true"></svg>
         </figure>
       </article>
 
@@ -708,4 +764,62 @@ img{display:block;max-width:100%;}
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
 </script>
 
+<script>
+/* Annotated screenshot: callouts sit level with their targets; every leader line is horizontal. */
+(function(){
+  var figs=[].slice.call(document.querySelectorAll('[data-annot]'));if(!figs.length)return;
+  var NS='http://www.w3.org/2000/svg',mq=window.matchMedia('(min-width:1101px)');
+  function layout(fig){
+    var svg=fig.querySelector('.annot-lines'),img=fig.querySelector('.annot-img img');
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    var cols=fig.querySelectorAll('.annot-col'),callouts=fig.querySelectorAll('.callout'),dots=fig.querySelectorAll('.annot-dot');
+    [].forEach.call(dots,function(d){if(!d.dataset.top)d.dataset.top=d.style.top;d.style.top=d.dataset.top;});
+    if(!mq.matches||!img.complete){[].forEach.call(callouts,function(c){c.style.top='';});[].forEach.call(cols,function(c){c.style.height='';});return;}
+    var fr=fig.getBoundingClientRect(),ir=fig.querySelector('.annot-img').getBoundingClientRect(),nw=+fig.dataset.w,nh=+fig.dataset.h;
+    var sy=function(v){return ir.top-fr.top+v/nh*ir.height;},sx=function(v){return ir.left-fr.left+v/nw*ir.width;};
+    [].forEach.call(cols,function(col){
+      col.style.height=(ir.bottom-fr.top)+'px';
+      var cr=col.getBoundingClientRect(),left=col.classList.contains('annot-left'),list=[].slice.call(col.querySelectorAll('.callout'));
+      list.sort(function(a,b){return (+a.dataset.y)-(+b.dataset.y);});
+      var floor=0;
+      list.forEach(function(c){
+        var h=c.querySelector('h4');
+        c.style.top='0px';var off=h.getBoundingClientRect().top-c.getBoundingClientRect().top+h.offsetHeight/2;
+        var want=sy(+c.dataset.y),y1=sy(+c.dataset.y1),y2=sy(+c.dataset.y2);
+        var top=Math.max(want-off-(cr.top-fr.top),floor);
+        var ay=cr.top-fr.top+top+off;
+        if(ay>y2){ay=y2;top=ay-off-(cr.top-fr.top);}
+        c.style.top=top+'px';floor=top+c.offsetHeight+18;
+        var tx=sx(+c.dataset.x);
+        var dot=fig.querySelector('.annot-dot[data-n="'+c.dataset.n+'"]');
+        if(dot)dot.style.top=((ay-(ir.top-fr.top))/ir.height*100)+'%';
+        var ax=left?(cr.right-fr.left+10):(cr.left-fr.left-10);
+        var ln=document.createElementNS(NS,'line');
+        ln.setAttribute('x1',ax);ln.setAttribute('y1',ay);ln.setAttribute('x2',tx);ln.setAttribute('y2',ay);svg.appendChild(ln);
+        var ci=document.createElementNS(NS,'circle');ci.setAttribute('cx',ax);ci.setAttribute('cy',ay);ci.setAttribute('r',3);svg.appendChild(ci);
+      });
+    });
+  }
+  function layoutTop(fig){
+    var svg=fig.querySelector('.annot-lines'),img=fig.querySelector('.annot-img img');
+    [].forEach.call(fig.querySelectorAll('.annot-top,.annot-bottom'),function(top){
+    var list=top.querySelectorAll('.callout');
+    if(!mq.matches||!img.complete){[].forEach.call(list,function(c){c.style.left='';});return;}
+    var fr=fig.getBoundingClientRect(),ir=fig.querySelector('.annot-img').getBoundingClientRect(),tr=top.getBoundingClientRect(),nw=+fig.dataset.w,nh=+fig.dataset.h;
+    [].forEach.call(list,function(c){
+      var tx=ir.left-fr.left+(+c.dataset.x)/nw*ir.width,ty=ir.top-fr.top+(+c.dataset.y)/nh*ir.height;
+      var l=Math.min(tx-(tr.left-fr.left)+16,tr.width-c.offsetWidth);c.style.left=l+'px';
+      var h=c.querySelector('h4'),hr=h.getBoundingClientRect(),ay=hr.top-fr.top+hr.height/2;
+      var ln=document.createElementNS(NS,'line');ln.setAttribute('x1',tx);ln.setAttribute('y1',ay);ln.setAttribute('x2',tx);ln.setAttribute('y2',ty);svg.appendChild(ln);
+      var ci=document.createElementNS(NS,'circle');ci.setAttribute('cx',tx);ci.setAttribute('cy',ay);ci.setAttribute('r',3);svg.appendChild(ci);
+    });
+    });
+  }
+  function all(){figs.forEach(function(f){layout(f);layoutTop(f);});}
+  figs.forEach(function(f){var i=f.querySelector('.annot-img img');if(i.complete){layout(f);layoutTop(f);}else i.addEventListener('load',function(){layout(f);layoutTop(f);});});
+  window.addEventListener('resize',all);if(mq.addEventListener)mq.addEventListener('change',all);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
+  if('ResizeObserver' in window){var ro=new ResizeObserver(all);figs.forEach(function(f){ro.observe(f);});}
+})();
+</script>
 </body></html>
