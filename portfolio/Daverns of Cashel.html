@@ -39,7 +39,7 @@ img{display:block;max-width:100%;}
 .lbl{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
 .accent{color:var(--accent);}
 
-/* —— NAV —— */
+/* -- NAV -- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line-soft);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
 .brand{display:flex;align-items:baseline;gap:12px;}
@@ -50,12 +50,12 @@ img{display:block;max-width:100%;}
 .nav-links a:hover{color:var(--ink);}
 .nav-toggle{display:none;}
 
-/* —— BACK —— */
+/* -- BACK -- */
 .backbar{padding:30px var(--pad) 0;}
 .back-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
 .back-link:hover{color:var(--accent);}
 
-/* —— HERO —— */
+/* -- HERO -- */
 .hero{padding:22px 0 0;}
 .hero-banner{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(420px,48vw,580px);display:flex;background:var(--navy-deep);}
 .hero-banner img.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
@@ -73,7 +73,7 @@ img{display:block;max-width:100%;}
 .hero-meta .lbl{color:rgba(255,255,255,.5);margin-bottom:8px;}
 .hero-meta .mv{font-size:15px;color:#fff;font-weight:500;}
 
-/* —— CASE BODY —— */
+/* -- CASE BODY -- */
 .case-body{padding:84px 0 0;}
 .case-grid{display:grid;grid-template-columns:minmax(220px,290px) 1fr;column-gap:clamp(40px,6vw,104px);align-items:start;}
 .case-meta{display:flex;flex-direction:column;gap:34px;}
@@ -89,8 +89,20 @@ img{display:block;max-width:100%;}
 .case-block .lbl{display:block;margin-bottom:18px;}
 .case-h{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 22px;max-width:20ch;}
 .case-p{font-size:16px;line-height:1.65;color:var(--muted);max-width:58ch;margin:0;}
+.overview{margin:0 0 clamp(48px,5vw,72px);padding:28px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.overview-lead{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);margin:0 0 26px;max-width:46ch;}
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px clamp(24px,3vw,44px);margin:0;}
+.overview-grid div{margin:0;}
+.overview dt{display:block;margin:0 0 9px;}
+.overview dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+@media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
+.closing-inner{max-width:760px;}
+.closing-inner .case-p{margin-top:18px;}
+.ds-inline{margin-top:clamp(48px,5vw,72px);padding-top:clamp(40px,4vw,56px);border-top:1px solid var(--line);}
+.id-sub{display:block;margin:clamp(56px,6vw,84px) 0 0;padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--line);}
+.id-sub + .brand-row{margin-top:clamp(20px,2vw,28px);}
 
-/* —— IMPACT —— */
+/* -- IMPACT -- */
 .impact{background:var(--navy);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);position:relative;overflow:hidden;}
 .impact::after{content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;border:1px solid rgba(169,137,63,.35);border-radius:50%;}
 .impact .lbl{color:rgba(255,255,255,.45);display:block;margin-bottom:30px;}
@@ -102,7 +114,7 @@ img{display:block;max-width:100%;}
 .pullq p{font-family:var(--font-display,inherit);font-size:clamp(22px,2.9vw,38px);line-height:1.32;font-weight:300;letter-spacing:-.015em;color:var(--ink);text-wrap:pretty;max-width:26ch;margin:0;}
 .pullq .qmark{color:var(--accent);}
 
-/* —— BRAND —— */
+/* -- BRAND -- */
 .brand-row{display:grid;gap:clamp(18px,2vw,26px);margin-top:clamp(38px,4vw,58px);}
 .brand-row.two{grid-template-columns:1.1fr .9fr;}
 .brand-row.three{grid-template-columns:repeat(3,1fr);}
@@ -123,7 +135,7 @@ img{display:block;max-width:100%;}
 .social-note span{font-size:13.5px;line-height:1.55;color:var(--muted);}
 @media(max-width:900px){.social-grid{grid-template-columns:repeat(2,1fr);}.social-note{grid-template-columns:1fr;}}
 
-/* —— SCREEN WALKTHROUGH —— */
+/* -- SCREEN WALKTHROUGH -- */
 .case-section{padding:96px 0 0;}
 .sec-head .lbl{display:block;margin-bottom:20px;}
 .sec-title{font-family:var(--font-display);font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.12;letter-spacing:-.015em;margin:0 0 14px;max-width:20ch;}
@@ -158,7 +170,7 @@ img{display:block;max-width:100%;}
 .shot-pair .frame.scroll .scroll-body{max-height:522px;}
 @media(max-width:760px){.shot-pair{grid-template-columns:1fr;gap:26px;}.shot-pair .frame.scroll{max-height:460px;}.shot-pair .frame.scroll .scroll-body{max-height:422px;}}
 
-/* —— DESIGN SYSTEM —— */
+/* -- DESIGN SYSTEM -- */
 .ds-grid{display:grid;grid-template-columns:1.05fr .82fr;gap:clamp(36px,5vw,72px);align-items:start;}
 .ds-lead{font-size:16px;line-height:1.65;color:var(--muted);max-width:36ch;margin:0 0 40px;}
 .swatches{display:flex;flex-direction:column;gap:22px;}
@@ -175,7 +187,7 @@ img{display:block;max-width:100%;}
 .type-dots{display:flex;gap:8px;}
 .type-dots span{width:13px;height:13px;border-radius:50%;}
 
-/* —— CONTACT —— */
+/* -- CONTACT -- */
 .contact{padding:clamp(80px,9vw,120px) 0 0;border-top:1px solid var(--line-soft);margin-top:clamp(64px,8vw,110px);}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:84px;align-items:start;}
 .contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1.0;letter-spacing:-.025em;margin:20px 0 26px;max-width:11ch;}
@@ -210,7 +222,7 @@ img{display:block;max-width:100%;}
 
 .footbar a:hover{color:var(--accent);}
 
-/* —— RESPONSIVE —— */
+/* -- RESPONSIVE -- */
 @media(max-width:1024px){
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
@@ -266,12 +278,12 @@ img{display:block;max-width:100%;}
       <div class="hero-content">
         <div>
           <img class="hero-logo" src="../images/daverns/Daverns_Logo_White.png" alt="Daverns of Cashel, established 1926">
-          <p class="hero-tagline">A century-old family house of luxury fashion &amp; personal styling in Cashel, Co.&nbsp;Tipperary, reimagined as a considered designer-led eCommerce experience.</p>
+          <p class="hero-tagline">A family house of luxury fashion and personal styling in Cashel, Co.&nbsp;Tipperary since 1926, brought into the digital age without losing the personal service it is known for.</p>
         </div>
         <div class="hero-meta">
           <div><p class="lbl">Year</p><p class="mv">2021</p></div>
           <div><p class="lbl">Client</p><p class="mv">Daverns of Cashel</p></div>
-          <div><p class="lbl">Your Role</p><p class="mv">Lead UI / UX Designer</p></div>
+          <div><p class="lbl">Role</p><p class="mv">Lead UI/UX &amp; Brand Designer</p></div>
         </div>
       </div>
     </div>
@@ -295,15 +307,13 @@ img{display:block;max-width:100%;}
   <div class="wrap">
     <div class="case-grid">
       <aside class="case-meta">
-        <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">Lead UI / UX Designer</p></div>
-        <div class="meta-item"><p class="lbl">Client</p><p class="meta-val">Daverns of Cashel / Luxury Fashion &amp; Styling</p></div>
         <div class="meta-item">
           <p class="lbl">Focus Areas</p>
           <ul class="check-list">
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Luxury eCommerce UX</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Designer-Led Navigation</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Heritage Brand Identity</li>
-            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Virtual Styling Appointments</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Brand Identity &amp; Visual Direction</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>eCommerce UX &amp; UI</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Packaging &amp; Brand Applications</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"></circle><polyline points="8.5 12.2 11 14.7 15.5 9.5"></polyline></svg>Social Media Creative Direction</li>
           </ul>
         </div>
         <div class="meta-divider"></div>
@@ -313,38 +323,35 @@ img{display:block;max-width:100%;}
         </div>
       </aside>
       <div class="case-content">
-        <div class="case-block">
-          <span class="lbl">01 / The Challenge</span>
-          <h2 class="case-h">A trusted high-street institution with almost no presence online.</h2>
-          <p class="case-p">Since 1926 Daverns had built its name on personal service: fittings, styling advice and a carefully curated wall of designer labels on Main Street, Cashel. But that experience lived entirely in-store. Their small web presence couldn’t carry the brand’s quality, surface twenty-plus designer houses, or reassure a customer spending €345 on a coat they couldn’t try on.</p>
+        <div class="overview">
+          <p class="overview-lead">I led UI/UX and brand design for Daverns of Cashel, from the visual identity through to the eCommerce site, packaging and social media.</p>
+          <dl class="overview-grid">
+            <div><dt class="lbl">Scope</dt><dd>Brand identity and visual direction, eCommerce UX and UI, website and digital experience, packaging and brand applications, and social media creative direction.</dd></div>
+            <div><dt class="lbl">Client</dt><dd>A family-run luxury fashion and styling house on Main Street, Cashel, trading since 1926 and stocking twenty-plus designer labels.</dd></div>
+            <div><dt class="lbl">Audience</dt><dd>Menswear and womenswear customers who know the shop for its personal service, and new customers meeting it online for the first time.</dd></div>
+          </dl>
         </div>
         <div class="case-block">
-          <span class="lbl">02 / The Solution</span>
+          <span class="lbl">The Challenge</span>
+          <h2 class="case-h">A century of personal service, brought online.</h2>
+          <p class="case-p">Since 1926 Daverns has built its name on personal service: fittings, styling advice and a carefully chosen range of designer labels on Main Street, Cashel. The challenge was to carry that experience onto the screen, presenting twenty-plus designer houses with the quality they have in store and giving a customer the confidence to buy a €345 coat they cannot try on first.</p>
+        </div>
+        <div class="case-block">
+          <span class="lbl">The Solution</span>
           <h2 class="case-h">A heritage-led storefront that sells the way Daverns does in person.</h2>
-          <p class="case-p">The redesign treats the shop’s founding mark (the crown, the 1926 date, the deep navy and gold) as the spine of the whole experience. Editorial brand storytelling, a designer-first discovery model and generous product photography recreate the curated, advisory feel of the store, while virtual appointments bring the styling service itself online.</p>
-        </div>
-        <div class="impact">
-          <span class="lbl">03 / Impact</span>
-          <h2>A full <em>menswear &amp; womenswear</em> catalogue and 20+ luxury designer houses brought online, with virtual styling carried over from the shop floor.</h2>
+          <p class="case-p">The crown, the 1926 date and the deep navy and gold run through the whole experience. Editorial brand storytelling, a designer-first way to browse and generous product photography carry the curated, advisory feel of the shop onto the screen, and the same identity extends to packaging and social media.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="case-section">
-  <div class="wrap">
-    <figure class="pullq">
-      <blockquote><p><span class="qmark">“</span>For us the measure of success was whether a retail store that had never needed to explain itself online looked on screen, exactly as good as it does in reality.<span class="qmark">”</span></p></blockquote>
-    </figure>
-  </div>
-</section>
 
 <!-- SCREEN WALKTHROUGH -->
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.1 / The Product</span>
+      <span class="lbl">The Product</span>
       <h2 class="sec-title">A guided walk through Daverns of Cashel</h2>
       <p class="sec-lead">From the welcome storefront down to a single garment, every screen leads with the brand and the designer name first, then the product: the same order of trust a customer feels walking through the door on Main Street.</p>
     </div>
@@ -354,10 +361,9 @@ img{display:block;max-width:100%;}
       <!-- HOMEPAGE -->
       <article class="shot" data-screen-label="01 Homepage">
         <div class="shot-cap">
-          <p class="shot-num">01 / Storefront</p>
+          <p class="shot-num">Storefront</p>
           <h3>The welcome, set in brand</h3>
-          <p>The homepage opens with a styling-led welcome and ‘The Daverns Promise’ (a founder’s note on luxury clothing and personal service) before stepping into luxury brands for men and women. It establishes heritage and curation before a single price appears.</p>
-          <div class="shot-tags"><span>Brand Story</span><span>Editorial</span><span>Curation</span></div>
+          <p>The homepage leads with a styling-led welcome and ‘The Daverns Promise’, a founder’s note on luxury clothing and personal service, before any product appears. A first-time visitor meets the shop’s voice and values the way they would on Main Street, then steps into menswear or womenswear.</p>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">davernsofcashel.com</span></div>
@@ -368,10 +374,9 @@ img{display:block;max-width:100%;}
       <!-- MEN + WOMEN -->
       <article class="shot flip" data-screen-label="02 Departments">
         <div class="shot-cap">
-          <p class="shot-num">02 / Departments</p>
+          <p class="shot-num">Departments</p>
           <h3>Two front doors, one language</h3>
-          <p>Menswear and womenswear each get a full-bleed editorial landing, then split into Clothing, Footwear, Accessories and Brands across an identical four-tile grid. The structure is shared so a returning customer never has to relearn the shop; only the imagery changes.</p>
-          <div class="shot-tags"><span>Department Landing</span><span>Shared IA</span><span>Category Tiles</span></div>
+          <p>Menswear and womenswear each open on a full-bleed editorial landing, then split into the same four routes: Clothing, Footwear, Accessories and Brands. Keeping the structure identical means a customer who learns one department already knows the other; only the imagery changes.</p>
         </div>
         <div class="shot-pair">
           <div class="frame scroll">
@@ -388,10 +393,9 @@ img{display:block;max-width:100%;}
       <!-- DESIGNERS -->
       <article class="shot" data-screen-label="03 Designers">
         <div class="shot-cap">
-          <p class="shot-num">03 / Designers</p>
+          <p class="shot-num">Designers</p>
           <h3>Shop the label, not the rack</h3>
-          <p>Daverns customers come for the names: Gant, Mos Mosh, Farah, Basler, Joseph Ribkoff. The Designers page makes that the primary way to browse: a single tappable wall of twenty-plus houses, each a portrait-led tile, framed by the brand’s own ‘we have always broken the mould’ line.</p>
-          <div class="shot-tags"><span>Brand Discovery</span><span>20+ Houses</span><span>Visual Index</span></div>
+          <p>Daverns customers come for the names: Gant, Mos Mosh, Farah, Basler, Joseph Ribkoff. So the designer directory is a primary route rather than a filter buried in a menu: a single wall of twenty-plus houses, each with a portrait-led tile, framed by the brand’s own ‘we have always broken the mould’ line.</p>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ designers</span></div>
@@ -402,10 +406,9 @@ img{display:block;max-width:100%;}
       <!-- CATEGORY -->
       <article class="shot flip" data-screen-label="04 Listing">
         <div class="shot-cap">
-          <p class="shot-num">04 / Listing</p>
+          <p class="shot-num">Listing</p>
           <h3>Refine without losing the room</h3>
-          <p>The listing view pairs a calm three-up product grid with a full ‘Refine search’ rail: brand, price, colour, category and size, each with live counts. Filters stay quiet and gold-accented so the clothing, not the controls, holds the customer’s eye.</p>
-          <div class="shot-tags"><span>Faceted Filtering</span><span>Live Counts</span><span>Product Grid</span></div>
+          <p>Within a brand or category, a three-up grid keeps the photography large. The ‘Refine search’ rail (brand, price, colour, category and size, each with live counts) stays quiet in navy and gold, so the clothing rather than the controls holds the customer’s eye.</p>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ womens / basler</span></div>
@@ -416,10 +419,9 @@ img{display:block;max-width:100%;}
       <!-- PRODUCT -->
       <article class="shot" data-screen-label="05 Product">
         <div class="shot-cap">
-          <p class="shot-num">05 / Product</p>
+          <p class="shot-num">Product</p>
           <h3>Everything you’d ask an assistant</h3>
-          <p>The product page answers in-store questions on screen: a large gallery with alternate angles, stock status, colour and size selectors, a sizing guide, and full description, fabric and delivery tabs, with previous / next products flanking the frame so browsing never dead-ends.</p>
-          <div class="shot-tags"><span>Gallery</span><span>Variants</span><span>Sizing Guide</span></div>
+          <p>In the shop, an assistant answers questions about fit, fabric and stock. The product page does the same on screen: a large gallery with alternate angles, stock status, colour and size selectors, a sizing guide, and description, fabric and delivery tabs. Previous and next products flank the image, so browsing never dead-ends.</p>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ womens / basler-washable-jacket</span></div>
@@ -431,13 +433,30 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
-<!-- DESIGN SYSTEM -->
+
+<!-- BRAND -->
 <section class="case-section">
   <div class="wrap">
-    <div class="ds-grid">
+    <div class="sec-head">
+      <span class="lbl">Visual Identity</span>
+      <h2 class="sec-title">A crown borrowed from the skyline</h2>
+      <p class="sec-lead">Daverns sits in the shadow of the Rock of Cashel, and the shop has traded under that skyline since 1926. The mark takes the rooftop silhouette of the Rock and reduces it to a small gold crown, so the town’s most recognisable outline becomes the shop’s emblem without a word of explanation.</p>
+    </div>
+    <div class="brand-row two">
+      <div class="bpanel fill">
+        <div class="bp-pad"><span class="lbl">Origin</span><h3>The Rock of Cashel</h3><p>The gables, the walls and the two towers of the Rock give the crown its five-peak rhythm. It is a local reference before it is a heraldic one.</p></div>
+        <img src="../images/daverns/Daverns_Mood_Cashel.jpg" alt="The Rock of Cashel under a heavy sky" loading="lazy">
+      </div>
+      <div class="bpanel">
+        <div class="bp-pad"><span class="lbl">Primary Lockup</span><h3>Wordmark, crown and date</h3><p>Wide-tracked capitals in navy carry the family name, the gold crown and the 1926 date sit above as a single rule-bound unit, and ‘of Cashel’ anchors the place. Nothing moves independently, which keeps the mark stable on a shopfront, a swing tag or a 32px favicon.</p></div>
+        <img src="../images/daverns/Daverns_Lockup.jpg" alt="Daverns of Cashel primary lockup: crown, established 1926, wordmark" loading="lazy">
+      </div>
+    </div>
+    <div class="ds-inline">
+      <div class="ds-grid">
       <div>
-        <span class="lbl" style="display:block;margin-bottom:20px;">02.2 / Design System</span>
-        <h2 class="sec-title">Built around a 1926 mark</h2>
+        <span class="lbl" style="display:block;margin-bottom:20px;">Typography &amp; Colour</span>
+        <h3 class="sec-title">Built around a 1926 mark</h3>
         <p class="ds-lead">The crown emblem, the deep navy and a single restrained gold do the heavy lifting. They carry from the storefront hero to category filters and footer, so the whole shop feels like one tailored house rather than a template.</p>
         <div class="swatches">
           <div class="swatch">
@@ -465,26 +484,6 @@ img{display:block;max-width:100%;}
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- BRAND -->
-<section class="case-section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="lbl">02.3 / Brand Identity</span>
-      <h2 class="sec-title">A crown borrowed from the skyline</h2>
-      <p class="sec-lead">Daverns sits in the shadow of the Rock of Cashel, and the shop has traded under that skyline since 1926. The mark takes the rooftop silhouette of the Rock and reduces it to a small gold crown, so the town’s most recognisable outline becomes the shop’s emblem without a word of explanation.</p>
-    </div>
-    <div class="brand-row two">
-      <div class="bpanel">
-        <div class="bp-pad"><span class="lbl">Primary Lockup</span><h3>Wordmark, crown and date</h3><p>Wide-tracked capitals in navy carry the family name, the gold crown and the 1926 date sit above as a single rule-bound unit, and ‘of Cashel’ anchors the place. Nothing moves independently, which keeps the mark stable on a shopfront, a swing tag or a 32px favicon.</p></div>
-        <img src="../images/daverns/Daverns_Lockup.jpg" alt="Daverns of Cashel primary lockup: crown, established 1926, wordmark" loading="lazy">
-      </div>
-      <div class="bpanel fill">
-        <div class="bp-pad"><span class="lbl">Origin</span><h3>The Rock of Cashel</h3><p>The gables, the walls and the two towers of the Rock give the crown its five-peak rhythm. It is a local reference before it is a heraldic one.</p></div>
-        <img src="../images/daverns/Daverns_Mood_Cashel.jpg" alt="The Rock of Cashel under a heavy sky" loading="lazy">
-      </div>
     </div>
     <div class="brand-row">
       <div class="bpanel">
@@ -492,6 +491,7 @@ img{display:block;max-width:100%;}
         <img src="../images/daverns/Daverns_Colourways.jpg" alt="The Daverns mark reversed across white, gold, wine, tan, walnut, slate blue and navy grounds" loading="lazy">
       </div>
     </div>
+    <p class="lbl id-sub">Brand applications</p>
     <div class="brand-row two">
       <div class="bpanel fill">
         <div class="bp-pad"><span class="lbl">Positioning</span><h3>Considered, not loud</h3><p>The reference points are tailoring and neutral cloth rather than fast fashion, which set the tone for the photography and the pace of the site.</p></div>
@@ -523,9 +523,9 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.4 / Social</span>
+      <span class="lbl">Social Media</span>
       <h2 class="sec-title">One line, four ways to say it</h2>
-      <p class="sec-lead">A shop this size cannot shoot its own campaigns every season, so the social system was built to make supplied designer imagery look like Daverns. ‘Masters of Luxury’ stays fixed, the crown badge tucks into a corner, and the only decisions left each month are which photograph to use and which corner is quietest.</p>
+      <p class="sec-lead">Daverns sells other people’s labels, so most of its imagery arrives from the designer houses themselves. The social system gives that supplied photography a recognisable Daverns identity without competing with the labels: ‘Masters of Luxury’ stays fixed, the crown badge sits in a corner, and each post comes down to two decisions, which photograph and which corner is quietest. It is repeatable enough to run season after season and flexible enough to take whatever a supplier sends.</p>
     </div>
     <div class="social-grid">
       <figure><img src="../images/daverns/Daverns_Social_Cashel.jpg" alt="Daverns social post: aerial Rock of Cashel at dusk with the full lockup centred" loading="lazy"><figcaption class="lbl">Brand post · full lockup</figcaption></figure>
@@ -541,6 +541,17 @@ img{display:block;max-width:100%;}
   </div>
 </section>
 
+<!-- OUTCOME -->
+<section class="case-section">
+  <div class="wrap">
+    <div class="closing-inner">
+      <span class="lbl" style="display:block;margin-bottom:20px;">Outcome</span>
+      <h2 class="sec-title">One brand, from Main Street to the screen</h2>
+      <p class="case-p">The project delivered a complete brand and digital system for Daverns: a refined identity built around the crown, an eCommerce site covering menswear, womenswear and twenty-plus designer houses, packaging and swing tags for the shop, and a social media system for supplied imagery.</p>
+      <p class="case-p">Together they let Daverns present itself online with the same care it shows in the shop, so customers meet one consistent brand whether they are on Main Street, carrying a bag home or browsing on a phone.</p>
+    </div>
+  </div>
+</section>
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
