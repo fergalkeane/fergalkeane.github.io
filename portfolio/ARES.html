@@ -345,6 +345,20 @@ img{display:block;max-width:100%;}
   .dshot > *,.dshot.flip > *{grid-column:1 !important;}
   .dshot .dshot-cap{position:static;}
 }
+
+/* Download as PDF: print layout */
+.share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
+@media print{
+  @page{margin:12mm;}
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html{overflow:visible !important;}
+  .nav,.share-top,.gate,.contact,.footbar,.to-top,.nav-toggle,.ba-menu,.cmp-handle,.cmp-hint,.annot-lines{display:none !important;}
+  .shot-cap,.ba-menu{position:static !important;}
+  .shot,.ba,figure,.principle,.impact,.overview,.case-block,.brand-row,.bpanel,.palette,.closeup,.annot,.frame{break-inside:avoid;page-break-inside:avoid;}
+  img{break-inside:avoid;}
+  h1,h2,h3,h4{break-after:avoid;page-break-after:avoid;}
+  a[href]::after{content:none !important;}
+}
 </style>
 <script src="../theme.js"></script>
 <script src="../to-top.js"></script>
@@ -408,6 +422,15 @@ img{display:block;max-width:100%;}
     </div>
   </div>
 </section>
+
+<div class="share-top">
+  <div class="wrap">
+    <div class="share">
+      <span class="lbl">Download</span>
+      <button data-share="pdf" type="button" aria-label="Download this case study as a PDF" title="Download as PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="m7 10 5 5 5-5"></path><path d="M5 19.5h14"></path></svg></button>
+    </div>
+  </div>
+</div>
 
 <!-- 01: OVERVIEW -->
 <section class="case-body">
@@ -698,4 +721,30 @@ img{display:block;max-width:100%;}
     lk.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>lk.classList.remove('open')));}
 </script>
 
+<script>
+/* Download as PDF: load every image, use a clean print layout, then open the browser's Save as PDF dialog. */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('[data-share="pdf"]'));if(!btns.length)return;
+  var saved=null;
+  function loadAll(){
+    var imgs=[].slice.call(document.images);
+    imgs.forEach(function(i){if(i.loading==='lazy')i.loading='eager';});
+    return Promise.all(imgs.map(function(i){return i.complete?0:new Promise(function(r){i.addEventListener('load',r,{once:true});i.addEventListener('error',r,{once:true});setTimeout(r,8000);});}));
+  }
+  window.addEventListener('beforeprint',function(){
+    if(window.__printing)return;window.__printing=true;saved=document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme','light');
+    window.dispatchEvent(new Event('resize'));
+  });
+  window.addEventListener('afterprint',function(){
+    window.__printing=false;
+    if(saved===null)document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',saved);
+    window.dispatchEvent(new Event('resize'));
+  });
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    if(b.classList.contains('busy'))return;b.classList.add('busy');
+    loadAll().then(function(){b.classList.remove('busy');window.print();});
+  });});
+})();
+</script>
 </body></html>

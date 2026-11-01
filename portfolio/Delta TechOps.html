@@ -221,6 +221,20 @@ img{display:block;max-width:100%;}
   .stats{gap:32px;}
 }
 .frame.scroll.tall{max-height:760px;}.frame.scroll.tall .scroll-body{max-height:722px;}.shot-pair.mix{grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);align-items:start;}@media(max-width:760px){.shot-pair.mix{grid-template-columns:1fr;}}
+
+/* Download as PDF: print layout */
+.share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
+@media print{
+  @page{margin:12mm;}
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html{overflow:visible !important;}
+  .nav,.share-top,.gate,.contact,.footbar,.to-top,.nav-toggle,.ba-menu,.cmp-handle,.cmp-hint,.annot-lines{display:none !important;}
+  .shot-cap,.ba-menu{position:static !important;}
+  .shot,.ba,figure,.principle,.impact,.overview,.case-block,.brand-row,.bpanel,.palette,.closeup,.annot,.frame{break-inside:avoid;page-break-inside:avoid;}
+  img{break-inside:avoid;}
+  h1,h2,h3,h4{break-after:avoid;page-break-after:avoid;}
+  a[href]::after{content:none !important;}
+}
 </style>
 <script src="../theme.js"></script>
 <script src="../to-top.js"></script>
@@ -276,6 +290,7 @@ img{display:block;max-width:100%;}
       <a data-share="x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3h3.2l-7 8 8.23 10h-6.44l-5.05-6.1L4.7 21H1.5l7.49-8.56L1.1 3h6.6l4.56 5.6zm-1.12 16.1h1.77L7.68 4.8H5.78z"></path></svg></a>
       <a data-share="em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect><path d="m3 6 9 6.5L21 6"></path></svg></a>
       <button data-share="copy" type="button" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7L11.5 6"></path><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7L12.5 18"></path></svg></button>
+      <button data-share="pdf" type="button" aria-label="Download this case study as a PDF" title="Download as PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="m7 10 5 5 5-5"></path><path d="M5 19.5h14"></path></svg></button>
     </div>
   </div>
 </div>
@@ -496,4 +511,30 @@ c.addEventListener('click',function(){navigator.clipboard.writeText(location.hre
 })();
 </script>
 
+<script>
+/* Download as PDF: load every image, use a clean print layout, then open the browser's Save as PDF dialog. */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('[data-share="pdf"]'));if(!btns.length)return;
+  var saved=null;
+  function loadAll(){
+    var imgs=[].slice.call(document.images);
+    imgs.forEach(function(i){if(i.loading==='lazy')i.loading='eager';});
+    return Promise.all(imgs.map(function(i){return i.complete?0:new Promise(function(r){i.addEventListener('load',r,{once:true});i.addEventListener('error',r,{once:true});setTimeout(r,8000);});}));
+  }
+  window.addEventListener('beforeprint',function(){
+    if(window.__printing)return;window.__printing=true;saved=document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme','light');
+    window.dispatchEvent(new Event('resize'));
+  });
+  window.addEventListener('afterprint',function(){
+    window.__printing=false;
+    if(saved===null)document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',saved);
+    window.dispatchEvent(new Event('resize'));
+  });
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    if(b.classList.contains('busy'))return;b.classList.add('busy');
+    loadAll().then(function(){b.classList.remove('busy');window.print();});
+  });});
+})();
+</script>
 </body></html>
