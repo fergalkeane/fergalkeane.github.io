@@ -126,7 +126,7 @@ img{display:block;max-width:100%;}
 @media(max-width:880px){.principles{grid-template-columns:1fr;}}
 
 /* PALETTE */
-.palette{margin-top:clamp(40px,4vw,60px);display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.palette{margin-top:clamp(40px,4vw,60px);display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
 .sw{padding:26px 20px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:188px;color:#fff;}
 .sw .sw-name{font-family:var(--font-display);font-weight:600;font-size:15px;margin:0 0 4px;}
 .sw .sw-hex{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;opacity:.85;}
@@ -222,6 +222,18 @@ img{display:block;max-width:100%;}
   h1,h2,h3,h4{break-after:avoid;page-break-after:avoid;}
   a[href]::after{content:none !important;}
 }
+
+.shot.wide,.shot.wide.flip{grid-template-columns:minmax(0,1fr);row-gap:clamp(24px,2.6vw,34px);}
+.shot.wide > *,.shot.wide.flip > *{grid-column:1 !important;grid-row:auto !important;}
+.shot.wide .shot-cap{position:static;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);column-gap:clamp(32px,5vw,80px);align-items:start;max-width:none;}
+.shot.wide .shot-cap .shot-num,.shot.wide .shot-cap h3{grid-column:1;}
+.shot.wide .shot-cap .cap-body{grid-column:2;grid-row:1 / span 2;max-width:60ch;}
+.shot.wide .shot-cap .cap-body > p{margin-top:0;}
+.shot.wide .shot-cap{grid-template-rows:auto 1fr;}
+.shot.wide .shot-cap h3{align-self:start;}
+.shot.wide .shot-cap .cap-body > p{max-width:60ch;}
+.shot.wide .shot-pair{margin-top:0;}
+@media(max-width:860px){.shot.wide .shot-cap{display:block;}.shot.wide .shot-cap .cap-body{max-width:none;}.shot.wide .shot-pair{margin-top:26px;}}
 </style>
 <script src="../image-slot.js"></script>
 <script src="../theme.js"></script>
@@ -363,32 +375,17 @@ img{display:block;max-width:100%;}
 
 <section class="case-section">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="lbl">Identity</span>
-      <h2 class="sec-title">A mark built to sit beside a learner's name</h2>
-      <p class="sec-lead">The wordmark carries the brand on its own, whether on a certificate, an app icon, a partner page or a course tile, without needing a strapline to explain it.</p>
-    </div>
-    <div class="panel-pair">
-      <div class="panel dark">
-        <div class="panel-pad dark"><span class="lbl">Primary</span><h3>Wordmark &amp; symbol</h3></div>
-        <div class="img-frame"><image-slot id="alison-logo" shape="rect" placeholder="Drop Alison logo / lockup"></image-slot></div>
-      </div>
-      <div class="panel">
-        <div class="panel-pad"><span class="lbl">In use</span><h3>Applied to the platform</h3></div>
-        <div class="img-frame"><image-slot id="alison-brand-app" shape="rect" placeholder="Drop brand application shot"></image-slot></div>
-      </div>
-    </div>
-
-    <div style="margin-top:clamp(48px,5vw,72px);">
+    <div>
       <span class="lbl" style="display:block;margin-bottom:8px;">Colour Palette</span>
-      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Growth greens, with a warm signal colour</h3>
+      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Confident pink, grounded in slate</h3>
       <div class="palette">
-        <div class="sw" style="background:#0c3b26;"><p class="sw-name">Forest</p><p class="sw-hex">#0C3B26</p></div>
-        <div class="sw" style="background:#0f8a4a;"><p class="sw-name">Alison Green</p><p class="sw-hex">#0F8A4A</p></div>
-        <div class="sw" style="background:#3fbf6f;"><p class="sw-name">Leaf</p><p class="sw-hex">#3FBF6F</p></div>
-        <div class="sw" style="background:#f2b41c;color:#3d2b00;"><p class="sw-name">Signal</p><p class="sw-hex">#F2B41C</p></div>
-        <div class="sw" style="background:#12261d;"><p class="sw-name">Text Green</p><p class="sw-hex">#12261D</p></div>
-      </div>
+            <div class="sw" style="background:#d32a8d;"><p class="sw-name">Alison Pink</p><p class="sw-hex">#D32A8D</p></div>
+            <div class="sw" style="background:#6a2580;"><p class="sw-name">Plum</p><p class="sw-hex">#6A2580</p></div>
+            <div class="sw" style="background:#21282e;"><p class="sw-name">Slate</p><p class="sw-hex">#21282E</p></div>
+            <div class="sw" style="background:#2d353a;"><p class="sw-name">Graphite</p><p class="sw-hex">#2D353A</p></div>
+            <div class="sw" style="background:#12a44a;"><p class="sw-name">Achievement Green</p><p class="sw-hex">#12A44A</p></div>
+            <div class="sw" style="background:#fbe9f4;color:#6a2580;"><p class="sw-name">Blush</p><p class="sw-hex">#FBE9F4</p></div>
+          </div>
     </div>
   </div>
 </section>
@@ -402,25 +399,31 @@ img{display:block;max-width:100%;}
     </div>
 
     <div class="webshots">
-      <article class="shot" data-screen-label="01 Homepage">
+      <article class="shot wide" data-screen-label="01 Homepage">
         <div class="shot-cap">
           <p class="shot-num">Homepage</p>
           <h3>Lead with the promise, not the catalogue</h3>
-          <p>The homepage opens on the mission and a single search-and-start path, then steps down into subject areas. Free is stated plainly and early, because it is the thing that changes a visitor's behaviour.</p>
-          <div class="shot-tags"><span>Positioning</span><span>Search-first</span><span>Conversion</span></div>
+          <div class="cap-body"><p>The homepage opens on the mission and a single search-and-start path, then steps down into subject areas. Free is stated plainly and early, because it is the thing that changes a visitor's behaviour.</p>
+          <div class="shot-tags"><span>Positioning</span><span>Search-first</span><span>Conversion</span></div></div>
         </div>
-        <div class="frame scroll">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">alison.com</span></div>
-          <div class="scroll-body"><img src="../images/alison/Alison_Homepage.png" alt="Alison homepage, full length: hero with course search, course categories, how Alison works and its benefits" loading="lazy" style="display:block;width:100%;height:auto"></div>
+        <div class="shot-pair">
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">alison.com</span></div>
+            <div class="scroll-body"><img src="../images/alison/Alison_Homepage.png" alt="Alison homepage with the ‘Education without boundaries’ hero, course search and the course categories grid" loading="lazy" style="display:block;width:100%;height:auto"></div>
+          </div>
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">alison.com</span></div>
+            <div class="scroll-body"><img src="../images/alison/Alison_Homepage_2.png" alt="Alison homepage with the ‘Learning that fits your life’ hero slide and the New Courses tab selected" loading="lazy" style="display:block;width:100%;height:auto"></div>
+          </div>
         </div>
       </article>
 
-      <article class="shot flip" data-screen-label="02 Course Pages">
+      <article class="shot flip wide" data-screen-label="02 Course Pages">
         <div class="shot-cap">
           <p class="shot-num">Courses</p>
           <h3>Every course page answers the same four questions</h3>
-          <p>What will I learn, how long will it take, what do I get at the end, and what does it cost. Fixing that order across the catalogue removed most of the hesitation between browsing and enrolling.</p>
-          <div class="shot-tags"><span>Templates</span><span>Enrolment</span><span>Certification</span></div>
+          <div class="cap-body"><p>What will I learn, how long will it take, what do I get at the end, and what does it cost. Fixing that order across the catalogue removed most of the hesitation between browsing and enrolling.</p>
+          <div class="shot-tags"><span>Templates</span><span>Enrolment</span><span>Certification</span></div></div>
         </div>
         <div class="shot-pair">
           <div class="frame scroll">
@@ -429,21 +432,21 @@ img{display:block;max-width:100%;}
           </div>
           <div class="frame scroll">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ course detail</span></div>
-            <div class="scroll-body"><img src="../images/alison/Alison_Course_Detail.png" alt="Alison course page for Introduction to Human Nutrition: what you will learn, course content, assessment and a sticky summary card" loading="lazy" style="display:block;width:100%;height:auto"></div>
+            <div class="scroll-body"><img src="../images/alison/Alison_Course_Detail.png" alt="Alison course page for Introduction to Human Nutrition: what you will learn, course content, instructors, assessment and a sticky summary card" loading="lazy" style="display:block;width:100%;height:auto"></div>
           </div>
         </div>
       </article>
 
-      <article class="shot" data-screen-label="03 Learner Experience">
+      <article class="shot wide" data-screen-label="03 Learner Experience">
         <div class="shot-cap">
           <p class="shot-num">Learner Experience</p>
           <h3>Progress made visible</h3>
-          <p>For a free platform, completion is the hard problem. The learner views put progress, next step and certificate status in the same field of view, so returning learners always know exactly where to resume.</p>
-          <div class="shot-tags"><span>Retention</span><span>Progress</span><span>Dashboard</span></div>
+          <div class="cap-body"><p>For a free platform, completion is the hard problem. The learner views put progress, next step and certificate status in the same field of view, so returning learners always know exactly where to resume.</p>
+          <div class="shot-tags"><span>Retention</span><span>Progress</span><span>Dashboard</span></div></div>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ dashboard</span></div>
-          <div class="scroll-body"><img src="../images/alison/Alison_Dashboard.png" alt="Alison learner dashboard: progress summary, continue learning, my courses, diplomas, weekly goal and certificates" loading="lazy" style="display:block;width:100%;height:auto"></div>
+          <div class="scroll-body"><img src="../images/alison/Alison_Dashboard.png" alt="Alison learner dashboard: progress stats, continue learning, my courses, diplomas, weekly goal, certificates and what’s new" loading="lazy" style="display:block;width:100%;height:auto"></div>
         </div>
       </article>
     </div>
