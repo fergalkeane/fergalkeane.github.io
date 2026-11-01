@@ -1,7 +1,9 @@
 User-agent: *
-# Locked case studies (password protected). Remove these lines if the gate is lifted.
-Disallow: /portfolio/ARES.html
-Disallow: /portfolio/BlueDrop%20Medical.html
-Disallow: /portfolio/RealWorld.html
+# Locked case studies (password protected).
+# The pages carry a "noindex, noimageindex" tag, so they are left crawlable for search engines to read it.
+# Their image folders are blocked so none of the screenshots can appear in search or image search.
+Disallow: /images/realworld/
+Disallow: /images/gateway/
+Disallow: /images/bluedrop/
 
 Allow: /

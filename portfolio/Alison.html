@@ -19,11 +19,11 @@
   --font-sans:'Archivo',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,monospace;
   --ink:#0d0d0d;--ink-soft:#1a1a1a;--muted:#8a8a8a;--muted-2:#b5b5b5;
-  --line:#e6e6e6;--line-soft:#efefef;--paper:#fff;--paper-2:#f4f8f5;
-  --accent:#0f8a4a;
-  --leaf:#3fbf6f;
-  --forest:#0c3b26;
-  --ink-green:#12261d;
+  --line:#e6e6e6;--line-soft:#efefef;--paper:#fff;--paper-2:#fbf4f8;
+  --accent:#cc127f;
+  --leaf:#f06bb3;
+  --forest:#4a0730;
+  --ink-green:#2a0a1d;
   --maxw:1360px;--pad:56px;
 }
 *{box-sizing:border-box;}
@@ -56,9 +56,10 @@ img{display:block;max-width:100%;}
 .hero{padding:22px 0 0;}
 .hero-banner{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(420px,48vw,580px);display:flex;background:var(--forest);}
 .hero-banner image-slot{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.hero-banner .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;display:block;}
 .hero-banner image-slot,.panel.dark image-slot{color:rgba(255,255,255,.82);}
 .hero-banner image-slot:not([data-filled]){z-index:3;}
-.hero-shade{pointer-events:none;position:absolute;inset:0;background:linear-gradient(104deg,rgba(12,59,38,.95) 0%,rgba(15,110,60,.82) 46%,rgba(63,191,111,.32) 100%);z-index:1;}
+.hero-shade{pointer-events:none;position:absolute;inset:0;background:linear-gradient(104deg,rgba(74,7,48,.95) 0%,rgba(204,18,127,.78) 46%,rgba(240,107,179,.30) 100%);z-index:1;}
 .hero-content{pointer-events:none;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(34px,4vw,60px);width:100%;color:#fff;}
 .hero-content .lbl{color:rgba(255,255,255,.62);}
 .hero-crown{display:flex;align-items:center;gap:13px;margin-bottom:4px;}
@@ -92,7 +93,7 @@ img{display:block;max-width:100%;}
 
 /* IMPACT */
 .impact{background:var(--forest);color:#fff;border-radius:4px;padding:clamp(40px,5vw,68px);position:relative;overflow:hidden;}
-.impact::after{content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;border:1px solid rgba(63,191,111,.4);border-radius:50%;}
+.impact::after{content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;border:1px solid rgba(240,107,179,.4);border-radius:50%;}
 .impact .lbl{color:rgba(255,255,255,.45);display:block;margin-bottom:30px;}
 .impact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.7vw,48px);line-height:1.12;letter-spacing:-.02em;margin:0;max-width:20ch;position:relative;z-index:1;}
 .impact h2 em{font-style:normal;color:var(--leaf);}
@@ -139,7 +140,8 @@ img{display:block;max-width:100%;}
 .shot > *:not(.shot-cap){grid-column:2;}
 .shot.flip{grid-template-columns:1fr minmax(210px,280px);}
 .shot.flip .shot-cap{grid-column:2;}
-.shot.flip > *:not(.shot-cap){grid-column:1;}
+.shot.flip > *:not(.shot-cap){grid-column:1;grid-row:1;}
+.shot.flip .shot-cap{grid-row:1;}
 .shot-cap{position:sticky;top:96px;}
 .shot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 18px;}
 .shot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.1;letter-spacing:-.01em;margin:0 0 16px;}
@@ -151,7 +153,7 @@ img{display:block;max-width:100%;}
 .shot-pair .frame.scroll .scroll-body{max-height:522px;}
 @media(max-width:760px){.shot-pair{grid-template-columns:1fr;gap:26px;}.shot-pair .frame.scroll{max-height:460px;}.shot-pair .frame.scroll .scroll-body{max-height:422px;}}
 
-.frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(12,59,38,.04),0 24px 56px -28px rgba(12,59,38,.30);}
+.frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 1px rgba(74,7,48,.04),0 24px 56px -28px rgba(74,7,48,.30);}
 .frame-bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:var(--paper-2);}
 .frame-bar i{width:10px;height:10px;border-radius:50%;background:#d9d9d9;display:block;}
 .frame-bar .fb-url{display:none;}
@@ -192,7 +194,7 @@ img{display:block;max-width:100%;}
   :root{--pad:40px;}
   .case-grid{grid-template-columns:1fr;row-gap:54px;}
   .shot,.shot.flip{grid-template-columns:1fr;row-gap:24px;}
-  .shot > *,.shot.flip > *{grid-column:1 !important;}
+  .shot > *,.shot.flip > *{grid-column:1 !important;grid-row:auto !important;}
   .shot-cap{position:static;}
   .shot-cap p{max-width:60ch;}
 }
@@ -233,7 +235,7 @@ img{display:block;max-width:100%;}
 <section class="hero" data-screen-label="Hero">
   <div class="wrap">
     <div class="hero-banner">
-      <image-slot id="alison-hero" shape="rect" placeholder="Drop Alison hero screenshot"></image-slot>
+      <img class="hero-img" src="../images/alison/Alison_Hero.jpg" alt="A small team at work in a bright, plant-filled studio office">
       <div class="hero-shade"></div>
       <div class="hero-content">
         <div>
@@ -291,25 +293,25 @@ img{display:block;max-width:100%;}
       </aside>
       <div class="case-content">
         <div class="case-block">
-          <span class="lbl">01 / The Challenge</span>
+          <span class="lbl">The Challenge</span>
           <h2 class="case-h">A global platform whose brand no longer matched its ambition.</h2>
           <p class="case-p">Alison had already grown into one of the largest free learning platforms in the world: millions of learners, thousands of courses, and a mission with real social weight. The brand around it had grown organically, in pieces, and no longer said any of that clearly. It read as a directory of courses rather than a catalyst for opportunity.</p>
           <p class="case-p">I was approached to lead the rebrand off the back of previous brand work and a working familiarity with the e-learning sector. The constraint was blunt. <strong>A complete rebrand and website relaunch inside six months</strong>, with a small stakeholder group, on a platform that could not stop serving learners while we changed it.</p>
         </div>
         <div class="case-block">
-          <span class="lbl">02 / The Approach</span>
+          <span class="lbl">The Approach</span>
           <h2 class="case-h">Design the mission first, then the interface around it.</h2>
           <p class="case-p">Working directly with a small group of stakeholders kept decisions fast and accountable. Rather than starting with logo options, we started with what Alison actually is: free, for everyone, at any level, anywhere. That single sentence became the filter for every design decision that followed.</p>
           <p class="case-p">The identity had to hold two things that usually pull apart: the credibility of formal education, and the openness of a platform with no paywall and no entry requirements. Too institutional and it excludes; too casual and the certification loses value.</p>
         </div>
         <div class="case-block">
-          <span class="lbl">03 / Trade-offs</span>
+          <span class="lbl">Trade-offs</span>
           <h2 class="case-h">Momentum over perfection.</h2>
           <p class="case-p">Six months meant sequencing, not compromising. We locked the core (mark, palette, type, primary UI components) early and shipped it, then treated secondary applications as a rolling programme after launch. Deep IA restructuring of the course catalogue was deliberately scoped out of phase one so the relaunch date held.</p>
           <p class="case-p">The biggest judgement call was retaining enough visual equity that eight million existing learners would still recognise where they were on launch day, while shifting the brand's tone decisively.</p>
         </div>
         <div class="impact">
-          <span class="lbl">04 / Impact</span>
+          <span class="lbl">Impact</span>
           <h2>After the rebrand and relaunch, Alison went from <em>8&nbsp;million</em> to <em>10&nbsp;million</em> learners in twelve months.</h2>
         </div>
       </div>
@@ -320,7 +322,7 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.1 / Brand Principles</span>
+      <span class="lbl">Brand Principles</span>
       <h2 class="sec-title">Three rules the identity had to obey</h2>
       <p class="sec-lead">Every mark, colour and component was tested against these. If it failed one, it was reworked rather than argued for.</p>
     </div>
@@ -347,7 +349,7 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.2 / Identity</span>
+      <span class="lbl">Identity</span>
       <h2 class="sec-title">A mark built to sit beside a learner's name</h2>
       <p class="sec-lead">The wordmark carries the brand on its own, whether on a certificate, an app icon, a partner page or a course tile, without needing a strapline to explain it.</p>
     </div>
@@ -379,7 +381,7 @@ img{display:block;max-width:100%;}
 <section class="case-section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="lbl">02.3 / The Website</span>
+      <span class="lbl">The Website</span>
       <h2 class="sec-title">From course directory to learning destination</h2>
       <p class="sec-lead">The relaunched site had to convert a first-time visitor into an enrolled learner in as few decisions as possible, while still serving returning learners mid-course and employers assessing the certification.</p>
     </div>
@@ -387,20 +389,20 @@ img{display:block;max-width:100%;}
     <div class="webshots">
       <article class="shot" data-screen-label="01 Homepage">
         <div class="shot-cap">
-          <p class="shot-num">01 / Homepage</p>
+          <p class="shot-num">Homepage</p>
           <h3>Lead with the promise, not the catalogue</h3>
           <p>The homepage opens on the mission and a single search-and-start path, then steps down into subject areas. Free is stated plainly and early, because it is the thing that changes a visitor's behaviour.</p>
           <div class="shot-tags"><span>Positioning</span><span>Search-first</span><span>Conversion</span></div>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">alison.com</span></div>
-          <div class="scroll-body"><image-slot id="alison-web-home" shape="rect" placeholder="Drop full-length homepage screenshot"></image-slot></div>
+          <div class="scroll-body"><img src="../images/alison/Alison_Homepage.png" alt="Alison homepage, full length: hero with course search, course categories, how Alison works and its benefits" loading="lazy" style="display:block;width:100%;height:auto"></div>
         </div>
       </article>
 
       <article class="shot flip" data-screen-label="02 Course Pages">
         <div class="shot-cap">
-          <p class="shot-num">02 / Courses</p>
+          <p class="shot-num">Courses</p>
           <h3>Every course page answers the same four questions</h3>
           <p>What will I learn, how long will it take, what do I get at the end, and what does it cost. Fixing that order across the catalogue removed most of the hesitation between browsing and enrolling.</p>
           <div class="shot-tags"><span>Templates</span><span>Enrolment</span><span>Certification</span></div>
@@ -408,18 +410,18 @@ img{display:block;max-width:100%;}
         <div class="shot-pair">
           <div class="frame scroll">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ courses</span></div>
-            <div class="scroll-body"><image-slot id="alison-web-courses" shape="rect" placeholder="Drop course listing screenshot"></image-slot></div>
+            <div class="scroll-body"><img src="../images/alison/Alison_Courses.png" alt="Alison Business courses listing: category banner, topic, level, type and duration filters, and a grid of course cards" loading="lazy" style="display:block;width:100%;height:auto"></div>
           </div>
           <div class="frame scroll">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ course detail</span></div>
-            <div class="scroll-body"><image-slot id="alison-web-detail" shape="rect" placeholder="Drop course detail screenshot"></image-slot></div>
+            <div class="scroll-body"><img src="../images/alison/Alison_Course_Detail.png" alt="Alison course page for Introduction to Human Nutrition: what you will learn, course content, assessment and a sticky summary card" loading="lazy" style="display:block;width:100%;height:auto"></div>
           </div>
         </div>
       </article>
 
       <article class="shot" data-screen-label="03 Learner Experience">
         <div class="shot-cap">
-          <p class="shot-num">03 / Learner Experience</p>
+          <p class="shot-num">Learner Experience</p>
           <h3>Progress made visible</h3>
           <p>For a free platform, completion is the hard problem. The learner views put progress, next step and certificate status in the same field of view, so returning learners always know exactly where to resume.</p>
           <div class="shot-tags"><span>Retention</span><span>Progress</span><span>Dashboard</span></div>

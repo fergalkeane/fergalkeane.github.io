@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <!-- Locked case study: keep out of search indexes. Delete this line if the password gate is removed. -->
-<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARES Case Study · Fergal Keane</title>
@@ -670,17 +670,24 @@ img{display:block;max-width:100%;}
 </main>
 
 <script>
-  /* Password gate: client-side preview only. In WordPress use native
-     page password protection or a membership plugin for real security. */
+  /* Password gate: the password itself is not stored here, only a salted PBKDF2 fingerprint of it.
+     This hides the password but not the page content; it is not real access control. */
   (function(){
-    var PW='stepaside';
+    var SALT='4814f4eb42bf8adf35f027a9fd273033',HASH='806f940b01bf6c07c2fad4ca6f23a00798adfe981e6d8695e98261ccb36ab57c',ITER=150000;
     var gate=document.getElementById('gate');
     {
       document.documentElement.style.overflow='hidden';
       var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
+      function bytes(hex){var a=new Uint8Array(hex.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(hex.substr(i*2,2),16);return a;}
+      function hex(buf){return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2);}).join('');}
+      function check(v){var enc=new TextEncoder();return crypto.subtle.importKey('raw',enc.encode(v),'PBKDF2',false,['deriveBits'])
+        .then(function(k){return crypto.subtle.deriveBits({name:'PBKDF2',salt:bytes(SALT),iterations:ITER,hash:'SHA-256'},k,256);})
+        .then(function(b){return hex(b)===HASH;});}
       f.addEventListener('submit',function(e){e.preventDefault();
-        if(pw.value.trim().toLowerCase()===PW){gate.classList.add('hidden');document.documentElement.style.overflow='';}
-        else{err.classList.add('show');pw.value='';pw.focus();}
+        var ok=function(){gate.classList.add('hidden');document.documentElement.style.overflow='';},
+            no=function(){err.classList.add('show');pw.value='';pw.focus();};
+        if(!window.crypto||!crypto.subtle){no();return;}
+        check(pw.value.trim().toLowerCase()).then(function(m){m?ok():no();},no);
       });
       pw.focus();
     }
