@@ -5,5 +5,6 @@ User-agent: *
 Disallow: /images/realworld/
 Disallow: /images/gateway/
 Disallow: /images/bluedrop/
+Disallow: /images/satelliteclub/
 
 Allow: /

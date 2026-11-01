@@ -2,6 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>Satellite Club: Case Study · Fergal Keane</title>
 <style>
 @font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
@@ -304,11 +305,49 @@ img{display:block;max-width:100%;}
 .sc-crop img{position:absolute;width:223.26%;max-width:none;height:auto;left:-37.21%;top:-163.65%;}
 .sc-outcome{margin-top:clamp(64px,8vw,118px);}
 .sc-outcome p{position:relative;z-index:1;color:rgba(255,255,255,.78);font-size:16px;line-height:1.65;max-width:60ch;margin:22px 0 0;}
+
+/* Password gate */
+#gatePw{width:100%;border:1px solid var(--line);border-radius:0;padding:14px;font-family:var(--font-sans);font-size:15px;color:var(--ink);margin-bottom:14px;}
+#gatePw:focus{outline:none;border-color:var(--ink);}
+#gatePw::placeholder{color:#c4c4c4;}
+.gate{position:fixed;inset:0;z-index:999;background:rgba(12,12,12,.5);backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:24px;animation:gateIn .22s ease both;}
+.gate.hidden{display:none;}
+.gate-card{max-width:440px;width:100%;background:var(--paper);border:1px solid var(--line);box-shadow:0 34px 90px rgba(0,0,0,.32);padding:clamp(28px,4vw,44px);animation:gateCardIn .3s cubic-bezier(.2,.7,.3,1) both;}
+.gate-lock{width:52px;height:52px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:24px;}
+.gate-card .lbl{display:block;margin-bottom:14px;}
+.gate-card h2{font-family:var(--font-display);font-weight:300;font-size:31px;line-height:1.14;letter-spacing:-.015em;margin:0 0 12px;}
+.gate-sub{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 28px;max-width:34ch;}
+.gate button{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:16px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease;}
+.gate button:hover{background:var(--accent);}
+.gate-err{color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;margin:14px 0 0;display:none;}
+.gate-err.show{display:block;}
+.gate-back{display:inline-block;margin-top:24px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.gate-back:hover{color:var(--accent);}
+.gate-card{position:relative;}
+.gate-close{position:absolute;top:14px;right:14px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);cursor:pointer;padding:0;transition:color .18s,border-color .18s;}
+.gate-close:hover{color:var(--accent);border-color:var(--accent);background:none;}
+.gate-close svg{width:14px;height:14px;}
 </style>
 <script src="../theme.js"></script>
 <script src="../to-top.js"></script>
 </head>
 <body>
+
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <a class="gate-close" href="../index.html#work" aria-label="Close and return to Selected Works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"></path></svg></a>
+    <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
+    <span class="lbl">Protected Case Study</span>
+    <h2>This project is password-protected.</h2>
+    <p class="gate-sub">Enter the access password to view the Satellite Club case study.</p>
+    <form id="gateForm" autocomplete="off">
+      <input type="password" id="gatePw" placeholder="Enter password" autocomplete="off">
+      <button type="submit">Unlock →</button>
+      <p class="gate-err" id="gateErr">Incorrect password. Please try again.</p>
+    </form>
+    <a class="gate-back" href="../index.html#work">← Return to Selected Works</a>
+  </div>
+</div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -764,5 +803,29 @@ c.addEventListener('click',function(){navigator.clipboard.writeText(location.hre
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
   if('ResizeObserver' in window){var ro=new ResizeObserver(all);figs.forEach(function(f){ro.observe(f);});}
 })();
+</script>
+<script>
+  /* Password gate: the password itself is not stored here, only a salted PBKDF2 fingerprint of it.
+     This hides the password but not the page content; it is not real access control. */
+  (function(){
+    var SALT='9a49ce0d22421deb68055ad57060dfed',HASH='b7639e8d5d90c4a4c5101b438e92faaff330175b5901d7000e32a31a24a3f28b',ITER=150000;
+    var gate=document.getElementById('gate');
+    {
+      document.documentElement.style.overflow='hidden';
+      var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
+      function bytes(hex){var a=new Uint8Array(hex.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(hex.substr(i*2,2),16);return a;}
+      function hex(buf){return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2);}).join('');}
+      function check(v){var enc=new TextEncoder();return crypto.subtle.importKey('raw',enc.encode(v),'PBKDF2',false,['deriveBits'])
+        .then(function(k){return crypto.subtle.deriveBits({name:'PBKDF2',salt:bytes(SALT),iterations:ITER,hash:'SHA-256'},k,256);})
+        .then(function(b){return hex(b)===HASH;});}
+      f.addEventListener('submit',function(e){e.preventDefault();
+        var ok=function(){gate.classList.add('hidden');document.documentElement.style.overflow='';},
+            no=function(){err.classList.add('show');pw.value='';pw.focus();};
+        if(!window.crypto||!crypto.subtle){no();return;}
+        check(pw.value.trim().toLowerCase()).then(function(m){m?ok():no();},no);
+      });
+      pw.focus();
+    }
+  })();
 </script>
 </body></html>
