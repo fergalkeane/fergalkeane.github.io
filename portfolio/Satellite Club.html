@@ -253,6 +253,57 @@ img{display:block;max-width:100%;}
   .case-content{gap:48px;}
   .stats{gap:32px;}
 }
+.annot{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr) 200px;grid-template-areas:". top ." "left media right" ". bottom .";column-gap:48px;align-items:start;margin:0;}
+.annot-bottom{grid-area:bottom;position:relative;}
+.annot--compact{grid-template-columns:minmax(150px,1fr) minmax(0,460px) minmax(150px,1fr);column-gap:clamp(24px,3vw,48px);grid-template-areas:"top top top" "left media right" "bottom bottom bottom";margin-top:12px;}
+.annot--compact .annot-left .callout{left:auto;right:0;max-width:240px;}
+.annot--compact .annot-right .callout{right:auto;left:0;max-width:240px;}
+.annot-label{display:block;margin:clamp(36px,4vw,56px) 0 0;}
+@media(min-width:700px) and (max-width:1100px){
+  .annot.annot--compact:not(.is-wide){grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media bottom" "media .";grid-template-rows:1fr auto auto auto 1fr;column-gap:40px;row-gap:16px;}
+  .annot--compact:not(.is-wide) .annot-media{max-width:none;}
+  .annot--compact:not(.is-wide) .annot-col .callout{max-width:none;}
+}
+.annot-top{grid-area:top;position:relative;}
+.annot-left{grid-area:left;}.annot-media{grid-area:media;}.annot-right{grid-area:right;}
+.annot-col{position:relative;}
+.callout h4{font-family:var(--font-display);font-weight:600;font-size:15px;line-height:1.25;letter-spacing:-.005em;color:var(--accent);margin:0 0 6px;}
+.callout p{font-size:12px;line-height:1.5;color:var(--muted);margin:0;}
+.callout p.ph{font-style:italic;}
+.annot-img{position:relative;}
+.annot-img img{display:block;width:100%;height:auto;}
+.annot-dot{position:absolute;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(255,255,255,.9);}
+.annot-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+.annot-lines line{stroke:var(--ink-soft);stroke-width:1;}
+.annot-lines circle{fill:var(--ink-soft);}
+.annot.is-wide .annot-col{min-height:100%;}.annot.is-wide .annot-col .callout{position:absolute;left:0;right:0;}.annot.is-wide .annot-left .callout{text-align:right;}.annot.is-wide .annot-top{height:116px;}.annot.is-wide .annot-top .callout{position:absolute;top:0;width:280px;}.annot.is-wide .annot-bottom{height:110px;}.annot.is-wide .annot-bottom .callout{position:absolute;top:30px;width:280px;}
+.annot:not(.is-wide){grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "left" "top" "right" "bottom";row-gap:16px;}
+.annot:not(.is-wide) .annot-lines{display:none;}
+.annot:not(.is-wide) .annot-col,.annot:not(.is-wide) .annot-top,.annot:not(.is-wide) .annot-bottom{display:flex;flex-direction:column;gap:16px;}
+.annot--compact:not(.is-wide) .annot-media{max-width:460px;}
+.annot:not(.is-wide) .callout{position:relative;padding-left:38px;}
+.annot:not(.is-wide) .callout::before{content:attr(data-n);position:absolute;left:0;top:-2px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font:600 11px/24px var(--font-mono);text-align:center;}
+.annot:not(.is-wide) .annot-dot{width:22px;height:22px;}
+.annot:not(.is-wide) .annot-dot.edge-left{transform:translate(-15%,-50%);}
+.annot:not(.is-wide) .annot-dot::after{content:attr(data-n);display:block;color:#fff;font:600 11px/22px var(--font-mono);text-align:center;}
+.annot-label{display:block;margin:clamp(36px,4vw,56px) 0 0;}
+@media(min-width:700px) and (max-width:1100px){
+  .annot.annot--compact:not(.is-wide){grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media bottom" "media .";grid-template-rows:1fr auto auto auto 1fr;column-gap:40px;row-gap:16px;}
+  .annot--compact:not(.is-wide) .annot-media{max-width:none;}
+  .annot--compact:not(.is-wide) .annot-col .callout{max-width:none;}
+}
+.overview{margin:0 0 clamp(48px,5vw,72px);padding:28px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.overview-lead{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--ink);margin:0 0 26px;max-width:46ch;}
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px clamp(24px,3vw,44px);margin:0;}
+.overview-grid div{margin:0;}
+.overview dt{display:block;margin:0 0 9px;}
+.overview dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+@media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
+.sc-closeup{margin-top:clamp(64px,8vw,118px);}
+.sc-crop{position:relative;aspect-ratio:860/660;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
+.sc-crop img{position:absolute;width:223.26%;max-width:none;height:auto;left:-37.21%;top:-163.65%;}
+.sc-outcome{margin-top:clamp(64px,8vw,118px);}
+.sc-outcome p{position:relative;z-index:1;color:rgba(255,255,255,.78);font-size:16px;line-height:1.65;max-width:60ch;margin:22px 0 0;}
 </style>
 <script src="../theme.js"></script>
 <script src="../to-top.js"></script>
@@ -292,7 +343,7 @@ img{display:block;max-width:100%;}
         </div>
         <div class="hero-meta">
           <div><p class="lbl">Client</p><p class="mv">Skytek</p></div>
-          <div><p class="lbl">Role</p><p class="mv">UI/UX Design</p></div>
+          <div><p class="lbl">Role</p><p class="mv">Product &amp; UX Design</p></div>
           <div><p class="lbl">Platform</p><p class="mv">Members web platform</p></div>
         </div>
       </div>
@@ -316,7 +367,6 @@ img{display:block;max-width:100%;}
   <div class="wrap">
     <div class="case-grid">
       <aside class="case-meta">
-        <div class="meta-item"><p class="lbl">The Role</p><p class="meta-val">UI/UX Design</p></div>
         <div class="meta-item"><p class="lbl">Sector</p><p class="meta-val">Earth Observation for Insurance &amp; Risk Intelligence</p></div>
         <div class="meta-item">
           <p class="lbl">Deliverables</p>
@@ -329,7 +379,7 @@ img{display:block;max-width:100%;}
         </div>
         <div class="meta-divider"></div>
         <div class="stats">
-          <div><p class="stat-num">6</p><p class="lbl">EO Data Providers</p></div>
+          <div><p class="stat-num">6</p><p class="lbl">Satellite data providers behind the reports</p></div>
         </div>
         <div class="stats">
           <div><p class="stat-num">11</p><p class="lbl">Application Sectors</p>
@@ -350,6 +400,14 @@ img{display:block;max-width:100%;}
         </div>
       </aside>
       <div class="case-content">
+        <div class="overview">
+          <p class="overview-lead">As Senior UX/UI Designer at Skytek, I shaped the Satellite Club product experience: how the service is framed, how one platform serves two very different audiences, the reports and imagery interfaces, and the visual direction.</p>
+          <dl class="overview-grid">
+            <div><dt class="lbl">My scope</dt><dd>Product experience and UX strategy, information architecture, audience and user needs, interaction design (including the before-and-after comparison and the login overlay), and UI design and visual direction.</dd></div>
+            <div><dt class="lbl">Product</dt><dd>A members platform that turns Earth Observation into reports insurers can use. Imagery comes from six satellite data providers and the service covers eleven application sectors, so members get one point of access instead of a separate relationship with each provider.</dd></div>
+            <div><dt class="lbl">Users</dt><dd>(Re)insurance professionals: underwriters, brokers, claims and loss teams, risk managers and modellers, and legal counsel.</dd></div>
+          </dl>
+        </div>
         <div class="case-block">
           <span class="lbl">The Problem</span>
           <h2 class="case-h">Space data the insurance market could not actually use.</h2>
@@ -357,19 +415,15 @@ img{display:block;max-width:100%;}
         </div>
         <div class="case-block">
           <span class="lbl">Framing</span>
-          <h2 class="case-h">Design it as a personal data portal.</h2>
-          <p class="case-p">The reframe that shaped everything: this is a membership, not a subscription to imagery. Members get commissioned proprietary reports from the Skytek expert panel, image acquisition tools, advice on cost-effective tasking, priority access to major-event reports, workshops, and expert witness support.</p>
-          <p class="case-p">That framing solved a hard positioning question. Sold as software, it competes with GIS platforms on features it does not want to compete on. Sold as a club with an expert panel behind it, <strong>the product is judgement, and the technology is how the judgement gets made</strong>.</p>
+          <h2 class="case-h">A membership, not a data subscription.</h2>
+          <p class="case-p">Members get commissioned proprietary reports from the Skytek expert panel, image acquisition tools, advice on cost-effective tasking, priority access to major-event reports, workshops, and expert witness support. That is a service, not a stream of imagery.</p>
+          <p class="case-p">The framing also settled a positioning question. Sold as software, it competes with GIS platforms on features it does not want to compete on. Sold as a club with an expert panel behind it, <strong>the product is judgement, and the technology is how the judgement gets made.</strong></p>
         </div>
         <div class="case-block">
           <span class="lbl">The Hard Constraint</span>
           <h2 class="case-h">Two audiences, one page, opposite needs.</h2>
           <p class="case-p">A first-time visitor needs to understand what Earth Observation does for their book of business. An existing member arrives looking for the report published this morning on the Strait of Hormuz.</p>
-          <p class="case-p">Rather than splitting into a marketing site and a separate logged-in app, the structure runs the proposition top-down and puts the live reports feed high on the same page. Login is a lightweight overlay instead of a destination, so a returning member never has to travel through the pitch to reach the intelligence.</p>
-        </div>
-        <div class="impact">
-          <span class="lbl">Outcome</span>
-          <h2>Satellite imagery paired with <em>expert analysis</em>, delivered to the market that has to price the risk.</h2>
+          <p class="case-p">Rather than splitting into a marketing site and a separate logged-in app, the page runs the proposition top-down and puts the live reports high on the same page. Login is a lightweight overlay rather than a destination, so a returning member never has to go through the pitch to reach the reports.</p>
         </div>
       </div>
     </div>
@@ -432,7 +486,7 @@ img{display:block;max-width:100%;}
       <div class="principle">
         <p class="pn">03</p>
         <h4>Insurance language, not space language</h4>
-        <p>Aggregation, exposure, hull and cargo, renewal. The interface speaks the reader's vocabulary, and keeps the orbital mechanics behind the curtain.</p>
+        <p>Aggregation, exposure, hull and cargo, renewal. The interface speaks the reader’s vocabulary, and keeps the orbital mechanics behind the curtain.</p>
       </div>
     </div>
   </div>
@@ -442,8 +496,8 @@ img{display:block;max-width:100%;}
   <div class="wrap">
     <div class="sec-head">
       <span class="lbl">Before &amp; After</span>
-      <h2 class="sec-title">The comparison that makes the case</h2>
-      <p class="sec-lead">Paired before and after acquisitions of the same coordinates are the most persuasive object in the product. A fixed template locks location, both capture dates and consistent framing, so the change is the only variable a viewer sees. Drag the handle to move between acquisitions.</p>
+      <h2 class="sec-title">The same coordinates, before and after</h2>
+      <p class="sec-lead">Paired acquisitions of the same coordinates are the most persuasive thing in the product. A fixed template keeps the location, both capture dates and the framing constant, so the change is the only thing that varies. Drag the handle to compare, or choose another event.</p>
     </div>
     <!-- Before/after events. To add an event, copy a <div class="ba"> block inside "ba-stage".
          The menu builds itself from each block's <h4> (event name) and <p> (place and dates). -->
@@ -492,23 +546,12 @@ img{display:block;max-width:100%;}
           </div>
         </div>
       </div>
-      <nav class="ba-menu" aria-label="Events">
-        <p class="lbl">Events</p>
+      <nav class="ba-menu" aria-label="Choose an event">
+        <p class="lbl">Choose an event</p>
         <ul></ul>
       </nav>
     </div>
 
-    <div style="margin-top:clamp(48px,5vw,72px);">
-      <span class="lbl" style="display:block;margin-bottom:8px;">Colour Palette</span>
-      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Night-side black, with an ultraviolet to aurora gradient carrying every action</h3>
-      <div class="palette">
-        <div class="sw" style="background:#02040d;"><p class="sw-name">Void</p><p class="sw-hex">#02040D</p></div>
-        <div class="sw" style="background:#131a2e;"><p class="sw-name">Deep Space</p><p class="sw-hex">#131A2E</p></div>
-        <div class="sw" style="background:#9c4dfe;"><p class="sw-name">Ultraviolet</p><p class="sw-hex">#9C4DFE</p></div>
-        <div class="sw" style="background:#c9a7ff;color:#1d0e3a;"><p class="sw-name">Ionosphere</p><p class="sw-hex">#C9A7FF</p></div>
-        <div class="sw" style="background:#ffdaff;color:#3a1746;"><p class="sw-name">Aurora</p><p class="sw-hex">#FFDAFF</p></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -517,15 +560,15 @@ img{display:block;max-width:100%;}
     <div class="sec-head">
       <span class="lbl">The Platform</span>
       <h2 class="sec-title">From proposition to live intelligence in one scroll</h2>
-      <p class="sec-lead">The page sequence follows the decision a visitor is making: what is this, is it for me, what do I get, prove it, join. Members short-circuit that path straight into the reports feed.</p>
+      <p class="sec-lead">The homepage runs in the order a visitor’s questions arrive: what this is, the latest reports as proof the service is live, who it is for, sample imagery, the sectors it covers and what membership includes. Members skip the pitch and go straight to the reports.</p>
     </div>
 
     <div class="webshots">
       <article class="shot" data-screen-label="01 Home">
         <div class="shot-cap">
           <p class="shot-num">Home</p>
-          <h3>Earth Observation at scale, stated once</h3>
-          <p>The hero commits to a single claim and a single action: become a member. Immediately below it, the audience and benefits lists let a visitor self-identify before any technology is explained.</p>
+          <h3>One claim, two ways in</h3>
+          <p>The hero makes a single claim, Earth observation at underwriting speed, and offers two actions: become a member, or go straight to the latest reports. The reports library follows immediately, then the audience list, so visitors can see whether it is for them before any technology is explained.</p>
           <ul class="shot-tags"><li>Positioning</li><li>Self-selection</li><li>Membership CTA</li></ul>
         </div>
         <div class="frame scroll">
@@ -533,12 +576,32 @@ img{display:block;max-width:100%;}
           <div class="scroll-body"><img src="../images/satelliteclub/Skytek-Satellite-Club-landing.webp" alt="Satellite Club home page, full length" style="display:block;width:100%;height:auto"></div>
         </div>
       </article>
+      <div class="sc-closeup">
+      <p class="lbl annot-label">Close-up · Reports library</p>
+      <figure class="annot annot--compact" data-annot="" data-min="960" data-w="860" data-h="660">
+        <div class="annot-col annot-left">
+          <div class="callout" data-n="1" data-y1="28" data-y2="44" data-x="15" data-y="36"><h4>Category filters</h4><p>Reports can be narrowed by risk type (war, marine, wildfire, climate, catastrophe), with a count beside each so members can see where activity is.</p></div>
+          <div class="callout" data-n="2" data-y1="520" data-y2="610" data-x="20" data-y="549"><h4>Summary written for the market</h4><p>Each card gives a short summary in insurance terms, enough to decide whether to open the full report.</p></div>
+        </div>
+        <div class="annot-media">
+          <div class="sc-crop annot-img">
+            <img src="../images/satelliteclub/Skytek-Satellite-Club-landing.webp" alt="Close-up of the Satellite Club reports library: category filters with counts and report cards with tags, dates and summaries" loading="lazy">
+            <span class="annot-dot" data-n="1" style="left:1.74%;top:5.45%"></span><span class="annot-dot" data-n="2" style="left:2.33%;top:83.18%"></span><span class="annot-dot" data-n="3" style="left:49.77%;top:62.58%"></span><span class="annot-dot" data-n="4" style="left:20.00%;top:95.00%"></span>
+          </div>
+        </div>
+        <div class="annot-col annot-right">
+          <div class="callout" data-n="3" data-y1="405" data-y2="420" data-x="428" data-y="413"><h4>Category and date</h4><p>Tags show the risk type, and the publication date sits on the same line, because a report’s age changes its value.</p></div>
+          <div class="callout" data-n="4" data-y1="620" data-y2="634" data-x="172" data-y="627"><h4>Read report</h4><p>One clear action per card, leading to the full assessment.</p></div>
+        </div>
+        <svg class="annot-lines" aria-hidden="true"></svg>
+      </figure>
+      </div>
 
-      <article class="shot flip" data-screen-label="02 Reports">
+      <article class="shot flip" data-screen-label="02 Report">
         <div class="shot-cap">
-          <p class="shot-num">Reports</p>
-          <h3>A feed built for a moving risk picture</h3>
-          <p>Reports carry a risk category, a timestamp and an executive summary written for the market. The listing is designed so a member scanning it can tell in seconds whether something has changed since they last looked.</p>
+          <p class="shot-num">Report</p>
+          <h3>Every image dated, located and attributed</h3>
+          <p>A report reads as an assessment, not a gallery. It opens with the event, the time of publication and a PDF download, then sets out the analysis in plain language, grading buildings red, amber or green. Each image carries its capture date and a location caption, overlays mark the damage, and before-and-after views show both dates side by side. The satellite image providers are credited at the foot of the report.</p>
           <ul class="shot-tags"><li>Feed</li><li>Categorisation</li><li>Recency</li></ul>
         </div>
         <div class="frame scroll">
@@ -548,6 +611,24 @@ img{display:block;max-width:100%;}
       </article>
 
     </div>
+    <div style="margin-top:clamp(48px,5vw,72px);">
+      <span class="lbl" style="display:block;margin-bottom:8px;">Visual Direction · Colour</span>
+      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,24px);letter-spacing:-.01em;margin:0;">Night-side black, with an ultraviolet to aurora gradient carrying every action</h3>
+      <div class="palette">
+        <div class="sw" style="background:#02040d;"><p class="sw-name">Void</p><p class="sw-hex">#02040D</p></div>
+        <div class="sw" style="background:#131a2e;"><p class="sw-name">Deep Space</p><p class="sw-hex">#131A2E</p></div>
+        <div class="sw" style="background:#9c4dfe;"><p class="sw-name">Ultraviolet</p><p class="sw-hex">#9C4DFE</p></div>
+        <div class="sw" style="background:#c9a7ff;color:#1d0e3a;"><p class="sw-name">Ionosphere</p><p class="sw-hex">#C9A7FF</p></div>
+        <div class="sw" style="background:#ffdaff;color:#3a1746;"><p class="sw-name">Aurora</p><p class="sw-hex">#FFDAFF</p></div>
+      </div>
+    </div>
+
+    <div class="impact sc-outcome">
+      <span class="lbl">Outcome</span>
+      <h2>Satellite imagery paired with <em>expert analysis</em>, delivered to the market that has to price the risk.</h2>
+      <p>For an underwriter, claims manager or loss adjuster, Satellite Club turns Earth Observation into something they can act on: a dated, attributed assessment of a specific location, written in insurance terms and backed by before-and-after imagery. Members follow events as they develop in the reports library, open the full analysis, and download it for the file.</p>
+    </div>
+
 
     <div class="pullquote">
       <p>The measure was not whether the imagery impressed anyone. It was whether an underwriter changed their decision because of what they saw.</p>
@@ -560,7 +641,7 @@ img{display:block;max-width:100%;}
     <div class="contact-grid">
       <div>
         <p class="lbl">Get In Touch</p>
-        <h2>Let's craft something meaningful together.</h2>
+        <h2>Let’s craft something meaningful together.</h2>
         <a class="contact-btn" href="../index.html#contact">Contact Me<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13"></path><polyline points="12.5 5.5 19 12 12.5 18.5"></polyline></svg></a>
       </div>
     </div>
@@ -625,4 +706,63 @@ c.addEventListener('click',function(){navigator.clipboard.writeText(location.hre
 })();
 </script>
 
+<script>
+/* Annotated screenshot: callouts sit level with their targets; every leader line is horizontal. */
+(function(){
+  var figs=[].slice.call(document.querySelectorAll('[data-annot]'));if(!figs.length)return;
+  var NS='http://www.w3.org/2000/svg',mq=window.matchMedia('(min-width:1101px)');
+  function wide(fig){var on=window.innerWidth>=(+fig.dataset.min||1101);fig.classList.toggle('is-wide',on);return on;}
+  function layout(fig){
+    var svg=fig.querySelector('.annot-lines'),img=fig.querySelector('.annot-img img');
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    var cols=fig.querySelectorAll('.annot-col'),callouts=fig.querySelectorAll('.callout'),dots=fig.querySelectorAll('.annot-dot');
+    [].forEach.call(dots,function(d){if(!d.dataset.top)d.dataset.top=d.style.top;d.style.top=d.dataset.top;});
+    if(!wide(fig)||!img.complete){[].forEach.call(callouts,function(c){c.style.top='';});[].forEach.call(cols,function(c){c.style.height='';});return;}
+    var fr=fig.getBoundingClientRect(),ir=fig.querySelector('.annot-img').getBoundingClientRect(),nw=+fig.dataset.w,nh=+fig.dataset.h;
+    var sy=function(v){return ir.top-fr.top+v/nh*ir.height;},sx=function(v){return ir.left-fr.left+v/nw*ir.width;};
+    [].forEach.call(cols,function(col){
+      col.style.height=(ir.bottom-fr.top)+'px';
+      var cr=col.getBoundingClientRect(),left=col.classList.contains('annot-left'),list=[].slice.call(col.querySelectorAll('.callout'));
+      list.sort(function(a,b){return (+a.dataset.y)-(+b.dataset.y);});
+      var floor=0;
+      list.forEach(function(c){
+        var h=c.querySelector('h4');
+        c.style.top='0px';var off=h.getBoundingClientRect().top-c.getBoundingClientRect().top+h.offsetHeight/2;
+        var want=sy(+c.dataset.y),y1=sy(+c.dataset.y1),y2=sy(+c.dataset.y2);
+        var top=Math.max(want-off-(cr.top-fr.top),floor);
+        var ay=cr.top-fr.top+top+off;
+        if(ay>y2){ay=y2;top=ay-off-(cr.top-fr.top);}
+        c.style.top=top+'px';floor=top+c.offsetHeight+18;
+        var tx=sx(+c.dataset.x);
+        var dot=fig.querySelector('.annot-dot[data-n="'+c.dataset.n+'"]');
+        if(dot)dot.style.top=((ay-(ir.top-fr.top))/ir.height*100)+'%';
+        var ax=left?(cr.right-fr.left+10):(cr.left-fr.left-10);
+        var ln=document.createElementNS(NS,'line');
+        ln.setAttribute('x1',ax);ln.setAttribute('y1',ay);ln.setAttribute('x2',tx);ln.setAttribute('y2',ay);svg.appendChild(ln);
+        var ci=document.createElementNS(NS,'circle');ci.setAttribute('cx',ax);ci.setAttribute('cy',ay);ci.setAttribute('r',3);svg.appendChild(ci);
+      });
+    });
+  }
+  function layoutTop(fig){
+    var svg=fig.querySelector('.annot-lines'),img=fig.querySelector('.annot-img img');
+    [].forEach.call(fig.querySelectorAll('.annot-top,.annot-bottom'),function(top){
+    var list=top.querySelectorAll('.callout');
+    if(!wide(fig)||!img.complete){[].forEach.call(list,function(c){c.style.left='';});return;}
+    var fr=fig.getBoundingClientRect(),ir=fig.querySelector('.annot-img').getBoundingClientRect(),tr=top.getBoundingClientRect(),nw=+fig.dataset.w,nh=+fig.dataset.h;
+    [].forEach.call(list,function(c){
+      var tx=ir.left-fr.left+(+c.dataset.x)/nw*ir.width,ty=ir.top-fr.top+(+c.dataset.y)/nh*ir.height;
+      var l=Math.min(tx-(tr.left-fr.left)+16,tr.width-c.offsetWidth);c.style.left=l+'px';
+      var h=c.querySelector('h4'),hr=h.getBoundingClientRect(),ay=hr.top-fr.top+hr.height/2;
+      var ln=document.createElementNS(NS,'line');ln.setAttribute('x1',tx);ln.setAttribute('y1',ay);ln.setAttribute('x2',tx);ln.setAttribute('y2',ty);svg.appendChild(ln);
+      var ci=document.createElementNS(NS,'circle');ci.setAttribute('cx',tx);ci.setAttribute('cy',ay);ci.setAttribute('r',3);svg.appendChild(ci);
+    });
+    });
+  }
+  function all(){figs.forEach(function(f){layout(f);layoutTop(f);});}
+  figs.forEach(function(f){var i=f.querySelector('.annot-img img');if(i.complete){layout(f);layoutTop(f);}else i.addEventListener('load',function(){layout(f);layoutTop(f);});});
+  window.addEventListener('resize',all);if(mq.addEventListener)mq.addEventListener('change',all);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
+  if('ResizeObserver' in window){var ro=new ResizeObserver(all);figs.forEach(function(f){ro.observe(f);});}
+})();
+</script>
 </body></html>
