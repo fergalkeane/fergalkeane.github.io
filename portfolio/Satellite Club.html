@@ -316,8 +316,25 @@ img{display:block;max-width:100%;}
 .shot.wide .shot-pair{margin-top:0;}
 .shot-pair.shot-stack{grid-template-columns:minmax(0,1fr);row-gap:clamp(24px,3vw,40px);}
 .shot-pair.shot-stack .scroll-body img{display:block;width:100%;height:auto;}
-@media(min-width:861px){.shot-pair.shot-stack .frame.scroll{max-height:760px;}.shot-pair.shot-stack .frame.scroll .scroll-body{max-height:722px;}}
+@media(min-width:861px){.shot-pair.shot-stack .frame.scroll{max-height:900px;}.shot-pair.shot-stack .frame.scroll .scroll-body{max-height:862px;}}
 @media(max-width:860px){.shot.wide .shot-cap{display:block;}.shot.wide .shot-cap .cap-body{max-width:none;}.shot.wide .shot-pair{margin-top:26px;}}
+.frame.scroll.tall{max-height:900px;}.frame.scroll.tall .scroll-body{max-height:862px;}
+@media(max-width:860px){.frame.scroll.tall{max-height:460px;}.frame.scroll.tall .scroll-body{max-height:422px;}}
+.aud-intro{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch;margin:clamp(20px,2vw,28px) 0 0;}
+.aud-compare .aud-col{padding:26px 28px 10px;border:1px solid var(--line);border-radius:12px;background:var(--paper);}
+.aud-compare .aud-col > .lbl{display:block;margin:0 0 10px;}
+.aud-compare .aud-member{border-top:3px solid var(--accent);}
+.aud-compare .aud-prospect{border-top:3px solid var(--line);}
+.aud-compare .aud-list li:last-child{border-bottom:0;}
+.sc-decision{margin-top:clamp(72px,8vw,120px);}
+.sc-decision > .lbl{display:block;margin:0 0 10px;}
+.sc-decision-title{font-family:var(--font-display);font-weight:600;font-size:clamp(22px,2.2vw,28px);letter-spacing:-.015em;margin:0 0 clamp(28px,3vw,40px);}
+.sc-report-crop{position:relative;aspect-ratio:1200/1240;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
+.sc-report-crop img{position:absolute;width:160%;max-width:none;height:auto;left:-30%;top:-38.71%;}
+@media(min-width:700px){
+  .annot.annot--side:not(.is-wide){grid-template-columns:minmax(0,520px) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media .";grid-template-rows:1fr auto auto 1fr;column-gap:clamp(32px,4vw,64px);row-gap:18px;}
+  .annot--side:not(.is-wide) .annot-col .callout{max-width:44ch;}
+}
 /* Download as PDF: print layout */
 .share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
 @media print{
@@ -371,7 +388,7 @@ img{display:block;max-width:100%;}
         </div>
         <div class="hero-meta">
           <div><p class="lbl">Client</p><p class="mv">Skytek</p></div>
-          <div><p class="lbl">Role</p><p class="mv">Product &amp; UX Design</p></div>
+          <div><p class="lbl">Role</p><p class="mv">Product Design &amp; UX/UI</p></div>
           <div><p class="lbl">Platform</p><p class="mv">Members web platform</p></div>
         </div>
       </div>
@@ -430,9 +447,9 @@ img{display:block;max-width:100%;}
       </aside>
       <div class="case-content">
         <div class="overview">
-          <p class="overview-lead">As Senior UX/UI Designer at Skytek, I shaped the Satellite Club product experience: how the service is framed, how one platform serves two very different audiences, the reports and imagery interfaces, and the visual direction.</p>
+          <p class="overview-lead">As Senior UX/UI Designer at Skytek, I shaped the Satellite Club product experience: how one platform serves two very different audiences, how the reports and imagery are structured and presented, and the interface and visual direction.</p>
           <dl class="overview-grid">
-            <div><dt class="lbl">My scope</dt><dd>Product experience and UX strategy, information architecture, audience and user needs, interaction design (including the before-and-after comparison and the login overlay), and UI design and visual direction.</dd></div>
+            <div><dt class="lbl">My scope</dt><dd>Product experience, information architecture, interaction design (including the before-and-after comparison and the login overlay), and interface design and visual direction.</dd></div>
             <div><dt class="lbl">Product</dt><dd>A members platform that turns Earth Observation into reports insurers can use. Imagery comes from six satellite data providers (Planet, ESA, NASA, Airbus, Copernicus and ICEYE) and the service covers eleven application sectors, so members get one point of access instead of a separate relationship with each provider.</dd></div>
             <div><dt class="lbl">Users</dt><dd>(Re)insurance professionals: underwriters, brokers, claims and loss teams, risk managers and modellers, and legal counsel.</dd></div>
           </dl>
@@ -465,29 +482,29 @@ img{display:block;max-width:100%;}
       <span class="lbl">Audience &amp; Value</span>
       <h2 class="sec-title">Who it is for, and what they actually get</h2>
     </div>
-    <div class="aud-grid">
-      <div class="aud-col">
-        <h4>Who it is for</h4>
+    <p class="aud-intro">Both are (re)insurance professionals: underwriters, brokers, claims managers, loss adjusters, corporate risk managers, legal counsel and risk modellers. What differs is where they are in their relationship with the service.</p>
+    <div class="aud-grid aud-compare">
+      <div class="aud-col aud-prospect">
+        <p class="lbl">Prospective members</p>
+        <h4>Discovering the service</h4>
         <ul class="aud-list">
-          <li>(Re)Insurance underwriters</li>
-          <li>(Re)Insurance brokers</li>
-          <li>Claims managers</li>
-          <li>Loss adjusters</li>
-          <li>Corporate risk managers</li>
-          <li>Legal counsel</li>
-          <li>Risk modellers</li>
+          <li>Understand the offer from a single claim: Earth observation at underwriting speed</li>
+          <li>See the latest reports as proof the service is live</li>
+          <li>Check whether it is for them against the list of roles it serves</li>
+          <li>Explore sample before-and-after imagery and the sectors covered</li>
+          <li>See what membership includes, then become a member</li>
         </ul>
       </div>
-      <div class="aud-col">
-        <h4>What membership delivers</h4>
+      <div class="aud-col aud-member">
+        <p class="lbl">Existing members</p>
+        <h4>Using the intelligence</h4>
         <ul class="aud-list">
-          <li>Proprietary reports commissioned from the Skytek expert panel</li>
-          <li>Access to image acquisition tools</li>
-          <li>Advice on cost-effective tasking and procurement of space data</li>
-          <li>Priority access to major-event reports</li>
-          <li>Dedicated workshops on space technology for (re)insurance</li>
-          <li>Expert witness and legal defence work</li>
-          <li>Award-winning EU and NASA technology</li>
+          <li>Log in through a lightweight overlay, without going through the pitch</li>
+          <li>Go straight to the reports library, filtered by risk type</li>
+          <li>Read full reports: key figures, analysis, dated imagery and sources</li>
+          <li>Download reports as PDF for the file</li>
+          <li>Priority access to major-event reports, and commissioned reports from the expert panel</li>
+          <li>Image acquisition tools, tasking advice, workshops and expert witness support</li>
         </ul>
       </div>
     </div>
@@ -593,14 +610,14 @@ img{display:block;max-width:100%;}
     </div>
 
     <div class="webshots">
-      <article class="shot" data-screen-label="01 Home">
+      <article class="shot wide" data-screen-label="01 Home">
         <div class="shot-cap">
           <p class="shot-num">Home</p>
           <h3>One claim, one way in</h3>
-          <p>The hero makes a single claim, Earth observation at underwriting speed, and asks for one action: become a member. The reports library follows immediately, then the audience list, so visitors can see whether it is for them before any technology is explained.</p>
-          <ul class="shot-tags"><li>Positioning</li><li>Self-selection</li><li>Membership CTA</li></ul>
+          <div class="cap-body"><p>The hero makes a single claim, Earth observation at underwriting speed, and asks for one action: become a member. The reports library follows immediately, then the audience list, so visitors can see whether it is for them before any technology is explained.</p>
+          <ul class="shot-tags"><li>Positioning</li><li>Self-selection</li><li>Membership CTA</li></ul></div>
         </div>
-        <div class="frame scroll">
+        <div class="frame scroll tall">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">satellite-club.skytek.com</span></div>
           <div class="scroll-body"><img src="../images/satelliteclub/Skytek-Satellite-Club-home.png" alt="Satellite Club home page, full length" style="display:block;width:100%;height:auto"></div>
         </div>
@@ -636,16 +653,36 @@ img{display:block;max-width:100%;}
           </div>
         </div>
         <div class="shot-pair shot-stack">
-          <div class="frame scroll">
+          <div class="frame scroll tall">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / hormuz-hull-exposure</span></div>
             <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_Hormuz.png" alt="Satellite Club report: $5.3bn in potential hull exposure, with summary, at-a-glance figures, exposure tables and a hull accumulation map" loading="lazy"></div>
           </div>
-          <div class="frame scroll">
+          <div class="frame scroll tall">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / los-angeles-wildfires</span></div>
             <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_LA_Wildfires.png" alt="Satellite Club report: Los Angeles wildfires, with thermal imagery and a drag-to-compare damage layer over Pacific Palisades" loading="lazy"></div>
           </div>
         </div>
       </article>
+      <div class="sc-decision">
+        <p class="lbl">Design decision · Anatomy of a report</p>
+        <h3 class="sc-decision-title">Built to be read, checked and cited</h3>
+        <figure class="annot annot--side" data-annot="" data-min="99999" data-w="1200" data-h="1240">
+          <div class="annot-col annot-left">
+          <div class="callout" data-n="1" data-y1="840" data-y2="1160" data-x="290" data-y="970"><h4>Visual evidence</h4><p>The thermal capture sits directly under the paragraph that describes it, so the fire clusters named in the text can be found on the image.</p></div>
+          </div>
+          <div class="annot-media">
+            <div class="sc-report-crop annot-img">
+              <img src="../images/satelliteclub/SC_Report_LA_Wildfires.png" alt="Close-up of the Los Angeles wildfires report: summary, at-a-glance figures and a dated thermal capture with its caption" loading="lazy">
+              <span class="annot-dot" data-n="1" style="left:24.17%;top:78.23%"></span><span class="annot-dot" data-n="2" style="left:79.17%;top:6.45%"></span><span class="annot-dot" data-n="3" style="left:62.08%;top:67.58%"></span>
+            </div>
+          </div>
+          <div class="annot-col annot-right">
+          <div class="callout" data-n="2" data-y1="80" data-y2="320" data-x="950" data-y="80"><h4>Information hierarchy</h4><p>The figures an insurer needs first (acres burned, homes inside the perimeter, their value, residents evacuated) sit in an ‘At a glance’ panel beside the summary.</p></div>
+          <div class="callout" data-n="3" data-y1="825" data-y2="850" data-x="745" data-y="838"><h4>Context</h4><p>Each image carries its capture date and time, and a numbered caption gives the location and source, so the evidence can be cited.</p></div>
+          </div>
+          <svg class="annot-lines" aria-hidden="true"></svg>
+        </figure>
+      </div>
 
     </div>
     <div style="margin-top:clamp(48px,5vw,72px);">
@@ -660,10 +697,7 @@ img{display:block;max-width:100%;}
       </div>
     </div>
 
-    <div class="impact sc-outcome">
-      <span class="lbl">Outcome</span>
-      <h2>Satellite imagery paired with <em>expert analysis</em>, delivered to the market that has to price the risk.</h2>
-      <p>For an underwriter, claims manager or loss adjuster, Satellite Club turns Earth Observation into something they can act on: a dated, attributed assessment of a specific location, written in insurance terms and backed by before-and-after imagery. Members follow events as they develop in the reports library, open the full analysis, and download it for the file.</p>
+    \1<p>The design turns specialist Earth observation into something an insurance professional can work with. A member can see what has changed, open a dated, attributed assessment of a specific location, find the figures that matter at a glance, check the imagery for themselves and file the report as a PDF. A prospective member sees the same evidence before deciding to join.</p>
     </div>
 
 
