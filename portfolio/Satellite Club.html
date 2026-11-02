@@ -2,7 +2,6 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>Satellite Club: Case Study · Fergal Keane</title>
 <style>
 @font-face{font-family:'Archivo';src:url('../fonts/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;}
@@ -302,32 +301,23 @@ img{display:block;max-width:100%;}
 @media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
 .sc-closeup{margin-top:clamp(64px,8vw,118px);}
 .sc-crop{position:relative;aspect-ratio:860/660;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
-.sc-crop img{position:absolute;width:223.26%;max-width:none;height:auto;left:-37.21%;top:-163.65%;}
+.sc-crop img{position:absolute;width:223.26%;max-width:none;height:auto;left:-37.21%;top:-184.85%;}
 .sc-outcome{margin-top:clamp(64px,8vw,118px);}
 .sc-outcome p{position:relative;z-index:1;color:rgba(255,255,255,.78);font-size:16px;line-height:1.65;max-width:60ch;margin:22px 0 0;}
 
-/* Password gate */
-#gatePw{width:100%;border:1px solid var(--line);border-radius:0;padding:14px;font-family:var(--font-sans);font-size:15px;color:var(--ink);margin-bottom:14px;}
-#gatePw:focus{outline:none;border-color:var(--ink);}
-#gatePw::placeholder{color:#c4c4c4;}
-.gate{position:fixed;inset:0;z-index:999;background:rgba(12,12,12,.5);backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:24px;animation:gateIn .22s ease both;}
-.gate.hidden{display:none;}
-.gate-card{max-width:440px;width:100%;background:var(--paper);border:1px solid var(--line);box-shadow:0 34px 90px rgba(0,0,0,.32);padding:clamp(28px,4vw,44px);animation:gateCardIn .3s cubic-bezier(.2,.7,.3,1) both;}
-.gate-lock{width:52px;height:52px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:24px;}
-.gate-card .lbl{display:block;margin-bottom:14px;}
-.gate-card h2{font-family:var(--font-display);font-weight:300;font-size:31px;line-height:1.14;letter-spacing:-.015em;margin:0 0 12px;}
-.gate-sub{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 28px;max-width:34ch;}
-.gate button{width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:16px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease;}
-.gate button:hover{background:var(--accent);}
-.gate-err{color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;margin:14px 0 0;display:none;}
-.gate-err.show{display:block;}
-.gate-back{display:inline-block;margin-top:24px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
-.gate-back:hover{color:var(--accent);}
-.gate-card{position:relative;}
-.gate-close{position:absolute;top:14px;right:14px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);cursor:pointer;padding:0;transition:color .18s,border-color .18s;}
-.gate-close:hover{color:var(--accent);border-color:var(--accent);background:none;}
-.gate-close svg{width:14px;height:14px;}
 
+.shot.wide,.shot.wide.flip{grid-template-columns:minmax(0,1fr);row-gap:clamp(24px,2.6vw,34px);}
+.shot.wide > *,.shot.wide.flip > *{grid-column:1 !important;grid-row:auto !important;}
+.shot.wide .shot-cap{position:static;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);grid-template-rows:auto 1fr;column-gap:clamp(32px,5vw,80px);align-items:start;max-width:none;}
+.shot.wide .shot-cap .shot-num,.shot.wide .shot-cap h3{grid-column:1;}
+.shot.wide .shot-cap h3{align-self:start;}
+.shot.wide .shot-cap .cap-body{grid-column:2;grid-row:1 / span 2;max-width:60ch;}
+.shot.wide .shot-cap .cap-body > p{margin-top:0;max-width:60ch;}
+.shot.wide .shot-pair{margin-top:0;}
+.shot-pair.shot-stack{grid-template-columns:minmax(0,1fr);row-gap:clamp(24px,3vw,40px);}
+.shot-pair.shot-stack .scroll-body img{display:block;width:100%;height:auto;}
+@media(min-width:861px){.shot-pair.shot-stack .frame.scroll{max-height:760px;}.shot-pair.shot-stack .frame.scroll .scroll-body{max-height:722px;}}
+@media(max-width:860px){.shot.wide .shot-cap{display:block;}.shot.wide .shot-cap .cap-body{max-width:none;}.shot.wide .shot-pair{margin-top:26px;}}
 /* Download as PDF: print layout */
 .share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
 @media print{
@@ -347,21 +337,6 @@ img{display:block;max-width:100%;}
 </head>
 <body>
 
-<div class="gate" id="gate">
-  <div class="gate-card">
-    <a class="gate-close" href="../index.html#work" aria-label="Close and return to Selected Works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"></path></svg></a>
-    <div class="gate-lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
-    <span class="lbl">Protected Case Study</span>
-    <h2>This project is password-protected.</h2>
-    <p class="gate-sub">Enter the access password to view the Satellite Club case study.</p>
-    <form id="gateForm" autocomplete="off">
-      <input type="password" id="gatePw" placeholder="Enter password" autocomplete="off">
-      <button type="submit">Unlock →</button>
-      <p class="gate-err" id="gateErr">Incorrect password. Please try again.</p>
-    </form>
-    <a class="gate-back" href="../index.html#work">← Return to Selected Works</a>
-  </div>
-</div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -458,7 +433,7 @@ img{display:block;max-width:100%;}
           <p class="overview-lead">As Senior UX/UI Designer at Skytek, I shaped the Satellite Club product experience: how the service is framed, how one platform serves two very different audiences, the reports and imagery interfaces, and the visual direction.</p>
           <dl class="overview-grid">
             <div><dt class="lbl">My scope</dt><dd>Product experience and UX strategy, information architecture, audience and user needs, interaction design (including the before-and-after comparison and the login overlay), and UI design and visual direction.</dd></div>
-            <div><dt class="lbl">Product</dt><dd>A members platform that turns Earth Observation into reports insurers can use. Imagery comes from six satellite data providers and the service covers eleven application sectors, so members get one point of access instead of a separate relationship with each provider.</dd></div>
+            <div><dt class="lbl">Product</dt><dd>A members platform that turns Earth Observation into reports insurers can use. Imagery comes from six satellite data providers (Planet, ESA, NASA, Airbus, Copernicus and ICEYE) and the service covers eleven application sectors, so members get one point of access instead of a separate relationship with each provider.</dd></div>
             <div><dt class="lbl">Users</dt><dd>(Re)insurance professionals: underwriters, brokers, claims and loss teams, risk managers and modellers, and legal counsel.</dd></div>
           </dl>
         </div>
@@ -621,13 +596,13 @@ img{display:block;max-width:100%;}
       <article class="shot" data-screen-label="01 Home">
         <div class="shot-cap">
           <p class="shot-num">Home</p>
-          <h3>One claim, two ways in</h3>
-          <p>The hero makes a single claim, Earth observation at underwriting speed, and offers two actions: become a member, or go straight to the latest reports. The reports library follows immediately, then the audience list, so visitors can see whether it is for them before any technology is explained.</p>
+          <h3>One claim, one way in</h3>
+          <p>The hero makes a single claim, Earth observation at underwriting speed, and asks for one action: become a member. The reports library follows immediately, then the audience list, so visitors can see whether it is for them before any technology is explained.</p>
           <ul class="shot-tags"><li>Positioning</li><li>Self-selection</li><li>Membership CTA</li></ul>
         </div>
         <div class="frame scroll">
           <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">satellite-club.skytek.com</span></div>
-          <div class="scroll-body"><img src="../images/satelliteclub/Skytek-Satellite-Club-landing.webp" alt="Satellite Club home page, full length" style="display:block;width:100%;height:auto"></div>
+          <div class="scroll-body"><img src="../images/satelliteclub/Skytek-Satellite-Club-home.png" alt="Satellite Club home page, full length" style="display:block;width:100%;height:auto"></div>
         </div>
       </article>
       <div class="sc-closeup">
@@ -639,7 +614,7 @@ img{display:block;max-width:100%;}
         </div>
         <div class="annot-media">
           <div class="sc-crop annot-img">
-            <img src="../images/satelliteclub/Skytek-Satellite-Club-landing.webp" alt="Close-up of the Satellite Club reports library: category filters with counts and report cards with tags, dates and summaries" loading="lazy">
+            <img src="../images/satelliteclub/Skytek-Satellite-Club-home.png" alt="Close-up of the Satellite Club reports library: category filters with counts and report cards with tags, dates and summaries" loading="lazy">
             <span class="annot-dot" data-n="1" style="left:1.74%;top:5.45%"></span><span class="annot-dot" data-n="2" style="left:2.33%;top:83.18%"></span><span class="annot-dot" data-n="3" style="left:49.77%;top:62.58%"></span><span class="annot-dot" data-n="4" style="left:20.00%;top:95.00%"></span>
           </div>
         </div>
@@ -651,16 +626,24 @@ img{display:block;max-width:100%;}
       </figure>
       </div>
 
-      <article class="shot flip" data-screen-label="02 Report">
+      <article class="shot wide" data-screen-label="02 Reports">
         <div class="shot-cap">
-          <p class="shot-num">Report</p>
-          <h3>Every image dated, located and attributed</h3>
-          <p>A report reads as an assessment, not a gallery. It opens with the event, the time of publication and a PDF download, then sets out the analysis in plain language, grading buildings red, amber or green. Each image carries its capture date and a location caption, overlays mark the damage, and before-and-after views show both dates side by side. The satellite image providers are credited at the foot of the report.</p>
-          <ul class="shot-tags"><li>Feed</li><li>Categorisation</li><li>Recency</li></ul>
+          <p class="shot-num">Reports</p>
+          <h3>Findings first, evidence underneath</h3>
+          <div class="cap-body">
+          <p>Every report follows the same template. The findings come first: a short summary, an ‘At a glance’ panel of key figures and a PDF download for the file. A contents list lets members jump between sections, and the evidence sits underneath: data tables with their sources, dated and captioned imagery and, where damage is mapped, a drag-to-compare layer over the satellite image. The imagery providers are credited on every page.</p>
+          <ul class="shot-tags"><li>Summary first</li><li>Sourced data</li><li>PDF download</li></ul>
+          </div>
         </div>
-        <div class="frame scroll">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / hurricane-milton</span></div>
-          <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_Milton.png" alt="Satellite Club report: Hurricane Milton damage assessment with damage detection overlays" loading="lazy"></div>
+        <div class="shot-pair shot-stack">
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / hormuz-hull-exposure</span></div>
+            <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_Hormuz.png" alt="Satellite Club report: $5.3bn in potential hull exposure, with summary, at-a-glance figures, exposure tables and a hull accumulation map" loading="lazy"></div>
+          </div>
+          <div class="frame scroll">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ reports / los-angeles-wildfires</span></div>
+            <div class="scroll-body"><img src="../images/satelliteclub/SC_Report_LA_Wildfires.png" alt="Satellite Club report: Los Angeles wildfires, with thermal imagery and a drag-to-compare damage layer over Pacific Palisades" loading="lazy"></div>
+          </div>
         </div>
       </article>
 
@@ -818,30 +801,6 @@ c.addEventListener('click',function(){navigator.clipboard.writeText(location.hre
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
   if('ResizeObserver' in window){var ro=new ResizeObserver(all);figs.forEach(function(f){ro.observe(f);});}
 })();
-</script>
-<script>
-  /* Password gate: the password itself is not stored here, only a salted PBKDF2 fingerprint of it.
-     This hides the password but not the page content; it is not real access control. */
-  (function(){
-    var SALT='7565d23ec3393aa3e10ecfb524854fe7',HASH='a1dff998d96573e9544a6f34e9fce44e46a689b7ca262aaf446321aa6ba98252',ITER=150000;
-    var gate=document.getElementById('gate');
-    {
-      document.documentElement.style.overflow='hidden';
-      var f=document.getElementById('gateForm'),pw=document.getElementById('gatePw'),err=document.getElementById('gateErr');
-      function bytes(hex){var a=new Uint8Array(hex.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(hex.substr(i*2,2),16);return a;}
-      function hex(buf){return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2);}).join('');}
-      function check(v){var enc=new TextEncoder();return crypto.subtle.importKey('raw',enc.encode(v),'PBKDF2',false,['deriveBits'])
-        .then(function(k){return crypto.subtle.deriveBits({name:'PBKDF2',salt:bytes(SALT),iterations:ITER,hash:'SHA-256'},k,256);})
-        .then(function(b){return hex(b)===HASH;});}
-      f.addEventListener('submit',function(e){e.preventDefault();
-        var ok=function(){gate.classList.add('hidden');document.documentElement.style.overflow='';},
-            no=function(){err.classList.add('show');pw.value='';pw.focus();};
-        if(!window.crypto||!crypto.subtle){no();return;}
-        check(pw.value.trim().toLowerCase()).then(function(m){m?ok():no();},no);
-      });
-      pw.focus();
-    }
-  })();
 </script>
 <script>
 /* Download as PDF: load every image, use a clean print layout, then open the browser's Save as PDF dialog. */
