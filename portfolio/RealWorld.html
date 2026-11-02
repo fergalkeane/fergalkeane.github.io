@@ -147,8 +147,8 @@ img{display:block;max-width:100%;}
 .annot:not(.is-wide) .annot-dot.edge-left{transform:translate(-15%,-50%);}
 .annot:not(.is-wide) .annot-dot::after{content:attr(data-n);display:block;color:#fff;font:600 11px/22px var(--font-mono);text-align:center;}
 .closeup{margin:clamp(28px,3vw,44px) 0 0;display:grid;grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;}
-.closeup-img{position:relative;aspect-ratio:600/660;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b1f33;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
-.closeup-img img{position:absolute;width:320%;max-width:none;height:auto;left:-200%;top:-78.79%;}
+.closeup-img{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b1f33;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
+.closeup-img img{display:block;width:100%;height:auto;}
 .closeup .pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 12px/26px var(--font-mono);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.9);}
 .closeup figcaption .lbl{display:block;margin:0 0 18px;}
 .callouts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;max-width:46ch;}
@@ -541,7 +541,7 @@ img{display:block;max-width:100%;}
           </div>
           <div class="annot-media">
             <div class="closeup-img annot-img">
-              <img src="../images/realworld/RealWorld_Marine_Dashboard.png" alt="Close-up of the voyage card for the vessel Atlantic Pearl, pinned to its position on the marine map" loading="lazy">
+              <img src="../images/realworld/RealWorld_Voyage_Closeup.png" alt="Close-up of the voyage card for the vessel Atlantic Pearl, pinned to its position on the marine map" loading="lazy">
               <span class="annot-dot" data-n="1" style="left:22.33%;top:19.70%"></span><span class="annot-dot" data-n="2" style="left:22.33%;top:76.52%"></span><span class="annot-dot" data-n="3" style="left:77.33%;top:84.55%"></span><span class="annot-dot" data-n="4" style="left:49.67%;top:91.67%"></span>
             </div>
           </div>

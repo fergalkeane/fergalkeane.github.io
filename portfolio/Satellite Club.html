@@ -300,8 +300,8 @@ img{display:block;max-width:100%;}
 .overview dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
 @media(max-width:860px){.overview-grid{grid-template-columns:1fr;gap:20px;}}
 .sc-closeup{margin-top:clamp(64px,8vw,118px);}
-.sc-crop{position:relative;aspect-ratio:860/660;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
-.sc-crop img{position:absolute;width:223.26%;max-width:none;height:auto;left:-37.21%;top:-184.85%;}
+.sc-crop{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
+.sc-crop img{display:block;width:100%;height:auto;}
 .sc-outcome{margin-top:clamp(64px,8vw,118px);}
 .sc-outcome p{position:relative;z-index:1;color:rgba(255,255,255,.78);font-size:16px;line-height:1.65;max-width:60ch;margin:22px 0 0;}
 
@@ -329,8 +329,8 @@ img{display:block;max-width:100%;}
 .sc-decision{margin-top:clamp(72px,8vw,120px);}
 .sc-decision > .lbl{display:block;margin:0 0 10px;}
 .sc-decision-title{font-family:var(--font-display);font-weight:600;font-size:clamp(22px,2.2vw,28px);letter-spacing:-.015em;margin:0 0 clamp(28px,3vw,40px);}
-.sc-report-crop{position:relative;aspect-ratio:1200/1240;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
-.sc-report-crop img{position:absolute;width:160%;max-width:none;height:auto;left:-30%;top:-38.71%;}
+.sc-report-crop{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0b0a16;box-shadow:0 24px 56px -28px rgba(11,10,40,.40);}
+.sc-report-crop img{display:block;width:100%;height:auto;}
 @media(min-width:700px){
   .annot.annot--side:not(.is-wide){grid-template-columns:minmax(0,520px) minmax(0,1fr);grid-template-areas:"media ." "media left" "media right" "media .";grid-template-rows:1fr auto auto 1fr;column-gap:clamp(32px,4vw,64px);row-gap:18px;}
   .annot--side:not(.is-wide) .annot-col .callout{max-width:44ch;}
@@ -631,8 +631,8 @@ img{display:block;max-width:100%;}
         </div>
         <div class="annot-media">
           <div class="sc-crop annot-img">
-            <img src="../images/satelliteclub/Skytek-Satellite-Club-home.png" alt="Close-up of the Satellite Club reports library: category filters with counts and report cards with tags, dates and summaries" loading="lazy">
-            <span class="annot-dot" data-n="1" style="left:1.74%;top:5.45%"></span><span class="annot-dot" data-n="2" style="left:2.33%;top:83.18%"></span><span class="annot-dot" data-n="3" style="left:49.77%;top:62.58%"></span><span class="annot-dot" data-n="4" style="left:20.00%;top:95.00%"></span>
+            <img src="../images/satelliteclub/SC_Library_Closeup.png" alt="Close-up of the Satellite Club reports library: category filters with counts and report cards with tags, dates and summaries" loading="lazy">
+            <span class="annot-dot edge-left" data-n="1" style="left:1.74%;top:5.45%"></span><span class="annot-dot" data-n="2" style="left:2.33%;top:83.18%"></span><span class="annot-dot" data-n="3" style="left:49.77%;top:62.58%"></span><span class="annot-dot" data-n="4" style="left:20.00%;top:95.00%"></span>
           </div>
         </div>
         <div class="annot-col annot-right">
@@ -672,7 +672,7 @@ img{display:block;max-width:100%;}
           </div>
           <div class="annot-media">
             <div class="sc-report-crop annot-img">
-              <img src="../images/satelliteclub/SC_Report_LA_Wildfires.png" alt="Close-up of the Los Angeles wildfires report: summary, at-a-glance figures and a dated thermal capture with its caption" loading="lazy">
+              <img src="../images/satelliteclub/SC_Report_LA_Closeup.png" alt="Close-up of the Los Angeles wildfires report: summary, at-a-glance figures and a dated thermal capture with its caption" loading="lazy">
               <span class="annot-dot" data-n="1" style="left:24.17%;top:78.23%"></span><span class="annot-dot" data-n="2" style="left:79.17%;top:6.45%"></span><span class="annot-dot" data-n="3" style="left:62.08%;top:67.58%"></span>
             </div>
           </div>

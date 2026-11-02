@@ -100,8 +100,8 @@ img{display:block;max-width:100%;}
 .closing-inner{max-width:760px;margin-top:clamp(36px,4vw,56px);}
 .closing-inner .case-p + .case-p{margin-top:18px;}
 .closeup{margin:0;display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;}
-.closeup-img{position:relative;aspect-ratio:580/730;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#f4f6f9;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
-.closeup-img img{position:absolute;width:275.86%;max-width:none;height:auto;left:-141.38%;top:-20.55%;}
+.closeup-img{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#f4f6f9;box-shadow:0 24px 56px -28px rgba(11,46,94,.30);}
+.closeup-img img{display:block;width:100%;height:auto;}
 .closeup .pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 12px/26px var(--font-mono);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.9);}
 .closeup figcaption .lbl{display:block;margin:0 0 18px;}
 .callouts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;max-width:46ch;}
@@ -548,7 +548,7 @@ img{display:block;max-width:100%;}
       </article>
       <figure class="closeup">
         <div class="closeup-img">
-          <img src="../images/gateway/ARES_Procedure_Status.png" alt="Close-up of the ARES procedure lifecycle map, with the current review stage highlighted" loading="lazy">
+          <img src="../images/gateway/ARES_Lifecycle_Closeup.png" alt="Close-up of the ARES procedure lifecycle map, with the current review stage highlighted" loading="lazy">
           <span class="pin" style="left:65.5%;top:39.9%">1</span>
           <span class="pin" style="left:31.9%;top:17.1%">2</span>
           <span class="pin" style="left:31.9%;top:62.9%">3</span>
