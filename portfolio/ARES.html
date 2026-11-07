@@ -367,6 +367,13 @@ img{display:block;max-width:100%;}
 .cycle-key li{display:flex;align-items:center;gap:8px;}
 .cycle-key .k{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink);}
 .cycle-key .k.out{border-color:var(--muted-2);border-style:dashed;}
+/* Numbered pins on the editor screenshot */
+.pin-wrap{position:relative;}
+.pin-wrap img{display:block;width:100%;height:auto;}
+.pin-wrap .pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 12px/26px var(--font-mono);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.9);z-index:2;}
+.shot-key{margin-top:22px;gap:12px;}
+.shot-key li{align-items:center;font-size:14px;}
+@media(max-width:640px){.pin-wrap .pin{width:20px;height:20px;font-size:10px;line-height:20px;box-shadow:0 0 0 2px rgba(255,255,255,.9);}}
 /* Download as PDF: print layout */
 .share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
 @media print{
@@ -568,7 +575,6 @@ img{display:block;max-width:100%;}
     <div class="dshots">
       <article class="dshot">
         <div class="dshot-cap">
-          <p class="dshot-num">Decision 01</p>
           <h3>Lifecycle status on every procedure</h3>
           <p class="why">Each procedure shows where it is in Authoring, Review or Deploy. <b>Why:</b> it answers ‘which version is current, and who has it?’ without leaving the platform.</p>
         </div>
@@ -595,16 +601,15 @@ img{display:block;max-width:100%;}
 
       <article class="dshot flip">
         <div class="dshot-cap">
-          <p class="dshot-num">Decision 02</p>
           <h3>A structured editor, not an XML editor</h3>
           <p class="why">Authors work with steps, conditions and verifications as visual blocks, while the platform handles the underlying XML. <b>Why:</b> keeps experts focused on the content.</p>
+          <ol class="callouts shot-key"><li><b>1</b><span>Authoring elements</span></li><li><b>2</b><span>Code and tag view panel</span></li><li><b>3</b><span>Preview panel</span></li><li><b>4</b><span>Procedure navigator</span></li></ol>
         </div>
-        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Editor.png" alt="ARES procedure editor: block toolbar, XML code panel, live preview with caution, note and warning callouts, and a steps outline" loading="lazy"></div><p class="cap">Authoring a procedure in the browser</p></div>
+        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><div class="pin-wrap"><img src="../images/gateway/ARES_Editor.png" alt="ARES procedure editor: block toolbar, XML code panel, live preview with caution, note and warning callouts, and a steps outline" loading="lazy"><span class="pin" style="left:40.1%;top:19.1%">1</span><span class="pin" style="left:9.8%;top:30.4%">2</span><span class="pin" style="left:36.7%;top:30.4%">3</span><span class="pin" style="left:88.2%;top:36.5%">4</span></div></div><p class="cap">Authoring a procedure in the browser</p></div>
       </article>
 
       <article class="dshot">
         <div class="dshot-cap">
-          <p class="dshot-num">Decision 03</p>
           <h3>Validation while you write</h3>
           <p class="why">Structural issues are flagged inline as the author works. <b>Why:</b> catching problems before review removes a round trip.</p>
         </div>
@@ -613,7 +618,6 @@ img{display:block;max-width:100%;}
 
       <article class="dshot flip">
         <div class="dshot-cap">
-          <p class="dshot-num">Decision 04</p>
           <h3>Review and sign-off inside the platform</h3>
           <p class="why">Reviewers comment in context and approve or return a procedure, with a clear record of each decision. <b>Why:</b> keeps the review trail attached to the procedure itself.</p>
         </div>
