@@ -348,6 +348,25 @@ img{display:block;max-width:100%;}
 }
 
 @media(max-width:860px){.dshot.flip > .dshot-media,.dshot.flip .dshot-cap{grid-row:auto;}}
+/* ARES cycle diagram */
+.cycle{margin:clamp(36px,4vw,56px) auto clamp(40px,5vw,64px);max-width:560px;text-align:center;}
+.cycle-svg{display:block;width:100%;height:auto;overflow:visible;}
+.cy-ring{fill:none;stroke:var(--line);stroke-width:2;}
+.cy-arrow{fill:none;stroke:var(--muted-2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.cy-node circle{fill:var(--paper);stroke-width:2;}
+.cy-node.in circle{stroke:var(--ink);}
+.cy-node.out circle{stroke:var(--muted-2);stroke-dasharray:5 6;}
+.cy-node text{text-anchor:middle;}
+.cy-num{font:500 13px var(--font-mono);letter-spacing:.12em;fill:var(--accent);}
+.cy-name{font:600 17px var(--font-display);letter-spacing:-.01em;fill:var(--ink);}
+.cy-node.out .cy-name{fill:var(--muted);font-weight:500;}
+.cy-title{text-anchor:middle;font:600 54px var(--font-display);letter-spacing:-.03em;fill:var(--ink);}
+.cy-sub{text-anchor:middle;font:500 12px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;fill:var(--muted);}
+.cycle figcaption p{font-size:15px;line-height:1.6;color:var(--muted);max-width:48ch;margin:18px auto 0;}
+.cycle-key{list-style:none;padding:0;margin:14px 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;font:500 11px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.cycle-key li{display:flex;align-items:center;gap:8px;}
+.cycle-key .k{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink);}
+.cycle-key .k.out{border-color:var(--muted-2);border-style:dashed;}
 /* Download as PDF: print layout */
 .share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
 @media print{
@@ -522,6 +541,13 @@ img{display:block;max-width:100%;}
       <h2 class="sec-title">Organise everything around the procedure lifecycle</h2>
       <p class="sec-lead">Every procedure moves through the same three stages. Making those stages the backbone of the product gives authors and reviewers a shared picture of where any procedure stands.</p>
     </div>
+    <figure class="cycle">
+      <svg class="cycle-svg" viewBox="0 0 640 600" role="img" aria-labelledby="cycTitle cycDesc"><title id="cycTitle">The ARES procedure cycle</title><desc id="cycDesc">A cycle of five stages: Authoring, Review, Deployment, Execution and Reporting, returning to Authoring. Authoring, Review and Deployment are highlighted as the stages this case study covers.</desc><circle class="cy-ring" cx="320" cy="300" r="212"/><path class="cy-arrow" d="M -7 -8 L 3 0 L -7 8" transform="translate(444.6 128.5) rotate(36.0)"/><path class="cy-arrow" d="M -7 -8 L 3 0 L -7 8" transform="translate(521.6 365.5) rotate(108.0)"/><path class="cy-arrow" d="M -7 -8 L 3 0 L -7 8" transform="translate(320.0 512.0) rotate(180.0)"/><path class="cy-arrow" d="M -7 -8 L 3 0 L -7 8" transform="translate(118.4 365.5) rotate(252.0)"/><path class="cy-arrow" d="M -7 -8 L 3 0 L -7 8" transform="translate(195.4 128.5) rotate(324.0)"/><g class="cy-node in"><circle cx="320.0" cy="88.0" r="64"/><text class="cy-num" x="320.0" y="76.0">01</text><text class="cy-name" x="320.0" y="100.0">Authoring</text></g><g class="cy-node in"><circle cx="521.6" cy="234.5" r="64"/><text class="cy-num" x="521.6" y="222.5">02</text><text class="cy-name" x="521.6" y="246.5">Review</text></g><g class="cy-node in"><circle cx="444.6" cy="471.5" r="64"/><text class="cy-num" x="444.6" y="459.5">03</text><text class="cy-name" x="444.6" y="483.5">Deployment</text></g><g class="cy-node out"><circle cx="195.4" cy="471.5" r="64"/><text class="cy-name" x="195.4" y="476.5">Execution</text></g><g class="cy-node out"><circle cx="118.4" cy="234.5" r="64"/><text class="cy-name" x="118.4" y="239.5">Reporting</text></g><text class="cy-title" x="320" y="308">ARES</text><text class="cy-sub" x="320" y="340">Integrated end-to-end suite</text></svg>
+      <figcaption>
+        <p>ARES is an integrated, end-to-end suite that takes a procedure from authoring through review, deployment, execution and reporting. This case study covers the first three stages.</p>
+        <ul class="cycle-key"><li><span class="k in"></span>Covered in this case study</li><li><span class="k out"></span>Rest of the ARES suite</li></ul>
+      </figcaption>
+    </figure>
     <div class="cardgrid">
       <div class="mcard"><span class="lbl">Stage 01</span><h4>Authoring</h4><p>Experts write and structure the procedure in the browser, with validation as they go.</p></div>
       <div class="mcard"><span class="lbl">Stage 02</span><h4>Review</h4><p>Reviewers comment and request changes until the procedure receives final sign-off.</p></div>
@@ -550,11 +576,11 @@ img{display:block;max-width:100%;}
       </article>
       <figure class="closeup">
         <div class="closeup-img">
-          <img src="../images/gateway/ARES_Lifecycle_Closeup.png" alt="Close-up of the ARES procedure lifecycle map, with the current review stage highlighted" loading="lazy">
-          <span class="pin" style="left:65.5%;top:39.9%">1</span>
-          <span class="pin" style="left:31.9%;top:17.1%">2</span>
-          <span class="pin" style="left:31.9%;top:62.9%">3</span>
-          <span class="pin" style="left:16.4%;top:34.2%">4</span>
+          <img src="../images/gateway/ARES_Lifecycle_Closeup.png" alt="Close-up of the ARES procedure lifecycle map, with the current authoring stage highlighted" loading="lazy">
+          <span class="pin" style="left:60.6%;top:21.8%">1</span>
+          <span class="pin" style="left:39.0%;top:4.6%">2</span>
+          <span class="pin" style="left:64.5%;top:43.2%">3</span>
+          <span class="pin" style="left:5.8%;top:56.9%">4</span>
         </div>
         <figcaption>
           <p class="lbl">Close-up · Procedure lifecycle</p>
@@ -582,7 +608,7 @@ img{display:block;max-width:100%;}
           <h3>Validation while you write</h3>
           <p class="why">Structural issues are flagged inline as the author works. <b>Why:</b> catching problems before review removes a round trip.</p>
         </div>
-        <div class="dshot-media"><image-slot id="gw-trace" shape="rect" placeholder="Drop: inline validation"></image-slot><p class="cap">Issues flagged at the point of authoring</p></div>
+        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Editor_Validation.png" alt="ARES procedure editor flagging one error: a caution placed after the action it applies to, explained in a tooltip and marked in the steps outline" loading="lazy"></div><p class="cap">Issues flagged at the point of authoring</p></div>
       </article>
 
       <article class="dshot flip">
