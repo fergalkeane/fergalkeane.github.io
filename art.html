@@ -110,6 +110,22 @@ image-slot{color:rgba(255,255,255,.8);}
   .tile.t-tall{grid-row:span 1;}
   .tile .cap{opacity:1;transform:none;}
 }
+
+/* Artwork tiles: greyscale until hovered (mouse devices only); colour on keyboard focus too */
+@media (hover:hover) and (pointer:fine){
+  .tile img{filter:grayscale(1);transition:filter .5s ease;}
+  .tile:hover img,.tile:focus-visible img,.tile:focus-within img{filter:grayscale(0);}
+}
+@media (prefers-reduced-motion:reduce){.tile img{transition:none;}}
+
+/* Captions sit below each artwork, always visible */
+.tile{background:none;border:1px solid var(--line);padding:clamp(12px,1.2vw,16px);overflow:visible;}
+.tile-media{position:relative;overflow:hidden;background:var(--paper-2);}
+.tile-media img{display:block;}
+.tile .cap{position:static;opacity:1;transform:none;background:none;padding:14px 0 2px;align-items:baseline;transition:none;}
+.tile .cap::before{display:none;}
+.tile .cap .t{color:var(--ink);}
+.tile .cap .m{color:var(--muted);}
 </style>
 </head>
 <body id="top">
@@ -145,10 +161,10 @@ image-slot{color:rgba(255,255,255,.8);}
       <p class="lbl">Click any piece to enlarge</p>
     </div>
     <div class="gal-grid" id="galGrid">
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_002_thumb.jpg" data-full="images/art/artwork_002.jpg" loading="lazy" alt="Figure in a red vest falling backwards through cloud" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span><figcaption class="cap"><p class="t">Elevation 1</p><p class="m">Acrylic on canvas</p></figcaption></figure>
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_004_thumb.jpg" data-full="images/art/artwork_004.jpg" loading="lazy" alt="Figure in a blue shirt suspended mid-leap against a warm ground" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span><figcaption class="cap"><p class="t">Elevation 2</p><p class="m">Acrylic on canvas</p></figcaption></figure>
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_005_thumb.jpg" data-full="images/art/artwork_005.jpg" loading="lazy" alt="Man from behind, arms outstretched against a blue sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span><figcaption class="cap"><p class="t">Over Here</p><p class="m">Acrylic on canvas</p></figcaption></figure>
-      <figure class="tile" style="margin:0"><img src="images/art/artwork_003_thumb.jpg" data-full="images/art/artwork_003.jpg" loading="lazy" alt="Dancer in a yellow dress suspended against a pale sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span><figcaption class="cap"><p class="t">Golden Flight</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><div class="tile-media"><img src="images/art/artwork_002_thumb.jpg" data-full="images/art/artwork_002.jpg" loading="lazy" alt="Figure in a red vest falling backwards through cloud" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span></div><figcaption class="cap"><p class="t">Elevation 1</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><div class="tile-media"><img src="images/art/artwork_004_thumb.jpg" data-full="images/art/artwork_004.jpg" loading="lazy" alt="Figure in a blue shirt suspended mid-leap against a warm ground" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span></div><figcaption class="cap"><p class="t">Elevation 2</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><div class="tile-media"><img src="images/art/artwork_005_thumb.jpg" data-full="images/art/artwork_005.jpg" loading="lazy" alt="Man from behind, arms outstretched against a blue sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span></div><figcaption class="cap"><p class="t">Over Here</p><p class="m">Acrylic on canvas</p></figcaption></figure>
+      <figure class="tile" style="margin:0"><div class="tile-media"><img src="images/art/artwork_003_thumb.jpg" data-full="images/art/artwork_003.jpg" loading="lazy" alt="Dancer in a yellow dress suspended against a pale sky" style="aspect-ratio:1/1;object-fit:cover;width:100%"><span class="tile-zoom" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line><line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line><line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line></svg></span></div><figcaption class="cap"><p class="t">Golden Flight</p><p class="m">Acrylic on canvas</p></figcaption></figure>
     </div>
   </div>
 </section>
