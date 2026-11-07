@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Outdoorsie: Case Study · Fergal Keane</title>
 <style>
@@ -265,11 +264,16 @@ img{display:block;max-width:100%;}
 .phone-body .phone-nav{position:absolute;left:0;right:0;bottom:0;z-index:2;}
 .phone-body .phone-header{position:absolute;left:0;right:0;top:0;z-index:2;}
 .phone-body.has-header .phone-scroll{padding-top:11.8%;}
+.phone-body.tall-footer .phone-scroll{padding-bottom:27.8%;}
 .phone-scroll{cursor:grab;user-select:none;-webkit-user-select:none;}
 .phone-scroll.dragging{cursor:grabbing;}
 .phone-scroll img{-webkit-user-drag:none;pointer-events:none;}
 .phone figcaption{margin-top:14px;}
 @media print{.phone-scroll{max-height:620px;}}
+.dnote{margin-top:22px;padding:2px 0 2px 16px;border-left:2px solid var(--accent);}
+.dnote .lbl{display:block;margin:0 0 8px;color:var(--accent);}
+.dnote p:not(.lbl){font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0;}
+.dnote p b{color:var(--ink);font-weight:600;}
 /* Download as PDF: print layout */
 .share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
 @media print{
@@ -322,7 +326,7 @@ img{display:block;max-width:100%;}
         <div class="hero-meta">
           <div><p class="lbl">Product</p><p class="mv">Booking web app</p></div>
           <div><p class="lbl">Market</p><p class="mv">California, then North America</p></div>
-          <div><p class="lbl">Role</p><p class="mv"><span class="todo">Your role</span></p></div>
+          <div><p class="lbl">Role</p><p class="mv">Product &amp; UX/UI Design</p></div>
         </div>
       </div>
     </div>
@@ -366,7 +370,7 @@ img{display:block;max-width:100%;}
         <div class="overview">
           <p class="overview-lead">Outdoorsie is a web app for booking guided outdoor experiences in California. It starts in California, with a roll-out across North America to follow.</p>
           <dl class="overview-grid">
-            <div><dt class="lbl">My role</dt><dd><span class="todo">Your role and what you were responsible for</span></dd></div>
+            <div><dt class="lbl">My role</dt><dd>Product &amp; UX/UI Design across the booking journey: search and discovery, list and map browsing, experience pages, booking and checkout, and the account area, along with the Outdoorsie wordmark.</dd></div>
             <div><dt class="lbl">Product</dt><dd>Search, list and map browsing, experience pages with live availability, instant booking or request-to-book checkout, and an account area for upcoming and past trips.</dd></div>
             <div><dt class="lbl">Users</dt><dd>People booking a guided day outdoors, and the local guides who lead them.</dd></div>
           </dl>
@@ -436,6 +440,7 @@ img{display:block;max-width:100%;}
             <p class="shot-num">Experiences</p>
             <h3>Cards that carry the decision</h3>
             <p>Each card shows what most people check first: the starting price, location, duration, rating and review count, the guide, the skill level and whether it can be booked instantly. Filters for activity, region, skill level, price, duration and instant booking show counts, so dead ends are visible before they are clicked.</p>
+            <div class="dnote"><p class="lbl">Design decision</p><p><b>Comparing experiences.</b> Outdoor trips are hard to compare once you are deep inside one listing. Putting the same facts on every card (price, place, duration, effort, guide, rating and booking type) lets people rule options in or out side by side before committing to any of them.</p></div>
           </div>
           <div class="frame scroll">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ experiences</span></div>
@@ -458,6 +463,7 @@ img{display:block;max-width:100%;}
             <p class="shot-num">Experience</p>
             <h3>Answer the questions before they are asked</h3>
             <p>The page sets out duration, skill level, group size and languages up front, then what is and is not included, a timed itinerary, the guide’s background, the meeting point and route on a map, reviews broken down by guide, value, safety and scenery, and the cancellation policy. The booking card sits alongside with availability by date, a guest count and the total.</p>
+            <div class="dnote"><p class="lbl">Design decision</p><p><b>Building trust before booking.</b> Booking here means agreeing to a time, a place, a level of effort and a guide you have not met. The guide, itinerary, meeting point, group size, skill level, reviews and cancellation terms all appear before the booking card asks for anything, so people know what they are committing to.</p></div>
           </div>
           <div class="frame scroll">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ experiences / marin-headlands-trail-run</span></div>
@@ -469,6 +475,7 @@ img{display:block;max-width:100%;}
             <p class="shot-num">Checkout</p>
             <h3>Request to book, charged only on acceptance</h3>
             <p>For trips the guide confirms personally, checkout is a request: the page says plainly that the guide reviews it within 24 hours and that payment is taken only if they accept. Contact details, information about the group and payment sit in three numbered steps, beside a summary with the total, a zero booking fee and the free cancellation window.</p>
+            <div class="dnote"><p class="lbl">Design decision</p><p><b>Two booking models, one journey.</b> Some guides confirm instantly and others review each request, so the two models had to feel like one experience. Instant booking is tagged on cards and can be filtered for, so the model is clear before a trip is opened, and each path states plainly when payment is taken: on confirmation, or only once the guide accepts.</p></div>
           </div>
           <div class="frame scroll">
             <div class="frame-bar"><i></i><i></i><i></i><span class="fb-url">/ checkout</span></div>
@@ -490,7 +497,7 @@ img{display:block;max-width:100%;}
           <div class="shot-cap">
             <p class="shot-num">Mobile</p>
             <h3>The same journey on a phone</h3>
-            <p>On a phone the search fields stack into a single column and activity shortcuts scroll sideways, with experience cards running full width. On an experience page the booking card becomes a price bar with a Check availability button, and the rest of the page keeps the same order as on desktop.</p>
+            <p>On a phone the search fields stack into a single column and activity shortcuts scroll sideways, with experience cards running full width. On an experience page the booking card becomes a price bar with a Check availability button, fixed above the navigation, and the rest of the page keeps the same order as on desktop.</p>
           </div>
           <div class="phone-pair">
             <figure class="phone">
@@ -498,7 +505,7 @@ img{display:block;max-width:100%;}
               <figcaption class="lbl">Home</figcaption>
             </figure>
             <figure class="phone">
-              <div class="phone-body has-header"><img class="phone-header" src="../images/outdoorsie/Outdoorsie_Mobile_Header.png" alt="Sticky header: Outdoorsie wordmark and saved button" loading="lazy"><div class="phone-scroll"><img src="../images/outdoorsie/Outdoorsie_Experience_Mobile.png" alt="Outdoorsie experience page on a phone: American River whitewater rafting with a price bar and Check availability button" loading="lazy"></div><img class="phone-nav" src="../images/outdoorsie/Outdoorsie_Mobile_Nav.png" alt="Sticky bottom navigation: Explore, Map, Search, Saved and Account" loading="lazy"></div>
+              <div class="phone-body has-header tall-footer"><img class="phone-header" src="../images/outdoorsie/Outdoorsie_Mobile_Header.png" alt="Sticky header: Outdoorsie wordmark and saved button" loading="lazy"><div class="phone-scroll"><img src="../images/outdoorsie/Outdoorsie_Experience_Mobile.png" alt="Outdoorsie experience page on a phone: American River whitewater rafting with a price bar and Check availability button" loading="lazy"></div><img class="phone-nav" src="../images/outdoorsie/Outdoorsie_Mobile_Footer.png" alt="Sticky footer: $105 per person with a Check availability button, above the navigation" loading="lazy"></div>
               <figcaption class="lbl">Experience</figcaption>
             </figure>
           </div>
@@ -514,7 +521,7 @@ img{display:block;max-width:100%;}
       <span class="lbl" style="display:block;margin-bottom:20px;">Where it goes next</span>
       <h2 class="sec-title">Designed for California, structured for North America</h2>
       <p class="case-p">Outdoorsie starts in California, with Oregon, Washington, Colorado and British Columbia named as the next regions. Regions, activities and experience pages all follow one pattern, so new areas can be added without redesigning the journey.</p>
-      <p class="case-p"><span class="todo">Project status or outcome, e.g. in development, in beta or launched</span></p>
+      <p class="case-p">The screens shown here cover the full journey for California, from search to a completed trip, on desktop and mobile.</p>
     </div>
   </div>
 </section>
