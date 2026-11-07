@@ -313,7 +313,8 @@ img{display:block;max-width:100%;}
 .dshot > .dshot-media{grid-column:2;}
 .dshot.flip{grid-template-columns:1fr minmax(210px,300px);}
 .dshot.flip .dshot-cap{grid-column:2;}
-.dshot.flip > .dshot-media{grid-column:1;}
+.dshot.flip > .dshot-media{grid-column:1;grid-row:1;}
+.dshot.flip .dshot-cap{grid-row:1;}
 .dshot-num{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 16px;}
 .dshot-cap h3{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2vw,27px);line-height:1.12;letter-spacing:-.01em;margin:0 0 16px;}
 .dshot-cap .why{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0 0 16px;max-width:40ch;}
@@ -346,6 +347,7 @@ img{display:block;max-width:100%;}
   .dshot .dshot-cap{position:static;}
 }
 
+@media(max-width:860px){.dshot.flip > .dshot-media,.dshot.flip .dshot-cap{grid-row:auto;}}
 /* Download as PDF: print layout */
 .share [data-share="pdf"].busy{opacity:.5;cursor:progress;}
 @media print{
@@ -544,7 +546,7 @@ img{display:block;max-width:100%;}
           <h3>Lifecycle status on every procedure</h3>
           <p class="why">Each procedure shows where it is in Authoring, Review or Deploy. <b>Why:</b> it answers ‘which version is current, and who has it?’ without leaving the platform.</p>
         </div>
-        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Procedure_Status.png" alt="ARES procedure status view showing the lifecycle with the current stage highlighted" loading="lazy"></div><p class="cap">Procedure status across the lifecycle</p></div>
+        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Dashboard.png" alt="ARES dashboard: procedure counts by lifecycle stage and a table of procedures, each with its status" loading="lazy"></div><p class="cap">Every procedure’s lifecycle status, from the dashboard</p></div>
       </article>
       <figure class="closeup">
         <div class="closeup-img">
@@ -571,7 +573,7 @@ img{display:block;max-width:100%;}
           <h3>A structured editor, not an XML editor</h3>
           <p class="why">Authors work with steps, conditions and verifications as visual blocks, while the platform handles the underlying XML. <b>Why:</b> keeps experts focused on the content.</p>
         </div>
-        <div class="dshot-media"><image-slot id="gw-workspace" shape="rect" placeholder="Drop: procedure editor"></image-slot><p class="cap">Authoring a procedure in the browser</p></div>
+        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Editor.png" alt="ARES procedure editor: block toolbar, XML code panel, live preview with caution, note and warning callouts, and a steps outline" loading="lazy"></div><p class="cap">Authoring a procedure in the browser</p></div>
       </article>
 
       <article class="dshot">
@@ -589,7 +591,7 @@ img{display:block;max-width:100%;}
           <h3>Review and sign-off inside the platform</h3>
           <p class="why">Reviewers comment in context and approve or return a procedure, with a clear record of each decision. <b>Why:</b> keeps the review trail attached to the procedure itself.</p>
         </div>
-        <div class="dshot-media"><image-slot id="gw-safe" shape="rect" placeholder="Drop: review / sign-off"></image-slot><p class="cap">Comments, approval and sign-off</p></div>
+        <div class="dshot-media"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="../images/gateway/ARES_Scheduler.png" alt="ARES panels schedule: a month calendar of panel discussions and procedure review deadlines" loading="lazy"></div><p class="cap">Review panels and review deadlines, scheduled in ARES</p></div>
       </article>
     </div>
   </div>
