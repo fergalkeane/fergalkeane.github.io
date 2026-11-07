@@ -171,11 +171,13 @@ img{display:block;max-width:100%;}
 }
 .works-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:74px;align-items:start;}
 .proj{margin-bottom:0;position:relative;}
+.works-grid .proj{cursor:pointer;}
 .tiles-anim .works-grid .proj{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms);}
 .tiles-anim .works-grid .proj.in{opacity:1;transform:none;}
 .proj-cap{position:absolute;left:clamp(20px,2.4vw,30px);right:clamp(20px,2.4vw,30px);bottom:clamp(20px,2.4vw,28px);z-index:4;display:flex;flex-direction:column;gap:0;pointer-events:none;}
 .proj-cap .proj-title,.proj-cap .proj-title a{color:#fff;}
 .proj-cap .proj-meta{color:rgba(255,255,255,.72);margin:1px 0 0;}
+.proj-cap .proj-client{color:rgba(255,255,255,.72);margin:0 0 8px;}
 .proj-cap a{pointer-events:auto;}
 .proj-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(to top,rgba(10,10,10,.82) 0%,rgba(10,10,10,.45) 34%,rgba(10,10,10,0) 66%);}
 .proj-img{position:relative;overflow:hidden;border-radius:14px;background:var(--paper-2);border:1px solid var(--line-soft);}
@@ -204,6 +206,7 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
 .protected-tag{position:absolute;top:14px;right:14px;z-index:3;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(10,10,10,.16);}
 :root[data-theme="dark"] .protected-tag{background:rgba(18,18,18,.82);color:#f3f1ee;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 2px 10px rgba(0,0,0,.4);}.protected-tag svg{width:11px;height:11px;}
 .proj-meta{margin:20px 0 8px;}
+.proj-client{margin:18px 0 6px;color:var(--muted);}
 .proj:hover .proj-cap .proj-title,.proj:hover .proj-cap .proj-title a{color:var(--accent);}
 .proj-title,.proj-title a{
   margin:0;font-family:'Space Grotesk','Archivo',system-ui,sans-serif;font-weight:700;font-size:clamp(22px,2.3vw,28px);
@@ -282,6 +285,7 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
   .proj .proj-title{order:1;margin:0 0 18px;}
   .proj .proj-img{order:2;}
   .proj .proj-meta{order:3;margin:6px 0 0;}
+  .proj .proj-client{order:0;margin:0 0 8px;color:var(--muted);}
   .proj:last-child{padding-bottom:0;border-bottom:none;}
   .intro-cols{grid-template-columns:1fr;gap:30px;}
   .field-row{grid-template-columns:1fr;}
@@ -333,39 +337,39 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
     <div class="works-grid">
       <article class="proj wide locked show-go">
           <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Protected</span><img src="images/realworld/RealWorld_Reporting.jpg" alt="Real World reporting dashboard" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/RealWorld.html" class="proj-go" aria-label="View Real World case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Insurtech / Product &amp; UX Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · Skytek</p><h3 class="proj-title"><a href="portfolio/RealWorld.html">Real World</a></h3><p class="lbl proj-meta">Insurtech / Product &amp; UX Design</p></div>
         </article>
       <article class="proj wide locked show-go">
           <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Protected</span><img src="images/gateway/Gateway_Moon.jpg" alt="ARES case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/ARES.html" class="proj-go" aria-label="View Gateway case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/ARES.html">ARES</a></h3><p class="lbl proj-meta">Enterprise SaaS / Product &amp; UX Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · European Space Agency</p><h3 class="proj-title"><a href="portfolio/ARES.html">ARES</a></h3><p class="lbl proj-meta">Enterprise SaaS / Product &amp; UX Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/satelliteclub/SatelliteClub_Baltimore.jpg" alt="Satellite Club case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/Satellite Club.html" class="proj-go" aria-label="View Satellite Club case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Satellite Club.html">Satellite Club</a></h3><p class="lbl proj-meta">Earth Observation / Product &amp; UX Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · Skytek</p><h3 class="proj-title"><a href="portfolio/Satellite Club.html">Satellite Club</a></h3><p class="lbl proj-meta">Earth Observation / Product &amp; UX Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/daverns/Daverns_Heritage.jpg" alt="Daverns of Cashel case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/Daverns of Cashel.html" class="proj-go" aria-label="View Daverns of Cashel case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Brand &amp; Web Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · Daverns of Cashel</p><h3 class="proj-title"><a href="portfolio/Daverns of Cashel.html">Daverns of Cashel</a></h3><p class="lbl proj-meta">Luxury Retail &amp; E-Commerce / Brand &amp; Web Design</p></div>
         </article>
       <article class="proj wide locked show-go">
           <div class="proj-img"><span class="protected-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Protected</span><img src="images/bluedrop/BlueDrop_Hero.jpg" alt="BlueDrop Medical case study cover" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/BlueDrop Medical.html" class="proj-go" aria-label="View BlueDrop Medical case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech / Brand &amp; Web Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · BlueDrop Medical</p><h3 class="proj-title"><a href="portfolio/BlueDrop Medical.html">BlueDrop Medical</a></h3><p class="lbl proj-meta">MedTech / Brand &amp; Web Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/fitzgeralds/FitzGeralds_Workshop.jpg" alt="Craftsman hand-planing a timber panel in the FitzGerald's workshop" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover"><a href="portfolio/FitzGeralds of Kells.html" class="proj-go" aria-label="View FitzGerald's of Kells case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/FitzGeralds of Kells.html">FitzGerald's of Kells</a></h3><p class="lbl proj-meta">Bespoke Furniture / Brand &amp; Web Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · FitzGerald’s of Kells</p><h3 class="proj-title"><a href="portfolio/FitzGeralds of Kells.html">FitzGerald's of Kells</a></h3><p class="lbl proj-meta">Bespoke Furniture / Brand &amp; Web Design</p></div>
         </article>
       <article class="proj wide show-go">
           <div class="proj-img"><img src="images/delta/delta_cover.jpg" alt="Delta aircraft seen from below against a dark blue sky" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center"><a href="portfolio/Delta TechOps.html" class="proj-go" aria-label="View Delta TechOps case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Delta TechOps.html">Delta TechOps</a></h3><p class="lbl proj-meta">Aviation Training / Product &amp; UX Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · Enovation Solutions</p><h3 class="proj-title"><a href="portfolio/Delta TechOps.html">Delta TechOps</a></h3><p class="lbl proj-meta">Aviation Training / Product &amp; UX Design</p></div>
         </article>
         <article class="proj wide show-go">
           <div class="proj-img"><img src="images/alison/Alison_Hero.jpg" alt="A small team at work in a bright, plant-filled studio office" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center"><a href="portfolio/Alison.html" class="proj-go" aria-label="View Alison case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Alison.html">Alison</a></h3><p class="lbl proj-meta">E-Learning / Brand &amp; Digital Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · Alison</p><h3 class="proj-title"><a href="portfolio/Alison.html">Alison</a></h3><p class="lbl proj-meta">E-Learning / Brand &amp; Digital Design</p></div>
         </article>
         <article class="proj wide show-go">
           <div class="proj-img"><img src="images/outdoorsie/Outdoorsie_Hero.jpg" alt="El Capitan rising above a sunlit meadow and pines in Yosemite Valley" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center"><a href="portfolio/Outdoorsie.html" class="proj-go" aria-label="View Outdoorsie case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
-          <div class="proj-cap"><h3 class="proj-title"><a href="portfolio/Outdoorsie.html">Outdoorsie</a></h3><p class="lbl proj-meta">Outdoor Experiences / Product &amp; UX Design</p></div>
+          <div class="proj-cap"><p class="lbl proj-client">Client · Outdoorsie</p><h3 class="proj-title"><a href="portfolio/Outdoorsie.html">Outdoorsie</a></h3><p class="lbl proj-meta">Outdoor Experiences / Product &amp; UX Design</p></div>
         </article>
     </div>
   </div>
@@ -445,6 +449,21 @@ a.proj-go{pointer-events:auto;cursor:pointer;text-decoration:none;}
     var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
     try{history.replaceState(null,'','#work');}catch(err){}
+  });
+})();
+</script>
+<script>
+/* Whole project card is clickable: a click anywhere on a card opens its case study. */
+(function(){
+  [].forEach.call(document.querySelectorAll('.works-grid .proj'),function(card){
+    var link=card.querySelector('.proj-title a');if(!link)return;
+    card.addEventListener('click',function(e){
+      if(e.defaultPrevented||e.target.closest('a,button,input,select,textarea'))return;
+      if(window.getSelection&&String(window.getSelection()).length)return;
+      if(e.metaKey||e.ctrlKey||e.shiftKey){window.open(link.href,'_blank');return;}
+      link.click();
+    });
+    card.addEventListener('auxclick',function(e){if(e.button===1&&!e.target.closest('a'))window.open(link.href,'_blank');});
   });
 })();
 </script>
